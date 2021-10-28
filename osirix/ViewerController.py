@@ -116,18 +116,16 @@ class DCMPix(object):
         self._image = self.response_processor.process_pix_image(response_pix_image)
         return self._image
 
-    #TODO
+    # @image.setter - setter only allows one value so switch to using a method
+    def set_image(self, image: ndarray, is_argb: bool) -> None:
+        if is_argb:
+            request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.osirixrpc_uid, image_data_argb=image)
 
-    # @image.setter
-    # def image(self, image: ndarray, is_argb: bool) -> None:
-    #     if is_argb:
-    #         request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.osirixrpc_uid, image_data_argb=image)
-    #
-    #     else:
-    #         request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.osirixrpc_uid, image_data_float=image)
-    #
-    #     response = self.osirix_service.DCMPixSetImage(request)
-    #     self.response_processor.process_basic_response(response)
+        else:
+            request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.osirixrpc_uid, image_data_float=image)
+
+        response = self.osirix_service.DCMPixSetImage(request)
+        self.response_processor.process_basic_response(response)
 
     def compute_roi(self, roi : ROI) -> Dict[str, float]:
         """
@@ -166,7 +164,7 @@ class DCMPix(object):
         """
         request = dcmpix_pb2.DCMPixConvertToBWRequest(pix = self.osirixrpc_uid, bw_channel = 3)
         response = self.osirix_service.DCMPixConvertToBW(request)
-        self.response_processor.process_pix_convert_to_bw(response)
+        self.response_processor.process_pix_convert_to_rgb_bw(response)
 
 
     def convert_to_rgb(self) -> None:
@@ -177,7 +175,7 @@ class DCMPix(object):
         """
         request = dcmpix_pb2.DCMPixConvertToRGBRequest(pix = self.osirixrpc_uid, rgb_channel = 3)
         response = self.osirix_service.DCMPixConvertToRGB(request)
-        self.response_processor.process_pix_convert_to_rgb(response)
+        self.response_processor.process_pix_convert_to_rgb_bw(response)
 
     def get_map_from_roi(self, roi : ROI) -> ndarray:
         """
@@ -307,8 +305,8 @@ class ROI(object):
           Returns:
             None
         """
-        request = roi_pb2.ROISetColorRequest(roi=self.osirixrpc_uid, name=name)
-        response_roi_name = self.osirix_service.SetROIName(request)
+        request = roi_pb2.ROISetNameRequest(roi=self.osirixrpc_uid, name=name)
+        response_roi_name = self.osirix_service.ROISetName(request)
         self.response_processor.process_basic_response(response_roi_name)
 
     @property
@@ -336,7 +334,7 @@ class ROI(object):
             None
         """
         request = roi_pb2.ROISetOpacityRequest(roi=self.osirixrpc_uid, opacity=opacity)
-        response = self.osirix_service.SetROIOpacity(request)
+        response = self.osirix_service.ROISetOpacity(request)
         self.response_processor.process_basic_response(response)
 
     @property
@@ -382,7 +380,7 @@ class ROI(object):
             None
         """
         request = roi_pb2.ROISetThicknessRequest(roi=self.osirixrpc_uid, thickness=thickness)
-        response = self.osirix_service.SetROIThickness(request)
+        response = self.osirix_service.ROISetThickness(request)
         self.response_processor.process_basic_response(response)
 
     @property
@@ -579,7 +577,7 @@ class ViewerController(object):
         viewer_wl, viewer_ww = self.response_processor.process_wlww(response_viewer_wlww)
         self._ww = viewer_ww
         self._wl = viewer_wl
-        return (self._ww, self._wl)
+        return (self._wl, self._ww)
 
     @wlww.setter
     def wlww(self, wlww : Tuple[float, float]) -> None:
@@ -778,7 +776,7 @@ class ViewerController(object):
             ViewerController
         """
         request = viewercontroller_pb2.ViewerControllerResampleViewerControllerRequest(
-                                                            viewercontroller=self.osirixrpc_uid,
+                                                            viewer_controller=self.osirixrpc_uid,
                                                             fixed_viewer_controller=vc.osirixrpc_uid)
 
         response = self.osirix_service.ViewerControllerResampleViewerController(request)

@@ -872,6 +872,26 @@ class ResponseProcessor(object):
         else:
             raise GrpcException("No response")
 
+    def process_pix_convert_to_rgb_bw(self, response) -> None:
+        """
+          Process the response from conversion the DCMPix to rgb or bw
+
+          Args:
+              response: response returned by Osirix service for the request made
+          Returns:
+              None
+
+         """
+        if (response.status.status == 1):
+
+            pass
+        elif (response.status.status == 0):
+            # 0 response code is the current overall failure code so there could be many reasons for failures.
+            # In this case, if the image is already rgb/bw, it would be 0
+            print("Image is already RGB or BW")
+        else:
+            raise GrpcException("No response")
+
     def process_pix_shape(self, response) -> Tuple[int, int]:
         """
          Extract shape of DCMPix from the response

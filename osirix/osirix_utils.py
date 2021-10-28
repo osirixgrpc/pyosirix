@@ -135,7 +135,7 @@ class Osirix(object):
             Tuple containing each VRController
         """
         response_displayed_vr_controllers = self.osirix_service.OsirixDisplayedVRControllers(utilities_pb2.Empty())
-        displayed_vr_controllers = self.response_processor.process_displayed_2d_viewers(response_displayed_vr_controllers)
+        displayed_vr_controllers = self.response_processor.process_displayed_vr_controllers(response_displayed_vr_controllers)
 
         vr_controller_obj_tuple: Tuple[VRController, ...] = ()
 
