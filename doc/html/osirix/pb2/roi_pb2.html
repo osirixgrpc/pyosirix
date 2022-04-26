@@ -1,0 +1,1593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>osirix.pb2.roi_pb2 API documentation</title>
+<meta name="description" content="Generated protocol buffer code." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>osirix.pb2.roi_pb2</code></h1>
+</header>
+<section id="section-intro">
+<p>Generated protocol buffer code.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+# Generated by the protocol buffer compiler.  DO NOT EDIT!
+# source: roi.proto
+&#34;&#34;&#34;Generated protocol buffer code.&#34;&#34;&#34;
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf import reflection as _reflection
+from google.protobuf import symbol_database as _symbol_database
+# @@protoc_insertion_point(imports)
+
+_sym_db = _symbol_database.Default()
+
+
+import osirix.pb2.utilities_pb2 as utilities__pb2
+import osirix.pb2.types_pb2 as types__pb2
+
+
+DESCRIPTOR = _descriptor.FileDescriptor(
+  name=&#39;roi.proto&#39;,
+  package=&#39;osirixgrpc&#39;,
+  syntax=&#39;proto3&#39;,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b&#39;\n\troi.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\&#34;C\n\x0fROIAreaResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04\x61rea\x18\x02 \x01(\x02\&#34;O\n\x13ROICentroidResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\t\n\x01x\x18\x02 \x01(\x02\x12\t\n\x01y\x18\x03 \x01(\x02\&#34;U\n\x0eROIPixResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x1f\n\x03pix\x18\x02 \x01(\x0b\x32\x12.osirixgrpc.DCMPix\&#34;C\n\x0fROINameResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04name\x18\x02 \x01(\t\&#34;W\n\x10ROIColorResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\t\n\x01r\x18\x02 \x01(\x05\x12\t\n\x01g\x18\x03 \x01(\x05\x12\t\n\x01\x62\x18\x04 \x01(\x05\&#34;I\n\x12ROIOpacityResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\&#34;M\n\x14ROIThicknessResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x11\n\tthickness\x18\x02 \x01(\x02\&#34;\x8f\x01\n\x11ROIPointsResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x35\n\x06points\x18\x02 \x03(\x0b\x32%.osirixgrpc.ROIPointsResponse.Point2D\x1a\x1f\n\x07Point2D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\&#34;W\n\x10ROIRotateRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0f\n\x07\x64\x65grees\x18\x02 \x01(\x02\x12\t\n\x01x\x18\x03 \x01(\x02\x12\t\n\x01y\x18\x04 \x01(\x02\&#34;M\n\x0eROIMoveRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0f\n\x07\x63olumns\x18\x02 \x01(\x05\x12\x0c\n\x04rows\x18\x03 \x01(\x05\&#34;?\n\x11ROISetNameRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0c\n\x04name\x18\x02 \x01(\t\&#34;S\n\x12ROISetColorRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\t\n\x01r\x18\x02 \x01(\x05\x12\t\n\x01g\x18\x03 \x01(\x05\x12\t\n\x01\x62\x18\x04 \x01(\x05\&#34;E\n\x14ROISetOpacityRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\&#34;I\n\x16ROISetThicknessRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x11\n\tthickness\x18\x02 \x01(\x02\&#34;\x8d\x01\n\x13ROISetPointsRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x37\n\x06points\x18\x02 \x03(\x0b\x32\&#39;.osirixgrpc.ROISetPointsRequest.Point2D\x1a\x1f\n\x07Point2D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x62\x06proto3&#39;
+  ,
+  dependencies=[utilities__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
+
+
+
+
+_ROIAREARESPONSE = _descriptor.Descriptor(
+  name=&#39;ROIAreaResponse&#39;,
+  full_name=&#39;osirixgrpc.ROIAreaResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.ROIAreaResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;area&#39;, full_name=&#39;osirixgrpc.ROIAreaResponse.area&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=55,
+  serialized_end=122,
+)
+
+
+_ROICENTROIDRESPONSE = _descriptor.Descriptor(
+  name=&#39;ROICentroidResponse&#39;,
+  full_name=&#39;osirixgrpc.ROICentroidResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.ROICentroidResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;x&#39;, full_name=&#39;osirixgrpc.ROICentroidResponse.x&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;y&#39;, full_name=&#39;osirixgrpc.ROICentroidResponse.y&#39;, index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=124,
+  serialized_end=203,
+)
+
+
+_ROIPIXRESPONSE = _descriptor.Descriptor(
+  name=&#39;ROIPixResponse&#39;,
+  full_name=&#39;osirixgrpc.ROIPixResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.ROIPixResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;pix&#39;, full_name=&#39;osirixgrpc.ROIPixResponse.pix&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=205,
+  serialized_end=290,
+)
+
+
+_ROINAMERESPONSE = _descriptor.Descriptor(
+  name=&#39;ROINameResponse&#39;,
+  full_name=&#39;osirixgrpc.ROINameResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.ROINameResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;name&#39;, full_name=&#39;osirixgrpc.ROINameResponse.name&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=292,
+  serialized_end=359,
+)
+
+
+_ROICOLORRESPONSE = _descriptor.Descriptor(
+  name=&#39;ROIColorResponse&#39;,
+  full_name=&#39;osirixgrpc.ROIColorResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.ROIColorResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;r&#39;, full_name=&#39;osirixgrpc.ROIColorResponse.r&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;g&#39;, full_name=&#39;osirixgrpc.ROIColorResponse.g&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;b&#39;, full_name=&#39;osirixgrpc.ROIColorResponse.b&#39;, index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=361,
+  serialized_end=448,
+)
+
+
+_ROIOPACITYRESPONSE = _descriptor.Descriptor(
+  name=&#39;ROIOpacityResponse&#39;,
+  full_name=&#39;osirixgrpc.ROIOpacityResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.ROIOpacityResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;opacity&#39;, full_name=&#39;osirixgrpc.ROIOpacityResponse.opacity&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=450,
+  serialized_end=523,
+)
+
+
+_ROITHICKNESSRESPONSE = _descriptor.Descriptor(
+  name=&#39;ROIThicknessResponse&#39;,
+  full_name=&#39;osirixgrpc.ROIThicknessResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.ROIThicknessResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;thickness&#39;, full_name=&#39;osirixgrpc.ROIThicknessResponse.thickness&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=525,
+  serialized_end=602,
+)
+
+
+_ROIPOINTSRESPONSE_POINT2D = _descriptor.Descriptor(
+  name=&#39;Point2D&#39;,
+  full_name=&#39;osirixgrpc.ROIPointsResponse.Point2D&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;x&#39;, full_name=&#39;osirixgrpc.ROIPointsResponse.Point2D.x&#39;, index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;y&#39;, full_name=&#39;osirixgrpc.ROIPointsResponse.Point2D.y&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=717,
+  serialized_end=748,
+)
+
+_ROIPOINTSRESPONSE = _descriptor.Descriptor(
+  name=&#39;ROIPointsResponse&#39;,
+  full_name=&#39;osirixgrpc.ROIPointsResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.ROIPointsResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;points&#39;, full_name=&#39;osirixgrpc.ROIPointsResponse.points&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_ROIPOINTSRESPONSE_POINT2D, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=605,
+  serialized_end=748,
+)
+
+
+_ROIROTATEREQUEST = _descriptor.Descriptor(
+  name=&#39;ROIRotateRequest&#39;,
+  full_name=&#39;osirixgrpc.ROIRotateRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.ROIRotateRequest.roi&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;degrees&#39;, full_name=&#39;osirixgrpc.ROIRotateRequest.degrees&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;x&#39;, full_name=&#39;osirixgrpc.ROIRotateRequest.x&#39;, index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;y&#39;, full_name=&#39;osirixgrpc.ROIRotateRequest.y&#39;, index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=750,
+  serialized_end=837,
+)
+
+
+_ROIMOVEREQUEST = _descriptor.Descriptor(
+  name=&#39;ROIMoveRequest&#39;,
+  full_name=&#39;osirixgrpc.ROIMoveRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.ROIMoveRequest.roi&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;columns&#39;, full_name=&#39;osirixgrpc.ROIMoveRequest.columns&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;rows&#39;, full_name=&#39;osirixgrpc.ROIMoveRequest.rows&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=839,
+  serialized_end=916,
+)
+
+
+_ROISETNAMEREQUEST = _descriptor.Descriptor(
+  name=&#39;ROISetNameRequest&#39;,
+  full_name=&#39;osirixgrpc.ROISetNameRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.ROISetNameRequest.roi&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;name&#39;, full_name=&#39;osirixgrpc.ROISetNameRequest.name&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=918,
+  serialized_end=981,
+)
+
+
+_ROISETCOLORREQUEST = _descriptor.Descriptor(
+  name=&#39;ROISetColorRequest&#39;,
+  full_name=&#39;osirixgrpc.ROISetColorRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.ROISetColorRequest.roi&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;r&#39;, full_name=&#39;osirixgrpc.ROISetColorRequest.r&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;g&#39;, full_name=&#39;osirixgrpc.ROISetColorRequest.g&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;b&#39;, full_name=&#39;osirixgrpc.ROISetColorRequest.b&#39;, index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=983,
+  serialized_end=1066,
+)
+
+
+_ROISETOPACITYREQUEST = _descriptor.Descriptor(
+  name=&#39;ROISetOpacityRequest&#39;,
+  full_name=&#39;osirixgrpc.ROISetOpacityRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.ROISetOpacityRequest.roi&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;opacity&#39;, full_name=&#39;osirixgrpc.ROISetOpacityRequest.opacity&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1068,
+  serialized_end=1137,
+)
+
+
+_ROISETTHICKNESSREQUEST = _descriptor.Descriptor(
+  name=&#39;ROISetThicknessRequest&#39;,
+  full_name=&#39;osirixgrpc.ROISetThicknessRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.ROISetThicknessRequest.roi&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;thickness&#39;, full_name=&#39;osirixgrpc.ROISetThicknessRequest.thickness&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1139,
+  serialized_end=1212,
+)
+
+
+_ROISETPOINTSREQUEST_POINT2D = _descriptor.Descriptor(
+  name=&#39;Point2D&#39;,
+  full_name=&#39;osirixgrpc.ROISetPointsRequest.Point2D&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;x&#39;, full_name=&#39;osirixgrpc.ROISetPointsRequest.Point2D.x&#39;, index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;y&#39;, full_name=&#39;osirixgrpc.ROISetPointsRequest.Point2D.y&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=717,
+  serialized_end=748,
+)
+
+_ROISETPOINTSREQUEST = _descriptor.Descriptor(
+  name=&#39;ROISetPointsRequest&#39;,
+  full_name=&#39;osirixgrpc.ROISetPointsRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.ROISetPointsRequest.roi&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;points&#39;, full_name=&#39;osirixgrpc.ROISetPointsRequest.points&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_ROISETPOINTSREQUEST_POINT2D, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1215,
+  serialized_end=1356,
+)
+
+_ROIAREARESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_ROICENTROIDRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_ROIPIXRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_ROIPIXRESPONSE.fields_by_name[&#39;pix&#39;].message_type = types__pb2._DCMPIX
+_ROINAMERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_ROICOLORRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_ROIOPACITYRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_ROITHICKNESSRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_ROIPOINTSRESPONSE_POINT2D.containing_type = _ROIPOINTSRESPONSE
+_ROIPOINTSRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_ROIPOINTSRESPONSE.fields_by_name[&#39;points&#39;].message_type = _ROIPOINTSRESPONSE_POINT2D
+_ROIROTATEREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+_ROIMOVEREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+_ROISETNAMEREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+_ROISETCOLORREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+_ROISETOPACITYREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+_ROISETTHICKNESSREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+_ROISETPOINTSREQUEST_POINT2D.containing_type = _ROISETPOINTSREQUEST
+_ROISETPOINTSREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+_ROISETPOINTSREQUEST.fields_by_name[&#39;points&#39;].message_type = _ROISETPOINTSREQUEST_POINT2D
+DESCRIPTOR.message_types_by_name[&#39;ROIAreaResponse&#39;] = _ROIAREARESPONSE
+DESCRIPTOR.message_types_by_name[&#39;ROICentroidResponse&#39;] = _ROICENTROIDRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;ROIPixResponse&#39;] = _ROIPIXRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;ROINameResponse&#39;] = _ROINAMERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;ROIColorResponse&#39;] = _ROICOLORRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;ROIOpacityResponse&#39;] = _ROIOPACITYRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;ROIThicknessResponse&#39;] = _ROITHICKNESSRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;ROIPointsResponse&#39;] = _ROIPOINTSRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;ROIRotateRequest&#39;] = _ROIROTATEREQUEST
+DESCRIPTOR.message_types_by_name[&#39;ROIMoveRequest&#39;] = _ROIMOVEREQUEST
+DESCRIPTOR.message_types_by_name[&#39;ROISetNameRequest&#39;] = _ROISETNAMEREQUEST
+DESCRIPTOR.message_types_by_name[&#39;ROISetColorRequest&#39;] = _ROISETCOLORREQUEST
+DESCRIPTOR.message_types_by_name[&#39;ROISetOpacityRequest&#39;] = _ROISETOPACITYREQUEST
+DESCRIPTOR.message_types_by_name[&#39;ROISetThicknessRequest&#39;] = _ROISETTHICKNESSREQUEST
+DESCRIPTOR.message_types_by_name[&#39;ROISetPointsRequest&#39;] = _ROISETPOINTSREQUEST
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+ROIAreaResponse = _reflection.GeneratedProtocolMessageType(&#39;ROIAreaResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROIAREARESPONSE,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIAreaResponse)
+  })
+_sym_db.RegisterMessage(ROIAreaResponse)
+
+ROICentroidResponse = _reflection.GeneratedProtocolMessageType(&#39;ROICentroidResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROICENTROIDRESPONSE,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROICentroidResponse)
+  })
+_sym_db.RegisterMessage(ROICentroidResponse)
+
+ROIPixResponse = _reflection.GeneratedProtocolMessageType(&#39;ROIPixResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROIPIXRESPONSE,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIPixResponse)
+  })
+_sym_db.RegisterMessage(ROIPixResponse)
+
+ROINameResponse = _reflection.GeneratedProtocolMessageType(&#39;ROINameResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROINAMERESPONSE,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROINameResponse)
+  })
+_sym_db.RegisterMessage(ROINameResponse)
+
+ROIColorResponse = _reflection.GeneratedProtocolMessageType(&#39;ROIColorResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROICOLORRESPONSE,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIColorResponse)
+  })
+_sym_db.RegisterMessage(ROIColorResponse)
+
+ROIOpacityResponse = _reflection.GeneratedProtocolMessageType(&#39;ROIOpacityResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROIOPACITYRESPONSE,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIOpacityResponse)
+  })
+_sym_db.RegisterMessage(ROIOpacityResponse)
+
+ROIThicknessResponse = _reflection.GeneratedProtocolMessageType(&#39;ROIThicknessResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROITHICKNESSRESPONSE,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIThicknessResponse)
+  })
+_sym_db.RegisterMessage(ROIThicknessResponse)
+
+ROIPointsResponse = _reflection.GeneratedProtocolMessageType(&#39;ROIPointsResponse&#39;, (_message.Message,), {
+
+  &#39;Point2D&#39; : _reflection.GeneratedProtocolMessageType(&#39;Point2D&#39;, (_message.Message,), {
+    &#39;DESCRIPTOR&#39; : _ROIPOINTSRESPONSE_POINT2D,
+    &#39;__module__&#39; : &#39;roi_pb2&#39;
+    # @@protoc_insertion_point(class_scope:osirixgrpc.ROIPointsResponse.Point2D)
+    })
+  ,
+  &#39;DESCRIPTOR&#39; : _ROIPOINTSRESPONSE,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIPointsResponse)
+  })
+_sym_db.RegisterMessage(ROIPointsResponse)
+_sym_db.RegisterMessage(ROIPointsResponse.Point2D)
+
+ROIRotateRequest = _reflection.GeneratedProtocolMessageType(&#39;ROIRotateRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROIROTATEREQUEST,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIRotateRequest)
+  })
+_sym_db.RegisterMessage(ROIRotateRequest)
+
+ROIMoveRequest = _reflection.GeneratedProtocolMessageType(&#39;ROIMoveRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROIMOVEREQUEST,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIMoveRequest)
+  })
+_sym_db.RegisterMessage(ROIMoveRequest)
+
+ROISetNameRequest = _reflection.GeneratedProtocolMessageType(&#39;ROISetNameRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROISETNAMEREQUEST,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROISetNameRequest)
+  })
+_sym_db.RegisterMessage(ROISetNameRequest)
+
+ROISetColorRequest = _reflection.GeneratedProtocolMessageType(&#39;ROISetColorRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROISETCOLORREQUEST,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROISetColorRequest)
+  })
+_sym_db.RegisterMessage(ROISetColorRequest)
+
+ROISetOpacityRequest = _reflection.GeneratedProtocolMessageType(&#39;ROISetOpacityRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROISETOPACITYREQUEST,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROISetOpacityRequest)
+  })
+_sym_db.RegisterMessage(ROISetOpacityRequest)
+
+ROISetThicknessRequest = _reflection.GeneratedProtocolMessageType(&#39;ROISetThicknessRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _ROISETTHICKNESSREQUEST,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROISetThicknessRequest)
+  })
+_sym_db.RegisterMessage(ROISetThicknessRequest)
+
+ROISetPointsRequest = _reflection.GeneratedProtocolMessageType(&#39;ROISetPointsRequest&#39;, (_message.Message,), {
+
+  &#39;Point2D&#39; : _reflection.GeneratedProtocolMessageType(&#39;Point2D&#39;, (_message.Message,), {
+    &#39;DESCRIPTOR&#39; : _ROISETPOINTSREQUEST_POINT2D,
+    &#39;__module__&#39; : &#39;roi_pb2&#39;
+    # @@protoc_insertion_point(class_scope:osirixgrpc.ROISetPointsRequest.Point2D)
+    })
+  ,
+  &#39;DESCRIPTOR&#39; : _ROISETPOINTSREQUEST,
+  &#39;__module__&#39; : &#39;roi_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROISetPointsRequest)
+  })
+_sym_db.RegisterMessage(ROISetPointsRequest)
+_sym_db.RegisterMessage(ROISetPointsRequest.Point2D)
+
+
+# @@protoc_insertion_point(module_scope)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIAreaResponse"><code class="flex name class">
+<span>class <span class="ident">ROIAreaResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIAreaResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIAreaResponse.area"><code class="name">var <span class="ident">area</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIAreaResponse.area</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIAreaResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIAreaResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROICentroidResponse"><code class="flex name class">
+<span>class <span class="ident">ROICentroidResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROICentroidResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROICentroidResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROICentroidResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROICentroidResponse.x"><code class="name">var <span class="ident">x</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROICentroidResponse.x</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROICentroidResponse.y"><code class="name">var <span class="ident">y</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROICentroidResponse.y</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIColorResponse"><code class="flex name class">
+<span>class <span class="ident">ROIColorResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIColorResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIColorResponse.b"><code class="name">var <span class="ident">b</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIColorResponse.b</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIColorResponse.g"><code class="name">var <span class="ident">g</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIColorResponse.g</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIColorResponse.r"><code class="name">var <span class="ident">r</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIColorResponse.r</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIColorResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIColorResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIMoveRequest"><code class="flex name class">
+<span>class <span class="ident">ROIMoveRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIMoveRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIMoveRequest.columns"><code class="name">var <span class="ident">columns</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIMoveRequest.columns</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIMoveRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIMoveRequest.roi</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIMoveRequest.rows"><code class="name">var <span class="ident">rows</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIMoveRequest.rows</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROINameResponse"><code class="flex name class">
+<span>class <span class="ident">ROINameResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROINameResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROINameResponse.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROINameResponse.name</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROINameResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROINameResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIOpacityResponse"><code class="flex name class">
+<span>class <span class="ident">ROIOpacityResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIOpacityResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIOpacityResponse.opacity"><code class="name">var <span class="ident">opacity</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIOpacityResponse.opacity</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIOpacityResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIOpacityResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIPixResponse"><code class="flex name class">
+<span>class <span class="ident">ROIPixResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIPixResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIPixResponse.pix"><code class="name">var <span class="ident">pix</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIPixResponse.pix</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIPixResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIPixResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIPointsResponse"><code class="flex name class">
+<span>class <span class="ident">ROIPointsResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIPointsResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIPointsResponse.Point2D"><code class="name">var <span class="ident">Point2D</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIPointsResponse.points"><code class="name">var <span class="ident">points</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIPointsResponse.points</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIPointsResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIPointsResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIRotateRequest"><code class="flex name class">
+<span>class <span class="ident">ROIRotateRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIRotateRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIRotateRequest.degrees"><code class="name">var <span class="ident">degrees</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIRotateRequest.degrees</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIRotateRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIRotateRequest.roi</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIRotateRequest.x"><code class="name">var <span class="ident">x</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIRotateRequest.x</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIRotateRequest.y"><code class="name">var <span class="ident">y</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIRotateRequest.y</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetColorRequest"><code class="flex name class">
+<span>class <span class="ident">ROISetColorRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetColorRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetColorRequest.b"><code class="name">var <span class="ident">b</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetColorRequest.b</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetColorRequest.g"><code class="name">var <span class="ident">g</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetColorRequest.g</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetColorRequest.r"><code class="name">var <span class="ident">r</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetColorRequest.r</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetColorRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetColorRequest.roi</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetNameRequest"><code class="flex name class">
+<span>class <span class="ident">ROISetNameRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetNameRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetNameRequest.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetNameRequest.name</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetNameRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetNameRequest.roi</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetOpacityRequest"><code class="flex name class">
+<span>class <span class="ident">ROISetOpacityRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetOpacityRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetOpacityRequest.opacity"><code class="name">var <span class="ident">opacity</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetOpacityRequest.opacity</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetOpacityRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetOpacityRequest.roi</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetPointsRequest"><code class="flex name class">
+<span>class <span class="ident">ROISetPointsRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetPointsRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetPointsRequest.Point2D"><code class="name">var <span class="ident">Point2D</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetPointsRequest.points"><code class="name">var <span class="ident">points</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetPointsRequest.points</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetPointsRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetPointsRequest.roi</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetThicknessRequest"><code class="flex name class">
+<span>class <span class="ident">ROISetThicknessRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetThicknessRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROISetThicknessRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetThicknessRequest.roi</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROISetThicknessRequest.thickness"><code class="name">var <span class="ident">thickness</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROISetThicknessRequest.thickness</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIThicknessResponse"><code class="flex name class">
+<span>class <span class="ident">ROIThicknessResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIThicknessResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.roi_pb2.ROIThicknessResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIThicknessResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.roi_pb2.ROIThicknessResponse.thickness"><code class="name">var <span class="ident">thickness</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.ROIThicknessResponse.thickness</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="osirix.pb2" href="index.html">osirix.pb2</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROIAreaResponse" href="#osirix.pb2.roi_pb2.ROIAreaResponse">ROIAreaResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROIAreaResponse.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROIAreaResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIAreaResponse.area" href="#osirix.pb2.roi_pb2.ROIAreaResponse.area">area</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIAreaResponse.status" href="#osirix.pb2.roi_pb2.ROIAreaResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROICentroidResponse" href="#osirix.pb2.roi_pb2.ROICentroidResponse">ROICentroidResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROICentroidResponse.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROICentroidResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROICentroidResponse.status" href="#osirix.pb2.roi_pb2.ROICentroidResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROICentroidResponse.x" href="#osirix.pb2.roi_pb2.ROICentroidResponse.x">x</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROICentroidResponse.y" href="#osirix.pb2.roi_pb2.ROICentroidResponse.y">y</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROIColorResponse" href="#osirix.pb2.roi_pb2.ROIColorResponse">ROIColorResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROIColorResponse.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROIColorResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIColorResponse.b" href="#osirix.pb2.roi_pb2.ROIColorResponse.b">b</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIColorResponse.g" href="#osirix.pb2.roi_pb2.ROIColorResponse.g">g</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIColorResponse.r" href="#osirix.pb2.roi_pb2.ROIColorResponse.r">r</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIColorResponse.status" href="#osirix.pb2.roi_pb2.ROIColorResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROIMoveRequest" href="#osirix.pb2.roi_pb2.ROIMoveRequest">ROIMoveRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROIMoveRequest.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROIMoveRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIMoveRequest.columns" href="#osirix.pb2.roi_pb2.ROIMoveRequest.columns">columns</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIMoveRequest.roi" href="#osirix.pb2.roi_pb2.ROIMoveRequest.roi">roi</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIMoveRequest.rows" href="#osirix.pb2.roi_pb2.ROIMoveRequest.rows">rows</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROINameResponse" href="#osirix.pb2.roi_pb2.ROINameResponse">ROINameResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROINameResponse.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROINameResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROINameResponse.name" href="#osirix.pb2.roi_pb2.ROINameResponse.name">name</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROINameResponse.status" href="#osirix.pb2.roi_pb2.ROINameResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROIOpacityResponse" href="#osirix.pb2.roi_pb2.ROIOpacityResponse">ROIOpacityResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROIOpacityResponse.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROIOpacityResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIOpacityResponse.opacity" href="#osirix.pb2.roi_pb2.ROIOpacityResponse.opacity">opacity</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIOpacityResponse.status" href="#osirix.pb2.roi_pb2.ROIOpacityResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROIPixResponse" href="#osirix.pb2.roi_pb2.ROIPixResponse">ROIPixResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROIPixResponse.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROIPixResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIPixResponse.pix" href="#osirix.pb2.roi_pb2.ROIPixResponse.pix">pix</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIPixResponse.status" href="#osirix.pb2.roi_pb2.ROIPixResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROIPointsResponse" href="#osirix.pb2.roi_pb2.ROIPointsResponse">ROIPointsResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROIPointsResponse.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROIPointsResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIPointsResponse.Point2D" href="#osirix.pb2.roi_pb2.ROIPointsResponse.Point2D">Point2D</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIPointsResponse.points" href="#osirix.pb2.roi_pb2.ROIPointsResponse.points">points</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIPointsResponse.status" href="#osirix.pb2.roi_pb2.ROIPointsResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROIRotateRequest" href="#osirix.pb2.roi_pb2.ROIRotateRequest">ROIRotateRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROIRotateRequest.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROIRotateRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIRotateRequest.degrees" href="#osirix.pb2.roi_pb2.ROIRotateRequest.degrees">degrees</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIRotateRequest.roi" href="#osirix.pb2.roi_pb2.ROIRotateRequest.roi">roi</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIRotateRequest.x" href="#osirix.pb2.roi_pb2.ROIRotateRequest.x">x</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIRotateRequest.y" href="#osirix.pb2.roi_pb2.ROIRotateRequest.y">y</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROISetColorRequest" href="#osirix.pb2.roi_pb2.ROISetColorRequest">ROISetColorRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROISetColorRequest.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROISetColorRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetColorRequest.b" href="#osirix.pb2.roi_pb2.ROISetColorRequest.b">b</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetColorRequest.g" href="#osirix.pb2.roi_pb2.ROISetColorRequest.g">g</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetColorRequest.r" href="#osirix.pb2.roi_pb2.ROISetColorRequest.r">r</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetColorRequest.roi" href="#osirix.pb2.roi_pb2.ROISetColorRequest.roi">roi</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROISetNameRequest" href="#osirix.pb2.roi_pb2.ROISetNameRequest">ROISetNameRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROISetNameRequest.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROISetNameRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetNameRequest.name" href="#osirix.pb2.roi_pb2.ROISetNameRequest.name">name</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetNameRequest.roi" href="#osirix.pb2.roi_pb2.ROISetNameRequest.roi">roi</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROISetOpacityRequest" href="#osirix.pb2.roi_pb2.ROISetOpacityRequest">ROISetOpacityRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROISetOpacityRequest.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROISetOpacityRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetOpacityRequest.opacity" href="#osirix.pb2.roi_pb2.ROISetOpacityRequest.opacity">opacity</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetOpacityRequest.roi" href="#osirix.pb2.roi_pb2.ROISetOpacityRequest.roi">roi</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROISetPointsRequest" href="#osirix.pb2.roi_pb2.ROISetPointsRequest">ROISetPointsRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROISetPointsRequest.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROISetPointsRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetPointsRequest.Point2D" href="#osirix.pb2.roi_pb2.ROISetPointsRequest.Point2D">Point2D</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetPointsRequest.points" href="#osirix.pb2.roi_pb2.ROISetPointsRequest.points">points</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetPointsRequest.roi" href="#osirix.pb2.roi_pb2.ROISetPointsRequest.roi">roi</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROISetThicknessRequest" href="#osirix.pb2.roi_pb2.ROISetThicknessRequest">ROISetThicknessRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROISetThicknessRequest.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROISetThicknessRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetThicknessRequest.roi" href="#osirix.pb2.roi_pb2.ROISetThicknessRequest.roi">roi</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROISetThicknessRequest.thickness" href="#osirix.pb2.roi_pb2.ROISetThicknessRequest.thickness">thickness</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.roi_pb2.ROIThicknessResponse" href="#osirix.pb2.roi_pb2.ROIThicknessResponse">ROIThicknessResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.roi_pb2.ROIThicknessResponse.DESCRIPTOR" href="#osirix.pb2.roi_pb2.ROIThicknessResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIThicknessResponse.status" href="#osirix.pb2.roi_pb2.ROIThicknessResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.roi_pb2.ROIThicknessResponse.thickness" href="#osirix.pb2.roi_pb2.ROIThicknessResponse.thickness">thickness</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

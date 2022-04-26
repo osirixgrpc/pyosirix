@@ -1,0 +1,4781 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>osirix.ResponseProcessor API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>osirix.ResponseProcessor</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import datetime
+from typing import Tuple, Dict
+
+import sys
+import numpy as np
+from numpy import ndarray
+
+from osirix.Exceptions import GrpcException
+
+# sys.path.append(&#34;../../src/python&#34;)
+import osirix.pb2.osirix_pb2 as osirix_pb2
+import osirix.pb2.dicomstudy_pb2 as dicomstudy_pb2
+
+#TODO break the responseprocessor into smaller parts
+class ResponseProcessor(object):
+    &#34;&#34;&#34;
+    Class that processes all the gRPC response to extract the information required from it
+    to build the pyOsirix objects
+    &#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        print(&#34;Response Processor Started&#34;)
+
+    def process_basic_response(self, response) -&gt; None:
+        &#34;&#34;&#34;
+        Checks whether the status of the response is success or not
+        Args:
+            response: response returned by Osirix service for the request made
+
+        Returns:
+             None
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            pass
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # What should be the type of the response? It is the response classes in the protobufs
+    def process_displayed_2d_viewers(self, response) -&gt; Tuple[osirix_pb2.OsirixDisplayed2DViewersResponse, ...]:
+        &#34;&#34;&#34;
+         Extract displayed viewer controllers from the response
+         Args:
+             response: response returned by Osirix service for the request made
+
+        Returns:
+             Tuple containing osirixrpc_uid of displayed 2d viewers for BrowserController
+        &#34;&#34;&#34;
+
+        viewers_tuple : Tuple[osirix_pb2.OsirixDisplayed2DViewersResponse, ...] = ()
+
+        for viewer_controller in response.viewer_controllers:
+
+            viewers_tuple = viewers_tuple + (viewer_controller,)
+
+        return viewers_tuple
+
+    def process_displayed_vr_controllers(self, response) -&gt; Tuple[osirix_pb2.OsirixDisplayedVRControllersResponse, ...]:
+        &#34;&#34;&#34;
+         Extract displayed VR controllers from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             Tuple containing osirixrpc_uid of displayed VR Controllers for BrowserController
+        &#34;&#34;&#34;
+
+        vr_controllers_tuple : Tuple[osirix_pb2.OsirixDisplayedVRControllersResponse, ...] = ()
+
+        for vr_controller in response.vr_controllers:
+
+            vr_controllers_tuple = vr_controllers_tuple + (vr_controller,)
+
+        return vr_controllers_tuple
+
+    def process_modality(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract modality from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : modality
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.modality
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_name(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract name from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : name
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.name
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_title(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract title from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+            str: title
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.title
+        else:
+            # print(&#34;No title response&#34;)
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_wlww(self, response):
+        &#34;&#34;&#34;
+         Extract wlww from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: wl
+             int: ww
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.wl, response.ww
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_no_images(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract number of images from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int : number of images
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.no_images
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    #DicomStudy
+    def process_datetime(self, response: dicomstudy_pb2.DicomStudyDateResponse) -&gt; datetime.datetime:
+        &#34;&#34;&#34;
+         Extract datetime from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             datetime : date and time
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            datetime_output : datetime.datetime = datetime.datetime(response.year,
+                                       response.month,
+                                       response.day,
+                                       response.hour,
+                                       response.minute,
+                                       response.second
+                                   )
+            return datetime_output
+        else:
+            raise GrpcException(&#34;No response for datetime&#34;)
+
+    def process_dob_datetime(self, response: dicomstudy_pb2.DicomStudyDateOfBirthResponse) -&gt; datetime.datetime:
+        &#34;&#34;&#34;
+         Extract date of birth of patient from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             datetime : date of birth of patient for study
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+            datetime_output : datetime.datetime = datetime.datetime(response.year,
+                                       response.month,
+                                       response.day
+                                   )
+            return datetime_output
+        else:
+            raise GrpcException(&#34;No response for datetime&#34;)
+
+    def process_institution_name(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract institution name from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : institution name for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.institution_name
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_study_modality(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract modalities of the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             str : modalities for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.modalities
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+
+
+    # def process_series_modality(self, response) -&gt; str:
+    #     if (response.status.status == 1):
+    #
+    #         return response.modality
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_patient_id(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract patient id from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : patient id for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.patient_id
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_patient_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract patient uid from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : patient uid for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.patient_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_patient_sex(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract patient&#39;s sex from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : patient sex for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.patient_sex
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_performing_physician(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract performing physician from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : performing physician for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.performing_physician
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_referring_physician(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract referring physician from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : referring physician for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.referring_physician
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # def process_series_name(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.name
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_study_study_name(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract name of the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : study name for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.study_name
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_study_instance_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract study instance uid from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : instance uid for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.study_instance_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+
+    def process_paths(self, response) -&gt; Tuple[str, ...]:
+        &#34;&#34;&#34;
+         Extract paths from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             Tuple containing file paths for study in str
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return tuple(response.paths)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_images(self, response):
+        &#34;&#34;&#34;
+         Extract images from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid of images for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            images_tuple = ()
+
+            for image in response.images:
+                # print(series.osirixrpc_uid)
+                # images_tuple = images_tuple + (image.osirixrpc_uid,)
+                images_tuple = images_tuple + (image,)
+
+            return images_tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_num_files(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract number of files from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int : number of files for study
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.no_files
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_study_series(self, response):
+        &#34;&#34;&#34;
+         Extract the all the series that are a part of the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid of all the series for study
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+            series_tuple = ()
+
+            for series in response.series:
+                # print(series.osirixrpc_uid)
+                # series_tuple = series_tuple + (series.osirixrpc_uid,)
+                series_tuple = series_tuple + (series,)
+
+            return series_tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # Dicom Series
+    def process_series_description(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract series description from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str: series description for series
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.series_description
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_instance_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract series instance uid from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+        Returns:
+             str: instance uid for series
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.series_instance_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_sop_class_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract series sop class uid from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str: sop class uid for series
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.series_sop_class_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_previous_series(self, response):
+        &#34;&#34;&#34;
+         Extract previous series in the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             osirixrpc_uid of previous series for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.previous_series.osirixrpc_uid
+            return response.previous_series
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_next_series(self, response):
+        &#34;&#34;&#34;
+         Extract next series in the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid of next series for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.next_series.osirixrpc_uid
+            return response.next_series
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_study(self, response):
+        &#34;&#34;&#34;
+         Extract the study that the series belongs to from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid of study for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.study.osirixrpc_uid
+            return response.study
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_sorted_image(self, response):
+        &#34;&#34;&#34;
+         Extract sorted images of the series from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             Tuple containing osirixrpc_uid of sorted images for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            sorted_image_tuple = ()
+
+            for sorted_image in response.sorted_images:
+                sorted_image_tuple = sorted_image_tuple + (sorted_image,)
+                # sorted_image_tuple = sorted_image_tuple + (sorted_image.osirixrpc_uid,)
+
+            return sorted_image_tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # Dicom Image
+    def process_image_instance_number(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract iamge instance number from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             int: instance number for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.instance_number
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # def process_image_modality(self, response) -&gt; str:
+    #     if (response.status.status == 1):
+    #
+    #         return response.modality
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_image_number_of_frames(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract number of frames in the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: number of frames for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.number_of_frames
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_slice_location(self, response) -&gt; float:
+        &#34;&#34;&#34;
+         Extract slice location of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             float: slice location for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.slice_locations
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_series(self, response):
+        &#34;&#34;&#34;
+         Extract series that the image belongs to from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             osirixrpc_uid of series for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.series.osirixrpc_uid
+            return response.series
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_height(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract height of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: height for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.height
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_width(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract width of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: width for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.width
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_sop_instance_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract sop instance uid of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str: sop class instance uid for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.sop_instance_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_complete_path(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract complete path of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+        Returns:
+             str: complete path for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.path_name
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # VR Controller
+
+    # def process_vr_title(self, response) -&gt; str:
+    #     if (response.status.status == 1):
+    #
+    #         return response.title
+    #     else:
+    #         # print(&#34;No title response&#34;)
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_vr_style(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract style of VR controller from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             int: style for VRController
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.style
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_vr_rendering_mode(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract rendering mode of VR controller from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: rendering mode for VRController
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.rendering_mode
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # def process_vr_wlww(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.wl, response.ww
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_blending_controller(self, response):
+        &#34;&#34;&#34;
+         Extract blending controller from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid for ViewerController
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.viewer_controller.osirixrpc_uid
+            return response.viewer_controller
+
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_viewer_2d(self, response):
+        &#34;&#34;&#34;
+         Extract 2D viewer from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid for ViewerController
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.viewer_controller.osirixrpc_uid
+            return response.viewer_controller
+
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # Viewer Controller
+    # def process_viewer_wlww(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.wl, response.ww
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    # def process_viewer_modality(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.modality
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    # def process_viewer_title(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.title
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_viewer_idx(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract idx of the ViewerController from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int : idx
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.idx
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_viewer_movie_idx(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract movie_idx of the ViewerController from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int : movie idx
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.movie_idx
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_list(self, response):
+        &#34;&#34;&#34;
+         Extract DCMPix associated with the ViewerController from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+            dcm_pix_tuple = ()
+
+            for pix in response.pix:
+                # dcm_pix_tuple = dcm_pix_tuple + (pix.osirixrpc_uid,)
+                dcm_pix_tuple = dcm_pix_tuple + (pix,)
+
+            return dcm_pix_tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    #DCMPix
+
+    def process_is_rgb(self, response) -&gt; bool:
+        &#34;&#34;&#34;
+         Extract whether the DCMPix is rgb or not from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             bool : is_rgb
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.is_rgb
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_convert_to_rgb_bw(self, response) -&gt; None:
+        &#34;&#34;&#34;
+          Process the response from conversion the DCMPix to rgb or bw
+
+          Args:
+              response: response returned by Osirix service for the request made
+          Returns:
+              None
+
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            pass
+        elif (response.status.status == 0):
+            # 0 response code is the current overall failure code so there could be many reasons for failures.
+            # In this case, if the image is already rgb/bw, it would be 0
+            print(&#34;Image is already RGB or BW&#34;)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_shape(self, response) -&gt; Tuple[int, int]:
+        &#34;&#34;&#34;
+         Extract shape of DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             Tuple containing shape information (rows and columns)
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return (response.rows, response.columns)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_spacing(self, response) -&gt; Tuple[float, float]:
+        &#34;&#34;&#34;
+         Extract spacing of DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             Tuple containing spacing information (rows and columns)
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return (response.spacing_rows, response.spacing_columns)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_origin(self, response) -&gt; Tuple[float, float, float]:
+        &#34;&#34;&#34;
+         Extract origin of DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             Tuple containing origin information (rows, columns, values) in float
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return (response.origin_rows, response.origin_columns, response.origin_slices)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_orientation(self, response) -&gt; Tuple[float, ...]:
+        &#34;&#34;&#34;
+         Extract orientation of DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             Tuple containing orientations of DCMPix in float
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            tuple : Tuple[float, ...] = ()
+            for orientation in response.orientation:
+                tuple = tuple + (orientation,)
+
+            return tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_slice_location(self, response) -&gt; float:
+        &#34;&#34;&#34;
+        Extract slice location of DCMPix from the response
+
+        Args:
+            response: response returned by Osirix service for the request made
+        Returns:
+             float : slice location
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.slice_location
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_source_file(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract source file of the DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             str : source file
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.source_file
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_image(self, response) -&gt; ndarray:
+        &#34;&#34;&#34;
+         Extract underlying image data of the DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             ndarray : image data
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            if response.is_argb:
+                image_array = np.array(response.image_data_argb).reshape(response.rows, response.columns, 4)
+                return image_array
+            else:
+                image_array = np.array(response.image_data_float).reshape(response.rows, response.columns)
+                return image_array
+
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_compute_roi(self, response) -&gt; Dict[str, float]:
+        &#34;&#34;&#34;
+         Compute the ROI information of the DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             Dict containing the ROI statistics such as mean
+
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+            roi_dict = {
+                &#39;mean&#39;: response.mean,
+                &#39;total&#39;: response.total,
+                &#39;std_dev&#39;: response.std_dev,
+                &#39;min&#39;: response.min,
+                &#39;max&#39;: response.max,
+                &#39;skewness&#39;: response.skewness,
+                &#39;kurtosis&#39;: response.kurtosis
+            }
+            return roi_dict
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_roi_map(self, response) -&gt; ndarray:
+        &#34;&#34;&#34;
+         Extract ROI map of DCMPix from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            ndarray : roi map
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            roi_map_array = np.array(response.map).reshape(response.rows, response.columns)
+            return roi_map_array
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_roi_values(self, response) -&gt; Tuple[ndarray, ndarray, ndarray]:
+        &#34;&#34;&#34;
+         Extract the ROI values of the DCMPix from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            Tuple containing ndarray for rows, columns and values of ROI
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            rows = np.array(response.row_indices)
+            columns = np.array(response.column_indices)
+            values = np.array(response.values)
+            return (rows, columns, values)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # ROI
+    # def process_roi_name(self, response) -&gt; str:
+    #     if (response.status.status == 1):
+    #
+    #         return response.name
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_color(self, response) -&gt; Tuple[int, int, int]:
+        &#34;&#34;&#34;
+         Extract color of ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            Tuple containing red, green, blue values in int
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return (response.r, response.g, response.b)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_opacity(self, response) -&gt; float:
+        &#34;&#34;&#34;
+         Extract opacity of ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            float : opacity
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.opacity
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_thickness(self, response) -&gt; float:
+        &#34;&#34;&#34;
+         Extract thickness of ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            float : thickness
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.thickness
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_pix(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract DCMPix associated with the ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+             str : pix osirixrpc_id
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.pix
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_points(self, response) -&gt; ndarray:
+        &#34;&#34;&#34;
+         Extract points of the ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+             ndarray : roi points
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            points = []
+            for i in range(len(response.points)):
+                points.append([response.points[i].x, response.points[i].y])
+            points = np.array(points)
+
+            return points
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_type(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract the type of the ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+             str : type of roi
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.type
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    #ViewerController
+
+    #BrowserController
+
+    # def process_browser_database_selection(self, response):
+    #     &#34;&#34;&#34;
+    #      Extract all the study/series that are present in the Osirix browser from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #      &#34;&#34;&#34;
+    #     if (response.status.status == 1):
+    #
+    #         series_tuple : Tuple[DicomSeries, ...] = ()
+    #         study_tuple : Tuple[DicomStudy, ...] = ()
+    #
+    #         for series in response.series:
+    #             series_tuple = series_tuple + (series,)
+    #
+    #         for study in response.studies:
+    #             study_tuple = study_tuple + (study,)
+    #
+    #         return (study_tuple, series_tuple)
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="osirix.ResponseProcessor.ResponseProcessor"><code class="flex name class">
+<span>class <span class="ident">ResponseProcessor</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class that processes all the gRPC response to extract the information required from it
+to build the pyOsirix objects</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResponseProcessor(object):
+    &#34;&#34;&#34;
+    Class that processes all the gRPC response to extract the information required from it
+    to build the pyOsirix objects
+    &#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        print(&#34;Response Processor Started&#34;)
+
+    def process_basic_response(self, response) -&gt; None:
+        &#34;&#34;&#34;
+        Checks whether the status of the response is success or not
+        Args:
+            response: response returned by Osirix service for the request made
+
+        Returns:
+             None
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            pass
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # What should be the type of the response? It is the response classes in the protobufs
+    def process_displayed_2d_viewers(self, response) -&gt; Tuple[osirix_pb2.OsirixDisplayed2DViewersResponse, ...]:
+        &#34;&#34;&#34;
+         Extract displayed viewer controllers from the response
+         Args:
+             response: response returned by Osirix service for the request made
+
+        Returns:
+             Tuple containing osirixrpc_uid of displayed 2d viewers for BrowserController
+        &#34;&#34;&#34;
+
+        viewers_tuple : Tuple[osirix_pb2.OsirixDisplayed2DViewersResponse, ...] = ()
+
+        for viewer_controller in response.viewer_controllers:
+
+            viewers_tuple = viewers_tuple + (viewer_controller,)
+
+        return viewers_tuple
+
+    def process_displayed_vr_controllers(self, response) -&gt; Tuple[osirix_pb2.OsirixDisplayedVRControllersResponse, ...]:
+        &#34;&#34;&#34;
+         Extract displayed VR controllers from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             Tuple containing osirixrpc_uid of displayed VR Controllers for BrowserController
+        &#34;&#34;&#34;
+
+        vr_controllers_tuple : Tuple[osirix_pb2.OsirixDisplayedVRControllersResponse, ...] = ()
+
+        for vr_controller in response.vr_controllers:
+
+            vr_controllers_tuple = vr_controllers_tuple + (vr_controller,)
+
+        return vr_controllers_tuple
+
+    def process_modality(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract modality from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : modality
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.modality
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_name(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract name from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : name
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.name
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_title(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract title from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+            str: title
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.title
+        else:
+            # print(&#34;No title response&#34;)
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_wlww(self, response):
+        &#34;&#34;&#34;
+         Extract wlww from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: wl
+             int: ww
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.wl, response.ww
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_no_images(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract number of images from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int : number of images
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.no_images
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    #DicomStudy
+    def process_datetime(self, response: dicomstudy_pb2.DicomStudyDateResponse) -&gt; datetime.datetime:
+        &#34;&#34;&#34;
+         Extract datetime from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             datetime : date and time
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            datetime_output : datetime.datetime = datetime.datetime(response.year,
+                                       response.month,
+                                       response.day,
+                                       response.hour,
+                                       response.minute,
+                                       response.second
+                                   )
+            return datetime_output
+        else:
+            raise GrpcException(&#34;No response for datetime&#34;)
+
+    def process_dob_datetime(self, response: dicomstudy_pb2.DicomStudyDateOfBirthResponse) -&gt; datetime.datetime:
+        &#34;&#34;&#34;
+         Extract date of birth of patient from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             datetime : date of birth of patient for study
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+            datetime_output : datetime.datetime = datetime.datetime(response.year,
+                                       response.month,
+                                       response.day
+                                   )
+            return datetime_output
+        else:
+            raise GrpcException(&#34;No response for datetime&#34;)
+
+    def process_institution_name(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract institution name from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : institution name for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.institution_name
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_study_modality(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract modalities of the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             str : modalities for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.modalities
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+
+
+    # def process_series_modality(self, response) -&gt; str:
+    #     if (response.status.status == 1):
+    #
+    #         return response.modality
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_patient_id(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract patient id from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : patient id for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.patient_id
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_patient_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract patient uid from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : patient uid for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.patient_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_patient_sex(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract patient&#39;s sex from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : patient sex for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.patient_sex
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_performing_physician(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract performing physician from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : performing physician for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.performing_physician
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_referring_physician(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract referring physician from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : referring physician for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.referring_physician
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # def process_series_name(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.name
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_study_study_name(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract name of the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : study name for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.study_name
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_study_instance_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract study instance uid from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str : instance uid for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.study_instance_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+
+    def process_paths(self, response) -&gt; Tuple[str, ...]:
+        &#34;&#34;&#34;
+         Extract paths from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             Tuple containing file paths for study in str
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return tuple(response.paths)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_images(self, response):
+        &#34;&#34;&#34;
+         Extract images from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid of images for study
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            images_tuple = ()
+
+            for image in response.images:
+                # print(series.osirixrpc_uid)
+                # images_tuple = images_tuple + (image.osirixrpc_uid,)
+                images_tuple = images_tuple + (image,)
+
+            return images_tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_num_files(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract number of files from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int : number of files for study
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.no_files
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_study_series(self, response):
+        &#34;&#34;&#34;
+         Extract the all the series that are a part of the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid of all the series for study
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+            series_tuple = ()
+
+            for series in response.series:
+                # print(series.osirixrpc_uid)
+                # series_tuple = series_tuple + (series.osirixrpc_uid,)
+                series_tuple = series_tuple + (series,)
+
+            return series_tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # Dicom Series
+    def process_series_description(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract series description from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str: series description for series
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.series_description
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_instance_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract series instance uid from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+        Returns:
+             str: instance uid for series
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.series_instance_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_sop_class_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract series sop class uid from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str: sop class uid for series
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.series_sop_class_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_previous_series(self, response):
+        &#34;&#34;&#34;
+         Extract previous series in the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             osirixrpc_uid of previous series for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.previous_series.osirixrpc_uid
+            return response.previous_series
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_next_series(self, response):
+        &#34;&#34;&#34;
+         Extract next series in the study from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid of next series for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.next_series.osirixrpc_uid
+            return response.next_series
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_study(self, response):
+        &#34;&#34;&#34;
+         Extract the study that the series belongs to from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid of study for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.study.osirixrpc_uid
+            return response.study
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_series_sorted_image(self, response):
+        &#34;&#34;&#34;
+         Extract sorted images of the series from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             Tuple containing osirixrpc_uid of sorted images for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            sorted_image_tuple = ()
+
+            for sorted_image in response.sorted_images:
+                sorted_image_tuple = sorted_image_tuple + (sorted_image,)
+                # sorted_image_tuple = sorted_image_tuple + (sorted_image.osirixrpc_uid,)
+
+            return sorted_image_tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # Dicom Image
+    def process_image_instance_number(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract iamge instance number from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             int: instance number for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.instance_number
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # def process_image_modality(self, response) -&gt; str:
+    #     if (response.status.status == 1):
+    #
+    #         return response.modality
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_image_number_of_frames(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract number of frames in the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: number of frames for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.number_of_frames
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_slice_location(self, response) -&gt; float:
+        &#34;&#34;&#34;
+         Extract slice location of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             float: slice location for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.slice_locations
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_series(self, response):
+        &#34;&#34;&#34;
+         Extract series that the image belongs to from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             osirixrpc_uid of series for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.series.osirixrpc_uid
+            return response.series
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_height(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract height of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: height for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.height
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_width(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract width of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: width for image
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.width
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_sop_instance_uid(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract sop instance uid of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             str: sop class instance uid for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.sop_instance_uid
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_image_complete_path(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract complete path of the image from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+        Returns:
+             str: complete path for image
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.path_name
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # VR Controller
+
+    # def process_vr_title(self, response) -&gt; str:
+    #     if (response.status.status == 1):
+    #
+    #         return response.title
+    #     else:
+    #         # print(&#34;No title response&#34;)
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_vr_style(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract style of VR controller from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             int: style for VRController
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.style
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_vr_rendering_mode(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract rendering mode of VR controller from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: rendering mode for VRController
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.rendering_mode
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # def process_vr_wlww(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.wl, response.ww
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_blending_controller(self, response):
+        &#34;&#34;&#34;
+         Extract blending controller from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid for ViewerController
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.viewer_controller.osirixrpc_uid
+            return response.viewer_controller
+
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_viewer_2d(self, response):
+        &#34;&#34;&#34;
+         Extract 2D viewer from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             osirixrpc_uid for ViewerController
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            # return response.viewer_controller.osirixrpc_uid
+            return response.viewer_controller
+
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # Viewer Controller
+    # def process_viewer_wlww(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.wl, response.ww
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    # def process_viewer_modality(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.modality
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    # def process_viewer_title(self, response):
+    #     if (response.status.status == 1):
+    #
+    #         return response.title
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_viewer_idx(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract idx of the ViewerController from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int : idx
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.idx
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_viewer_movie_idx(self, response) -&gt; int:
+        &#34;&#34;&#34;
+         Extract movie_idx of the ViewerController from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int : movie idx
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.movie_idx
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_list(self, response):
+        &#34;&#34;&#34;
+         Extract DCMPix associated with the ViewerController from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+            dcm_pix_tuple = ()
+
+            for pix in response.pix:
+                # dcm_pix_tuple = dcm_pix_tuple + (pix.osirixrpc_uid,)
+                dcm_pix_tuple = dcm_pix_tuple + (pix,)
+
+            return dcm_pix_tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    #DCMPix
+
+    def process_is_rgb(self, response) -&gt; bool:
+        &#34;&#34;&#34;
+         Extract whether the DCMPix is rgb or not from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             bool : is_rgb
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.is_rgb
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_convert_to_rgb_bw(self, response) -&gt; None:
+        &#34;&#34;&#34;
+          Process the response from conversion the DCMPix to rgb or bw
+
+          Args:
+              response: response returned by Osirix service for the request made
+          Returns:
+              None
+
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            pass
+        elif (response.status.status == 0):
+            # 0 response code is the current overall failure code so there could be many reasons for failures.
+            # In this case, if the image is already rgb/bw, it would be 0
+            print(&#34;Image is already RGB or BW&#34;)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_shape(self, response) -&gt; Tuple[int, int]:
+        &#34;&#34;&#34;
+         Extract shape of DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             Tuple containing shape information (rows and columns)
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return (response.rows, response.columns)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_spacing(self, response) -&gt; Tuple[float, float]:
+        &#34;&#34;&#34;
+         Extract spacing of DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             Tuple containing spacing information (rows and columns)
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return (response.spacing_rows, response.spacing_columns)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_origin(self, response) -&gt; Tuple[float, float, float]:
+        &#34;&#34;&#34;
+         Extract origin of DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             Tuple containing origin information (rows, columns, values) in float
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return (response.origin_rows, response.origin_columns, response.origin_slices)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_orientation(self, response) -&gt; Tuple[float, ...]:
+        &#34;&#34;&#34;
+         Extract orientation of DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             Tuple containing orientations of DCMPix in float
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            tuple : Tuple[float, ...] = ()
+            for orientation in response.orientation:
+                tuple = tuple + (orientation,)
+
+            return tuple
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_slice_location(self, response) -&gt; float:
+        &#34;&#34;&#34;
+        Extract slice location of DCMPix from the response
+
+        Args:
+            response: response returned by Osirix service for the request made
+        Returns:
+             float : slice location
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.slice_location
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_source_file(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract source file of the DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+         Returns:
+             str : source file
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.source_file
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_image(self, response) -&gt; ndarray:
+        &#34;&#34;&#34;
+         Extract underlying image data of the DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             ndarray : image data
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            if response.is_argb:
+                image_array = np.array(response.image_data_argb).reshape(response.rows, response.columns, 4)
+                return image_array
+            else:
+                image_array = np.array(response.image_data_float).reshape(response.rows, response.columns)
+                return image_array
+
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_compute_roi(self, response) -&gt; Dict[str, float]:
+        &#34;&#34;&#34;
+         Compute the ROI information of the DCMPix from the response
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             Dict containing the ROI statistics such as mean
+
+         &#34;&#34;&#34;
+        if (response.status.status == 1):
+            roi_dict = {
+                &#39;mean&#39;: response.mean,
+                &#39;total&#39;: response.total,
+                &#39;std_dev&#39;: response.std_dev,
+                &#39;min&#39;: response.min,
+                &#39;max&#39;: response.max,
+                &#39;skewness&#39;: response.skewness,
+                &#39;kurtosis&#39;: response.kurtosis
+            }
+            return roi_dict
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_roi_map(self, response) -&gt; ndarray:
+        &#34;&#34;&#34;
+         Extract ROI map of DCMPix from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            ndarray : roi map
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            roi_map_array = np.array(response.map).reshape(response.rows, response.columns)
+            return roi_map_array
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_pix_roi_values(self, response) -&gt; Tuple[ndarray, ndarray, ndarray]:
+        &#34;&#34;&#34;
+         Extract the ROI values of the DCMPix from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            Tuple containing ndarray for rows, columns and values of ROI
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+            rows = np.array(response.row_indices)
+            columns = np.array(response.column_indices)
+            values = np.array(response.values)
+            return (rows, columns, values)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    # ROI
+    # def process_roi_name(self, response) -&gt; str:
+    #     if (response.status.status == 1):
+    #
+    #         return response.name
+    #     else:
+    #         raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_color(self, response) -&gt; Tuple[int, int, int]:
+        &#34;&#34;&#34;
+         Extract color of ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            Tuple containing red, green, blue values in int
+
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return (response.r, response.g, response.b)
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_opacity(self, response) -&gt; float:
+        &#34;&#34;&#34;
+         Extract opacity of ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            float : opacity
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.opacity
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_thickness(self, response) -&gt; float:
+        &#34;&#34;&#34;
+         Extract thickness of ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+            float : thickness
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.thickness
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_pix(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract DCMPix associated with the ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+             str : pix osirixrpc_id
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.pix
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_points(self, response) -&gt; ndarray:
+        &#34;&#34;&#34;
+         Extract points of the ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+             ndarray : roi points
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            points = []
+            for i in range(len(response.points)):
+                points.append([response.points[i].x, response.points[i].y])
+            points = np.array(points)
+
+            return points
+        else:
+            raise GrpcException(&#34;No response&#34;)
+
+    def process_roi_type(self, response) -&gt; str:
+        &#34;&#34;&#34;
+         Extract the type of the ROI from the response
+
+         Args:
+            response: response returned by Osirix service for the request made
+
+         Returns:
+             str : type of roi
+        &#34;&#34;&#34;
+        if (response.status.status == 1):
+
+            return response.type
+        else:
+            raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_basic_response"><code class="name flex">
+<span>def <span class="ident">process_basic_response</span></span>(<span>self, response) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks whether the status of the response is success or not</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_basic_response(self, response) -&gt; None:
+    &#34;&#34;&#34;
+    Checks whether the status of the response is success or not
+    Args:
+        response: response returned by Osirix service for the request made
+
+    Returns:
+         None
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+        pass
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_blending_controller"><code class="name flex">
+<span>def <span class="ident">process_blending_controller</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract blending controller from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>osirixrpc_uid for ViewerController</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_blending_controller(self, response):
+    &#34;&#34;&#34;
+     Extract blending controller from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         osirixrpc_uid for ViewerController
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        # return response.viewer_controller.osirixrpc_uid
+        return response.viewer_controller
+
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_datetime"><code class="name flex">
+<span>def <span class="ident">process_datetime</span></span>(<span>self, response: dicomstudy_pb2.DicomStudyDateResponse) ‑> datetime.datetime</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract datetime from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>datetime </code></dt>
+<dd>date and time</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_datetime(self, response: dicomstudy_pb2.DicomStudyDateResponse) -&gt; datetime.datetime:
+    &#34;&#34;&#34;
+     Extract datetime from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         datetime : date and time
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+        datetime_output : datetime.datetime = datetime.datetime(response.year,
+                                   response.month,
+                                   response.day,
+                                   response.hour,
+                                   response.minute,
+                                   response.second
+                               )
+        return datetime_output
+    else:
+        raise GrpcException(&#34;No response for datetime&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_displayed_2d_viewers"><code class="name flex">
+<span>def <span class="ident">process_displayed_2d_viewers</span></span>(<span>self, response) ‑> Tuple[osirix_pb2.OsirixDisplayed2DViewersResponse, ...]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract displayed viewer controllers from the response
+Args:
+response: response returned by Osirix service for the request made</p>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing osirixrpc_uid of displayed 2d viewers for BrowserController</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_displayed_2d_viewers(self, response) -&gt; Tuple[osirix_pb2.OsirixDisplayed2DViewersResponse, ...]:
+    &#34;&#34;&#34;
+     Extract displayed viewer controllers from the response
+     Args:
+         response: response returned by Osirix service for the request made
+
+    Returns:
+         Tuple containing osirixrpc_uid of displayed 2d viewers for BrowserController
+    &#34;&#34;&#34;
+
+    viewers_tuple : Tuple[osirix_pb2.OsirixDisplayed2DViewersResponse, ...] = ()
+
+    for viewer_controller in response.viewer_controllers:
+
+        viewers_tuple = viewers_tuple + (viewer_controller,)
+
+    return viewers_tuple</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_displayed_vr_controllers"><code class="name flex">
+<span>def <span class="ident">process_displayed_vr_controllers</span></span>(<span>self, response) ‑> Tuple[osirix_pb2.OsirixDisplayedVRControllersResponse, ...]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract displayed VR controllers from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing osirixrpc_uid of displayed VR Controllers for BrowserController</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_displayed_vr_controllers(self, response) -&gt; Tuple[osirix_pb2.OsirixDisplayedVRControllersResponse, ...]:
+    &#34;&#34;&#34;
+     Extract displayed VR controllers from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         Tuple containing osirixrpc_uid of displayed VR Controllers for BrowserController
+    &#34;&#34;&#34;
+
+    vr_controllers_tuple : Tuple[osirix_pb2.OsirixDisplayedVRControllersResponse, ...] = ()
+
+    for vr_controller in response.vr_controllers:
+
+        vr_controllers_tuple = vr_controllers_tuple + (vr_controller,)
+
+    return vr_controllers_tuple</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_dob_datetime"><code class="name flex">
+<span>def <span class="ident">process_dob_datetime</span></span>(<span>self, response: dicomstudy_pb2.DicomStudyDateOfBirthResponse) ‑> datetime.datetime</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract date of birth of patient from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>datetime </code></dt>
+<dd>date of birth of patient for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_dob_datetime(self, response: dicomstudy_pb2.DicomStudyDateOfBirthResponse) -&gt; datetime.datetime:
+    &#34;&#34;&#34;
+     Extract date of birth of patient from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         datetime : date of birth of patient for study
+     &#34;&#34;&#34;
+    if (response.status.status == 1):
+        datetime_output : datetime.datetime = datetime.datetime(response.year,
+                                   response.month,
+                                   response.day
+                               )
+        return datetime_output
+    else:
+        raise GrpcException(&#34;No response for datetime&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_image_complete_path"><code class="name flex">
+<span>def <span class="ident">process_image_complete_path</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract complete path of the image from the response</p>
+<p>Args:
+response: response returned by Osirix service for the request made</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>complete path for image</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_image_complete_path(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract complete path of the image from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+    Returns:
+         str: complete path for image
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.path_name
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_image_height"><code class="name flex">
+<span>def <span class="ident">process_image_height</span></span>(<span>self, response) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract height of the image from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>height for image</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_image_height(self, response) -&gt; int:
+    &#34;&#34;&#34;
+     Extract height of the image from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         int: height for image
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.height
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_image_instance_number"><code class="name flex">
+<span>def <span class="ident">process_image_instance_number</span></span>(<span>self, response) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract iamge instance number from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>instance number for image</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_image_instance_number(self, response) -&gt; int:
+    &#34;&#34;&#34;
+     Extract iamge instance number from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         int: instance number for image
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.instance_number
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_image_number_of_frames"><code class="name flex">
+<span>def <span class="ident">process_image_number_of_frames</span></span>(<span>self, response) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract number of frames in the image from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of frames for image</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_image_number_of_frames(self, response) -&gt; int:
+    &#34;&#34;&#34;
+     Extract number of frames in the image from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         int: number of frames for image
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.number_of_frames
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_image_series"><code class="name flex">
+<span>def <span class="ident">process_image_series</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract series that the image belongs to from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>osirixrpc_uid of series for image</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_image_series(self, response):
+    &#34;&#34;&#34;
+     Extract series that the image belongs to from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         osirixrpc_uid of series for image
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        # return response.series.osirixrpc_uid
+        return response.series
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_image_slice_location"><code class="name flex">
+<span>def <span class="ident">process_image_slice_location</span></span>(<span>self, response) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract slice location of the image from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>slice location for image</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_image_slice_location(self, response) -&gt; float:
+    &#34;&#34;&#34;
+     Extract slice location of the image from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         float: slice location for image
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.slice_locations
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_image_sop_instance_uid"><code class="name flex">
+<span>def <span class="ident">process_image_sop_instance_uid</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract sop instance uid of the image from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>sop class instance uid for image</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_image_sop_instance_uid(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract sop instance uid of the image from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str: sop class instance uid for image
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.sop_instance_uid
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_image_width"><code class="name flex">
+<span>def <span class="ident">process_image_width</span></span>(<span>self, response) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract width of the image from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>width for image</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_image_width(self, response) -&gt; int:
+    &#34;&#34;&#34;
+     Extract width of the image from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         int: width for image
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.width
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_images"><code class="name flex">
+<span>def <span class="ident">process_images</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract images from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>osirixrpc_uid of images for study</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_images(self, response):
+    &#34;&#34;&#34;
+     Extract images from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         osirixrpc_uid of images for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        images_tuple = ()
+
+        for image in response.images:
+            # print(series.osirixrpc_uid)
+            # images_tuple = images_tuple + (image.osirixrpc_uid,)
+            images_tuple = images_tuple + (image,)
+
+        return images_tuple
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_institution_name"><code class="name flex">
+<span>def <span class="ident">process_institution_name</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract institution name from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>institution name for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_institution_name(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract institution name from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : institution name for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.institution_name
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_is_rgb"><code class="name flex">
+<span>def <span class="ident">process_is_rgb</span></span>(<span>self, response) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract whether the DCMPix is rgb or not from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool </code></dt>
+<dd>is_rgb</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_is_rgb(self, response) -&gt; bool:
+    &#34;&#34;&#34;
+     Extract whether the DCMPix is rgb or not from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         bool : is_rgb
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.is_rgb
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_modality"><code class="name flex">
+<span>def <span class="ident">process_modality</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract modality from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>modality</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_modality(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract modality from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : modality
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.modality
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_name"><code class="name flex">
+<span>def <span class="ident">process_name</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract name from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>name</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_name(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract name from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : name
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.name
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_no_images"><code class="name flex">
+<span>def <span class="ident">process_no_images</span></span>(<span>self, response) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract number of images from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int </code></dt>
+<dd>number of images</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_no_images(self, response) -&gt; int:
+    &#34;&#34;&#34;
+     Extract number of images from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         int : number of images
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.no_images
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_num_files"><code class="name flex">
+<span>def <span class="ident">process_num_files</span></span>(<span>self, response) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract number of files from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int </code></dt>
+<dd>number of files for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_num_files(self, response) -&gt; int:
+    &#34;&#34;&#34;
+     Extract number of files from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         int : number of files for study
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.no_files
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_paths"><code class="name flex">
+<span>def <span class="ident">process_paths</span></span>(<span>self, response) ‑> Tuple[str, ...]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract paths from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing file paths for study in str</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_paths(self, response) -&gt; Tuple[str, ...]:
+    &#34;&#34;&#34;
+     Extract paths from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         Tuple containing file paths for study in str
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return tuple(response.paths)
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_patient_id"><code class="name flex">
+<span>def <span class="ident">process_patient_id</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract patient id from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>patient id for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_patient_id(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract patient id from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : patient id for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.patient_id
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_patient_sex"><code class="name flex">
+<span>def <span class="ident">process_patient_sex</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract patient's sex from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>patient sex for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_patient_sex(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract patient&#39;s sex from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : patient sex for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.patient_sex
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_patient_uid"><code class="name flex">
+<span>def <span class="ident">process_patient_uid</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract patient uid from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>patient uid for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_patient_uid(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract patient uid from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : patient uid for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.patient_uid
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_performing_physician"><code class="name flex">
+<span>def <span class="ident">process_performing_physician</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract performing physician from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>performing physician for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_performing_physician(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract performing physician from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : performing physician for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.performing_physician
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_compute_roi"><code class="name flex">
+<span>def <span class="ident">process_pix_compute_roi</span></span>(<span>self, response) ‑> Dict[str, float]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compute the ROI information of the DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Dict containing the ROI statistics such as mean</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_compute_roi(self, response) -&gt; Dict[str, float]:
+    &#34;&#34;&#34;
+     Compute the ROI information of the DCMPix from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         Dict containing the ROI statistics such as mean
+
+     &#34;&#34;&#34;
+    if (response.status.status == 1):
+        roi_dict = {
+            &#39;mean&#39;: response.mean,
+            &#39;total&#39;: response.total,
+            &#39;std_dev&#39;: response.std_dev,
+            &#39;min&#39;: response.min,
+            &#39;max&#39;: response.max,
+            &#39;skewness&#39;: response.skewness,
+            &#39;kurtosis&#39;: response.kurtosis
+        }
+        return roi_dict
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_convert_to_rgb_bw"><code class="name flex">
+<span>def <span class="ident">process_pix_convert_to_rgb_bw</span></span>(<span>self, response) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Process the response from conversion the DCMPix to rgb or bw</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_convert_to_rgb_bw(self, response) -&gt; None:
+    &#34;&#34;&#34;
+      Process the response from conversion the DCMPix to rgb or bw
+
+      Args:
+          response: response returned by Osirix service for the request made
+      Returns:
+          None
+
+     &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        pass
+    elif (response.status.status == 0):
+        # 0 response code is the current overall failure code so there could be many reasons for failures.
+        # In this case, if the image is already rgb/bw, it would be 0
+        print(&#34;Image is already RGB or BW&#34;)
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_image"><code class="name flex">
+<span>def <span class="ident">process_pix_image</span></span>(<span>self, response) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract underlying image data of the DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ndarray </code></dt>
+<dd>image data</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_image(self, response) -&gt; ndarray:
+    &#34;&#34;&#34;
+     Extract underlying image data of the DCMPix from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         ndarray : image data
+     &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        if response.is_argb:
+            image_array = np.array(response.image_data_argb).reshape(response.rows, response.columns, 4)
+            return image_array
+        else:
+            image_array = np.array(response.image_data_float).reshape(response.rows, response.columns)
+            return image_array
+
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_list"><code class="name flex">
+<span>def <span class="ident">process_pix_list</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract DCMPix associated with the ViewerController from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_list(self, response):
+    &#34;&#34;&#34;
+     Extract DCMPix associated with the ViewerController from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     &#34;&#34;&#34;
+    if (response.status.status == 1):
+        dcm_pix_tuple = ()
+
+        for pix in response.pix:
+            # dcm_pix_tuple = dcm_pix_tuple + (pix.osirixrpc_uid,)
+            dcm_pix_tuple = dcm_pix_tuple + (pix,)
+
+        return dcm_pix_tuple
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_orientation"><code class="name flex">
+<span>def <span class="ident">process_pix_orientation</span></span>(<span>self, response) ‑> Tuple[float, ...]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract orientation of DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing orientations of DCMPix in float</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_orientation(self, response) -&gt; Tuple[float, ...]:
+    &#34;&#34;&#34;
+     Extract orientation of DCMPix from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         Tuple containing orientations of DCMPix in float
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+        tuple : Tuple[float, ...] = ()
+        for orientation in response.orientation:
+            tuple = tuple + (orientation,)
+
+        return tuple
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_origin"><code class="name flex">
+<span>def <span class="ident">process_pix_origin</span></span>(<span>self, response) ‑> Tuple[float, float, float]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract origin of DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing origin information (rows, columns, values) in float</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_origin(self, response) -&gt; Tuple[float, float, float]:
+    &#34;&#34;&#34;
+     Extract origin of DCMPix from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         Tuple containing origin information (rows, columns, values) in float
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return (response.origin_rows, response.origin_columns, response.origin_slices)
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_roi_map"><code class="name flex">
+<span>def <span class="ident">process_pix_roi_map</span></span>(<span>self, response) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract ROI map of DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ndarray </code></dt>
+<dd>roi map</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_roi_map(self, response) -&gt; ndarray:
+    &#34;&#34;&#34;
+     Extract ROI map of DCMPix from the response
+
+     Args:
+        response: response returned by Osirix service for the request made
+
+     Returns:
+        ndarray : roi map
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+        roi_map_array = np.array(response.map).reshape(response.rows, response.columns)
+        return roi_map_array
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_roi_values"><code class="name flex">
+<span>def <span class="ident">process_pix_roi_values</span></span>(<span>self, response) ‑> Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract the ROI values of the DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing ndarray for rows, columns and values of ROI</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_roi_values(self, response) -&gt; Tuple[ndarray, ndarray, ndarray]:
+    &#34;&#34;&#34;
+     Extract the ROI values of the DCMPix from the response
+
+     Args:
+        response: response returned by Osirix service for the request made
+
+     Returns:
+        Tuple containing ndarray for rows, columns and values of ROI
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+        rows = np.array(response.row_indices)
+        columns = np.array(response.column_indices)
+        values = np.array(response.values)
+        return (rows, columns, values)
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_shape"><code class="name flex">
+<span>def <span class="ident">process_pix_shape</span></span>(<span>self, response) ‑> Tuple[int, int]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract shape of DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing shape information (rows and columns)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_shape(self, response) -&gt; Tuple[int, int]:
+    &#34;&#34;&#34;
+     Extract shape of DCMPix from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         Tuple containing shape information (rows and columns)
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return (response.rows, response.columns)
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_slice_location"><code class="name flex">
+<span>def <span class="ident">process_pix_slice_location</span></span>(<span>self, response) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract slice location of DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float </code></dt>
+<dd>slice location</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_slice_location(self, response) -&gt; float:
+    &#34;&#34;&#34;
+    Extract slice location of DCMPix from the response
+
+    Args:
+        response: response returned by Osirix service for the request made
+    Returns:
+         float : slice location
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.slice_location
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_source_file"><code class="name flex">
+<span>def <span class="ident">process_pix_source_file</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract source file of the DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>source file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_source_file(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract source file of the DCMPix from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         str : source file
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.source_file
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_pix_spacing"><code class="name flex">
+<span>def <span class="ident">process_pix_spacing</span></span>(<span>self, response) ‑> Tuple[float, float]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract spacing of DCMPix from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing spacing information (rows and columns)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pix_spacing(self, response) -&gt; Tuple[float, float]:
+    &#34;&#34;&#34;
+     Extract spacing of DCMPix from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         Tuple containing spacing information (rows and columns)
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return (response.spacing_rows, response.spacing_columns)
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_referring_physician"><code class="name flex">
+<span>def <span class="ident">process_referring_physician</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract referring physician from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>referring physician for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_referring_physician(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract referring physician from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : referring physician for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.referring_physician
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_roi_color"><code class="name flex">
+<span>def <span class="ident">process_roi_color</span></span>(<span>self, response) ‑> Tuple[int, int, int]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract color of ROI from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing red, green, blue values in int</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_roi_color(self, response) -&gt; Tuple[int, int, int]:
+    &#34;&#34;&#34;
+     Extract color of ROI from the response
+
+     Args:
+        response: response returned by Osirix service for the request made
+
+     Returns:
+        Tuple containing red, green, blue values in int
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return (response.r, response.g, response.b)
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_roi_opacity"><code class="name flex">
+<span>def <span class="ident">process_roi_opacity</span></span>(<span>self, response) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract opacity of ROI from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float </code></dt>
+<dd>opacity</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_roi_opacity(self, response) -&gt; float:
+    &#34;&#34;&#34;
+     Extract opacity of ROI from the response
+
+     Args:
+        response: response returned by Osirix service for the request made
+
+     Returns:
+        float : opacity
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.opacity
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_roi_pix"><code class="name flex">
+<span>def <span class="ident">process_roi_pix</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract DCMPix associated with the ROI from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>pix osirixrpc_id</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_roi_pix(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract DCMPix associated with the ROI from the response
+
+     Args:
+        response: response returned by Osirix service for the request made
+
+     Returns:
+         str : pix osirixrpc_id
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.pix
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_roi_points"><code class="name flex">
+<span>def <span class="ident">process_roi_points</span></span>(<span>self, response) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract points of the ROI from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ndarray </code></dt>
+<dd>roi points</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_roi_points(self, response) -&gt; ndarray:
+    &#34;&#34;&#34;
+     Extract points of the ROI from the response
+
+     Args:
+        response: response returned by Osirix service for the request made
+
+     Returns:
+         ndarray : roi points
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        points = []
+        for i in range(len(response.points)):
+            points.append([response.points[i].x, response.points[i].y])
+        points = np.array(points)
+
+        return points
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_roi_thickness"><code class="name flex">
+<span>def <span class="ident">process_roi_thickness</span></span>(<span>self, response) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract thickness of ROI from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float </code></dt>
+<dd>thickness</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_roi_thickness(self, response) -&gt; float:
+    &#34;&#34;&#34;
+     Extract thickness of ROI from the response
+
+     Args:
+        response: response returned by Osirix service for the request made
+
+     Returns:
+        float : thickness
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.thickness
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_roi_type"><code class="name flex">
+<span>def <span class="ident">process_roi_type</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract the type of the ROI from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>type of roi</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_roi_type(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract the type of the ROI from the response
+
+     Args:
+        response: response returned by Osirix service for the request made
+
+     Returns:
+         str : type of roi
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.type
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_series_description"><code class="name flex">
+<span>def <span class="ident">process_series_description</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract series description from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>series description for series</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_series_description(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract series description from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str: series description for series
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.series_description
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_series_instance_uid"><code class="name flex">
+<span>def <span class="ident">process_series_instance_uid</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract series instance uid from the response</p>
+<p>Args:
+response: response returned by Osirix service for the request made</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>instance uid for series</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_series_instance_uid(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract series instance uid from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+    Returns:
+         str: instance uid for series
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.series_instance_uid
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_series_next_series"><code class="name flex">
+<span>def <span class="ident">process_series_next_series</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract next series in the study from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>osirixrpc_uid of next series for image</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_series_next_series(self, response):
+    &#34;&#34;&#34;
+     Extract next series in the study from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         osirixrpc_uid of next series for image
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        # return response.next_series.osirixrpc_uid
+        return response.next_series
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_series_previous_series"><code class="name flex">
+<span>def <span class="ident">process_series_previous_series</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract previous series in the study from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>osirixrpc_uid of previous series for image</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_series_previous_series(self, response):
+    &#34;&#34;&#34;
+     Extract previous series in the study from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         osirixrpc_uid of previous series for image
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        # return response.previous_series.osirixrpc_uid
+        return response.previous_series
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_series_sop_class_uid"><code class="name flex">
+<span>def <span class="ident">process_series_sop_class_uid</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract series sop class uid from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>sop class uid for series</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_series_sop_class_uid(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract series sop class uid from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str: sop class uid for series
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.series_sop_class_uid
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_series_sorted_image"><code class="name flex">
+<span>def <span class="ident">process_series_sorted_image</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract sorted images of the series from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing osirixrpc_uid of sorted images for image</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_series_sorted_image(self, response):
+    &#34;&#34;&#34;
+     Extract sorted images of the series from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         Tuple containing osirixrpc_uid of sorted images for image
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+        sorted_image_tuple = ()
+
+        for sorted_image in response.sorted_images:
+            sorted_image_tuple = sorted_image_tuple + (sorted_image,)
+            # sorted_image_tuple = sorted_image_tuple + (sorted_image.osirixrpc_uid,)
+
+        return sorted_image_tuple
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_series_study"><code class="name flex">
+<span>def <span class="ident">process_series_study</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract the study that the series belongs to from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>osirixrpc_uid of study for image</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_series_study(self, response):
+    &#34;&#34;&#34;
+     Extract the study that the series belongs to from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         osirixrpc_uid of study for image
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        # return response.study.osirixrpc_uid
+        return response.study
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_study_instance_uid"><code class="name flex">
+<span>def <span class="ident">process_study_instance_uid</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract study instance uid from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>instance uid for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_study_instance_uid(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract study instance uid from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : instance uid for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.study_instance_uid
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_study_modality"><code class="name flex">
+<span>def <span class="ident">process_study_modality</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract modalities of the study from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>modalities for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_study_modality(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract modalities of the study from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         str : modalities for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.modalities
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_study_series"><code class="name flex">
+<span>def <span class="ident">process_study_series</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract the all the series that are a part of the study from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>osirixrpc_uid of all the series for study</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_study_series(self, response):
+    &#34;&#34;&#34;
+     Extract the all the series that are a part of the study from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         osirixrpc_uid of all the series for study
+     &#34;&#34;&#34;
+    if (response.status.status == 1):
+        series_tuple = ()
+
+        for series in response.series:
+            # print(series.osirixrpc_uid)
+            # series_tuple = series_tuple + (series.osirixrpc_uid,)
+            series_tuple = series_tuple + (series,)
+
+        return series_tuple
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_study_study_name"><code class="name flex">
+<span>def <span class="ident">process_study_study_name</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract name of the study from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str </code></dt>
+<dd>study name for study</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_study_study_name(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract name of the study from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         str : study name for study
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.study_name
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_title"><code class="name flex">
+<span>def <span class="ident">process_title</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract title from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>title</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_title(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract title from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+        str: title
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.title
+    else:
+        # print(&#34;No title response&#34;)
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_viewer_2d"><code class="name flex">
+<span>def <span class="ident">process_viewer_2d</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract 2D viewer from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>osirixrpc_uid for ViewerController</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_viewer_2d(self, response):
+    &#34;&#34;&#34;
+     Extract 2D viewer from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         osirixrpc_uid for ViewerController
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        # return response.viewer_controller.osirixrpc_uid
+        return response.viewer_controller
+
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_viewer_idx"><code class="name flex">
+<span>def <span class="ident">process_viewer_idx</span></span>(<span>self, response) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract idx of the ViewerController from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int </code></dt>
+<dd>idx</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_viewer_idx(self, response) -&gt; int:
+    &#34;&#34;&#34;
+     Extract idx of the ViewerController from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         int : idx
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.idx
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_viewer_movie_idx"><code class="name flex">
+<span>def <span class="ident">process_viewer_movie_idx</span></span>(<span>self, response) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract movie_idx of the ViewerController from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int </code></dt>
+<dd>movie idx</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_viewer_movie_idx(self, response) -&gt; int:
+    &#34;&#34;&#34;
+     Extract movie_idx of the ViewerController from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         int : movie idx
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.movie_idx
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_vr_rendering_mode"><code class="name flex">
+<span>def <span class="ident">process_vr_rendering_mode</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract rendering mode of VR controller from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>rendering mode for VRController</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_vr_rendering_mode(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract rendering mode of VR controller from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         int: rendering mode for VRController
+
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.rendering_mode
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_vr_style"><code class="name flex">
+<span>def <span class="ident">process_vr_style</span></span>(<span>self, response) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract style of VR controller from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>style for VRController</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_vr_style(self, response) -&gt; str:
+    &#34;&#34;&#34;
+     Extract style of VR controller from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+     Returns:
+         int: style for VRController
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.style
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+<dt id="osirix.ResponseProcessor.ResponseProcessor.process_wlww"><code class="name flex">
+<span>def <span class="ident">process_wlww</span></span>(<span>self, response)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extract wlww from the response</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>response</code></strong></dt>
+<dd>response returned by Osirix service for the request made</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>wl</dd>
+<dt><code>int</code></dt>
+<dd>ww</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_wlww(self, response):
+    &#34;&#34;&#34;
+     Extract wlww from the response
+
+     Args:
+         response: response returned by Osirix service for the request made
+
+     Returns:
+         int: wl
+         int: ww
+    &#34;&#34;&#34;
+    if (response.status.status == 1):
+
+        return response.wl, response.ww
+    else:
+        raise GrpcException(&#34;No response&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="osirix" href="index.html">osirix</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="osirix.ResponseProcessor.ResponseProcessor" href="#osirix.ResponseProcessor.ResponseProcessor">ResponseProcessor</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_basic_response" href="#osirix.ResponseProcessor.ResponseProcessor.process_basic_response">process_basic_response</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_blending_controller" href="#osirix.ResponseProcessor.ResponseProcessor.process_blending_controller">process_blending_controller</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_datetime" href="#osirix.ResponseProcessor.ResponseProcessor.process_datetime">process_datetime</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_displayed_2d_viewers" href="#osirix.ResponseProcessor.ResponseProcessor.process_displayed_2d_viewers">process_displayed_2d_viewers</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_displayed_vr_controllers" href="#osirix.ResponseProcessor.ResponseProcessor.process_displayed_vr_controllers">process_displayed_vr_controllers</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_dob_datetime" href="#osirix.ResponseProcessor.ResponseProcessor.process_dob_datetime">process_dob_datetime</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_image_complete_path" href="#osirix.ResponseProcessor.ResponseProcessor.process_image_complete_path">process_image_complete_path</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_image_height" href="#osirix.ResponseProcessor.ResponseProcessor.process_image_height">process_image_height</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_image_instance_number" href="#osirix.ResponseProcessor.ResponseProcessor.process_image_instance_number">process_image_instance_number</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_image_number_of_frames" href="#osirix.ResponseProcessor.ResponseProcessor.process_image_number_of_frames">process_image_number_of_frames</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_image_series" href="#osirix.ResponseProcessor.ResponseProcessor.process_image_series">process_image_series</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_image_slice_location" href="#osirix.ResponseProcessor.ResponseProcessor.process_image_slice_location">process_image_slice_location</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_image_sop_instance_uid" href="#osirix.ResponseProcessor.ResponseProcessor.process_image_sop_instance_uid">process_image_sop_instance_uid</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_image_width" href="#osirix.ResponseProcessor.ResponseProcessor.process_image_width">process_image_width</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_images" href="#osirix.ResponseProcessor.ResponseProcessor.process_images">process_images</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_institution_name" href="#osirix.ResponseProcessor.ResponseProcessor.process_institution_name">process_institution_name</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_is_rgb" href="#osirix.ResponseProcessor.ResponseProcessor.process_is_rgb">process_is_rgb</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_modality" href="#osirix.ResponseProcessor.ResponseProcessor.process_modality">process_modality</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_name" href="#osirix.ResponseProcessor.ResponseProcessor.process_name">process_name</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_no_images" href="#osirix.ResponseProcessor.ResponseProcessor.process_no_images">process_no_images</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_num_files" href="#osirix.ResponseProcessor.ResponseProcessor.process_num_files">process_num_files</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_paths" href="#osirix.ResponseProcessor.ResponseProcessor.process_paths">process_paths</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_patient_id" href="#osirix.ResponseProcessor.ResponseProcessor.process_patient_id">process_patient_id</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_patient_sex" href="#osirix.ResponseProcessor.ResponseProcessor.process_patient_sex">process_patient_sex</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_patient_uid" href="#osirix.ResponseProcessor.ResponseProcessor.process_patient_uid">process_patient_uid</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_performing_physician" href="#osirix.ResponseProcessor.ResponseProcessor.process_performing_physician">process_performing_physician</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_compute_roi" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_compute_roi">process_pix_compute_roi</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_convert_to_rgb_bw" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_convert_to_rgb_bw">process_pix_convert_to_rgb_bw</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_image" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_image">process_pix_image</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_list" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_list">process_pix_list</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_orientation" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_orientation">process_pix_orientation</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_origin" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_origin">process_pix_origin</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_roi_map" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_roi_map">process_pix_roi_map</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_roi_values" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_roi_values">process_pix_roi_values</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_shape" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_shape">process_pix_shape</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_slice_location" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_slice_location">process_pix_slice_location</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_source_file" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_source_file">process_pix_source_file</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_pix_spacing" href="#osirix.ResponseProcessor.ResponseProcessor.process_pix_spacing">process_pix_spacing</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_referring_physician" href="#osirix.ResponseProcessor.ResponseProcessor.process_referring_physician">process_referring_physician</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_roi_color" href="#osirix.ResponseProcessor.ResponseProcessor.process_roi_color">process_roi_color</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_roi_opacity" href="#osirix.ResponseProcessor.ResponseProcessor.process_roi_opacity">process_roi_opacity</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_roi_pix" href="#osirix.ResponseProcessor.ResponseProcessor.process_roi_pix">process_roi_pix</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_roi_points" href="#osirix.ResponseProcessor.ResponseProcessor.process_roi_points">process_roi_points</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_roi_thickness" href="#osirix.ResponseProcessor.ResponseProcessor.process_roi_thickness">process_roi_thickness</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_roi_type" href="#osirix.ResponseProcessor.ResponseProcessor.process_roi_type">process_roi_type</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_series_description" href="#osirix.ResponseProcessor.ResponseProcessor.process_series_description">process_series_description</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_series_instance_uid" href="#osirix.ResponseProcessor.ResponseProcessor.process_series_instance_uid">process_series_instance_uid</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_series_next_series" href="#osirix.ResponseProcessor.ResponseProcessor.process_series_next_series">process_series_next_series</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_series_previous_series" href="#osirix.ResponseProcessor.ResponseProcessor.process_series_previous_series">process_series_previous_series</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_series_sop_class_uid" href="#osirix.ResponseProcessor.ResponseProcessor.process_series_sop_class_uid">process_series_sop_class_uid</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_series_sorted_image" href="#osirix.ResponseProcessor.ResponseProcessor.process_series_sorted_image">process_series_sorted_image</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_series_study" href="#osirix.ResponseProcessor.ResponseProcessor.process_series_study">process_series_study</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_study_instance_uid" href="#osirix.ResponseProcessor.ResponseProcessor.process_study_instance_uid">process_study_instance_uid</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_study_modality" href="#osirix.ResponseProcessor.ResponseProcessor.process_study_modality">process_study_modality</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_study_series" href="#osirix.ResponseProcessor.ResponseProcessor.process_study_series">process_study_series</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_study_study_name" href="#osirix.ResponseProcessor.ResponseProcessor.process_study_study_name">process_study_study_name</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_title" href="#osirix.ResponseProcessor.ResponseProcessor.process_title">process_title</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_viewer_2d" href="#osirix.ResponseProcessor.ResponseProcessor.process_viewer_2d">process_viewer_2d</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_viewer_idx" href="#osirix.ResponseProcessor.ResponseProcessor.process_viewer_idx">process_viewer_idx</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_viewer_movie_idx" href="#osirix.ResponseProcessor.ResponseProcessor.process_viewer_movie_idx">process_viewer_movie_idx</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_vr_rendering_mode" href="#osirix.ResponseProcessor.ResponseProcessor.process_vr_rendering_mode">process_vr_rendering_mode</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_vr_style" href="#osirix.ResponseProcessor.ResponseProcessor.process_vr_style">process_vr_style</a></code></li>
+<li><code><a title="osirix.ResponseProcessor.ResponseProcessor.process_wlww" href="#osirix.ResponseProcessor.ResponseProcessor.process_wlww">process_wlww</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

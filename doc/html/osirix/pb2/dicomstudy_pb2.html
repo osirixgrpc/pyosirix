@@ -1,0 +1,2076 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>osirix.pb2.dicomstudy_pb2 API documentation</title>
+<meta name="description" content="Generated protocol buffer code." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>osirix.pb2.dicomstudy_pb2</code></h1>
+</header>
+<section id="section-intro">
+<p>Generated protocol buffer code.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+# Generated by the protocol buffer compiler.  DO NOT EDIT!
+# source: dicomstudy.proto
+&#34;&#34;&#34;Generated protocol buffer code.&#34;&#34;&#34;
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf import reflection as _reflection
+from google.protobuf import symbol_database as _symbol_database
+# @@protoc_insertion_point(imports)
+
+_sym_db = _symbol_database.Default()
+
+
+import osirix.pb2.utilities_pb2 as utilities__pb2
+import osirix.pb2.types_pb2 as types__pb2
+
+
+DESCRIPTOR = _descriptor.FileDescriptor(
+  name=&#39;dicomstudy.proto&#39;,
+  package=&#39;osirixgrpc&#39;,
+  syntax=&#39;proto3&#39;,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b&#39;\n\x10\x64icomstudy.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\&#34;L\n\x17\x44icomStudyPathsResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\r\n\x05paths\x18\x02 \x03(\t\&#34;f\n\x18\x44icomStudyImagesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12&amp;\n\x06images\x18\x02 \x03(\x0b\x32\x16.osirixgrpc.DicomImage\&#34;V\n\x1c\x44icomStudyModalitiesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x12\n\nmodalities\x18\x02 \x01(\t\&#34;Q\n\x19\x44icomStudyNoFilesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x10\n\x08no_files\x18\x02 \x01(\x05\&#34;T\n\x1c\x44icomStudyRawNoFilesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x10\n\x08no_files\x18\x02 \x01(\x05\&#34;e\n-DicomStudyNoFilesExcludingMultiFramesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x10\n\x08no_files\x18\x02 \x01(\x05\&#34;Y\n DicomStudyNumberOfImagesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x11\n\tno_images\x18\x02 \x01(\x05\&#34;g\n\x18\x44icomStudySeriesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\&#39;\n\x06series\x18\x02 \x03(\x0b\x32\x17.osirixgrpc.DicomSeries\&#34;J\n\x16\x44icomStudyNameResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04name\x18\x02 \x01(\t\&#34;\xa9\x01\n\x16\x44icomStudyDateResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04year\x18\x02 \x01(\x05\x12\r\n\x05month\x18\x03 \x01(\x05\x12\x0b\n\x03\x64\x61y\x18\x04 \x01(\x05\x12\x0c\n\x04hour\x18\x05 \x01(\x05\x12\x0e\n\x06minute\x18\x06 \x01(\x05\x12\x0e\n\x06second\x18\x07 \x01(\x05\x12\x13\n\x0bmillisecond\x18\x08 \x01(\x05\&#34;\xae\x01\n\x1b\x44icomStudyDateAddedResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04year\x18\x02 \x01(\x05\x12\r\n\x05month\x18\x03 \x01(\x05\x12\x0b\n\x03\x64\x61y\x18\x04 \x01(\x05\x12\x0c\n\x04hour\x18\x05 \x01(\x05\x12\x0e\n\x06minute\x18\x06 \x01(\x05\x12\x0e\n\x06second\x18\x07 \x01(\x05\x12\x13\n\x0bmillisecond\x18\x08 \x01(\x05\&#34;m\n\x1d\x44icomStudyDateOfBirthResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04year\x18\x02 \x01(\x05\x12\r\n\x05month\x18\x03 \x01(\x05\x12\x0b\n\x03\x64\x61y\x18\x04 \x01(\x05\&#34;a\n!DicomStudyInstitutionNameResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x18\n\x10institution_name\x18\x02 \x01(\t\&#34;R\n\x1a\x44icomStudyModalityResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x10\n\x08modality\x18\x02 \x01(\t\&#34;U\n\x1b\x44icomStudyPatientIDResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x12\n\npatient_id\x18\x02 \x01(\t\&#34;W\n\x1c\x44icomStudyPatientUIDResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x13\n\x0bpatient_uid\x18\x02 \x01(\t\&#34;W\n\x1c\x44icomStudyPatientSexResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x13\n\x0bpatient_sex\x18\x02 \x01(\t\&#34;i\n%DicomStudyPerformingPhysicianResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x1c\n\x14performing_physician\x18\x02 \x01(\t\&#34;g\n$DicomStudyReferringPhysicianResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x1b\n\x13referring_physician\x18\x02 \x01(\t\&#34;d\n\&#34;DicomStudyStudyInstanceUIDResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x1a\n\x12study_instance_uid\x18\x02 \x01(\t\&#34;U\n\x1b\x44icomStudyStudyNameResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x12\n\nstudy_name\x18\x02 \x01(\tb\x06proto3&#39;
+  ,
+  dependencies=[utilities__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
+
+
+
+
+_DICOMSTUDYPATHSRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyPathsResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyPathsResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyPathsResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;paths&#39;, full_name=&#39;osirixgrpc.DicomStudyPathsResponse.paths&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=62,
+  serialized_end=138,
+)
+
+
+_DICOMSTUDYIMAGESRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyImagesResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyImagesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyImagesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;images&#39;, full_name=&#39;osirixgrpc.DicomStudyImagesResponse.images&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=140,
+  serialized_end=242,
+)
+
+
+_DICOMSTUDYMODALITIESRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyModalitiesResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyModalitiesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyModalitiesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;modalities&#39;, full_name=&#39;osirixgrpc.DicomStudyModalitiesResponse.modalities&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=244,
+  serialized_end=330,
+)
+
+
+_DICOMSTUDYNOFILESRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyNoFilesResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyNoFilesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyNoFilesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;no_files&#39;, full_name=&#39;osirixgrpc.DicomStudyNoFilesResponse.no_files&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=332,
+  serialized_end=413,
+)
+
+
+_DICOMSTUDYRAWNOFILESRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyRawNoFilesResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyRawNoFilesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyRawNoFilesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;no_files&#39;, full_name=&#39;osirixgrpc.DicomStudyRawNoFilesResponse.no_files&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=415,
+  serialized_end=499,
+)
+
+
+_DICOMSTUDYNOFILESEXCLUDINGMULTIFRAMESRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyNoFilesExcludingMultiFramesResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyNoFilesExcludingMultiFramesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyNoFilesExcludingMultiFramesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;no_files&#39;, full_name=&#39;osirixgrpc.DicomStudyNoFilesExcludingMultiFramesResponse.no_files&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=501,
+  serialized_end=602,
+)
+
+
+_DICOMSTUDYNUMBEROFIMAGESRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyNumberOfImagesResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyNumberOfImagesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyNumberOfImagesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;no_images&#39;, full_name=&#39;osirixgrpc.DicomStudyNumberOfImagesResponse.no_images&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=604,
+  serialized_end=693,
+)
+
+
+_DICOMSTUDYSERIESRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudySeriesResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudySeriesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudySeriesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;series&#39;, full_name=&#39;osirixgrpc.DicomStudySeriesResponse.series&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=695,
+  serialized_end=798,
+)
+
+
+_DICOMSTUDYNAMERESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyNameResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyNameResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyNameResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;name&#39;, full_name=&#39;osirixgrpc.DicomStudyNameResponse.name&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=800,
+  serialized_end=874,
+)
+
+
+_DICOMSTUDYDATERESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyDateResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyDateResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyDateResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;year&#39;, full_name=&#39;osirixgrpc.DicomStudyDateResponse.year&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;month&#39;, full_name=&#39;osirixgrpc.DicomStudyDateResponse.month&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;day&#39;, full_name=&#39;osirixgrpc.DicomStudyDateResponse.day&#39;, index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;hour&#39;, full_name=&#39;osirixgrpc.DicomStudyDateResponse.hour&#39;, index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;minute&#39;, full_name=&#39;osirixgrpc.DicomStudyDateResponse.minute&#39;, index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;second&#39;, full_name=&#39;osirixgrpc.DicomStudyDateResponse.second&#39;, index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;millisecond&#39;, full_name=&#39;osirixgrpc.DicomStudyDateResponse.millisecond&#39;, index=7,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=877,
+  serialized_end=1046,
+)
+
+
+_DICOMSTUDYDATEADDEDRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyDateAddedResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyDateAddedResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyDateAddedResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;year&#39;, full_name=&#39;osirixgrpc.DicomStudyDateAddedResponse.year&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;month&#39;, full_name=&#39;osirixgrpc.DicomStudyDateAddedResponse.month&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;day&#39;, full_name=&#39;osirixgrpc.DicomStudyDateAddedResponse.day&#39;, index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;hour&#39;, full_name=&#39;osirixgrpc.DicomStudyDateAddedResponse.hour&#39;, index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;minute&#39;, full_name=&#39;osirixgrpc.DicomStudyDateAddedResponse.minute&#39;, index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;second&#39;, full_name=&#39;osirixgrpc.DicomStudyDateAddedResponse.second&#39;, index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;millisecond&#39;, full_name=&#39;osirixgrpc.DicomStudyDateAddedResponse.millisecond&#39;, index=7,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1049,
+  serialized_end=1223,
+)
+
+
+_DICOMSTUDYDATEOFBIRTHRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyDateOfBirthResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyDateOfBirthResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyDateOfBirthResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;year&#39;, full_name=&#39;osirixgrpc.DicomStudyDateOfBirthResponse.year&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;month&#39;, full_name=&#39;osirixgrpc.DicomStudyDateOfBirthResponse.month&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;day&#39;, full_name=&#39;osirixgrpc.DicomStudyDateOfBirthResponse.day&#39;, index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1225,
+  serialized_end=1334,
+)
+
+
+_DICOMSTUDYINSTITUTIONNAMERESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyInstitutionNameResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyInstitutionNameResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyInstitutionNameResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;institution_name&#39;, full_name=&#39;osirixgrpc.DicomStudyInstitutionNameResponse.institution_name&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1336,
+  serialized_end=1433,
+)
+
+
+_DICOMSTUDYMODALITYRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyModalityResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyModalityResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyModalityResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;modality&#39;, full_name=&#39;osirixgrpc.DicomStudyModalityResponse.modality&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1435,
+  serialized_end=1517,
+)
+
+
+_DICOMSTUDYPATIENTIDRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyPatientIDResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyPatientIDResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyPatientIDResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;patient_id&#39;, full_name=&#39;osirixgrpc.DicomStudyPatientIDResponse.patient_id&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1519,
+  serialized_end=1604,
+)
+
+
+_DICOMSTUDYPATIENTUIDRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyPatientUIDResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyPatientUIDResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyPatientUIDResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;patient_uid&#39;, full_name=&#39;osirixgrpc.DicomStudyPatientUIDResponse.patient_uid&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1606,
+  serialized_end=1693,
+)
+
+
+_DICOMSTUDYPATIENTSEXRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyPatientSexResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyPatientSexResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyPatientSexResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;patient_sex&#39;, full_name=&#39;osirixgrpc.DicomStudyPatientSexResponse.patient_sex&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1695,
+  serialized_end=1782,
+)
+
+
+_DICOMSTUDYPERFORMINGPHYSICIANRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyPerformingPhysicianResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyPerformingPhysicianResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyPerformingPhysicianResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;performing_physician&#39;, full_name=&#39;osirixgrpc.DicomStudyPerformingPhysicianResponse.performing_physician&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1784,
+  serialized_end=1889,
+)
+
+
+_DICOMSTUDYREFERRINGPHYSICIANRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyReferringPhysicianResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyReferringPhysicianResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyReferringPhysicianResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;referring_physician&#39;, full_name=&#39;osirixgrpc.DicomStudyReferringPhysicianResponse.referring_physician&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1891,
+  serialized_end=1994,
+)
+
+
+_DICOMSTUDYSTUDYINSTANCEUIDRESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyStudyInstanceUIDResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyStudyInstanceUIDResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyStudyInstanceUIDResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;study_instance_uid&#39;, full_name=&#39;osirixgrpc.DicomStudyStudyInstanceUIDResponse.study_instance_uid&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1996,
+  serialized_end=2096,
+)
+
+
+_DICOMSTUDYSTUDYNAMERESPONSE = _descriptor.Descriptor(
+  name=&#39;DicomStudyStudyNameResponse&#39;,
+  full_name=&#39;osirixgrpc.DicomStudyStudyNameResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DicomStudyStudyNameResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;study_name&#39;, full_name=&#39;osirixgrpc.DicomStudyStudyNameResponse.study_name&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2098,
+  serialized_end=2183,
+)
+
+_DICOMSTUDYPATHSRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYIMAGESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYIMAGESRESPONSE.fields_by_name[&#39;images&#39;].message_type = types__pb2._DICOMIMAGE
+_DICOMSTUDYMODALITIESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYNOFILESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYRAWNOFILESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYNOFILESEXCLUDINGMULTIFRAMESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYNUMBEROFIMAGESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYSERIESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYSERIESRESPONSE.fields_by_name[&#39;series&#39;].message_type = types__pb2._DICOMSERIES
+_DICOMSTUDYNAMERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYDATERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYDATEADDEDRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYDATEOFBIRTHRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYINSTITUTIONNAMERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYMODALITYRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYPATIENTIDRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYPATIENTUIDRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYPATIENTSEXRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYPERFORMINGPHYSICIANRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYREFERRINGPHYSICIANRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYSTUDYINSTANCEUIDRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DICOMSTUDYSTUDYNAMERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyPathsResponse&#39;] = _DICOMSTUDYPATHSRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyImagesResponse&#39;] = _DICOMSTUDYIMAGESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyModalitiesResponse&#39;] = _DICOMSTUDYMODALITIESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyNoFilesResponse&#39;] = _DICOMSTUDYNOFILESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyRawNoFilesResponse&#39;] = _DICOMSTUDYRAWNOFILESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyNoFilesExcludingMultiFramesResponse&#39;] = _DICOMSTUDYNOFILESEXCLUDINGMULTIFRAMESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyNumberOfImagesResponse&#39;] = _DICOMSTUDYNUMBEROFIMAGESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudySeriesResponse&#39;] = _DICOMSTUDYSERIESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyNameResponse&#39;] = _DICOMSTUDYNAMERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyDateResponse&#39;] = _DICOMSTUDYDATERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyDateAddedResponse&#39;] = _DICOMSTUDYDATEADDEDRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyDateOfBirthResponse&#39;] = _DICOMSTUDYDATEOFBIRTHRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyInstitutionNameResponse&#39;] = _DICOMSTUDYINSTITUTIONNAMERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyModalityResponse&#39;] = _DICOMSTUDYMODALITYRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyPatientIDResponse&#39;] = _DICOMSTUDYPATIENTIDRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyPatientUIDResponse&#39;] = _DICOMSTUDYPATIENTUIDRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyPatientSexResponse&#39;] = _DICOMSTUDYPATIENTSEXRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyPerformingPhysicianResponse&#39;] = _DICOMSTUDYPERFORMINGPHYSICIANRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyReferringPhysicianResponse&#39;] = _DICOMSTUDYREFERRINGPHYSICIANRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyStudyInstanceUIDResponse&#39;] = _DICOMSTUDYSTUDYINSTANCEUIDRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DicomStudyStudyNameResponse&#39;] = _DICOMSTUDYSTUDYNAMERESPONSE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+DicomStudyPathsResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyPathsResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYPATHSRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyPathsResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyPathsResponse)
+
+DicomStudyImagesResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyImagesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYIMAGESRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyImagesResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyImagesResponse)
+
+DicomStudyModalitiesResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyModalitiesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYMODALITIESRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyModalitiesResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyModalitiesResponse)
+
+DicomStudyNoFilesResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyNoFilesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYNOFILESRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyNoFilesResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyNoFilesResponse)
+
+DicomStudyRawNoFilesResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyRawNoFilesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYRAWNOFILESRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyRawNoFilesResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyRawNoFilesResponse)
+
+DicomStudyNoFilesExcludingMultiFramesResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyNoFilesExcludingMultiFramesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYNOFILESEXCLUDINGMULTIFRAMESRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyNoFilesExcludingMultiFramesResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyNoFilesExcludingMultiFramesResponse)
+
+DicomStudyNumberOfImagesResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyNumberOfImagesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYNUMBEROFIMAGESRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyNumberOfImagesResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyNumberOfImagesResponse)
+
+DicomStudySeriesResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudySeriesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYSERIESRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudySeriesResponse)
+  })
+_sym_db.RegisterMessage(DicomStudySeriesResponse)
+
+DicomStudyNameResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyNameResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYNAMERESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyNameResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyNameResponse)
+
+DicomStudyDateResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyDateResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYDATERESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyDateResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyDateResponse)
+
+DicomStudyDateAddedResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyDateAddedResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYDATEADDEDRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyDateAddedResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyDateAddedResponse)
+
+DicomStudyDateOfBirthResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyDateOfBirthResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYDATEOFBIRTHRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyDateOfBirthResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyDateOfBirthResponse)
+
+DicomStudyInstitutionNameResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyInstitutionNameResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYINSTITUTIONNAMERESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyInstitutionNameResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyInstitutionNameResponse)
+
+DicomStudyModalityResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyModalityResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYMODALITYRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyModalityResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyModalityResponse)
+
+DicomStudyPatientIDResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyPatientIDResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYPATIENTIDRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyPatientIDResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyPatientIDResponse)
+
+DicomStudyPatientUIDResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyPatientUIDResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYPATIENTUIDRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyPatientUIDResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyPatientUIDResponse)
+
+DicomStudyPatientSexResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyPatientSexResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYPATIENTSEXRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyPatientSexResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyPatientSexResponse)
+
+DicomStudyPerformingPhysicianResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyPerformingPhysicianResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYPERFORMINGPHYSICIANRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyPerformingPhysicianResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyPerformingPhysicianResponse)
+
+DicomStudyReferringPhysicianResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyReferringPhysicianResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYREFERRINGPHYSICIANRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyReferringPhysicianResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyReferringPhysicianResponse)
+
+DicomStudyStudyInstanceUIDResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyStudyInstanceUIDResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYSTUDYINSTANCEUIDRESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyStudyInstanceUIDResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyStudyInstanceUIDResponse)
+
+DicomStudyStudyNameResponse = _reflection.GeneratedProtocolMessageType(&#39;DicomStudyStudyNameResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DICOMSTUDYSTUDYNAMERESPONSE,
+  &#39;__module__&#39; : &#39;dicomstudy_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DicomStudyStudyNameResponse)
+  })
+_sym_db.RegisterMessage(DicomStudyStudyNameResponse)
+
+
+# @@protoc_insertion_point(module_scope)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyDateAddedResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.day"><code class="name">var <span class="ident">day</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateAddedResponse.day</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.hour"><code class="name">var <span class="ident">hour</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateAddedResponse.hour</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.millisecond"><code class="name">var <span class="ident">millisecond</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateAddedResponse.millisecond</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.minute"><code class="name">var <span class="ident">minute</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateAddedResponse.minute</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.month"><code class="name">var <span class="ident">month</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateAddedResponse.month</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.second"><code class="name">var <span class="ident">second</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateAddedResponse.second</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateAddedResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.year"><code class="name">var <span class="ident">year</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateAddedResponse.year</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyDateOfBirthResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.day"><code class="name">var <span class="ident">day</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateOfBirthResponse.day</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.month"><code class="name">var <span class="ident">month</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateOfBirthResponse.month</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateOfBirthResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.year"><code class="name">var <span class="ident">year</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateOfBirthResponse.year</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyDateResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.day"><code class="name">var <span class="ident">day</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateResponse.day</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.hour"><code class="name">var <span class="ident">hour</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateResponse.hour</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.millisecond"><code class="name">var <span class="ident">millisecond</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateResponse.millisecond</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.minute"><code class="name">var <span class="ident">minute</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateResponse.minute</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.month"><code class="name">var <span class="ident">month</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateResponse.month</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.second"><code class="name">var <span class="ident">second</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateResponse.second</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.year"><code class="name">var <span class="ident">year</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyDateResponse.year</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyImagesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse.images"><code class="name">var <span class="ident">images</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyImagesResponse.images</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyImagesResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyInstitutionNameResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse.institution_name"><code class="name">var <span class="ident">institution_name</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyInstitutionNameResponse.institution_name</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyInstitutionNameResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyModalitiesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse.modalities"><code class="name">var <span class="ident">modalities</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyModalitiesResponse.modalities</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyModalitiesResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyModalityResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse.modality"><code class="name">var <span class="ident">modality</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyModalityResponse.modality</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyModalityResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyNameResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyNameResponse.name</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyNameResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyNoFilesExcludingMultiFramesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse.no_files"><code class="name">var <span class="ident">no_files</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyNoFilesExcludingMultiFramesResponse.no_files</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyNoFilesExcludingMultiFramesResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyNoFilesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse.no_files"><code class="name">var <span class="ident">no_files</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyNoFilesResponse.no_files</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyNoFilesResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyNumberOfImagesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse.no_images"><code class="name">var <span class="ident">no_images</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyNumberOfImagesResponse.no_images</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyNumberOfImagesResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyPathsResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse.paths"><code class="name">var <span class="ident">paths</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPathsResponse.paths</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPathsResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyPatientIDResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse.patient_id"><code class="name">var <span class="ident">patient_id</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPatientIDResponse.patient_id</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPatientIDResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyPatientSexResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse.patient_sex"><code class="name">var <span class="ident">patient_sex</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPatientSexResponse.patient_sex</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPatientSexResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyPatientUIDResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse.patient_uid"><code class="name">var <span class="ident">patient_uid</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPatientUIDResponse.patient_uid</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPatientUIDResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyPerformingPhysicianResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse.performing_physician"><code class="name">var <span class="ident">performing_physician</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPerformingPhysicianResponse.performing_physician</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyPerformingPhysicianResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyRawNoFilesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse.no_files"><code class="name">var <span class="ident">no_files</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyRawNoFilesResponse.no_files</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyRawNoFilesResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyReferringPhysicianResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse.referring_physician"><code class="name">var <span class="ident">referring_physician</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyReferringPhysicianResponse.referring_physician</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyReferringPhysicianResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudySeriesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse.series"><code class="name">var <span class="ident">series</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudySeriesResponse.series</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudySeriesResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyStudyInstanceUIDResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyStudyInstanceUIDResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse.study_instance_uid"><code class="name">var <span class="ident">study_instance_uid</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyStudyInstanceUIDResponse.study_instance_uid</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse"><code class="flex name class">
+<span>class <span class="ident">DicomStudyStudyNameResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyStudyNameResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse.study_name"><code class="name">var <span class="ident">study_name</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DicomStudyStudyNameResponse.study_name</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="osirix.pb2" href="index.html">osirix.pb2</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse">DicomStudyDateAddedResponse</a></code></h4>
+<ul class="two-column">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.day" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.day">day</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.hour" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.hour">hour</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.millisecond" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.millisecond">millisecond</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.minute" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.minute">minute</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.month" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.month">month</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.second" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.second">second</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.year" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateAddedResponse.year">year</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse">DicomStudyDateOfBirthResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.day" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.day">day</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.month" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.month">month</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.year" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateOfBirthResponse.year">year</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse">DicomStudyDateResponse</a></code></h4>
+<ul class="two-column">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.day" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.day">day</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.hour" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.hour">hour</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.millisecond" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.millisecond">millisecond</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.minute" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.minute">minute</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.month" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.month">month</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.second" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.second">second</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.year" href="#osirix.pb2.dicomstudy_pb2.DicomStudyDateResponse.year">year</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse">DicomStudyImagesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse.images" href="#osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse.images">images</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyImagesResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse">DicomStudyInstitutionNameResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse.institution_name" href="#osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse.institution_name">institution_name</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyInstitutionNameResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse">DicomStudyModalitiesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse.modalities" href="#osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse.modalities">modalities</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyModalitiesResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse">DicomStudyModalityResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse.modality" href="#osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse.modality">modality</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyModalityResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse">DicomStudyNameResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse.name" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse.name">name</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNameResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse">DicomStudyNoFilesExcludingMultiFramesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse.no_files" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse.no_files">no_files</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesExcludingMultiFramesResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse">DicomStudyNoFilesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse.no_files" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse.no_files">no_files</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNoFilesResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse">DicomStudyNumberOfImagesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse.no_images" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse.no_images">no_images</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyNumberOfImagesResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse">DicomStudyPathsResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse.paths" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse.paths">paths</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPathsResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse">DicomStudyPatientIDResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse.patient_id" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse.patient_id">patient_id</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientIDResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse">DicomStudyPatientSexResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse.patient_sex" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse.patient_sex">patient_sex</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientSexResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse">DicomStudyPatientUIDResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse.patient_uid" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse.patient_uid">patient_uid</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPatientUIDResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse">DicomStudyPerformingPhysicianResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse.performing_physician" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse.performing_physician">performing_physician</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyPerformingPhysicianResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse">DicomStudyRawNoFilesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse.no_files" href="#osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse.no_files">no_files</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyRawNoFilesResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse">DicomStudyReferringPhysicianResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse.referring_physician" href="#osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse.referring_physician">referring_physician</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyReferringPhysicianResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse">DicomStudySeriesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse.series" href="#osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse.series">series</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudySeriesResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse">DicomStudyStudyInstanceUIDResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse.study_instance_uid" href="#osirix.pb2.dicomstudy_pb2.DicomStudyStudyInstanceUIDResponse.study_instance_uid">study_instance_uid</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse" href="#osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse">DicomStudyStudyNameResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse.DESCRIPTOR" href="#osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse.status" href="#osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse.study_name" href="#osirix.pb2.dicomstudy_pb2.DicomStudyStudyNameResponse.study_name">study_name</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

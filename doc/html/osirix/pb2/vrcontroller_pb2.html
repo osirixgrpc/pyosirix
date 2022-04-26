@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>osirix.pb2.vrcontroller_pb2 API documentation</title>
+<meta name="description" content="Generated protocol buffer code." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>osirix.pb2.vrcontroller_pb2</code></h1>
+</header>
+<section id="section-intro">
+<p>Generated protocol buffer code.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+# Generated by the protocol buffer compiler.  DO NOT EDIT!
+# source: vrcontroller.proto
+&#34;&#34;&#34;Generated protocol buffer code.&#34;&#34;&#34;
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf import reflection as _reflection
+from google.protobuf import symbol_database as _symbol_database
+# @@protoc_insertion_point(imports)
+
+_sym_db = _symbol_database.Default()
+
+
+import osirix.pb2.utilities_pb2 as utilities__pb2
+import osirix.pb2.types_pb2 as types__pb2
+
+
+DESCRIPTOR = _descriptor.FileDescriptor(
+  name=&#39;vrcontroller.proto&#39;,
+  package=&#39;osirixgrpc&#39;,
+  syntax=&#39;proto3&#39;,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b&#39;\n\x12vrcontroller.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\&#34;{\n\x1cVRControllerViewer2DResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x37\n\x11viewer_controller\x18\x02 \x01(\x0b\x32\x1c.osirixgrpc.ViewerController\&#34;\x85\x01\n&amp;VRControllerBlendingControllerResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x37\n\x11viewer_controller\x18\x02 \x01(\x0b\x32\x1c.osirixgrpc.ViewerController\&#34;_\n!VRControllerRenderingModeResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x16\n\x0erendering_mode\x18\x02 \x01(\t\&#34;V\n\x18VRControllerWLWWResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\n\n\x02wl\x18\x02 \x01(\x02\x12\n\n\x02ww\x18\x03 \x01(\x02\&#34;N\n\x19VRControllerStyleResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\r\n\x05style\x18\x02 \x01(\t\&#34;N\n\x19VRControllerTitleResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\r\n\x05title\x18\x02 \x01(\t\&#34;p\n\x1eVRControllerROIVolumesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12*\n\x0broi_volumes\x18\x02 \x03(\x0b\x32\x15.osirixgrpc.ROIVolume\&#34;n\n#VRControllerSetRenderingModeRequest\x12/\n\rvr_controller\x18\x01 \x01(\x0b\x32\x18.osirixgrpc.VRController\x12\x16\n\x0erendering_mode\x18\x02 \x01(\t\&#34;e\n\x1aVRControllerSetWLWWRequest\x12/\n\rvr_controller\x18\x01 \x01(\x0b\x32\x18.osirixgrpc.VRController\x12\n\n\x02wl\x18\x02 \x01(\x02\x12\n\n\x02ww\x18\x03 \x01(\x02\x62\x06proto3&#39;
+  ,
+  dependencies=[utilities__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
+
+
+
+
+_VRCONTROLLERVIEWER2DRESPONSE = _descriptor.Descriptor(
+  name=&#39;VRControllerViewer2DResponse&#39;,
+  full_name=&#39;osirixgrpc.VRControllerViewer2DResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.VRControllerViewer2DResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;viewer_controller&#39;, full_name=&#39;osirixgrpc.VRControllerViewer2DResponse.viewer_controller&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=64,
+  serialized_end=187,
+)
+
+
+_VRCONTROLLERBLENDINGCONTROLLERRESPONSE = _descriptor.Descriptor(
+  name=&#39;VRControllerBlendingControllerResponse&#39;,
+  full_name=&#39;osirixgrpc.VRControllerBlendingControllerResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.VRControllerBlendingControllerResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;viewer_controller&#39;, full_name=&#39;osirixgrpc.VRControllerBlendingControllerResponse.viewer_controller&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=190,
+  serialized_end=323,
+)
+
+
+_VRCONTROLLERRENDERINGMODERESPONSE = _descriptor.Descriptor(
+  name=&#39;VRControllerRenderingModeResponse&#39;,
+  full_name=&#39;osirixgrpc.VRControllerRenderingModeResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.VRControllerRenderingModeResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;rendering_mode&#39;, full_name=&#39;osirixgrpc.VRControllerRenderingModeResponse.rendering_mode&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=325,
+  serialized_end=420,
+)
+
+
+_VRCONTROLLERWLWWRESPONSE = _descriptor.Descriptor(
+  name=&#39;VRControllerWLWWResponse&#39;,
+  full_name=&#39;osirixgrpc.VRControllerWLWWResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.VRControllerWLWWResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;wl&#39;, full_name=&#39;osirixgrpc.VRControllerWLWWResponse.wl&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;ww&#39;, full_name=&#39;osirixgrpc.VRControllerWLWWResponse.ww&#39;, index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=422,
+  serialized_end=508,
+)
+
+
+_VRCONTROLLERSTYLERESPONSE = _descriptor.Descriptor(
+  name=&#39;VRControllerStyleResponse&#39;,
+  full_name=&#39;osirixgrpc.VRControllerStyleResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.VRControllerStyleResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;style&#39;, full_name=&#39;osirixgrpc.VRControllerStyleResponse.style&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=510,
+  serialized_end=588,
+)
+
+
+_VRCONTROLLERTITLERESPONSE = _descriptor.Descriptor(
+  name=&#39;VRControllerTitleResponse&#39;,
+  full_name=&#39;osirixgrpc.VRControllerTitleResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.VRControllerTitleResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;title&#39;, full_name=&#39;osirixgrpc.VRControllerTitleResponse.title&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=590,
+  serialized_end=668,
+)
+
+
+_VRCONTROLLERROIVOLUMESRESPONSE = _descriptor.Descriptor(
+  name=&#39;VRControllerROIVolumesResponse&#39;,
+  full_name=&#39;osirixgrpc.VRControllerROIVolumesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.VRControllerROIVolumesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;roi_volumes&#39;, full_name=&#39;osirixgrpc.VRControllerROIVolumesResponse.roi_volumes&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=670,
+  serialized_end=782,
+)
+
+
+_VRCONTROLLERSETRENDERINGMODEREQUEST = _descriptor.Descriptor(
+  name=&#39;VRControllerSetRenderingModeRequest&#39;,
+  full_name=&#39;osirixgrpc.VRControllerSetRenderingModeRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;vr_controller&#39;, full_name=&#39;osirixgrpc.VRControllerSetRenderingModeRequest.vr_controller&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;rendering_mode&#39;, full_name=&#39;osirixgrpc.VRControllerSetRenderingModeRequest.rendering_mode&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=784,
+  serialized_end=894,
+)
+
+
+_VRCONTROLLERSETWLWWREQUEST = _descriptor.Descriptor(
+  name=&#39;VRControllerSetWLWWRequest&#39;,
+  full_name=&#39;osirixgrpc.VRControllerSetWLWWRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;vr_controller&#39;, full_name=&#39;osirixgrpc.VRControllerSetWLWWRequest.vr_controller&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;wl&#39;, full_name=&#39;osirixgrpc.VRControllerSetWLWWRequest.wl&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;ww&#39;, full_name=&#39;osirixgrpc.VRControllerSetWLWWRequest.ww&#39;, index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=896,
+  serialized_end=997,
+)
+
+_VRCONTROLLERVIEWER2DRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_VRCONTROLLERVIEWER2DRESPONSE.fields_by_name[&#39;viewer_controller&#39;].message_type = types__pb2._VIEWERCONTROLLER
+_VRCONTROLLERBLENDINGCONTROLLERRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_VRCONTROLLERBLENDINGCONTROLLERRESPONSE.fields_by_name[&#39;viewer_controller&#39;].message_type = types__pb2._VIEWERCONTROLLER
+_VRCONTROLLERRENDERINGMODERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_VRCONTROLLERWLWWRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_VRCONTROLLERSTYLERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_VRCONTROLLERTITLERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_VRCONTROLLERROIVOLUMESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_VRCONTROLLERROIVOLUMESRESPONSE.fields_by_name[&#39;roi_volumes&#39;].message_type = types__pb2._ROIVOLUME
+_VRCONTROLLERSETRENDERINGMODEREQUEST.fields_by_name[&#39;vr_controller&#39;].message_type = types__pb2._VRCONTROLLER
+_VRCONTROLLERSETWLWWREQUEST.fields_by_name[&#39;vr_controller&#39;].message_type = types__pb2._VRCONTROLLER
+DESCRIPTOR.message_types_by_name[&#39;VRControllerViewer2DResponse&#39;] = _VRCONTROLLERVIEWER2DRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;VRControllerBlendingControllerResponse&#39;] = _VRCONTROLLERBLENDINGCONTROLLERRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;VRControllerRenderingModeResponse&#39;] = _VRCONTROLLERRENDERINGMODERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;VRControllerWLWWResponse&#39;] = _VRCONTROLLERWLWWRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;VRControllerStyleResponse&#39;] = _VRCONTROLLERSTYLERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;VRControllerTitleResponse&#39;] = _VRCONTROLLERTITLERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;VRControllerROIVolumesResponse&#39;] = _VRCONTROLLERROIVOLUMESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;VRControllerSetRenderingModeRequest&#39;] = _VRCONTROLLERSETRENDERINGMODEREQUEST
+DESCRIPTOR.message_types_by_name[&#39;VRControllerSetWLWWRequest&#39;] = _VRCONTROLLERSETWLWWREQUEST
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+VRControllerViewer2DResponse = _reflection.GeneratedProtocolMessageType(&#39;VRControllerViewer2DResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _VRCONTROLLERVIEWER2DRESPONSE,
+  &#39;__module__&#39; : &#39;vrcontroller_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerViewer2DResponse)
+  })
+_sym_db.RegisterMessage(VRControllerViewer2DResponse)
+
+VRControllerBlendingControllerResponse = _reflection.GeneratedProtocolMessageType(&#39;VRControllerBlendingControllerResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _VRCONTROLLERBLENDINGCONTROLLERRESPONSE,
+  &#39;__module__&#39; : &#39;vrcontroller_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerBlendingControllerResponse)
+  })
+_sym_db.RegisterMessage(VRControllerBlendingControllerResponse)
+
+VRControllerRenderingModeResponse = _reflection.GeneratedProtocolMessageType(&#39;VRControllerRenderingModeResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _VRCONTROLLERRENDERINGMODERESPONSE,
+  &#39;__module__&#39; : &#39;vrcontroller_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerRenderingModeResponse)
+  })
+_sym_db.RegisterMessage(VRControllerRenderingModeResponse)
+
+VRControllerWLWWResponse = _reflection.GeneratedProtocolMessageType(&#39;VRControllerWLWWResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _VRCONTROLLERWLWWRESPONSE,
+  &#39;__module__&#39; : &#39;vrcontroller_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerWLWWResponse)
+  })
+_sym_db.RegisterMessage(VRControllerWLWWResponse)
+
+VRControllerStyleResponse = _reflection.GeneratedProtocolMessageType(&#39;VRControllerStyleResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _VRCONTROLLERSTYLERESPONSE,
+  &#39;__module__&#39; : &#39;vrcontroller_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerStyleResponse)
+  })
+_sym_db.RegisterMessage(VRControllerStyleResponse)
+
+VRControllerTitleResponse = _reflection.GeneratedProtocolMessageType(&#39;VRControllerTitleResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _VRCONTROLLERTITLERESPONSE,
+  &#39;__module__&#39; : &#39;vrcontroller_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerTitleResponse)
+  })
+_sym_db.RegisterMessage(VRControllerTitleResponse)
+
+VRControllerROIVolumesResponse = _reflection.GeneratedProtocolMessageType(&#39;VRControllerROIVolumesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _VRCONTROLLERROIVOLUMESRESPONSE,
+  &#39;__module__&#39; : &#39;vrcontroller_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerROIVolumesResponse)
+  })
+_sym_db.RegisterMessage(VRControllerROIVolumesResponse)
+
+VRControllerSetRenderingModeRequest = _reflection.GeneratedProtocolMessageType(&#39;VRControllerSetRenderingModeRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _VRCONTROLLERSETRENDERINGMODEREQUEST,
+  &#39;__module__&#39; : &#39;vrcontroller_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerSetRenderingModeRequest)
+  })
+_sym_db.RegisterMessage(VRControllerSetRenderingModeRequest)
+
+VRControllerSetWLWWRequest = _reflection.GeneratedProtocolMessageType(&#39;VRControllerSetWLWWRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _VRCONTROLLERSETWLWWREQUEST,
+  &#39;__module__&#39; : &#39;vrcontroller_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerSetWLWWRequest)
+  })
+_sym_db.RegisterMessage(VRControllerSetWLWWRequest)
+
+
+# @@protoc_insertion_point(module_scope)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse"><code class="flex name class">
+<span>class <span class="ident">VRControllerBlendingControllerResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerBlendingControllerResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse.viewer_controller"><code class="name">var <span class="ident">viewer_controller</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerBlendingControllerResponse.viewer_controller</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse"><code class="flex name class">
+<span>class <span class="ident">VRControllerROIVolumesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse.roi_volumes"><code class="name">var <span class="ident">roi_volumes</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerROIVolumesResponse.roi_volumes</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerROIVolumesResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse"><code class="flex name class">
+<span>class <span class="ident">VRControllerRenderingModeResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse.rendering_mode"><code class="name">var <span class="ident">rendering_mode</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerRenderingModeResponse.rendering_mode</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerRenderingModeResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest"><code class="flex name class">
+<span>class <span class="ident">VRControllerSetRenderingModeRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest.rendering_mode"><code class="name">var <span class="ident">rendering_mode</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerSetRenderingModeRequest.rendering_mode</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest.vr_controller"><code class="name">var <span class="ident">vr_controller</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerSetRenderingModeRequest.vr_controller</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest"><code class="flex name class">
+<span>class <span class="ident">VRControllerSetWLWWRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.vr_controller"><code class="name">var <span class="ident">vr_controller</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerSetWLWWRequest.vr_controller</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.wl"><code class="name">var <span class="ident">wl</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerSetWLWWRequest.wl</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.ww"><code class="name">var <span class="ident">ww</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerSetWLWWRequest.ww</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse"><code class="flex name class">
+<span>class <span class="ident">VRControllerStyleResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerStyleResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse.style"><code class="name">var <span class="ident">style</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerStyleResponse.style</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse"><code class="flex name class">
+<span>class <span class="ident">VRControllerTitleResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerTitleResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse.title"><code class="name">var <span class="ident">title</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerTitleResponse.title</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse"><code class="flex name class">
+<span>class <span class="ident">VRControllerViewer2DResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerViewer2DResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse.viewer_controller"><code class="name">var <span class="ident">viewer_controller</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerViewer2DResponse.viewer_controller</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse"><code class="flex name class">
+<span>class <span class="ident">VRControllerWLWWResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerWLWWResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.wl"><code class="name">var <span class="ident">wl</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerWLWWResponse.wl</p></div>
+</dd>
+<dt id="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.ww"><code class="name">var <span class="ident">ww</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.VRControllerWLWWResponse.ww</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="osirix.pb2" href="index.html">osirix.pb2</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse" href="#osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse">VRControllerBlendingControllerResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse.DESCRIPTOR" href="#osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse.status" href="#osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse.viewer_controller" href="#osirix.pb2.vrcontroller_pb2.VRControllerBlendingControllerResponse.viewer_controller">viewer_controller</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse" href="#osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse">VRControllerROIVolumesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse.DESCRIPTOR" href="#osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse.roi_volumes" href="#osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse.roi_volumes">roi_volumes</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse.status" href="#osirix.pb2.vrcontroller_pb2.VRControllerROIVolumesResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse" href="#osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse">VRControllerRenderingModeResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse.DESCRIPTOR" href="#osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse.rendering_mode" href="#osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse.rendering_mode">rendering_mode</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse.status" href="#osirix.pb2.vrcontroller_pb2.VRControllerRenderingModeResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest" href="#osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest">VRControllerSetRenderingModeRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest.DESCRIPTOR" href="#osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest.rendering_mode" href="#osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest.rendering_mode">rendering_mode</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest.vr_controller" href="#osirix.pb2.vrcontroller_pb2.VRControllerSetRenderingModeRequest.vr_controller">vr_controller</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest" href="#osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest">VRControllerSetWLWWRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.DESCRIPTOR" href="#osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.vr_controller" href="#osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.vr_controller">vr_controller</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.wl" href="#osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.wl">wl</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.ww" href="#osirix.pb2.vrcontroller_pb2.VRControllerSetWLWWRequest.ww">ww</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse" href="#osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse">VRControllerStyleResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse.DESCRIPTOR" href="#osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse.status" href="#osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse.style" href="#osirix.pb2.vrcontroller_pb2.VRControllerStyleResponse.style">style</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse" href="#osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse">VRControllerTitleResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse.DESCRIPTOR" href="#osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse.status" href="#osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse.title" href="#osirix.pb2.vrcontroller_pb2.VRControllerTitleResponse.title">title</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse" href="#osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse">VRControllerViewer2DResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse.DESCRIPTOR" href="#osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse.status" href="#osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse.viewer_controller" href="#osirix.pb2.vrcontroller_pb2.VRControllerViewer2DResponse.viewer_controller">viewer_controller</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse" href="#osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse">VRControllerWLWWResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.DESCRIPTOR" href="#osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.status" href="#osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.wl" href="#osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.wl">wl</a></code></li>
+<li><code><a title="osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.ww" href="#osirix.pb2.vrcontroller_pb2.VRControllerWLWWResponse.ww">ww</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
