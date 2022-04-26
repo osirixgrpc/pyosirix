@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>osirix.osirix_utils API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>osirix.osirix_utils</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from __future__ import annotations
+from typing import List, Tuple
+
+import grpc
+import sys
+from osirix.Exceptions import GrpcException
+from osirix.ViewerController import ViewerController, VRController
+from osirix.BrowserController import BrowserController
+from osirix.ResponseProcessor import ResponseProcessor
+
+# sys.path.append(&#34;./pb2/&#34;)
+
+import osirix.pb2.osirix_pb2_grpc as osirix_pb2_grpc
+import osirix.pb2.utilities_pb2 as utilities_pb2
+
+class OsirixService(object):
+    &#34;&#34;&#34;
+    Class containing the Osirix gRPC service that the gRPC request and responses will be communicating through
+
+    &#34;&#34;&#34;
+    def __init__(self,
+                 channel_opt: List[Tuple[str, int]],
+                 domain: str,
+                 port : int = 50051):
+        self.port = port
+        self.domain = domain
+        self.server_url = domain + str(self.port)
+        self.channel_opt = channel_opt
+        self.channel = grpc.insecure_channel(self.server_url, options=self.channel_opt)
+        try:
+            self.osirix_service = osirix_pb2_grpc.OsiriXServiceStub(self.channel)
+        except:
+            raise GrpcException(&#34;No connection to OsiriX can be established&#34;)
+
+    def get_service(self) -&gt; osirix_pb2_grpc.OsiriXServiceStub:
+        &#34;&#34;&#34;
+        Gets the osirix service
+
+        Returns:
+            the gRPC OsirixServiceStub
+        &#34;&#34;&#34;
+        return self.osirix_service
+
+    @classmethod
+    def name(cls) -&gt; str:
+        return cls.__name__
+
+class Osirix(object):
+    &#34;&#34;&#34;
+    Osirix class that allows interaction with the main Viewer, Browser and VR controllers of Osirix
+    &#34;&#34;&#34;
+    # osirix_service = None
+    # response_processor = None
+
+    def __init__(self,
+                 osirix_service: osirix_pb2_grpc.OsiriXServiceStub
+                 ) -&gt; None:
+        self.osirix_service = osirix_service
+        self.response_processor = ResponseProcessor()
+
+    def current_browser(self) -&gt; BrowserController:
+        &#34;&#34;&#34;
+        Provides the Osirix browser window
+
+        Returns:
+            BrowserController
+        &#34;&#34;&#34;
+        current_browser_response = self.osirix_service.OsirixCurrentBrowser(utilities_pb2.Empty())
+        self.response_processor.process_basic_response(current_browser_response)
+
+        browser_controller = current_browser_response.browser_controller
+
+        browser_controller_obj = BrowserController(browser_controller, self.osirix_service)
+        return browser_controller_obj
+
+
+    def frontmost_vr_controller(self) -&gt; VRController:
+        &#34;&#34;&#34;
+        Provides the VR Controller that is currently selected
+
+        Returns:
+            VRController
+
+        &#34;&#34;&#34;
+        vr_controller_response = self.osirix_service.OsirixFrontmostVRController(utilities_pb2.Empty())
+        self.response_processor.process_basic_response(vr_controller_response)
+        vr_controller = vr_controller_response.vr_controller
+        # vr_controller_response = self.osirix_service.ViewerControllerVRControllers(viewer_controller_response).vr_controllers[0]
+
+        # Build and return VRController
+        vr_controller = VRController(vr_controller, self.osirix_service)
+        return vr_controller
+
+
+    def frontmost_viewer(self) -&gt; ViewerController:
+        &#34;&#34;&#34;
+        Provides the 2D viewer that is currently selected
+
+        Returns:
+            ViewerController
+
+        &#34;&#34;&#34;
+        frontmost_viewer_response = self.osirix_service.OsirixFrontmostViewer(utilities_pb2.Empty())
+        self.response_processor.process_basic_response(frontmost_viewer_response)
+        viewer_controller = frontmost_viewer_response.viewer_controller
+        # Build and return ViewerController
+        viewer_controller = ViewerController(viewer_controller, self.osirix_service)
+        return viewer_controller
+
+
+    def displayed_2d_viewers(self) -&gt; Tuple[ViewerController, ...]:
+        &#34;&#34;&#34;
+        Provides all 2D viewers that are displayed
+
+        Returns:
+            Tuple containing each 2D Viewer
+
+        &#34;&#34;&#34;
+        response_displayed_2d_viewers = self.osirix_service.OsirixDisplayed2DViewers(utilities_pb2.Empty())
+        displayed_2d_viewers = self.response_processor.process_displayed_2d_viewers(response_displayed_2d_viewers)
+
+        viewer_controller_obj_tuple : Tuple[ViewerController, ...]= ()
+
+        for viewer in displayed_2d_viewers:
+            viewer_obj : ViewerController = ViewerController(viewer, self.osirix_service)
+            viewer_controller_obj_tuple = viewer_controller_obj_tuple + (viewer_obj,)
+
+        return viewer_controller_obj_tuple
+
+    def displayed_vr_controllers(self) -&gt; Tuple[VRController, ...]:
+        &#34;&#34;&#34;
+        Provides all VR controllers that are displayed
+
+        Returns:
+            Tuple containing each VRController
+        &#34;&#34;&#34;
+        response_displayed_vr_controllers = self.osirix_service.OsirixDisplayedVRControllers(utilities_pb2.Empty())
+        displayed_vr_controllers = self.response_processor.process_displayed_vr_controllers(response_displayed_vr_controllers)
+
+        vr_controller_obj_tuple: Tuple[VRController, ...] = ()
+
+        for vr_controller in displayed_vr_controllers:
+            vr_controller_obj = VRController(vr_controller, self.osirix_service)
+            vr_controller_obj_tuple = vr_controller_obj_tuple + (vr_controller_obj,)
+
+        return vr_controller_obj_tuple
+
+
+    # def run_alert_panel(self,
+    #                     message: str,
+    #                     information_text : str = None,
+    #                     first_button: str = &#34;OK&#34;,
+    #                     second_button: str = None,
+    #                     third_button: str = None):
+    #
+    # def select_path(self,
+    #                 dirs: bool = False,
+    #                 extension: str = None,
+    #                 title: str = None) -&gt; str:</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="osirix.osirix_utils.Osirix"><code class="flex name class">
+<span>class <span class="ident">Osirix</span></span>
+<span>(</span><span>osirix_service: osirix_pb2_grpc.OsiriXServiceStub)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Osirix class that allows interaction with the main Viewer, Browser and VR controllers of Osirix</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Osirix(object):
+    &#34;&#34;&#34;
+    Osirix class that allows interaction with the main Viewer, Browser and VR controllers of Osirix
+    &#34;&#34;&#34;
+    # osirix_service = None
+    # response_processor = None
+
+    def __init__(self,
+                 osirix_service: osirix_pb2_grpc.OsiriXServiceStub
+                 ) -&gt; None:
+        self.osirix_service = osirix_service
+        self.response_processor = ResponseProcessor()
+
+    def current_browser(self) -&gt; BrowserController:
+        &#34;&#34;&#34;
+        Provides the Osirix browser window
+
+        Returns:
+            BrowserController
+        &#34;&#34;&#34;
+        current_browser_response = self.osirix_service.OsirixCurrentBrowser(utilities_pb2.Empty())
+        self.response_processor.process_basic_response(current_browser_response)
+
+        browser_controller = current_browser_response.browser_controller
+
+        browser_controller_obj = BrowserController(browser_controller, self.osirix_service)
+        return browser_controller_obj
+
+
+    def frontmost_vr_controller(self) -&gt; VRController:
+        &#34;&#34;&#34;
+        Provides the VR Controller that is currently selected
+
+        Returns:
+            VRController
+
+        &#34;&#34;&#34;
+        vr_controller_response = self.osirix_service.OsirixFrontmostVRController(utilities_pb2.Empty())
+        self.response_processor.process_basic_response(vr_controller_response)
+        vr_controller = vr_controller_response.vr_controller
+        # vr_controller_response = self.osirix_service.ViewerControllerVRControllers(viewer_controller_response).vr_controllers[0]
+
+        # Build and return VRController
+        vr_controller = VRController(vr_controller, self.osirix_service)
+        return vr_controller
+
+
+    def frontmost_viewer(self) -&gt; ViewerController:
+        &#34;&#34;&#34;
+        Provides the 2D viewer that is currently selected
+
+        Returns:
+            ViewerController
+
+        &#34;&#34;&#34;
+        frontmost_viewer_response = self.osirix_service.OsirixFrontmostViewer(utilities_pb2.Empty())
+        self.response_processor.process_basic_response(frontmost_viewer_response)
+        viewer_controller = frontmost_viewer_response.viewer_controller
+        # Build and return ViewerController
+        viewer_controller = ViewerController(viewer_controller, self.osirix_service)
+        return viewer_controller
+
+
+    def displayed_2d_viewers(self) -&gt; Tuple[ViewerController, ...]:
+        &#34;&#34;&#34;
+        Provides all 2D viewers that are displayed
+
+        Returns:
+            Tuple containing each 2D Viewer
+
+        &#34;&#34;&#34;
+        response_displayed_2d_viewers = self.osirix_service.OsirixDisplayed2DViewers(utilities_pb2.Empty())
+        displayed_2d_viewers = self.response_processor.process_displayed_2d_viewers(response_displayed_2d_viewers)
+
+        viewer_controller_obj_tuple : Tuple[ViewerController, ...]= ()
+
+        for viewer in displayed_2d_viewers:
+            viewer_obj : ViewerController = ViewerController(viewer, self.osirix_service)
+            viewer_controller_obj_tuple = viewer_controller_obj_tuple + (viewer_obj,)
+
+        return viewer_controller_obj_tuple
+
+    def displayed_vr_controllers(self) -&gt; Tuple[VRController, ...]:
+        &#34;&#34;&#34;
+        Provides all VR controllers that are displayed
+
+        Returns:
+            Tuple containing each VRController
+        &#34;&#34;&#34;
+        response_displayed_vr_controllers = self.osirix_service.OsirixDisplayedVRControllers(utilities_pb2.Empty())
+        displayed_vr_controllers = self.response_processor.process_displayed_vr_controllers(response_displayed_vr_controllers)
+
+        vr_controller_obj_tuple: Tuple[VRController, ...] = ()
+
+        for vr_controller in displayed_vr_controllers:
+            vr_controller_obj = VRController(vr_controller, self.osirix_service)
+            vr_controller_obj_tuple = vr_controller_obj_tuple + (vr_controller_obj,)
+
+        return vr_controller_obj_tuple</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="osirix.osirix_utils.Osirix.current_browser"><code class="name flex">
+<span>def <span class="ident">current_browser</span></span>(<span>self) ‑> osirix.BrowserController.BrowserController</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provides the Osirix browser window</p>
+<h2 id="returns">Returns</h2>
+<p>BrowserController</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def current_browser(self) -&gt; BrowserController:
+    &#34;&#34;&#34;
+    Provides the Osirix browser window
+
+    Returns:
+        BrowserController
+    &#34;&#34;&#34;
+    current_browser_response = self.osirix_service.OsirixCurrentBrowser(utilities_pb2.Empty())
+    self.response_processor.process_basic_response(current_browser_response)
+
+    browser_controller = current_browser_response.browser_controller
+
+    browser_controller_obj = BrowserController(browser_controller, self.osirix_service)
+    return browser_controller_obj</code></pre>
+</details>
+</dd>
+<dt id="osirix.osirix_utils.Osirix.displayed_2d_viewers"><code class="name flex">
+<span>def <span class="ident">displayed_2d_viewers</span></span>(<span>self) ‑> Tuple[osirix.ViewerController.ViewerController, ...]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provides all 2D viewers that are displayed</p>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing each 2D Viewer</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def displayed_2d_viewers(self) -&gt; Tuple[ViewerController, ...]:
+    &#34;&#34;&#34;
+    Provides all 2D viewers that are displayed
+
+    Returns:
+        Tuple containing each 2D Viewer
+
+    &#34;&#34;&#34;
+    response_displayed_2d_viewers = self.osirix_service.OsirixDisplayed2DViewers(utilities_pb2.Empty())
+    displayed_2d_viewers = self.response_processor.process_displayed_2d_viewers(response_displayed_2d_viewers)
+
+    viewer_controller_obj_tuple : Tuple[ViewerController, ...]= ()
+
+    for viewer in displayed_2d_viewers:
+        viewer_obj : ViewerController = ViewerController(viewer, self.osirix_service)
+        viewer_controller_obj_tuple = viewer_controller_obj_tuple + (viewer_obj,)
+
+    return viewer_controller_obj_tuple</code></pre>
+</details>
+</dd>
+<dt id="osirix.osirix_utils.Osirix.displayed_vr_controllers"><code class="name flex">
+<span>def <span class="ident">displayed_vr_controllers</span></span>(<span>self) ‑> Tuple[osirix.ViewerController.VRController, ...]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provides all VR controllers that are displayed</p>
+<h2 id="returns">Returns</h2>
+<p>Tuple containing each VRController</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def displayed_vr_controllers(self) -&gt; Tuple[VRController, ...]:
+    &#34;&#34;&#34;
+    Provides all VR controllers that are displayed
+
+    Returns:
+        Tuple containing each VRController
+    &#34;&#34;&#34;
+    response_displayed_vr_controllers = self.osirix_service.OsirixDisplayedVRControllers(utilities_pb2.Empty())
+    displayed_vr_controllers = self.response_processor.process_displayed_vr_controllers(response_displayed_vr_controllers)
+
+    vr_controller_obj_tuple: Tuple[VRController, ...] = ()
+
+    for vr_controller in displayed_vr_controllers:
+        vr_controller_obj = VRController(vr_controller, self.osirix_service)
+        vr_controller_obj_tuple = vr_controller_obj_tuple + (vr_controller_obj,)
+
+    return vr_controller_obj_tuple</code></pre>
+</details>
+</dd>
+<dt id="osirix.osirix_utils.Osirix.frontmost_viewer"><code class="name flex">
+<span>def <span class="ident">frontmost_viewer</span></span>(<span>self) ‑> osirix.ViewerController.ViewerController</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provides the 2D viewer that is currently selected</p>
+<h2 id="returns">Returns</h2>
+<p>ViewerController</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def frontmost_viewer(self) -&gt; ViewerController:
+    &#34;&#34;&#34;
+    Provides the 2D viewer that is currently selected
+
+    Returns:
+        ViewerController
+
+    &#34;&#34;&#34;
+    frontmost_viewer_response = self.osirix_service.OsirixFrontmostViewer(utilities_pb2.Empty())
+    self.response_processor.process_basic_response(frontmost_viewer_response)
+    viewer_controller = frontmost_viewer_response.viewer_controller
+    # Build and return ViewerController
+    viewer_controller = ViewerController(viewer_controller, self.osirix_service)
+    return viewer_controller</code></pre>
+</details>
+</dd>
+<dt id="osirix.osirix_utils.Osirix.frontmost_vr_controller"><code class="name flex">
+<span>def <span class="ident">frontmost_vr_controller</span></span>(<span>self) ‑> osirix.ViewerController.VRController</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provides the VR Controller that is currently selected</p>
+<h2 id="returns">Returns</h2>
+<p>VRController</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def frontmost_vr_controller(self) -&gt; VRController:
+    &#34;&#34;&#34;
+    Provides the VR Controller that is currently selected
+
+    Returns:
+        VRController
+
+    &#34;&#34;&#34;
+    vr_controller_response = self.osirix_service.OsirixFrontmostVRController(utilities_pb2.Empty())
+    self.response_processor.process_basic_response(vr_controller_response)
+    vr_controller = vr_controller_response.vr_controller
+    # vr_controller_response = self.osirix_service.ViewerControllerVRControllers(viewer_controller_response).vr_controllers[0]
+
+    # Build and return VRController
+    vr_controller = VRController(vr_controller, self.osirix_service)
+    return vr_controller</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.osirix_utils.OsirixService"><code class="flex name class">
+<span>class <span class="ident">OsirixService</span></span>
+<span>(</span><span>channel_opt: List[Tuple[str, int]], domain: str, port: int = 50051)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class containing the Osirix gRPC service that the gRPC request and responses will be communicating through</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OsirixService(object):
+    &#34;&#34;&#34;
+    Class containing the Osirix gRPC service that the gRPC request and responses will be communicating through
+
+    &#34;&#34;&#34;
+    def __init__(self,
+                 channel_opt: List[Tuple[str, int]],
+                 domain: str,
+                 port : int = 50051):
+        self.port = port
+        self.domain = domain
+        self.server_url = domain + str(self.port)
+        self.channel_opt = channel_opt
+        self.channel = grpc.insecure_channel(self.server_url, options=self.channel_opt)
+        try:
+            self.osirix_service = osirix_pb2_grpc.OsiriXServiceStub(self.channel)
+        except:
+            raise GrpcException(&#34;No connection to OsiriX can be established&#34;)
+
+    def get_service(self) -&gt; osirix_pb2_grpc.OsiriXServiceStub:
+        &#34;&#34;&#34;
+        Gets the osirix service
+
+        Returns:
+            the gRPC OsirixServiceStub
+        &#34;&#34;&#34;
+        return self.osirix_service
+
+    @classmethod
+    def name(cls) -&gt; str:
+        return cls.__name__</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="osirix.osirix_utils.OsirixService.name"><code class="name flex">
+<span>def <span class="ident">name</span></span>(<span>) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def name(cls) -&gt; str:
+    return cls.__name__</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="osirix.osirix_utils.OsirixService.get_service"><code class="name flex">
+<span>def <span class="ident">get_service</span></span>(<span>self) ‑> <a title="osirix.pb2.osirix_pb2_grpc.OsiriXServiceStub" href="pb2/osirix_pb2_grpc.html#osirix.pb2.osirix_pb2_grpc.OsiriXServiceStub">OsiriXServiceStub</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the osirix service</p>
+<h2 id="returns">Returns</h2>
+<p>the gRPC OsirixServiceStub</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_service(self) -&gt; osirix_pb2_grpc.OsiriXServiceStub:
+    &#34;&#34;&#34;
+    Gets the osirix service
+
+    Returns:
+        the gRPC OsirixServiceStub
+    &#34;&#34;&#34;
+    return self.osirix_service</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="osirix" href="index.html">osirix</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="osirix.osirix_utils.Osirix" href="#osirix.osirix_utils.Osirix">Osirix</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.osirix_utils.Osirix.current_browser" href="#osirix.osirix_utils.Osirix.current_browser">current_browser</a></code></li>
+<li><code><a title="osirix.osirix_utils.Osirix.displayed_2d_viewers" href="#osirix.osirix_utils.Osirix.displayed_2d_viewers">displayed_2d_viewers</a></code></li>
+<li><code><a title="osirix.osirix_utils.Osirix.displayed_vr_controllers" href="#osirix.osirix_utils.Osirix.displayed_vr_controllers">displayed_vr_controllers</a></code></li>
+<li><code><a title="osirix.osirix_utils.Osirix.frontmost_viewer" href="#osirix.osirix_utils.Osirix.frontmost_viewer">frontmost_viewer</a></code></li>
+<li><code><a title="osirix.osirix_utils.Osirix.frontmost_vr_controller" href="#osirix.osirix_utils.Osirix.frontmost_vr_controller">frontmost_vr_controller</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.osirix_utils.OsirixService" href="#osirix.osirix_utils.OsirixService">OsirixService</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.osirix_utils.OsirixService.get_service" href="#osirix.osirix_utils.OsirixService.get_service">get_service</a></code></li>
+<li><code><a title="osirix.osirix_utils.OsirixService.name" href="#osirix.osirix_utils.OsirixService.name">name</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

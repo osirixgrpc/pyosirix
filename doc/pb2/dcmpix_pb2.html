@@ -1,0 +1,2054 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>osirix.pb2.dcmpix_pb2 API documentation</title>
+<meta name="description" content="Generated protocol buffer code." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>osirix.pb2.dcmpix_pb2</code></h1>
+</header>
+<section id="section-intro">
+<p>Generated protocol buffer code.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+# Generated by the protocol buffer compiler.  DO NOT EDIT!
+# source: dcmpix.proto
+&#34;&#34;&#34;Generated protocol buffer code.&#34;&#34;&#34;
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf import reflection as _reflection
+from google.protobuf import symbol_database as _symbol_database
+# @@protoc_insertion_point(imports)
+
+_sym_db = _symbol_database.Default()
+
+
+import osirix.pb2.utilities_pb2 as utilities__pb2
+import osirix.pb2.types_pb2 as types__pb2
+
+
+DESCRIPTOR = _descriptor.FileDescriptor(
+  name=&#39;dcmpix.proto&#39;,
+  package=&#39;osirixgrpc&#39;,
+  syntax=&#39;proto3&#39;,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b&#39;\n\x0c\x64\x63mpix.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\&#34;I\n\x13\x44\x43MPixIsRGBResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0e\n\x06is_rgb\x18\x02 \x01(\x08\&#34;\xaa\x01\n\x18\x44\x43MPixComputeROIResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04mean\x18\x02 \x01(\x02\x12\r\n\x05total\x18\x03 \x01(\x02\x12\x0f\n\x07std_dev\x18\x04 \x01(\x02\x12\x0b\n\x03min\x18\x05 \x01(\x02\x12\x0b\n\x03max\x18\x06 \x01(\x02\x12\x10\n\x08skewness\x18\x07 \x01(\x02\x12\x10\n\x08kurtosis\x18\x08 \x01(\x02\&#34;z\n\x17\x44\x43MPixROIValuesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0e\n\x06values\x18\x02 \x03(\x02\x12\x13\n\x0brow_indices\x18\x03 \x03(\x05\x12\x16\n\x0e\x63olumn_indices\x18\x04 \x03(\x05\&#34;k\n\x18\x44\x43MPixDicomImageResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12+\n\x0b\x64icom_image\x18\x02 \x01(\x0b\x32\x16.osirixgrpc.DicomImage\&#34;n\n\x19\x44\x43MPixDicomSeriesResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12-\n\x0c\x64icom_series\x18\x02 \x01(\x0b\x32\x17.osirixgrpc.DicomSeries\&#34;k\n\x18\x44\x43MPixDicomStudyResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12+\n\x0b\x64icom_study\x18\x02 \x01(\x0b\x32\x16.osirixgrpc.DicomStudy\&#34;\x9c\x01\n\x13\x44\x43MPixImageResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04rows\x18\x02 \x01(\x05\x12\x0f\n\x07\x63olumns\x18\x03 \x01(\x05\x12\x0f\n\x07is_argb\x18\x04 \x01(\x08\x12\x18\n\x10image_data_float\x18\x05 \x03(\x02\x12\x17\n\x0fimage_data_argb\x18\x06 \x03(\x05\&#34;m\n\x1b\x44\x43MPixGetMapFromROIResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04rows\x18\x02 \x01(\x05\x12\x0f\n\x07\x63olumns\x18\x03 \x01(\x05\x12\x0b\n\x03map\x18\x04 \x03(\x08\&#34;X\n\x13\x44\x43MPixShapeResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04rows\x18\x02 \x01(\x05\x12\x0f\n\x07\x63olumns\x18\x03 \x01(\x05\&#34;j\n\x15\x44\x43MPixSpacingResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x14\n\x0cspacing_rows\x18\x02 \x01(\x02\x12\x17\n\x0fspacing_columns\x18\x03 \x01(\x02\&#34;~\n\x14\x44\x43MPixOriginResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x13\n\x0borigin_rows\x18\x02 \x01(\x02\x12\x16\n\x0eorigin_columns\x18\x03 \x01(\x02\x12\x15\n\rorigin_slices\x18\x04 \x01(\x02\&#34;T\n\x19\x44\x43MPixOrientationResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x13\n\x0borientation\x18\x02 \x03(\x02\&#34;Y\n\x1b\x44\x43MPixSliceLocationResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x16\n\x0eslice_location\x18\x02 \x01(\x02\&#34;S\n\x18\x44\x43MPixSourceFileResponse\x12\&#34;\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x13\n\x0bsource_file\x18\x02 \x01(\t\&#34;Q\n\x19\x44\x43MPixConvertToRGBRequest\x12\x1f\n\x03pix\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.DCMPix\x12\x13\n\x0brgb_channel\x18\x02 \x01(\x05\&#34;O\n\x18\x44\x43MPixConvertToBWRequest\x12\x1f\n\x03pix\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.DCMPix\x12\x12\n\nbw_channel\x18\x02 \x01(\x05\&#34;X\n\x17\x44\x43MPixComputeROIRequest\x12\x1f\n\x03pix\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.DCMPix\x12\x1c\n\x03roi\x18\x02 \x01(\x0b\x32\x0f.osirixgrpc.ROI\&#34;W\n\x16\x44\x43MPixROIValuesRequest\x12\x1f\n\x03pix\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.DCMPix\x12\x1c\n\x03roi\x18\x02 \x01(\x0b\x32\x0f.osirixgrpc.ROI\&#34;k\n\x15\x44\x43MPixSetImageRequest\x12\x1f\n\x03pix\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.DCMPix\x12\x18\n\x10image_data_float\x18\x02 \x03(\x02\x12\x17\n\x0fimage_data_argb\x18\x03 \x03(\x05\&#34;[\n\x1a\x44\x43MPixGetMapFromROIRequest\x12\x1f\n\x03pix\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.DCMPix\x12\x1c\n\x03roi\x18\x02 \x01(\x0b\x32\x0f.osirixgrpc.ROIb\x06proto3&#39;
+  ,
+  dependencies=[utilities__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
+
+
+
+
+_DCMPIXISRGBRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixIsRGBResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixIsRGBResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixIsRGBResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;is_rgb&#39;, full_name=&#39;osirixgrpc.DCMPixIsRGBResponse.is_rgb&#39;, index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=58,
+  serialized_end=131,
+)
+
+
+_DCMPIXCOMPUTEROIRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixComputeROIResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixComputeROIResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;mean&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIResponse.mean&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;total&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIResponse.total&#39;, index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;std_dev&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIResponse.std_dev&#39;, index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;min&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIResponse.min&#39;, index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;max&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIResponse.max&#39;, index=5,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;skewness&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIResponse.skewness&#39;, index=6,
+      number=7, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;kurtosis&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIResponse.kurtosis&#39;, index=7,
+      number=8, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=134,
+  serialized_end=304,
+)
+
+
+_DCMPIXROIVALUESRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixROIValuesResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixROIValuesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixROIValuesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;values&#39;, full_name=&#39;osirixgrpc.DCMPixROIValuesResponse.values&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;row_indices&#39;, full_name=&#39;osirixgrpc.DCMPixROIValuesResponse.row_indices&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;column_indices&#39;, full_name=&#39;osirixgrpc.DCMPixROIValuesResponse.column_indices&#39;, index=3,
+      number=4, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=306,
+  serialized_end=428,
+)
+
+
+_DCMPIXDICOMIMAGERESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixDicomImageResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixDicomImageResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixDicomImageResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;dicom_image&#39;, full_name=&#39;osirixgrpc.DCMPixDicomImageResponse.dicom_image&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=430,
+  serialized_end=537,
+)
+
+
+_DCMPIXDICOMSERIESRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixDicomSeriesResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixDicomSeriesResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixDicomSeriesResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;dicom_series&#39;, full_name=&#39;osirixgrpc.DCMPixDicomSeriesResponse.dicom_series&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=539,
+  serialized_end=649,
+)
+
+
+_DCMPIXDICOMSTUDYRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixDicomStudyResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixDicomStudyResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixDicomStudyResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;dicom_study&#39;, full_name=&#39;osirixgrpc.DCMPixDicomStudyResponse.dicom_study&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=651,
+  serialized_end=758,
+)
+
+
+_DCMPIXIMAGERESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixImageResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixImageResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixImageResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;rows&#39;, full_name=&#39;osirixgrpc.DCMPixImageResponse.rows&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;columns&#39;, full_name=&#39;osirixgrpc.DCMPixImageResponse.columns&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;is_argb&#39;, full_name=&#39;osirixgrpc.DCMPixImageResponse.is_argb&#39;, index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;image_data_float&#39;, full_name=&#39;osirixgrpc.DCMPixImageResponse.image_data_float&#39;, index=4,
+      number=5, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;image_data_argb&#39;, full_name=&#39;osirixgrpc.DCMPixImageResponse.image_data_argb&#39;, index=5,
+      number=6, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=761,
+  serialized_end=917,
+)
+
+
+_DCMPIXGETMAPFROMROIRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixGetMapFromROIResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixGetMapFromROIResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixGetMapFromROIResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;rows&#39;, full_name=&#39;osirixgrpc.DCMPixGetMapFromROIResponse.rows&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;columns&#39;, full_name=&#39;osirixgrpc.DCMPixGetMapFromROIResponse.columns&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;map&#39;, full_name=&#39;osirixgrpc.DCMPixGetMapFromROIResponse.map&#39;, index=3,
+      number=4, type=8, cpp_type=7, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=919,
+  serialized_end=1028,
+)
+
+
+_DCMPIXSHAPERESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixShapeResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixShapeResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixShapeResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;rows&#39;, full_name=&#39;osirixgrpc.DCMPixShapeResponse.rows&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;columns&#39;, full_name=&#39;osirixgrpc.DCMPixShapeResponse.columns&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1030,
+  serialized_end=1118,
+)
+
+
+_DCMPIXSPACINGRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixSpacingResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixSpacingResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixSpacingResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;spacing_rows&#39;, full_name=&#39;osirixgrpc.DCMPixSpacingResponse.spacing_rows&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;spacing_columns&#39;, full_name=&#39;osirixgrpc.DCMPixSpacingResponse.spacing_columns&#39;, index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1120,
+  serialized_end=1226,
+)
+
+
+_DCMPIXORIGINRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixOriginResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixOriginResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixOriginResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;origin_rows&#39;, full_name=&#39;osirixgrpc.DCMPixOriginResponse.origin_rows&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;origin_columns&#39;, full_name=&#39;osirixgrpc.DCMPixOriginResponse.origin_columns&#39;, index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;origin_slices&#39;, full_name=&#39;osirixgrpc.DCMPixOriginResponse.origin_slices&#39;, index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1228,
+  serialized_end=1354,
+)
+
+
+_DCMPIXORIENTATIONRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixOrientationResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixOrientationResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixOrientationResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;orientation&#39;, full_name=&#39;osirixgrpc.DCMPixOrientationResponse.orientation&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1356,
+  serialized_end=1440,
+)
+
+
+_DCMPIXSLICELOCATIONRESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixSliceLocationResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixSliceLocationResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixSliceLocationResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;slice_location&#39;, full_name=&#39;osirixgrpc.DCMPixSliceLocationResponse.slice_location&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1442,
+  serialized_end=1531,
+)
+
+
+_DCMPIXSOURCEFILERESPONSE = _descriptor.Descriptor(
+  name=&#39;DCMPixSourceFileResponse&#39;,
+  full_name=&#39;osirixgrpc.DCMPixSourceFileResponse&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;status&#39;, full_name=&#39;osirixgrpc.DCMPixSourceFileResponse.status&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;source_file&#39;, full_name=&#39;osirixgrpc.DCMPixSourceFileResponse.source_file&#39;, index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b&#34;&#34;.decode(&#39;utf-8&#39;),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1533,
+  serialized_end=1616,
+)
+
+
+_DCMPIXCONVERTTORGBREQUEST = _descriptor.Descriptor(
+  name=&#39;DCMPixConvertToRGBRequest&#39;,
+  full_name=&#39;osirixgrpc.DCMPixConvertToRGBRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;pix&#39;, full_name=&#39;osirixgrpc.DCMPixConvertToRGBRequest.pix&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;rgb_channel&#39;, full_name=&#39;osirixgrpc.DCMPixConvertToRGBRequest.rgb_channel&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1618,
+  serialized_end=1699,
+)
+
+
+_DCMPIXCONVERTTOBWREQUEST = _descriptor.Descriptor(
+  name=&#39;DCMPixConvertToBWRequest&#39;,
+  full_name=&#39;osirixgrpc.DCMPixConvertToBWRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;pix&#39;, full_name=&#39;osirixgrpc.DCMPixConvertToBWRequest.pix&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;bw_channel&#39;, full_name=&#39;osirixgrpc.DCMPixConvertToBWRequest.bw_channel&#39;, index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1701,
+  serialized_end=1780,
+)
+
+
+_DCMPIXCOMPUTEROIREQUEST = _descriptor.Descriptor(
+  name=&#39;DCMPixComputeROIRequest&#39;,
+  full_name=&#39;osirixgrpc.DCMPixComputeROIRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;pix&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIRequest.pix&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.DCMPixComputeROIRequest.roi&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1782,
+  serialized_end=1870,
+)
+
+
+_DCMPIXROIVALUESREQUEST = _descriptor.Descriptor(
+  name=&#39;DCMPixROIValuesRequest&#39;,
+  full_name=&#39;osirixgrpc.DCMPixROIValuesRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;pix&#39;, full_name=&#39;osirixgrpc.DCMPixROIValuesRequest.pix&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.DCMPixROIValuesRequest.roi&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1872,
+  serialized_end=1959,
+)
+
+
+_DCMPIXSETIMAGEREQUEST = _descriptor.Descriptor(
+  name=&#39;DCMPixSetImageRequest&#39;,
+  full_name=&#39;osirixgrpc.DCMPixSetImageRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;pix&#39;, full_name=&#39;osirixgrpc.DCMPixSetImageRequest.pix&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;image_data_float&#39;, full_name=&#39;osirixgrpc.DCMPixSetImageRequest.image_data_float&#39;, index=1,
+      number=2, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;image_data_argb&#39;, full_name=&#39;osirixgrpc.DCMPixSetImageRequest.image_data_argb&#39;, index=2,
+      number=3, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1961,
+  serialized_end=2068,
+)
+
+
+_DCMPIXGETMAPFROMROIREQUEST = _descriptor.Descriptor(
+  name=&#39;DCMPixGetMapFromROIRequest&#39;,
+  full_name=&#39;osirixgrpc.DCMPixGetMapFromROIRequest&#39;,
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name=&#39;pix&#39;, full_name=&#39;osirixgrpc.DCMPixGetMapFromROIRequest.pix&#39;, index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name=&#39;roi&#39;, full_name=&#39;osirixgrpc.DCMPixGetMapFromROIRequest.roi&#39;, index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax=&#39;proto3&#39;,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2070,
+  serialized_end=2161,
+)
+
+_DCMPIXISRGBRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXCOMPUTEROIRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXROIVALUESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXDICOMIMAGERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXDICOMIMAGERESPONSE.fields_by_name[&#39;dicom_image&#39;].message_type = types__pb2._DICOMIMAGE
+_DCMPIXDICOMSERIESRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXDICOMSERIESRESPONSE.fields_by_name[&#39;dicom_series&#39;].message_type = types__pb2._DICOMSERIES
+_DCMPIXDICOMSTUDYRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXDICOMSTUDYRESPONSE.fields_by_name[&#39;dicom_study&#39;].message_type = types__pb2._DICOMSTUDY
+_DCMPIXIMAGERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXGETMAPFROMROIRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXSHAPERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXSPACINGRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXORIGINRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXORIENTATIONRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXSLICELOCATIONRESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXSOURCEFILERESPONSE.fields_by_name[&#39;status&#39;].message_type = utilities__pb2._STATUS
+_DCMPIXCONVERTTORGBREQUEST.fields_by_name[&#39;pix&#39;].message_type = types__pb2._DCMPIX
+_DCMPIXCONVERTTOBWREQUEST.fields_by_name[&#39;pix&#39;].message_type = types__pb2._DCMPIX
+_DCMPIXCOMPUTEROIREQUEST.fields_by_name[&#39;pix&#39;].message_type = types__pb2._DCMPIX
+_DCMPIXCOMPUTEROIREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+_DCMPIXROIVALUESREQUEST.fields_by_name[&#39;pix&#39;].message_type = types__pb2._DCMPIX
+_DCMPIXROIVALUESREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+_DCMPIXSETIMAGEREQUEST.fields_by_name[&#39;pix&#39;].message_type = types__pb2._DCMPIX
+_DCMPIXGETMAPFROMROIREQUEST.fields_by_name[&#39;pix&#39;].message_type = types__pb2._DCMPIX
+_DCMPIXGETMAPFROMROIREQUEST.fields_by_name[&#39;roi&#39;].message_type = types__pb2._ROI
+DESCRIPTOR.message_types_by_name[&#39;DCMPixIsRGBResponse&#39;] = _DCMPIXISRGBRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixComputeROIResponse&#39;] = _DCMPIXCOMPUTEROIRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixROIValuesResponse&#39;] = _DCMPIXROIVALUESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixDicomImageResponse&#39;] = _DCMPIXDICOMIMAGERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixDicomSeriesResponse&#39;] = _DCMPIXDICOMSERIESRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixDicomStudyResponse&#39;] = _DCMPIXDICOMSTUDYRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixImageResponse&#39;] = _DCMPIXIMAGERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixGetMapFromROIResponse&#39;] = _DCMPIXGETMAPFROMROIRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixShapeResponse&#39;] = _DCMPIXSHAPERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixSpacingResponse&#39;] = _DCMPIXSPACINGRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixOriginResponse&#39;] = _DCMPIXORIGINRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixOrientationResponse&#39;] = _DCMPIXORIENTATIONRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixSliceLocationResponse&#39;] = _DCMPIXSLICELOCATIONRESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixSourceFileResponse&#39;] = _DCMPIXSOURCEFILERESPONSE
+DESCRIPTOR.message_types_by_name[&#39;DCMPixConvertToRGBRequest&#39;] = _DCMPIXCONVERTTORGBREQUEST
+DESCRIPTOR.message_types_by_name[&#39;DCMPixConvertToBWRequest&#39;] = _DCMPIXCONVERTTOBWREQUEST
+DESCRIPTOR.message_types_by_name[&#39;DCMPixComputeROIRequest&#39;] = _DCMPIXCOMPUTEROIREQUEST
+DESCRIPTOR.message_types_by_name[&#39;DCMPixROIValuesRequest&#39;] = _DCMPIXROIVALUESREQUEST
+DESCRIPTOR.message_types_by_name[&#39;DCMPixSetImageRequest&#39;] = _DCMPIXSETIMAGEREQUEST
+DESCRIPTOR.message_types_by_name[&#39;DCMPixGetMapFromROIRequest&#39;] = _DCMPIXGETMAPFROMROIREQUEST
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+DCMPixIsRGBResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixIsRGBResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXISRGBRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixIsRGBResponse)
+  })
+_sym_db.RegisterMessage(DCMPixIsRGBResponse)
+
+DCMPixComputeROIResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixComputeROIResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXCOMPUTEROIRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixComputeROIResponse)
+  })
+_sym_db.RegisterMessage(DCMPixComputeROIResponse)
+
+DCMPixROIValuesResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixROIValuesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXROIVALUESRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixROIValuesResponse)
+  })
+_sym_db.RegisterMessage(DCMPixROIValuesResponse)
+
+DCMPixDicomImageResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixDicomImageResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXDICOMIMAGERESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixDicomImageResponse)
+  })
+_sym_db.RegisterMessage(DCMPixDicomImageResponse)
+
+DCMPixDicomSeriesResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixDicomSeriesResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXDICOMSERIESRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixDicomSeriesResponse)
+  })
+_sym_db.RegisterMessage(DCMPixDicomSeriesResponse)
+
+DCMPixDicomStudyResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixDicomStudyResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXDICOMSTUDYRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixDicomStudyResponse)
+  })
+_sym_db.RegisterMessage(DCMPixDicomStudyResponse)
+
+DCMPixImageResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixImageResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXIMAGERESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixImageResponse)
+  })
+_sym_db.RegisterMessage(DCMPixImageResponse)
+
+DCMPixGetMapFromROIResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixGetMapFromROIResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXGETMAPFROMROIRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixGetMapFromROIResponse)
+  })
+_sym_db.RegisterMessage(DCMPixGetMapFromROIResponse)
+
+DCMPixShapeResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixShapeResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXSHAPERESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixShapeResponse)
+  })
+_sym_db.RegisterMessage(DCMPixShapeResponse)
+
+DCMPixSpacingResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixSpacingResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXSPACINGRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixSpacingResponse)
+  })
+_sym_db.RegisterMessage(DCMPixSpacingResponse)
+
+DCMPixOriginResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixOriginResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXORIGINRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixOriginResponse)
+  })
+_sym_db.RegisterMessage(DCMPixOriginResponse)
+
+DCMPixOrientationResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixOrientationResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXORIENTATIONRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixOrientationResponse)
+  })
+_sym_db.RegisterMessage(DCMPixOrientationResponse)
+
+DCMPixSliceLocationResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixSliceLocationResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXSLICELOCATIONRESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixSliceLocationResponse)
+  })
+_sym_db.RegisterMessage(DCMPixSliceLocationResponse)
+
+DCMPixSourceFileResponse = _reflection.GeneratedProtocolMessageType(&#39;DCMPixSourceFileResponse&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXSOURCEFILERESPONSE,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixSourceFileResponse)
+  })
+_sym_db.RegisterMessage(DCMPixSourceFileResponse)
+
+DCMPixConvertToRGBRequest = _reflection.GeneratedProtocolMessageType(&#39;DCMPixConvertToRGBRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXCONVERTTORGBREQUEST,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixConvertToRGBRequest)
+  })
+_sym_db.RegisterMessage(DCMPixConvertToRGBRequest)
+
+DCMPixConvertToBWRequest = _reflection.GeneratedProtocolMessageType(&#39;DCMPixConvertToBWRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXCONVERTTOBWREQUEST,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixConvertToBWRequest)
+  })
+_sym_db.RegisterMessage(DCMPixConvertToBWRequest)
+
+DCMPixComputeROIRequest = _reflection.GeneratedProtocolMessageType(&#39;DCMPixComputeROIRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXCOMPUTEROIREQUEST,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixComputeROIRequest)
+  })
+_sym_db.RegisterMessage(DCMPixComputeROIRequest)
+
+DCMPixROIValuesRequest = _reflection.GeneratedProtocolMessageType(&#39;DCMPixROIValuesRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXROIVALUESREQUEST,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixROIValuesRequest)
+  })
+_sym_db.RegisterMessage(DCMPixROIValuesRequest)
+
+DCMPixSetImageRequest = _reflection.GeneratedProtocolMessageType(&#39;DCMPixSetImageRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXSETIMAGEREQUEST,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixSetImageRequest)
+  })
+_sym_db.RegisterMessage(DCMPixSetImageRequest)
+
+DCMPixGetMapFromROIRequest = _reflection.GeneratedProtocolMessageType(&#39;DCMPixGetMapFromROIRequest&#39;, (_message.Message,), {
+  &#39;DESCRIPTOR&#39; : _DCMPIXGETMAPFROMROIREQUEST,
+  &#39;__module__&#39; : &#39;dcmpix_pb2&#39;
+  # @@protoc_insertion_point(class_scope:osirixgrpc.DCMPixGetMapFromROIRequest)
+  })
+_sym_db.RegisterMessage(DCMPixGetMapFromROIRequest)
+
+
+# @@protoc_insertion_point(module_scope)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest"><code class="flex name class">
+<span>class <span class="ident">DCMPixComputeROIRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest.pix"><code class="name">var <span class="ident">pix</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIRequest.pix</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIRequest.roi</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixComputeROIResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.kurtosis"><code class="name">var <span class="ident">kurtosis</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIResponse.kurtosis</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.max"><code class="name">var <span class="ident">max</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIResponse.max</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.mean"><code class="name">var <span class="ident">mean</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIResponse.mean</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.min"><code class="name">var <span class="ident">min</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIResponse.min</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.skewness"><code class="name">var <span class="ident">skewness</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIResponse.skewness</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.std_dev"><code class="name">var <span class="ident">std_dev</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIResponse.std_dev</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.total"><code class="name">var <span class="ident">total</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixComputeROIResponse.total</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest"><code class="flex name class">
+<span>class <span class="ident">DCMPixConvertToBWRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest.bw_channel"><code class="name">var <span class="ident">bw_channel</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixConvertToBWRequest.bw_channel</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest.pix"><code class="name">var <span class="ident">pix</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixConvertToBWRequest.pix</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest"><code class="flex name class">
+<span>class <span class="ident">DCMPixConvertToRGBRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest.pix"><code class="name">var <span class="ident">pix</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixConvertToRGBRequest.pix</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest.rgb_channel"><code class="name">var <span class="ident">rgb_channel</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixConvertToRGBRequest.rgb_channel</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixDicomImageResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse.dicom_image"><code class="name">var <span class="ident">dicom_image</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixDicomImageResponse.dicom_image</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixDicomImageResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixDicomSeriesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse.dicom_series"><code class="name">var <span class="ident">dicom_series</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixDicomSeriesResponse.dicom_series</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixDicomSeriesResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixDicomStudyResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse.dicom_study"><code class="name">var <span class="ident">dicom_study</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixDicomStudyResponse.dicom_study</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixDicomStudyResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest"><code class="flex name class">
+<span>class <span class="ident">DCMPixGetMapFromROIRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest.pix"><code class="name">var <span class="ident">pix</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixGetMapFromROIRequest.pix</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixGetMapFromROIRequest.roi</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixGetMapFromROIResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.columns"><code class="name">var <span class="ident">columns</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixGetMapFromROIResponse.columns</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.map"><code class="name">var <span class="ident">map</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixGetMapFromROIResponse.map</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.rows"><code class="name">var <span class="ident">rows</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixGetMapFromROIResponse.rows</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixGetMapFromROIResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixImageResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixImageResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.columns"><code class="name">var <span class="ident">columns</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixImageResponse.columns</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.image_data_argb"><code class="name">var <span class="ident">image_data_argb</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixImageResponse.image_data_argb</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.image_data_float"><code class="name">var <span class="ident">image_data_float</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixImageResponse.image_data_float</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.is_argb"><code class="name">var <span class="ident">is_argb</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixImageResponse.is_argb</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.rows"><code class="name">var <span class="ident">rows</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixImageResponse.rows</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixImageResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixIsRGBResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse.is_rgb"><code class="name">var <span class="ident">is_rgb</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixIsRGBResponse.is_rgb</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixIsRGBResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixOrientationResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse.orientation"><code class="name">var <span class="ident">orientation</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixOrientationResponse.orientation</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixOrientationResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixOriginResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.origin_columns"><code class="name">var <span class="ident">origin_columns</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixOriginResponse.origin_columns</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.origin_rows"><code class="name">var <span class="ident">origin_rows</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixOriginResponse.origin_rows</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.origin_slices"><code class="name">var <span class="ident">origin_slices</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixOriginResponse.origin_slices</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixOriginResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest"><code class="flex name class">
+<span>class <span class="ident">DCMPixROIValuesRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest.pix"><code class="name">var <span class="ident">pix</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixROIValuesRequest.pix</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest.roi"><code class="name">var <span class="ident">roi</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixROIValuesRequest.roi</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixROIValuesResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.column_indices"><code class="name">var <span class="ident">column_indices</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixROIValuesResponse.column_indices</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.row_indices"><code class="name">var <span class="ident">row_indices</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixROIValuesResponse.row_indices</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixROIValuesResponse.status</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.values"><code class="name">var <span class="ident">values</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixROIValuesResponse.values</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest"><code class="flex name class">
+<span>class <span class="ident">DCMPixSetImageRequest</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.image_data_argb"><code class="name">var <span class="ident">image_data_argb</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSetImageRequest.image_data_argb</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.image_data_float"><code class="name">var <span class="ident">image_data_float</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSetImageRequest.image_data_float</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.pix"><code class="name">var <span class="ident">pix</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSetImageRequest.pix</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixShapeResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.columns"><code class="name">var <span class="ident">columns</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixShapeResponse.columns</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.rows"><code class="name">var <span class="ident">rows</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixShapeResponse.rows</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixShapeResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixSliceLocationResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse.slice_location"><code class="name">var <span class="ident">slice_location</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSliceLocationResponse.slice_location</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSliceLocationResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixSourceFileResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse.source_file"><code class="name">var <span class="ident">source_file</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSourceFileResponse.source_file</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSourceFileResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse"><code class="flex name class">
+<span>class <span class="ident">DCMPixSpacingResponse</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google.protobuf.pyext._message.CMessage</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.spacing_columns"><code class="name">var <span class="ident">spacing_columns</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSpacingResponse.spacing_columns</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.spacing_rows"><code class="name">var <span class="ident">spacing_rows</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSpacingResponse.spacing_rows</p></div>
+</dd>
+<dt id="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.status"><code class="name">var <span class="ident">status</span></code></dt>
+<dd>
+<div class="desc"><p>Field osirixgrpc.DCMPixSpacingResponse.status</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="osirix.pb2" href="index.html">osirix.pb2</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest">DCMPixComputeROIRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest.pix" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest.pix">pix</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest.roi" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIRequest.roi">roi</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse">DCMPixComputeROIResponse</a></code></h4>
+<ul class="two-column">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.kurtosis" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.kurtosis">kurtosis</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.max" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.max">max</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.mean" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.mean">mean</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.min" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.min">min</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.skewness" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.skewness">skewness</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.std_dev" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.std_dev">std_dev</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.total" href="#osirix.pb2.dcmpix_pb2.DCMPixComputeROIResponse.total">total</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest" href="#osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest">DCMPixConvertToBWRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest.bw_channel" href="#osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest.bw_channel">bw_channel</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest.pix" href="#osirix.pb2.dcmpix_pb2.DCMPixConvertToBWRequest.pix">pix</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest" href="#osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest">DCMPixConvertToRGBRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest.pix" href="#osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest.pix">pix</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest.rgb_channel" href="#osirix.pb2.dcmpix_pb2.DCMPixConvertToRGBRequest.rgb_channel">rgb_channel</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse">DCMPixDicomImageResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse.dicom_image" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse.dicom_image">dicom_image</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomImageResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse">DCMPixDicomSeriesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse.dicom_series" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse.dicom_series">dicom_series</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomSeriesResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse">DCMPixDicomStudyResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse.dicom_study" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse.dicom_study">dicom_study</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixDicomStudyResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest">DCMPixGetMapFromROIRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest.pix" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest.pix">pix</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest.roi" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIRequest.roi">roi</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse">DCMPixGetMapFromROIResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.columns" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.columns">columns</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.map" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.map">map</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.rows" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.rows">rows</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixGetMapFromROIResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixImageResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixImageResponse">DCMPixImageResponse</a></code></h4>
+<ul class="two-column">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixImageResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.columns" href="#osirix.pb2.dcmpix_pb2.DCMPixImageResponse.columns">columns</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.image_data_argb" href="#osirix.pb2.dcmpix_pb2.DCMPixImageResponse.image_data_argb">image_data_argb</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.image_data_float" href="#osirix.pb2.dcmpix_pb2.DCMPixImageResponse.image_data_float">image_data_float</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.is_argb" href="#osirix.pb2.dcmpix_pb2.DCMPixImageResponse.is_argb">is_argb</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.rows" href="#osirix.pb2.dcmpix_pb2.DCMPixImageResponse.rows">rows</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixImageResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixImageResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse">DCMPixIsRGBResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse.is_rgb" href="#osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse.is_rgb">is_rgb</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixIsRGBResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse">DCMPixOrientationResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse.orientation" href="#osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse.orientation">orientation</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixOrientationResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixOriginResponse">DCMPixOriginResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.origin_columns" href="#osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.origin_columns">origin_columns</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.origin_rows" href="#osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.origin_rows">origin_rows</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.origin_slices" href="#osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.origin_slices">origin_slices</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixOriginResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest">DCMPixROIValuesRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest.pix" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest.pix">pix</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest.roi" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesRequest.roi">roi</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse">DCMPixROIValuesResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.column_indices" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.column_indices">column_indices</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.row_indices" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.row_indices">row_indices</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.status">status</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.values" href="#osirix.pb2.dcmpix_pb2.DCMPixROIValuesResponse.values">values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest" href="#osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest">DCMPixSetImageRequest</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.image_data_argb" href="#osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.image_data_argb">image_data_argb</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.image_data_float" href="#osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.image_data_float">image_data_float</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.pix" href="#osirix.pb2.dcmpix_pb2.DCMPixSetImageRequest.pix">pix</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixShapeResponse">DCMPixShapeResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.columns" href="#osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.columns">columns</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.rows" href="#osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.rows">rows</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixShapeResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse">DCMPixSliceLocationResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse.slice_location" href="#osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse.slice_location">slice_location</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixSliceLocationResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse">DCMPixSourceFileResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse.source_file" href="#osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse.source_file">source_file</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixSourceFileResponse.status">status</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse" href="#osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse">DCMPixSpacingResponse</a></code></h4>
+<ul class="">
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.DESCRIPTOR" href="#osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.spacing_columns" href="#osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.spacing_columns">spacing_columns</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.spacing_rows" href="#osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.spacing_rows">spacing_rows</a></code></li>
+<li><code><a title="osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.status" href="#osirix.pb2.dcmpix_pb2.DCMPixSpacingResponse.status">status</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
