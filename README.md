@@ -2,7 +2,7 @@
 pyOsirix
 ---
 
-[![image](https://img.shields.io/pypi/v/pyosirix.svg)](https://pypi.org/project/pyosirix/)
+[![image](https://img.shields.io/badge/pypi-v0.1.6-green)](https://pypi.org/project/pyosirix/)
 
 [comment]: <> ([![image]&#40;https://img.shields.io/travis/timothy22000/pyosirix.svg&#41;]&#40;https://app.travis-ci.com/github/timothy22000/pyosirix&#41;)
 
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 -   TODO
 
 ## Development
-Want to contribute? Great!
+Want to contribute? Great! We always welcome contributions from interested developers.
 
 To fix a bug or enhance an existing module, follow these steps:
 
