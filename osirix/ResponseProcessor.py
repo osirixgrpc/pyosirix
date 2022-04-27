@@ -19,7 +19,8 @@ class ResponseProcessor(object):
     """
 
     def __init__(self) -> None:
-        print("Response Processor Started")
+        # print("Response Processor Started")
+        pass
 
     def process_basic_response(self, response) -> None:
         """

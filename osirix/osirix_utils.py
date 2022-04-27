@@ -4,7 +4,8 @@ from typing import List, Tuple
 import grpc
 import sys
 from osirix.Exceptions import GrpcException
-from osirix.ViewerController import ViewerController, VRController
+from osirix.ViewerController import ViewerController
+from osirix.VRController import VRController
 from osirix.BrowserController import BrowserController
 from osirix.ResponseProcessor import ResponseProcessor
 
@@ -12,6 +13,8 @@ from osirix.ResponseProcessor import ResponseProcessor
 
 import osirix.pb2.osirix_pb2_grpc as osirix_pb2_grpc
 import osirix.pb2.utilities_pb2 as utilities_pb2
+
+import yaml
 
 class OsirixService(object):
     """
@@ -22,6 +25,8 @@ class OsirixService(object):
                  channel_opt: List[Tuple[str, int]],
                  domain: str,
                  port : int = 50051):
+
+
         self.port = port
         self.domain = domain
         self.server_url = domain + str(self.port)

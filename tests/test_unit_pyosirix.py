@@ -60,18 +60,27 @@ class PyOsirixTestOsirix(GrpcTest):
 		browser_controller = self.osirix.current_browser()
 		response = self.stub.OsirixCurrentBrowser(utilities_pb2.Empty())
 		print(type(response))
+		print(response)
+		print(response.status)
+		print(response.status.status)
 		self.assertEqual(response.status.status, 1)  # <-check for success
 		self.assertEqual(response.browser_controller.osirixrpc_uid, browser_controller.osirixrpc_uid.osirixrpc_uid)
 
 	def testOsirixFrontmostViewer(self):
 		frontmost_viewer = self.osirix.frontmost_viewer()
 		response = self.stub.OsirixFrontmostViewer(utilities_pb2.Empty())
+		print(response)
+		print(response.status)
+		print(response.status.status)
 		self.assertEqual(response.status.status, 1)
 		self.assertEqual(response.viewer_controller.osirixrpc_uid, frontmost_viewer.osirixrpc_uid.osirixrpc_uid)
 
 	def testOsirixDisplayed2DViewers(self):
 		displayed_2d_viewers = self.osirix.displayed_2d_viewers()
 		response = self.stub.OsirixDisplayed2DViewers(utilities_pb2.Empty())
+		print(response)
+		print(response.status)
+		print(response.status.status)
 		self.assertEqual(response.status.status, 1)
 		self.assertTrue(len(response.viewer_controllers) > 0)
 		self.assertTrue(len(displayed_2d_viewers) > 0)
@@ -81,6 +90,9 @@ class PyOsirixTestOsirix(GrpcTest):
 		frontmost_vr_controller = self.osirix.frontmost_vr_controller()
 
 		response = self.stub.OsirixFrontmostVRController(utilities_pb2.Empty())
+		print(response)
+		print(response.status)
+		print(response.status.status)
 		self.assertEqual(response.status.status, 1)
 		self.assertEqual(response.vr_controller.osirixrpc_uid, frontmost_vr_controller.osirixrpc_uid.osirixrpc_uid)
 
@@ -132,130 +144,130 @@ class PyOsirixTestViewerController(GrpcTest):
 			print(roi_slice)
 
 	# TODO add tests for setting new ROIs once the Type proto messages are exposed
-	# def testViewerControllerNewROI_Mask(self):
-	# 	buffer_array = np.random.randn(40 * 40) > 0
-	# 	buffer = viewercontroller_pb2.ViewerControllerNewROIRequest.Buffer(buffer=1 * buffer_array, rows=40, columns=40)
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=255, g=0, b=200)
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 movie_idx=0, position=0, itype=20, buffer=buffer,
-	# 																 color=color, opacity=0.5, name="random")
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
-	#
-	# def testViewerControllerNewROI_Oval(self):
-	# 	rect = viewercontroller_pb2.ViewerControllerNewROIRequest.Rect(origin_x=66., origin_y=42., width=20.,
-	# 																   height=10.)
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=255, g=100, b=200)
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 movie_idx=0, position=0, itype=9, rectangle=rect,
-	# 																 color=color, opacity=0.5, name="oval",
-	# 																 thickness=3.0)
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
-	#
-	# def testViewerControllerNewROI_Arrow(self):
-	# 	# Points seem to go in order [head, tail]
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=0, g=255, b=0)
-	# 	points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=66., y=42.),
-	# 			  viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=99., y=24.)]
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 points=points, movie_idx=0, position=0, itype=14,
-	# 																 color=color, opacity=0.5, name="arrow",
-	# 																 thickness=3.0)
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
-	#
-	# def testViewerControllerNewROI_Point(self):
-	# 	rect = viewercontroller_pb2.ViewerControllerNewROIRequest.Rect(origin_x=66., origin_y=42., width=20.,
-	# 																   height=10.)
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=0, g=255, b=255)
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 rectangle=rect, movie_idx=0, position=0, itype=19,
-	# 																 color=color, opacity=1.0, name="point",
-	# 																 thickness=3.0)
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
+	def testViewerControllerNewROI_Mask(self):
+		buffer_array = np.random.randn(40 * 40) > 0
+		buffer = viewercontroller_pb2.ViewerControllerNewROIRequest.Buffer(buffer=1 * buffer_array, rows=40, columns=40)
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=255, g=0, b=200)
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 movie_idx=0, position=0, itype=20, buffer=buffer,
+																	 color=color, opacity=0.5, name="random")
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
+
+	def testViewerControllerNewROI_Oval(self):
+		rect = viewercontroller_pb2.ViewerControllerNewROIRequest.Rect(origin_x=66., origin_y=42., width=20.,
+																	   height=10.)
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=255, g=100, b=200)
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 movie_idx=0, position=0, itype=9, rectangle=rect,
+																	 color=color, opacity=0.5, name="oval",
+																	 thickness=3.0)
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
+
+	def testViewerControllerNewROI_Arrow(self):
+		# Points seem to go in order [head, tail]
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=0, g=255, b=0)
+		points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=66., y=42.),
+				  viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=99., y=24.)]
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 points=points, movie_idx=0, position=0, itype=14,
+																	 color=color, opacity=0.5, name="arrow",
+																	 thickness=3.0)
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
+
+	def testViewerControllerNewROI_Point(self):
+		rect = viewercontroller_pb2.ViewerControllerNewROIRequest.Rect(origin_x=66., origin_y=42., width=20.,
+																	   height=10.)
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=0, g=255, b=255)
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 rectangle=rect, movie_idx=0, position=0, itype=19,
+																	 color=color, opacity=1.0, name="point",
+																	 thickness=3.0)
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
 	#
 	# # A rectangle...
-	# def testViewerControllerNewROI_TROI(self):
-	# 	rect = viewercontroller_pb2.ViewerControllerNewROIRequest.Rect(origin_x=66., origin_y=42., width=20.,
-	# 																   height=10.)
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=255, g=100, b=100)
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 rectangle=rect, movie_idx=0, position=0, itype=6,
-	# 																 color=color, opacity=1.0, name="tROI",
-	# 																 thickness=3.0)
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
+	def testViewerControllerNewROI_TROI(self):
+		rect = viewercontroller_pb2.ViewerControllerNewROIRequest.Rect(origin_x=66., origin_y=42., width=20.,
+																	   height=10.)
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=255, g=100, b=100)
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 rectangle=rect, movie_idx=0, position=0, itype=6,
+																	 color=color, opacity=1.0, name="tROI",
+																	 thickness=3.0)
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
 	#
-	# def testViewerControllerNewROI_Text(self):
-	# 	rect = viewercontroller_pb2.ViewerControllerNewROIRequest.Rect(origin_x=66., origin_y=42., width=20.,
-	# 																   height=10.)
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=255, g=100, b=100)
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 rectangle=rect, movie_idx=0, position=0, itype=13,
-	# 																 color=color, opacity=1.0, name="Some text",
-	# 																 thickness=3.0)
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
-	#
-	# def testViewerControllerNewROI_TTAGT(self):
-	# 	points = [[50.20499802, 32.32217407], [53.27367783, 38.77323914], [64.68674469, 25.43341637],
-	# 			  [69.71873474, 36.01180649], [41.8967247, 36.27430344], [68.91729736, 23.42099953]]
-	# 	points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=p[0], y=p[1]) for p in points]
-	# 	print(len(points))
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=100, g=250, b=220)
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 points=points, movie_idx=0, position=0, itype=29,
-	# 																 color=color, opacity=1.0, name="tTAGT",
-	# 																 thickness=3.0)
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
-	#
-	# def testViewerControllerNewROI_Pencil(self):
-	# 	points = [[50.20499802, 32.32217407], [53.27367783, 38.77323914], [64.68674469, 25.43341637],
-	# 			  [69.71873474, 36.01180649], [41.8967247, 36.27430344], [68.91729736, 23.42099953]]
-	# 	points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=p[0], y=p[1]) for p in points]
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=100, g=50, b=220)
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 points=points, movie_idx=0, position=0, itype=15,
-	# 																 color=color, opacity=1.0, name="pencil",
-	# 																 thickness=3.0)
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
-	#
-	# def testViewerControllerNewROI_Angle(self):
-	# 	points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=71., y=-2.), \
-	# 			  viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=67., y=11.), \
-	# 			  viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=90., y=9.)]
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=100, g=50, b=220)
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 points=points, movie_idx=0, position=0, itype=12,
-	# 																 color=color, opacity=1.0, name="pencil",
-	# 																 thickness=3.0)
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
-	#
-	# def testViewerControllerNewROI_Measure(self):
-	# 	points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=71., y=-2.), \
-	# 			  viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=67., y=11.)]
-	# 	color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=100, g=50, b=0)
-	# 	request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
-	# 																 points=points, movie_idx=0, position=0, itype=5,
-	# 																 color=color, opacity=1.0, name="measure",
-	# 																 thickness=3.0)
-	# 	response = self.stub.ViewerControllerNewROI(request)
-	# 	self.assertEqual(response.status.status, 1)
-	# 	print(response.roi)
+	def testViewerControllerNewROI_Text(self):
+		rect = viewercontroller_pb2.ViewerControllerNewROIRequest.Rect(origin_x=66., origin_y=42., width=20.,
+																	   height=10.)
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=255, g=100, b=100)
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 rectangle=rect, movie_idx=0, position=0, itype=13,
+																	 color=color, opacity=1.0, name="Some text",
+																	 thickness=3.0)
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
+
+	def testViewerControllerNewROI_TTAGT(self):
+		points = [[50.20499802, 32.32217407], [53.27367783, 38.77323914], [64.68674469, 25.43341637],
+				  [69.71873474, 36.01180649], [41.8967247, 36.27430344], [68.91729736, 23.42099953]]
+		points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=p[0], y=p[1]) for p in points]
+		print(len(points))
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=100, g=250, b=220)
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 points=points, movie_idx=0, position=0, itype=29,
+																	 color=color, opacity=1.0, name="tTAGT",
+																	 thickness=3.0)
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
+
+	def testViewerControllerNewROI_Pencil(self):
+		points = [[50.20499802, 32.32217407], [53.27367783, 38.77323914], [64.68674469, 25.43341637],
+				  [69.71873474, 36.01180649], [41.8967247, 36.27430344], [68.91729736, 23.42099953]]
+		points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=p[0], y=p[1]) for p in points]
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=100, g=50, b=220)
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 points=points, movie_idx=0, position=0, itype=15,
+																	 color=color, opacity=1.0, name="pencil",
+																	 thickness=3.0)
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
+
+	def testViewerControllerNewROI_Angle(self):
+		points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=71., y=-2.), \
+				  viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=67., y=11.), \
+				  viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=90., y=9.)]
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=100, g=50, b=220)
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 points=points, movie_idx=0, position=0, itype=12,
+																	 color=color, opacity=1.0, name="pencil",
+																	 thickness=3.0)
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
+
+	def testViewerControllerNewROI_Measure(self):
+		points = [viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=71., y=-2.), \
+				  viewercontroller_pb2.ViewerControllerNewROIRequest.Point2D(x=67., y=11.)]
+		color = viewercontroller_pb2.ViewerControllerNewROIRequest.Color(r=100, g=50, b=0)
+		request = viewercontroller_pb2.ViewerControllerNewROIRequest(viewer_controller=self.viewer_controller,
+																	 points=points, movie_idx=0, position=0, itype=5,
+																	 color=color, opacity=1.0, name="measure",
+																	 thickness=3.0)
+		response = self.stub.ViewerControllerNewROI(request)
+		self.assertEqual(response.status.status, 1)
+		print(response.roi)
 
 	def testViewerControllerCurDCM(self):
 		cur_dcm = self.viewer_controller_pyosirix.cur_dcm()
@@ -380,6 +392,8 @@ class PyOsirixTestDCMPix(GrpcTest):
 		self.viewer_controller_pyosirix = self.osirix.frontmost_viewer()
 		self.pix_pyosirix = self.viewer_controller_pyosirix.cur_dcm()
 		self.pix = self.stub.ViewerControllerCurDCM(self.viewer_controller).pix
+		self.pix_list_pyosirix = self.viewer_controller_pyosirix.pix_list(movie_idx=0)
+
 
 		self.roi_pyosirix = self.viewer_controller_pyosirix.rois_with_name(name="test_grpc", movie_idx=0)[0]
 		roi_request = viewercontroller_pb2.ViewerControllerROIsWithNameRequest(viewer_controller=self.viewer_controller,
@@ -484,6 +498,20 @@ class PyOsirixTestDCMPix(GrpcTest):
 
 		self.assertEqual(response.source_file, source_file)
 
+	#TODO add these tests once the RPC for them have been added to osirix.proto
+
+	# def testDCMPixDicomImage(self):
+	# 	dicom_image = self.pix_pyosirix.image_obj()
+	# 	print(dicom_image.modality)
+	#
+	# def testDCMPixDicomSeries(self):
+	# 	dicom_image = self.pix_pyosirix.series_obj()
+	# 	print(dicom_image.modality)
+	#
+	# def testDCMPixDicomStudy(self):
+	# 	dicom_image = self.pix_pyosirix.study_object()
+	# 	print(dicom_image.modality)
+
 	def testDCMPixImage(self):
 		image_array = self.pix_pyosirix.image
 		response = self.stub.DCMPixImage(self.pix)
@@ -509,18 +537,33 @@ class PyOsirixTestDCMPix(GrpcTest):
 	def testDCMPixSetImage(self):
 		response = self.stub.DCMPixImage(self.pix)
 
+		print(type(response.image_data_float))
+		request = viewercontroller_pb2.ViewerControllerPixListRequest(viewer_controller=self.viewer_controller,
+																	  movie_idx=0)
+		response_pix_list = self.stub.ViewerControllerPixList(request)
+		pix2 = response_pix_list.pix[20]
+		print(pix2)
+		response_dcm_pix2 = self.stub.DCMPixImage(pix2)
+		print(type(response_dcm_pix2.image_data_float))
 
-		if response.is_argb:
-			request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.pix, image_data_argb=response.image_data_argb)
-			array = np.array(response.image_data_argb).reshape(response.rows, response.columns, 4)
+		if response_dcm_pix2.is_argb:
+			# request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.pix, image_data_argb=response.image_data_argb)
+			request = dcmpix_pb2.DCMPixSetImageRequest(pix=pix2, image_data_argb=response_dcm_pix2.image_data_argb)
 
-			self.pix_pyosirix.set_image(response.image_data_argb, response.is_argb)
+			array = np.array(response_dcm_pix2.image_data_argb).reshape(response_dcm_pix2.rows, response_dcm_pix2.columns, 4)
+
+			self.pix_pyosirix.set_image(response_dcm_pix2.image_data_argb, response_dcm_pix2.is_argb)
 		else:
-			request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.pix, image_data_float=response.image_data_float)
+			# request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.pix, image_data_float=response.image_data_float)
+			request = dcmpix_pb2.DCMPixSetImageRequest(pix=pix2, image_data_float=response_dcm_pix2.image_data_float)
+
 			array = np.array(response.image_data_float).reshape(response.rows, response.columns)
 
-			self.pix_pyosirix.set_image(response.image_data_float, response.is_argb)
+			self.pix_pyosirix.set_image(response_dcm_pix2.image_data_float, response_dcm_pix2.is_argb)
 		response = self.stub.DCMPixSetImage(request)
+		self.viewer_controller_pyosirix = self.osirix.frontmost_viewer()
+		self.viewer_controller_pyosirix.needs_display_update()
+
 		self.assertEqual(response.status.status, 1)
 
 
@@ -657,18 +700,18 @@ class PyOsirixTestROI(GrpcTest):
 
 		self.assertTrue(np.array_equal(points, points_py))
 
-	# def testROISetPoints(self):
-	# 	points_array = self.roi_pyosirix.points
-	# 	self.roi_pyosirix.points = points_array
-	#
-	# 	points_response = self.stub.ROIPoints(self.roi)
-	# 	points_request = []
-	# 	for i in range(len(points_response.points)):
-	# 		points_request.append(
-	# 			roi_pb2.ROISetPointsRequest.Point2D(x=points_response.points[i].x, y=points_response.points[i].y))
-	# 	request = roi_pb2.ROISetPointsRequest(roi=self.roi, points=points_request)
-	# 	response = self.stub.ROISetPoints(request)
-	# 	self.assertEqual(response.status.status, 1)
+	def testROISetPoints(self):
+		# points_array = self.roi_pyosirix.points
+		# self.roi_pyosirix.points = points_array
+
+		points_response = self.stub.ROIPoints(self.roi)
+		points_request = []
+		for i in range(len(points_response.points)):
+			points_request.append(
+				roi_pb2.ROISetPointsRequest.Point2D(x=points_response.points[i].x, y=points_response.points[i].y))
+		request = roi_pb2.ROISetPointsRequest(roi=self.roi, points=points_request)
+		response = self.stub.ROISetPoints(request)
+		self.assertEqual(response.status.status, 1)
 
 
 class PyOsirixTestVRController(GrpcTest):
