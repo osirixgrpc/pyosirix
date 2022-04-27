@@ -33,11 +33,11 @@ def osirix():
     domain = ""
     with open(r'/Users/admintmun/Library/Application Support/OsiriXGRPC/server_configs.json') as file:
         server_configs_dict = json.load(file)
-        print(server_configs_dict)
         for item in server_configs_dict:
             if (item["active"] == "YES"):
                 port = item["port"]
                 domain = item["ipaddress"] + ":"
+                break
 
     if (port == "" or domain == ""):
         raise Exception("No port or domain listed in the server configuration file.")
