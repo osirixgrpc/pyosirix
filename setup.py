@@ -57,6 +57,6 @@ setup(
     test_suite='tests',
     tests_require=read("requirements.txt"),
     url='https://github.com/osirixgrpc/pyosirix',
-    version='0.1.4',
+    version='0.1.6',
     zip_safe=False,
 )
