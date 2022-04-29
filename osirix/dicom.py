@@ -5,7 +5,7 @@ import sys
 # sys.path.append("./pb2")
 import osirix.pb2.osirix_pb2_grpc as osirix_pb2_grpc
 from typing import Tuple
-from osirix.ResponseProcessor import ResponseProcessor
+from osirix.response_processor import ResponseProcessor
 
 class DicomStudy(object):
     '''

@@ -3,10 +3,10 @@ import sys
 
 # sys.path.append("/Users/admintmun/dev/pyosirix/osirix/pb2")
 import osirix.pb2.browsercontroller_pb2 as browsercontroller_pb2
-from osirix.Exceptions import GrpcException
+from osirix.exceptions import GrpcException
 from typing import Tuple, List
-from osirix.Dicom import DicomSeries, DicomStudy
-from osirix.ResponseProcessor import ResponseProcessor
+from osirix.dicom import DicomSeries, DicomStudy
+from osirix.response_processor import ResponseProcessor
 
 class BrowserController(object):
     """

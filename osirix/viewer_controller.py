@@ -10,8 +10,8 @@ import osirix.pb2.viewercontroller_pb2 as viewercontroller_pb2
 import osirix.pb2.vrcontroller_pb2 as vrcontroller_pb2
 import osirix.pb2.dcmpix_pb2 as dcmpix_pb2
 import osirix.pb2.roi_pb2 as roi_pb2
-from osirix.Dicom import DicomSeries, DicomStudy, DicomImage
-from osirix.ResponseProcessor import ResponseProcessor
+from osirix.dicom import DicomSeries, DicomStudy, DicomImage
+from osirix.response_processor import ResponseProcessor
 
 class DCMPix(object):
     '''

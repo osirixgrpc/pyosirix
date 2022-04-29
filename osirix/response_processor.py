@@ -5,7 +5,7 @@ import sys
 import numpy as np
 from numpy import ndarray
 
-from osirix.Exceptions import GrpcException
+from osirix.exceptions import GrpcException
 
 # sys.path.append("../../src/python")
 import osirix.pb2.osirix_pb2 as osirix_pb2

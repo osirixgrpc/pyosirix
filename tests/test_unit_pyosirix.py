@@ -10,7 +10,7 @@ import pytest
 import numpy as np
 import matplotlib.pyplot as pl
 from osirix.osirix_utils import Osirix, OsirixService
-from osirix.Exceptions import GrpcException
+from osirix.exceptions import GrpcException
 
 import osirix.pb2.osirix_pb2 as osirix_pb2
 import osirix.pb2.utilities_pb2 as utilities_pb2

@@ -23,21 +23,18 @@ import json
 import warnings
 from typing import Tuple
 
-from .Exceptions import GrpcException, WaitException, OsirixServiceException
+from .exceptions import GrpcException, WaitException, OsirixServiceException
 from .Wait import Wait
-from .ViewerController import ViewerController
+from .viewer_controller import ViewerController
 from .DCMPix import DCMPix
 from .VRController import VRController
 from .ROI import ROI
-from .Dicom import DicomSeries, DicomStudy, DicomImage
-from .BrowserController import BrowserController
+from .dicom import DicomSeries, DicomStudy, DicomImage
+from .browser_controller import BrowserController
 from .osirix_utils import Osirix, OsirixService
 
 global __port__, __domain__, __osirix__, __osirix_service__
-__port__ = None
-__domain__ = None
-__osirix__ = None
-__osirix_service__ = None
+
 
 def __init_setup__():
     global __port__, __domain__, __osirix__, __osirix_service__
@@ -50,25 +47,25 @@ def __init_setup__():
     with open(server_configs) as file:
         server_configs_dict = json.load(file)
         for item in server_configs_dict:
-            if (item["active"] == "YES"):
+            if item["active"] == "YES":
                 __port__ = item["port"]
                 __domain__ = item["ipaddress"] + ":"
                 break
 
-    if (__port__ is None  or __domain__ is None):
-        warnings.warn("No valid port or domain found.\
-                       You may need to start one in OsiriX.")
+    if __port__ is None  or __domain__ is None:
+        warnings.warn("No valid port or domain found. You may need to start one in OsiriX.")
         return
 
-    # address
     channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
                    ('grpc.max_receive_message_length', 512 * 1024 * 1024)]
     __osirix_service__ = OsirixService(channel_opt=channel_opt,
-                                   domain=__domain__,
-                                   port=__port__).get_service()
+                                       domain=__domain__,
+                                       port=__port__).get_service()
     __osirix__ = Osirix(__osirix_service__)
 
+
 __init_setup__()
+
 
 def current_browser() -> BrowserController:
     """
@@ -82,6 +79,7 @@ def current_browser() -> BrowserController:
         raise ConnectionError("No connection established")
     return __osirix__.current_browser()
 
+
 def frontmost_viewer() -> ViewerController:
     """
     Provides the 2D viewer that is currently selected
@@ -93,6 +91,7 @@ def frontmost_viewer() -> ViewerController:
     if __osirix__ is None:
         raise ConnectionError("No connection established")
     return __osirix__.frontmost_viewer()
+
 
 def frontmost_vr_controller() -> VRController:
     """
@@ -106,6 +105,7 @@ def frontmost_vr_controller() -> VRController:
         raise ConnectionError("No connection established")
     return __osirix__.frontmost_vr_controller()
 
+
 def displayed_2d_viewers() -> Tuple[ViewerController, ...]:
     """
     Provides all 2D viewers that are displayed
@@ -117,6 +117,7 @@ def displayed_2d_viewers() -> Tuple[ViewerController, ...]:
     if __osirix__ is None:
         raise ConnectionError("No connection established")
     return __osirix__.displayed_2d_viewers()
+
 
 def displayed_vr_controllers() -> Tuple[VRController, ...]:
     """
