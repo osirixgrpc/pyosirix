@@ -11,8 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import osirix.pb2.utilities_pb2 as utilities__pb2
-import osirix.pb2.types_pb2 as types__pb2
+import utilities_pb2 as utilities__pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12vrcontroller.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\"{\n\x1cVRControllerViewer2DResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x37\n\x11viewer_controller\x18\x02 \x01(\x0b\x32\x1c.osirixgrpc.ViewerController\"\x85\x01\n&VRControllerBlendingControllerResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x37\n\x11viewer_controller\x18\x02 \x01(\x0b\x32\x1c.osirixgrpc.ViewerController\"_\n!VRControllerRenderingModeResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x16\n\x0erendering_mode\x18\x02 \x01(\t\"V\n\x18VRControllerWLWWResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\n\n\x02wl\x18\x02 \x01(\x02\x12\n\n\x02ww\x18\x03 \x01(\x02\"N\n\x19VRControllerStyleResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\r\n\x05style\x18\x02 \x01(\t\"N\n\x19VRControllerTitleResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\r\n\x05title\x18\x02 \x01(\t\"p\n\x1eVRControllerROIVolumesResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12*\n\x0broi_volumes\x18\x02 \x03(\x0b\x32\x15.osirixgrpc.ROIVolume\"n\n#VRControllerSetRenderingModeRequest\x12/\n\rvr_controller\x18\x01 \x01(\x0b\x32\x18.osirixgrpc.VRController\x12\x16\n\x0erendering_mode\x18\x02 \x01(\t\"e\n\x1aVRControllerSetWLWWRequest\x12/\n\rvr_controller\x18\x01 \x01(\x0b\x32\x18.osirixgrpc.VRController\x12\n\n\x02wl\x18\x02 \x01(\x02\x12\n\n\x02ww\x18\x03 \x01(\x02\x62\x06proto3'
+  serialized_pb=b'\n\x12vrcontroller.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\"{\n\x1cVRControllerViewer2DResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x37\n\x11viewer_controller\x18\x02 \x01(\x0b\x32\x1c.osirixgrpc.ViewerController\"\x85\x01\n&VRControllerBlendingControllerResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x37\n\x11viewer_controller\x18\x02 \x01(\x0b\x32\x1c.osirixgrpc.ViewerController\"_\n!VRControllerRenderingModeResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x16\n\x0erendering_mode\x18\x02 \x01(\t\"V\n\x18VRControllerWLWWResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\n\n\x02wl\x18\x02 \x01(\x02\x12\n\n\x02ww\x18\x03 \x01(\x02\"N\n\x19VRControllerStyleResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\r\n\x05style\x18\x02 \x01(\t\"N\n\x19VRControllerTitleResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\r\n\x05title\x18\x02 \x01(\t\"p\n\x1eVRControllerROIVolumesResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12*\n\x0broi_volumes\x18\x02 \x03(\x0b\x32\x15.osirixgrpc.ROIVolume\"n\n#VRControllerSetRenderingModeRequest\x12/\n\rvr_controller\x18\x01 \x01(\x0b\x32\x18.osirixgrpc.VRController\x12\x16\n\x0erendering_mode\x18\x02 \x01(\t\"e\n\x1aVRControllerSetWLWWRequest\x12/\n\rvr_controller\x18\x01 \x01(\x0b\x32\x18.osirixgrpc.VRController\x12\n\n\x02wl\x18\x02 \x01(\x02\x12\n\n\x02ww\x18\x03 \x01(\x02\"~\n VRControllerHideROIVolumeRequest\x12/\n\rvr_controller\x18\x01 \x01(\x0b\x32\x18.osirixgrpc.VRController\x12)\n\nroi_volume\x18\x02 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\"\x81\x01\n#VRControllerDisplayROIVolumeRequest\x12/\n\rvr_controller\x18\x01 \x01(\x0b\x32\x18.osirixgrpc.VRController\x12)\n\nroi_volume\x18\x02 \x01(\x0b\x32\x15.osirixgrpc.ROIVolumeb\x06proto3'
   ,
   dependencies=[utilities__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
 
@@ -392,6 +392,84 @@ _VRCONTROLLERSETWLWWREQUEST = _descriptor.Descriptor(
   serialized_end=997,
 )
 
+
+_VRCONTROLLERHIDEROIVOLUMEREQUEST = _descriptor.Descriptor(
+  name='VRControllerHideROIVolumeRequest',
+  full_name='osirixgrpc.VRControllerHideROIVolumeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='vr_controller', full_name='osirixgrpc.VRControllerHideROIVolumeRequest.vr_controller', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='roi_volume', full_name='osirixgrpc.VRControllerHideROIVolumeRequest.roi_volume', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=999,
+  serialized_end=1125,
+)
+
+
+_VRCONTROLLERDISPLAYROIVOLUMEREQUEST = _descriptor.Descriptor(
+  name='VRControllerDisplayROIVolumeRequest',
+  full_name='osirixgrpc.VRControllerDisplayROIVolumeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='vr_controller', full_name='osirixgrpc.VRControllerDisplayROIVolumeRequest.vr_controller', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='roi_volume', full_name='osirixgrpc.VRControllerDisplayROIVolumeRequest.roi_volume', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1128,
+  serialized_end=1257,
+)
+
 _VRCONTROLLERVIEWER2DRESPONSE.fields_by_name['status'].message_type = utilities__pb2._STATUS
 _VRCONTROLLERVIEWER2DRESPONSE.fields_by_name['viewer_controller'].message_type = types__pb2._VIEWERCONTROLLER
 _VRCONTROLLERBLENDINGCONTROLLERRESPONSE.fields_by_name['status'].message_type = utilities__pb2._STATUS
@@ -404,6 +482,10 @@ _VRCONTROLLERROIVOLUMESRESPONSE.fields_by_name['status'].message_type = utilitie
 _VRCONTROLLERROIVOLUMESRESPONSE.fields_by_name['roi_volumes'].message_type = types__pb2._ROIVOLUME
 _VRCONTROLLERSETRENDERINGMODEREQUEST.fields_by_name['vr_controller'].message_type = types__pb2._VRCONTROLLER
 _VRCONTROLLERSETWLWWREQUEST.fields_by_name['vr_controller'].message_type = types__pb2._VRCONTROLLER
+_VRCONTROLLERHIDEROIVOLUMEREQUEST.fields_by_name['vr_controller'].message_type = types__pb2._VRCONTROLLER
+_VRCONTROLLERHIDEROIVOLUMEREQUEST.fields_by_name['roi_volume'].message_type = types__pb2._ROIVOLUME
+_VRCONTROLLERDISPLAYROIVOLUMEREQUEST.fields_by_name['vr_controller'].message_type = types__pb2._VRCONTROLLER
+_VRCONTROLLERDISPLAYROIVOLUMEREQUEST.fields_by_name['roi_volume'].message_type = types__pb2._ROIVOLUME
 DESCRIPTOR.message_types_by_name['VRControllerViewer2DResponse'] = _VRCONTROLLERVIEWER2DRESPONSE
 DESCRIPTOR.message_types_by_name['VRControllerBlendingControllerResponse'] = _VRCONTROLLERBLENDINGCONTROLLERRESPONSE
 DESCRIPTOR.message_types_by_name['VRControllerRenderingModeResponse'] = _VRCONTROLLERRENDERINGMODERESPONSE
@@ -413,6 +495,8 @@ DESCRIPTOR.message_types_by_name['VRControllerTitleResponse'] = _VRCONTROLLERTIT
 DESCRIPTOR.message_types_by_name['VRControllerROIVolumesResponse'] = _VRCONTROLLERROIVOLUMESRESPONSE
 DESCRIPTOR.message_types_by_name['VRControllerSetRenderingModeRequest'] = _VRCONTROLLERSETRENDERINGMODEREQUEST
 DESCRIPTOR.message_types_by_name['VRControllerSetWLWWRequest'] = _VRCONTROLLERSETWLWWREQUEST
+DESCRIPTOR.message_types_by_name['VRControllerHideROIVolumeRequest'] = _VRCONTROLLERHIDEROIVOLUMEREQUEST
+DESCRIPTOR.message_types_by_name['VRControllerDisplayROIVolumeRequest'] = _VRCONTROLLERDISPLAYROIVOLUMEREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 VRControllerViewer2DResponse = _reflection.GeneratedProtocolMessageType('VRControllerViewer2DResponse', (_message.Message,), {
@@ -477,6 +561,20 @@ VRControllerSetWLWWRequest = _reflection.GeneratedProtocolMessageType('VRControl
   # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerSetWLWWRequest)
   })
 _sym_db.RegisterMessage(VRControllerSetWLWWRequest)
+
+VRControllerHideROIVolumeRequest = _reflection.GeneratedProtocolMessageType('VRControllerHideROIVolumeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _VRCONTROLLERHIDEROIVOLUMEREQUEST,
+  '__module__' : 'vrcontroller_pb2'
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerHideROIVolumeRequest)
+  })
+_sym_db.RegisterMessage(VRControllerHideROIVolumeRequest)
+
+VRControllerDisplayROIVolumeRequest = _reflection.GeneratedProtocolMessageType('VRControllerDisplayROIVolumeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _VRCONTROLLERDISPLAYROIVOLUMEREQUEST,
+  '__module__' : 'vrcontroller_pb2'
+  # @@protoc_insertion_point(class_scope:osirixgrpc.VRControllerDisplayROIVolumeRequest)
+  })
+_sym_db.RegisterMessage(VRControllerDisplayROIVolumeRequest)
 
 
 # @@protoc_insertion_point(module_scope)

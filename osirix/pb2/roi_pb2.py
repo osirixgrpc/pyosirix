@@ -11,8 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import osirix.pb2.utilities_pb2 as utilities__pb2
-import osirix.pb2.types_pb2 as types__pb2
+import utilities_pb2 as utilities__pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\troi.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\"C\n\x0fROIAreaResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04\x61rea\x18\x02 \x01(\x02\"O\n\x13ROICentroidResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\t\n\x01x\x18\x02 \x01(\x02\x12\t\n\x01y\x18\x03 \x01(\x02\"U\n\x0eROIPixResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x1f\n\x03pix\x18\x02 \x01(\x0b\x32\x12.osirixgrpc.DCMPix\"C\n\x0fROINameResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04name\x18\x02 \x01(\t\"W\n\x10ROIColorResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\t\n\x01r\x18\x02 \x01(\x05\x12\t\n\x01g\x18\x03 \x01(\x05\x12\t\n\x01\x62\x18\x04 \x01(\x05\"I\n\x12ROIOpacityResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\"M\n\x14ROIThicknessResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x11\n\tthickness\x18\x02 \x01(\x02\"\x8f\x01\n\x11ROIPointsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x35\n\x06points\x18\x02 \x03(\x0b\x32%.osirixgrpc.ROIPointsResponse.Point2D\x1a\x1f\n\x07Point2D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"W\n\x10ROIRotateRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0f\n\x07\x64\x65grees\x18\x02 \x01(\x02\x12\t\n\x01x\x18\x03 \x01(\x02\x12\t\n\x01y\x18\x04 \x01(\x02\"M\n\x0eROIMoveRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0f\n\x07\x63olumns\x18\x02 \x01(\x05\x12\x0c\n\x04rows\x18\x03 \x01(\x05\"?\n\x11ROISetNameRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0c\n\x04name\x18\x02 \x01(\t\"S\n\x12ROISetColorRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\t\n\x01r\x18\x02 \x01(\x05\x12\t\n\x01g\x18\x03 \x01(\x05\x12\t\n\x01\x62\x18\x04 \x01(\x05\"E\n\x14ROISetOpacityRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\"I\n\x16ROISetThicknessRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x11\n\tthickness\x18\x02 \x01(\x02\"\x8d\x01\n\x13ROISetPointsRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x37\n\x06points\x18\x02 \x03(\x0b\x32\'.osirixgrpc.ROISetPointsRequest.Point2D\x1a\x1f\n\x07Point2D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x62\x06proto3'
+  serialized_pb=b'\n\troi.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\"C\n\x0fROIAreaResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04\x61rea\x18\x02 \x01(\x02\"O\n\x13ROICentroidResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\t\n\x01x\x18\x02 \x01(\x02\x12\t\n\x01y\x18\x03 \x01(\x02\"U\n\x0eROIPixResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x1f\n\x03pix\x18\x02 \x01(\x0b\x32\x12.osirixgrpc.DCMPix\"C\n\x0fROINameResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04name\x18\x02 \x01(\t\"W\n\x10ROIColorResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\t\n\x01r\x18\x02 \x01(\x05\x12\t\n\x01g\x18\x03 \x01(\x05\x12\t\n\x01\x62\x18\x04 \x01(\x05\"I\n\x12ROIOpacityResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\"M\n\x14ROIThicknessResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x11\n\tthickness\x18\x02 \x01(\x02\"\x8f\x01\n\x11ROIPointsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x35\n\x06points\x18\x02 \x03(\x0b\x32%.osirixgrpc.ROIPointsResponse.Point2D\x1a\x1f\n\x07Point2D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"E\n\x10ROIITypeResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\r\n\x05itype\x18\x02 \x01(\x05\"W\n\x10ROIRotateRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0f\n\x07\x64\x65grees\x18\x02 \x01(\x02\x12\t\n\x01x\x18\x03 \x01(\x02\x12\t\n\x01y\x18\x04 \x01(\x02\"M\n\x0eROIMoveRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0f\n\x07\x63olumns\x18\x02 \x01(\x05\x12\x0c\n\x04rows\x18\x03 \x01(\x05\"?\n\x11ROISetNameRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0c\n\x04name\x18\x02 \x01(\t\"S\n\x12ROISetColorRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\t\n\x01r\x18\x02 \x01(\x05\x12\t\n\x01g\x18\x03 \x01(\x05\x12\t\n\x01\x62\x18\x04 \x01(\x05\"E\n\x14ROISetOpacityRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\"I\n\x16ROISetThicknessRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x11\n\tthickness\x18\x02 \x01(\x02\"\x8d\x01\n\x13ROISetPointsRequest\x12\x1c\n\x03roi\x18\x01 \x01(\x0b\x32\x0f.osirixgrpc.ROI\x12\x37\n\x06points\x18\x02 \x03(\x0b\x32\'.osirixgrpc.ROISetPointsRequest.Point2D\x1a\x1f\n\x07Point2D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x62\x06proto3'
   ,
   dependencies=[utilities__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
 
@@ -399,6 +399,45 @@ _ROIPOINTSRESPONSE = _descriptor.Descriptor(
 )
 
 
+_ROIITYPERESPONSE = _descriptor.Descriptor(
+  name='ROIITypeResponse',
+  full_name='osirixgrpc.ROIITypeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='osirixgrpc.ROIITypeResponse.status', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='itype', full_name='osirixgrpc.ROIITypeResponse.itype', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=750,
+  serialized_end=819,
+)
+
+
 _ROIROTATEREQUEST = _descriptor.Descriptor(
   name='ROIRotateRequest',
   full_name='osirixgrpc.ROIRotateRequest',
@@ -447,8 +486,8 @@ _ROIROTATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=750,
-  serialized_end=837,
+  serialized_start=821,
+  serialized_end=908,
 )
 
 
@@ -493,8 +532,8 @@ _ROIMOVEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=839,
-  serialized_end=916,
+  serialized_start=910,
+  serialized_end=987,
 )
 
 
@@ -532,8 +571,8 @@ _ROISETNAMEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=918,
-  serialized_end=981,
+  serialized_start=989,
+  serialized_end=1052,
 )
 
 
@@ -585,8 +624,8 @@ _ROISETCOLORREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=983,
-  serialized_end=1066,
+  serialized_start=1054,
+  serialized_end=1137,
 )
 
 
@@ -624,8 +663,8 @@ _ROISETOPACITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1068,
-  serialized_end=1137,
+  serialized_start=1139,
+  serialized_end=1208,
 )
 
 
@@ -663,8 +702,8 @@ _ROISETTHICKNESSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1139,
-  serialized_end=1212,
+  serialized_start=1210,
+  serialized_end=1283,
 )
 
 
@@ -740,8 +779,8 @@ _ROISETPOINTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1215,
-  serialized_end=1356,
+  serialized_start=1286,
+  serialized_end=1427,
 )
 
 _ROIAREARESPONSE.fields_by_name['status'].message_type = utilities__pb2._STATUS
@@ -755,6 +794,7 @@ _ROITHICKNESSRESPONSE.fields_by_name['status'].message_type = utilities__pb2._ST
 _ROIPOINTSRESPONSE_POINT2D.containing_type = _ROIPOINTSRESPONSE
 _ROIPOINTSRESPONSE.fields_by_name['status'].message_type = utilities__pb2._STATUS
 _ROIPOINTSRESPONSE.fields_by_name['points'].message_type = _ROIPOINTSRESPONSE_POINT2D
+_ROIITYPERESPONSE.fields_by_name['status'].message_type = utilities__pb2._STATUS
 _ROIROTATEREQUEST.fields_by_name['roi'].message_type = types__pb2._ROI
 _ROIMOVEREQUEST.fields_by_name['roi'].message_type = types__pb2._ROI
 _ROISETNAMEREQUEST.fields_by_name['roi'].message_type = types__pb2._ROI
@@ -772,6 +812,7 @@ DESCRIPTOR.message_types_by_name['ROIColorResponse'] = _ROICOLORRESPONSE
 DESCRIPTOR.message_types_by_name['ROIOpacityResponse'] = _ROIOPACITYRESPONSE
 DESCRIPTOR.message_types_by_name['ROIThicknessResponse'] = _ROITHICKNESSRESPONSE
 DESCRIPTOR.message_types_by_name['ROIPointsResponse'] = _ROIPOINTSRESPONSE
+DESCRIPTOR.message_types_by_name['ROIITypeResponse'] = _ROIITYPERESPONSE
 DESCRIPTOR.message_types_by_name['ROIRotateRequest'] = _ROIROTATEREQUEST
 DESCRIPTOR.message_types_by_name['ROIMoveRequest'] = _ROIMOVEREQUEST
 DESCRIPTOR.message_types_by_name['ROISetNameRequest'] = _ROISETNAMEREQUEST
@@ -844,6 +885,13 @@ ROIPointsResponse = _reflection.GeneratedProtocolMessageType('ROIPointsResponse'
   })
 _sym_db.RegisterMessage(ROIPointsResponse)
 _sym_db.RegisterMessage(ROIPointsResponse.Point2D)
+
+ROIITypeResponse = _reflection.GeneratedProtocolMessageType('ROIITypeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ROIITYPERESPONSE,
+  '__module__' : 'roi_pb2'
+  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIITypeResponse)
+  })
+_sym_db.RegisterMessage(ROIITypeResponse)
 
 ROIRotateRequest = _reflection.GeneratedProtocolMessageType('ROIRotateRequest', (_message.Message,), {
   'DESCRIPTOR' : _ROIROTATEREQUEST,

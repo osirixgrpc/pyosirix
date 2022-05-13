@@ -4,21 +4,18 @@ import sys
 
 from numpy import ndarray
 
-# sys.path.append("./pb2")
-# sys.path.append("/Users/admintmun/dev/pyosirix/osirix/pb2")
-import osirix.pb2.viewercontroller_pb2 as viewercontroller_pb2
-import osirix.pb2.vrcontroller_pb2 as vrcontroller_pb2
-import osirix.pb2.dcmpix_pb2 as dcmpix_pb2
-import osirix.pb2.roi_pb2 as roi_pb2
+import osirixgrpc.viewercontroller_pb2 as viewercontroller_pb2
+import osirixgrpc.vrcontroller_pb2 as vrcontroller_pb2
+import osirixgrpc.dcmpix_pb2 as dcmpix_pb2
+import osirixgrpc.roi_pb2 as roi_pb2
 from osirix.dicom import DicomSeries, DicomStudy, DicomImage
 from osirix.response_processor import ResponseProcessor
 
-class DCMPix(object):
-    '''
-    Class representing the properties and methods to communicate with the Osirix service through
-    gRPC for DCMPix
-    '''
 
+class DCMPix(object):
+    """
+    Class representing the DMPix object containing each image within the ViewerController.
+    """
     def __init__(self,
                  osirixrpc_uid,
                  osirix_service):
@@ -34,8 +31,8 @@ class DCMPix(object):
             bool: rgb
         """
         response_is_rgb = self.osirix_service.DCMPixIsRGB(self.osirixrpc_uid)
-        self._is_rgb = self.response_processor.process_is_rgb(response_is_rgb)
-        return self._is_rgb
+        is_rgb = self.response_processor.process_is_rgb(response_is_rgb)
+        return is_rgb
 
     @property
     def slice_location(self) -> float:
@@ -45,54 +42,52 @@ class DCMPix(object):
             bool: slice location
         """
         response_slice_location = self.osirix_service.DCMPixSliceLocation(self.osirixrpc_uid)
-        self._slice_location = self.response_processor.process_pix_slice_location(response_slice_location)
-        return self._slice_location
+        slice_location = self.response_processor.process_pix_slice_location(response_slice_location)
+        return slice_location
 
     @property
-    def orientation(self) -> Tuple[float]:
+    def orientation(self) -> Tuple[float, ...]:
         """
         Provides orientation associated with the DCMPix
         Returns:
             Tuple containing orientations in float
         """
         response_orientation = self.osirix_service.DCMPixOrientation(self.osirixrpc_uid)
-        self._orientation = self.response_processor.process_pix_orientation(response_orientation)
-
-        return self._orientation
+        orientation = self.response_processor.process_pix_orientation(response_orientation)
+        return orientation
 
     @property
-    def origin(self) -> Tuple[float]:
+    def origin(self) -> Tuple[float, float, float]:
         """
         Provides origin (rows, columns, slices) associated with the DCMPix
         Returns:
             A Tuple containing the origin values (rows, columns, slices) in float
         """
         response_origin = self.osirix_service.DCMPixOrigin(self.osirixrpc_uid)
-        self._origin = self.response_processor.process_pix_origin(response_origin)
-        return self._origin
+        origin = self.response_processor.process_pix_origin(response_origin)
+        return origin
 
     @property
-    def pixel_spacing(self) -> Tuple[float]:
+    def pixel_spacing(self) -> Tuple[float, float]:
         """
         Provides pixel spacing in rows and columns associated with the DCMPix
         Returns:
             A tuple containing pixel spacings (rows and columns) in float
         """
         response_spacing = self.osirix_service.DCMPixSpacing(self.osirixrpc_uid)
-        self._pixel_spacing = self.response_processor.process_pix_spacing(response_spacing)
-
-        return self._pixel_spacing
+        pixel_spacing = self.response_processor.process_pix_spacing(response_spacing)
+        return pixel_spacing
 
     @property
-    def shape(self) -> Tuple[int]:
+    def shape(self) -> Tuple[int, int]:
         """
         Provides shape (rows, columns) associated with the DCMPix
         Returns:
             Tuple containing shape (rows, columns) in float
         """
         response_pix_shape = self.osirix_service.DCMPixShape(self.osirixrpc_uid)
-        self._shape = self.response_processor.process_pix_shape(response_pix_shape)
-        return self._shape
+        shape = self.response_processor.process_pix_shape(response_pix_shape)
+        return shape
 
     @property
     def source_file(self) -> str:
@@ -102,8 +97,8 @@ class DCMPix(object):
             str: source file for DCMPix
         """
         response_pix_source_file = self.osirix_service.DCMPixSourceFile(self.osirixrpc_uid)
-        self._source_file = self.response_processor.process_pix_source_file(response_pix_source_file)
-        return self._source_file
+        source_file = self.response_processor.process_pix_source_file(response_pix_source_file)
+        return source_file
 
     @property
     def image(self) -> ndarray:
@@ -113,38 +108,23 @@ class DCMPix(object):
             ndarray: image data for DCMPix
         """
         response_pix_image = self.osirix_service.DCMPixImage(self.osirixrpc_uid)
-        self._image = self.response_processor.process_pix_image(response_pix_image)
-        return self._image
+        image = self.response_processor.process_pix_image(response_pix_image)
+        return image
 
-    # @image.setter - setter only allows one value so switch to using a method
     def set_image(self, image: ndarray, is_argb: bool) -> None:
         if is_argb:
             request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.osirixrpc_uid, image_data_argb=image)
-
         else:
             request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.osirixrpc_uid, image_data_float=image)
-
         response = self.osirix_service.DCMPixSetImage(request)
         self.response_processor.process_basic_response(response)
 
-    def compute_roi(self, roi : ROI) -> Dict[str, float]:
+    def compute_roi(self, roi: ROI) -> Dict[str, float]:
         """
-          Makes a gRPC request to compute ROIs of DCMPix and retrieves the statistics for the ROI in a dictionary.
-
-          Examples:
-
-           roi_dict = {
-                'mean': ...,
-                'total': ...,
-                'std_dev': ...,
-                'min': ...,
-                'max': ...,
-                'skewness': ...,
-                'kurtosis': ...
-            }
+          Makes a gRPC request to compute ROIs of DCMPix and retrieves the statistics for the ROI as a dictionary.
 
           Args:
-            ROI: osirixrpc_uid of a ROI
+            roi: A ROI object
 
           Returns:
             Dict containing the statistics of the ROI
@@ -153,7 +133,6 @@ class DCMPix(object):
         request = dcmpix_pb2.DCMPixComputeROIRequest(pix=self.osirixrpc_uid, roi=roi.osirixrpc_uid)
         response = self.osirix_service.DCMPixComputeROI(request)
         roi_dict = self.response_processor.process_pix_compute_roi(response)
-
         return roi_dict
 
     def convert_to_bw(self) -> None:
@@ -162,10 +141,9 @@ class DCMPix(object):
           Returns:
             None
         """
-        request = dcmpix_pb2.DCMPixConvertToBWRequest(pix = self.osirixrpc_uid, bw_channel = 3)
+        request = dcmpix_pb2.DCMPixConvertToBWRequest(pix=self.osirixrpc_uid, bw_channel=3)
         response = self.osirix_service.DCMPixConvertToBW(request)
         self.response_processor.process_pix_convert_to_rgb_bw(response)
-
 
     def convert_to_rgb(self) -> None:
         """
@@ -173,30 +151,30 @@ class DCMPix(object):
           Returns:
             None
         """
-        request = dcmpix_pb2.DCMPixConvertToRGBRequest(pix = self.osirixrpc_uid, rgb_channel = 3)
+        request = dcmpix_pb2.DCMPixConvertToRGBRequest(pix=self.osirixrpc_uid, rgb_channel=3)
         response = self.osirix_service.DCMPixConvertToRGB(request)
         self.response_processor.process_pix_convert_to_rgb_bw(response)
 
-    def get_map_from_roi(self, roi : ROI) -> ndarray:
+    def get_map_from_roi(self, roi: ROI) -> ndarray:
         """
-          Makes a gRPC request to retrieve the ROI map for the DCMPix
+          Obtain the mask representing the ROI
           Args:
-            ROI: osirixrpc_uid of a ROI
+            roi: A ROI instance
 
           Returns:
-            ndarray: ROI map
+            ndarray: The ROI mask
         """
         request = dcmpix_pb2.DCMPixGetMapFromROIRequest(pix=self.osirixrpc_uid, roi=roi.osirixrpc_uid)
         response = self.osirix_service.DCMPixGetMapFromROI(request)
         roi_map_array = self.response_processor.process_pix_roi_map(response)
         return roi_map_array
 
-    def get_roi_values(self, roi : ROI) -> Tuple[ndarray]:
+    def get_roi_values(self, roi: ROI) -> Tuple[ndarray]:
         """
           Makes a gRPC request to get the ROI values for the DCMPix
 
           Args:
-            ROI: osirixrpc_uid of a ROI
+            roi: A ROI instance.
 
           Returns:
             Tuple containing the ROI values (rows, columns, values) in ndarray
@@ -204,8 +182,8 @@ class DCMPix(object):
         request = dcmpix_pb2.DCMPixROIValuesRequest(pix=self.osirixrpc_uid, roi=roi.osirixrpc_uid)
         response = self.osirix_service.DCMPixROIValues(request)
         roi_values = self.response_processor.process_pix_roi_values(response)
-
         return roi_values
+
     #TODO
     # Don't see their RPC in osirix.proto but can see response in dcmpix.prot
     def image_obj(self) -> DicomImage:
@@ -985,129 +963,3 @@ class ViewerController(object):
     @classmethod
     def name(cls):
         cls.__name__
-
-class VRController(object):
-    '''
-    Class representing the properties and methods to communicate with the Osirix service through
-    gRPC for a VRController
-    '''
-
-    def __init__(self,
-                 osirixrpc_uid : str,
-                 osirix_service):
-        self.osirixrpc_uid = osirixrpc_uid
-        self.osirix_service = osirix_service
-        self.response_processor = ResponseProcessor()
-
-    @property
-    def rendering_mode(self) -> str:
-        """
-          Process gRPC request to retrieve the rendering mode for VRController
-
-          Returns:
-            str : rendering mode
-        """
-        response_vr_rendering_mode = self.osirix_service.VRControllerRenderingMode(self.osirixrpc_uid)
-        self._rendering_mode = self.response_processor.process_vr_rendering_mode(response_vr_rendering_mode)
-
-        return self._rendering_mode
-
-    @rendering_mode.setter
-    def rendering_mode(self, rendering_mode : str) -> None:
-        """
-          Process gRPC request to set the rendering mode for the VRController
-
-          Args:
-            str: rendering mode
-
-          Returns:
-            None
-        """
-        request = vrcontroller_pb2.VRControllerSetRenderingModeRequest(vr_controller=self.osirixrpc_uid, rendering_mode=rendering_mode)
-        response = self.osirix_service.VRControllerSetRenderingMode(request)
-        self.response_processor.process_basic_response(response)
-
-
-    @property
-    def style(self) -> str:
-        """
-          Process gRPC request to retrieve the style for the VRController
-
-          Returns:
-            str : style
-        """
-        response_vr_style = self.osirix_service.VRControllerStyle(self.osirixrpc_uid)
-        self._style = self.response_processor.process_vr_style(response_vr_style)
-
-        return self._style
-
-    @property
-    def title(self) -> str:
-        """
-          Process gRPC request to retrieve the title for the VRController
-
-          Returns:
-            str : title
-        """
-        response_vr_title = self.osirix_service.VRControllerTitle(self.osirixrpc_uid)
-        self._title = self.response_processor.process_title(response_vr_title)
-
-        return self._title
-
-    @property
-    def wlww(self) -> Tuple[float, float]:
-        """
-          Process gRPC request to retrive the wlww for the VRController
-
-          Returns:
-            Tuple containing wl and ww in float
-        """
-        response_vr_wlww = self.osirix_service.VRControllerWLWW(self.osirixrpc_uid)
-        vr_wl, vr_ww = self.response_processor.process_wlww(response_vr_wlww)
-
-        return (vr_wl, vr_ww)
-
-    @wlww.setter
-    def wlww(self, wlww : Tuple[float, float]) -> None:
-        """
-          Process gRPC request to set the wlww for the VRController
-
-          Args:
-            Tuple[float, float]: wlww
-
-          Returns:
-            None
-        """
-        wl, ww = wlww
-        request = vrcontroller_pb2.VRControllerSetWLWWRequest(vr_controller=self.osirixrpc_uid, wl=wl, ww=ww)
-        response = self.osirix_service.VRControllerSetWLWW(request)
-        self.response_processor.process_basic_response(response)
-
-    def blending_controller(self) -> ViewerController:
-        """
-          Process gRPC request to retrieve the blending controller for the VRController
-
-          Returns:
-            ViewerController
-        """
-        response_blending_controller = self.osirix_service.VRControllerBlendingController(self.osirixrpc_uid)
-
-        blending_controller = self.response_processor.process_blending_controller(response_blending_controller)
-        blending_controller_obj = ViewerController(blending_controller, self.osirix_service)
-
-        return blending_controller_obj
-
-    def viewer_2d(self) -> ViewerController:
-        """
-          Process gRPC request to retrieve the 2D viewer for the VRController
-
-          Returns:
-            ViewerController
-        """
-        response_viewer_2d = self.osirix_service.VRControllerViewer2D(self.osirixrpc_uid)
-        viewer_2d = self.response_processor.process_viewer_2d(response_viewer_2d)
-        viewer_2d_obj = ViewerController(viewer_2d, self.osirix_service)
-
-        return viewer_2d_obj
-
-

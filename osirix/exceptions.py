@@ -5,9 +5,10 @@ class GrpcException(Exception):
 		message -- explanation of the error
 
 	"""
-	def __init__(self, message : str =""):
+	def __init__(self, message: str = ""):
 		self.message = message
 		super().__init__(self.message)
+
 
 class WaitException(Exception):
 	"""Exception raised when there is an issue with Wait
@@ -16,9 +17,10 @@ class WaitException(Exception):
 		message -- explanation of the error
 
 	"""
-	def __init__(self, message : str = ""):
+	def __init__(self, message: str = ""):
 		self.message = message
 		super().__init__(self.message)
+
 
 class OsirixServiceException(Exception):
 	"""Exception raised when Osirix Service Stub does not exist
@@ -27,6 +29,6 @@ class OsirixServiceException(Exception):
 		message -- explanation of the error
 
 	"""
-	def __init__(self, message : str =""):
+	def __init__(self, message: str = ""):
 		self.message = message
 		super().__init__(self.message)

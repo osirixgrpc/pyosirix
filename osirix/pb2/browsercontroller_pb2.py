@@ -11,8 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import osirix.pb2.utilities_pb2 as utilities__pb2
-import osirix.pb2.types_pb2 as types__pb2
+import utilities_pb2 as utilities__pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(

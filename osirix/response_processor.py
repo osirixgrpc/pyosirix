@@ -7,9 +7,8 @@ from numpy import ndarray
 
 from osirix.exceptions import GrpcException
 
-# sys.path.append("../../src/python")
-import osirix.pb2.osirix_pb2 as osirix_pb2
-import osirix.pb2.dicomstudy_pb2 as dicomstudy_pb2
+import osirixgrpc.osirix_pb2 as osirix_pb2
+import osirixgrpc.dicomstudy_pb2 as dicomstudy_pb2
 
 #TODO break the responseprocessor into smaller parts
 class ResponseProcessor(object):
@@ -533,6 +532,22 @@ class ResponseProcessor(object):
 
             # return response.study.osirixrpc_uid
             return response.study
+        else:
+            raise GrpcException("No response")
+
+    def process_series_number_of_images(self, response):
+        """
+         Extract the number of images within the series
+
+         Args:
+             response: response returned by Osirix service for the request made
+
+         Returns:
+             int: the number of images
+
+        """
+        if (response.status.status == 1):
+            return response.number_of_images
         else:
             raise GrpcException("No response")
 

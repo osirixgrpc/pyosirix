@@ -8,7 +8,8 @@ __all__ = ["Osirix",
            "DicomSeries",
            "DicomStudy",
            "DicomImage",
-           "Wait",
+           "ROIVolume",
+           "VRController",
            "GrpcException",
            "WaitException",
            "OsirixServiceException"]
@@ -24,11 +25,8 @@ import warnings
 from typing import Tuple
 
 from .exceptions import GrpcException, WaitException, OsirixServiceException
-from .Wait import Wait
-from .viewer_controller import ViewerController
-from .DCMPix import DCMPix
-from .VRController import VRController
-from .ROI import ROI
+from .viewer_controller import ViewerController, DCMPix, ROI
+from .vr_controller import VRController, ROIVolume
 from .dicom import DicomSeries, DicomStudy, DicomImage
 from .browser_controller import BrowserController
 from .osirix_utils import Osirix, OsirixService

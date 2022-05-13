@@ -2,18 +2,19 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import osirix.pb2.browsercontroller_pb2 as browsercontroller__pb2
-import osirix.pb2.dcmpix_pb2 as dcmpix__pb2
-import osirix.pb2.dicomimage_pb2 as dicomimage__pb2
-import osirix.pb2.dicomseries_pb2 as dicomseries__pb2
-import osirix.pb2.dicomstudy_pb2 as dicomstudy__pb2
-import osirix.pb2.osirix_pb2 as osirix__pb2
-import osirix.pb2.roi_pb2 as roi__pb2
-import osirix.pb2.roivolume_pb2 as roivolume__pb2
-import osirix.pb2.types_pb2 as types__pb2
-import osirix.pb2.utilities_pb2 as utilities__pb2
-import osirix.pb2.viewercontroller_pb2 as viewercontroller__pb2
-import osirix.pb2.vrcontroller_pb2 as vrcontroller__pb2
+import browsercontroller_pb2 as browsercontroller__pb2
+import dcmpix_pb2 as dcmpix__pb2
+import dicomimage_pb2 as dicomimage__pb2
+import dicomseries_pb2 as dicomseries__pb2
+import dicomstudy_pb2 as dicomstudy__pb2
+import osirix_pb2 as osirix__pb2
+import roi_pb2 as roi__pb2
+import roivolume_pb2 as roivolume__pb2
+import types_pb2 as types__pb2
+import utilities_pb2 as utilities__pb2
+import viewercontroller_pb2 as viewercontroller__pb2
+import vrcontroller_pb2 as vrcontroller__pb2
+
 
 class OsiriXServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -88,6 +89,11 @@ class OsiriXServiceStub(object):
                 '/osirixgrpc.OsiriXService/ROIName',
                 request_serializer=types__pb2.ROI.SerializeToString,
                 response_deserializer=roi__pb2.ROINameResponse.FromString,
+                )
+        self.ROIIType = channel.unary_unary(
+                '/osirixgrpc.OsiriXService/ROIIType',
+                request_serializer=types__pb2.ROI.SerializeToString,
+                response_deserializer=roi__pb2.ROIITypeResponse.FromString,
                 )
         self.ROISetName = channel.unary_unary(
                 '/osirixgrpc.OsiriXService/ROISetName',
@@ -179,20 +185,15 @@ class OsiriXServiceStub(object):
                 request_serializer=roivolume__pb2.ROIVolumeSetFactorRequest.SerializeToString,
                 response_deserializer=utilities__pb2.Response.FromString,
                 )
-        self.ROIVolumeVisible = channel.unary_unary(
-                '/osirixgrpc.OsiriXService/ROIVolumeVisible',
-                request_serializer=types__pb2.ROIVolume.SerializeToString,
-                response_deserializer=roivolume__pb2.ROIVolumeVisibleResponse.FromString,
-                )
-        self.ROIVolumeSetVisible = channel.unary_unary(
-                '/osirixgrpc.OsiriXService/ROIVolumeSetVisible',
-                request_serializer=roivolume__pb2.ROIVolumeSetVisibleRequest.SerializeToString,
-                response_deserializer=utilities__pb2.Response.FromString,
-                )
         self.ROIVolumeName = channel.unary_unary(
                 '/osirixgrpc.OsiriXService/ROIVolumeName',
                 request_serializer=types__pb2.ROIVolume.SerializeToString,
                 response_deserializer=roivolume__pb2.ROIVolumeNameResponse.FromString,
+                )
+        self.ROIVolumeVisible = channel.unary_unary(
+                '/osirixgrpc.OsiriXService/ROIVolumeVisible',
+                request_serializer=types__pb2.ROIVolume.SerializeToString,
+                response_deserializer=roivolume__pb2.ROIVolumeVisibleResponse.FromString,
                 )
         self.DCMPixConvertToRGB = channel.unary_unary(
                 '/osirixgrpc.OsiriXService/DCMPixConvertToRGB',
@@ -322,6 +323,21 @@ class OsiriXServiceStub(object):
         self.VRControllerSetWLWW = channel.unary_unary(
                 '/osirixgrpc.OsiriXService/VRControllerSetWLWW',
                 request_serializer=vrcontroller__pb2.VRControllerSetWLWWRequest.SerializeToString,
+                response_deserializer=utilities__pb2.Response.FromString,
+                )
+        self.VRControllerHideROIVolume = channel.unary_unary(
+                '/osirixgrpc.OsiriXService/VRControllerHideROIVolume',
+                request_serializer=vrcontroller__pb2.VRControllerHideROIVolumeRequest.SerializeToString,
+                response_deserializer=utilities__pb2.Response.FromString,
+                )
+        self.VRControllerDisplayROIVolume = channel.unary_unary(
+                '/osirixgrpc.OsiriXService/VRControllerDisplayROIVolume',
+                request_serializer=vrcontroller__pb2.VRControllerDisplayROIVolumeRequest.SerializeToString,
+                response_deserializer=utilities__pb2.Response.FromString,
+                )
+        self.VRControllerNeedsDisplayUpdate = channel.unary_unary(
+                '/osirixgrpc.OsiriXService/VRControllerNeedsDisplayUpdate',
+                request_serializer=types__pb2.VRController.SerializeToString,
                 response_deserializer=utilities__pb2.Response.FromString,
                 )
         self.ViewerControllerCloseViewer = channel.unary_unary(
@@ -559,6 +575,11 @@ class OsiriXServiceStub(object):
                 request_serializer=types__pb2.DicomSeries.SerializeToString,
                 response_deserializer=dicomseries__pb2.DicomSeriesDateResponse.FromString,
                 )
+        self.DicomSeriesNumberOfImages = channel.unary_unary(
+                '/osirixgrpc.OsiriXService/DicomSeriesNumberOfImages',
+                request_serializer=types__pb2.DicomSeries.SerializeToString,
+                response_deserializer=dicomseries__pb2.DicomSeriesNumberOfImagesResponse.FromString,
+                )
         self.DicomStudyPaths = channel.unary_unary(
                 '/osirixgrpc.OsiriXService/DicomStudyPaths',
                 request_serializer=types__pb2.DicomStudy.SerializeToString,
@@ -749,6 +770,12 @@ class OsiriXServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ROIIType(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ROISetName(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -858,19 +885,13 @@ class OsiriXServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ROIVolumeVisible(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ROIVolumeSetVisible(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def ROIVolumeName(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ROIVolumeVisible(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1029,6 +1050,24 @@ class OsiriXServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def VRControllerSetWLWW(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def VRControllerHideROIVolume(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def VRControllerDisplayROIVolume(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def VRControllerNeedsDisplayUpdate(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1320,6 +1359,12 @@ class OsiriXServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DicomSeriesNumberOfImages(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DicomStudyPaths(self, request, context):
         """DicomStudy messages
         """
@@ -1515,6 +1560,11 @@ def add_OsiriXServiceServicer_to_server(servicer, server):
                     request_deserializer=types__pb2.ROI.FromString,
                     response_serializer=roi__pb2.ROINameResponse.SerializeToString,
             ),
+            'ROIIType': grpc.unary_unary_rpc_method_handler(
+                    servicer.ROIIType,
+                    request_deserializer=types__pb2.ROI.FromString,
+                    response_serializer=roi__pb2.ROIITypeResponse.SerializeToString,
+            ),
             'ROISetName': grpc.unary_unary_rpc_method_handler(
                     servicer.ROISetName,
                     request_deserializer=roi__pb2.ROISetNameRequest.FromString,
@@ -1605,20 +1655,15 @@ def add_OsiriXServiceServicer_to_server(servicer, server):
                     request_deserializer=roivolume__pb2.ROIVolumeSetFactorRequest.FromString,
                     response_serializer=utilities__pb2.Response.SerializeToString,
             ),
-            'ROIVolumeVisible': grpc.unary_unary_rpc_method_handler(
-                    servicer.ROIVolumeVisible,
-                    request_deserializer=types__pb2.ROIVolume.FromString,
-                    response_serializer=roivolume__pb2.ROIVolumeVisibleResponse.SerializeToString,
-            ),
-            'ROIVolumeSetVisible': grpc.unary_unary_rpc_method_handler(
-                    servicer.ROIVolumeSetVisible,
-                    request_deserializer=roivolume__pb2.ROIVolumeSetVisibleRequest.FromString,
-                    response_serializer=utilities__pb2.Response.SerializeToString,
-            ),
             'ROIVolumeName': grpc.unary_unary_rpc_method_handler(
                     servicer.ROIVolumeName,
                     request_deserializer=types__pb2.ROIVolume.FromString,
                     response_serializer=roivolume__pb2.ROIVolumeNameResponse.SerializeToString,
+            ),
+            'ROIVolumeVisible': grpc.unary_unary_rpc_method_handler(
+                    servicer.ROIVolumeVisible,
+                    request_deserializer=types__pb2.ROIVolume.FromString,
+                    response_serializer=roivolume__pb2.ROIVolumeVisibleResponse.SerializeToString,
             ),
             'DCMPixConvertToRGB': grpc.unary_unary_rpc_method_handler(
                     servicer.DCMPixConvertToRGB,
@@ -1748,6 +1793,21 @@ def add_OsiriXServiceServicer_to_server(servicer, server):
             'VRControllerSetWLWW': grpc.unary_unary_rpc_method_handler(
                     servicer.VRControllerSetWLWW,
                     request_deserializer=vrcontroller__pb2.VRControllerSetWLWWRequest.FromString,
+                    response_serializer=utilities__pb2.Response.SerializeToString,
+            ),
+            'VRControllerHideROIVolume': grpc.unary_unary_rpc_method_handler(
+                    servicer.VRControllerHideROIVolume,
+                    request_deserializer=vrcontroller__pb2.VRControllerHideROIVolumeRequest.FromString,
+                    response_serializer=utilities__pb2.Response.SerializeToString,
+            ),
+            'VRControllerDisplayROIVolume': grpc.unary_unary_rpc_method_handler(
+                    servicer.VRControllerDisplayROIVolume,
+                    request_deserializer=vrcontroller__pb2.VRControllerDisplayROIVolumeRequest.FromString,
+                    response_serializer=utilities__pb2.Response.SerializeToString,
+            ),
+            'VRControllerNeedsDisplayUpdate': grpc.unary_unary_rpc_method_handler(
+                    servicer.VRControllerNeedsDisplayUpdate,
+                    request_deserializer=types__pb2.VRController.FromString,
                     response_serializer=utilities__pb2.Response.SerializeToString,
             ),
             'ViewerControllerCloseViewer': grpc.unary_unary_rpc_method_handler(
@@ -1984,6 +2044,11 @@ def add_OsiriXServiceServicer_to_server(servicer, server):
                     servicer.DicomSeriesDate,
                     request_deserializer=types__pb2.DicomSeries.FromString,
                     response_serializer=dicomseries__pb2.DicomSeriesDateResponse.SerializeToString,
+            ),
+            'DicomSeriesNumberOfImages': grpc.unary_unary_rpc_method_handler(
+                    servicer.DicomSeriesNumberOfImages,
+                    request_deserializer=types__pb2.DicomSeries.FromString,
+                    response_serializer=dicomseries__pb2.DicomSeriesNumberOfImagesResponse.SerializeToString,
             ),
             'DicomStudyPaths': grpc.unary_unary_rpc_method_handler(
                     servicer.DicomStudyPaths,
@@ -2322,6 +2387,23 @@ class OsiriXService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ROIIType(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/ROIIType',
+            types__pb2.ROI.SerializeToString,
+            roi__pb2.ROIITypeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ROISetName(request,
             target,
             options=(),
@@ -2628,40 +2710,6 @@ class OsiriXService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ROIVolumeVisible(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/ROIVolumeVisible',
-            types__pb2.ROIVolume.SerializeToString,
-            roivolume__pb2.ROIVolumeVisibleResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ROIVolumeSetVisible(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/ROIVolumeSetVisible',
-            roivolume__pb2.ROIVolumeSetVisibleRequest.SerializeToString,
-            utilities__pb2.Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def ROIVolumeName(request,
             target,
             options=(),
@@ -2675,6 +2723,23 @@ class OsiriXService(object):
         return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/ROIVolumeName',
             types__pb2.ROIVolume.SerializeToString,
             roivolume__pb2.ROIVolumeNameResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ROIVolumeVisible(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/ROIVolumeVisible',
+            types__pb2.ROIVolume.SerializeToString,
+            roivolume__pb2.ROIVolumeVisibleResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -3116,6 +3181,57 @@ class OsiriXService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/VRControllerSetWLWW',
             vrcontroller__pb2.VRControllerSetWLWWRequest.SerializeToString,
+            utilities__pb2.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def VRControllerHideROIVolume(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/VRControllerHideROIVolume',
+            vrcontroller__pb2.VRControllerHideROIVolumeRequest.SerializeToString,
+            utilities__pb2.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def VRControllerDisplayROIVolume(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/VRControllerDisplayROIVolume',
+            vrcontroller__pb2.VRControllerDisplayROIVolumeRequest.SerializeToString,
+            utilities__pb2.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def VRControllerNeedsDisplayUpdate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/VRControllerNeedsDisplayUpdate',
+            types__pb2.VRController.SerializeToString,
             utilities__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -3916,6 +4032,23 @@ class OsiriXService(object):
         return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/DicomSeriesDate',
             types__pb2.DicomSeries.SerializeToString,
             dicomseries__pb2.DicomSeriesDateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DicomSeriesNumberOfImages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/osirixgrpc.OsiriXService/DicomSeriesNumberOfImages',
+            types__pb2.DicomSeries.SerializeToString,
+            dicomseries__pb2.DicomSeriesNumberOfImagesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

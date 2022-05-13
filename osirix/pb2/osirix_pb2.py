@@ -10,17 +10,18 @@ from google.protobuf import symbol_database as _symbol_database
 
 _sym_db = _symbol_database.Default()
 
-import osirix.pb2.roi_pb2 as roi__pb2
-import osirix.pb2.roivolume_pb2 as roivolume__pb2
-import osirix.pb2.dcmpix_pb2 as dcmpix__pb2
-import osirix.pb2.vrcontroller_pb2 as vrcontroller__pb2
-import osirix.pb2.viewercontroller_pb2 as viewercontroller__pb2
-import osirix.pb2.browsercontroller_pb2 as browsercontroller__pb2
-import osirix.pb2.dicomimage_pb2 as dicomimage__pb2
-import osirix.pb2.dicomseries_pb2 as dicomseries__pb2
-import osirix.pb2.dicomstudy_pb2 as dicomstudy__pb2
-import osirix.pb2.utilities_pb2 as utilities__pb2
-import osirix.pb2.types_pb2 as types__pb2
+
+import roi_pb2 as roi__pb2
+import roivolume_pb2 as roivolume__pb2
+import dcmpix_pb2 as dcmpix__pb2
+import vrcontroller_pb2 as vrcontroller__pb2
+import viewercontroller_pb2 as viewercontroller__pb2
+import browsercontroller_pb2 as browsercontroller__pb2
+import dicomimage_pb2 as dicomimage__pb2
+import dicomseries_pb2 as dicomseries__pb2
+import dicomstudy_pb2 as dicomstudy__pb2
+import utilities_pb2 as utilities__pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -29,7 +30,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0cosirix.proto\x12\nosirixgrpc\x1a\troi.proto\x1a\x0froivolume.proto\x1a\x0c\x64\x63mpix.proto\x1a\x12vrcontroller.proto\x1a\x16viewercontroller.proto\x1a\x17\x62rowsercontroller.proto\x1a\x10\x64icomimage.proto\x1a\x11\x64icomseries.proto\x1a\x10\x64icomstudy.proto\x1a\x0futilities.proto\x1a\x0btypes.proto\"}\n\x1cOsirixCurrentBrowserResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x39\n\x12\x62rowser_controller\x18\x02 \x01(\x0b\x32\x1d.osirixgrpc.BrowserController\"|\n\x1dOsirixFrontmostViewerResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x37\n\x11viewer_controller\x18\x02 \x01(\x0b\x32\x1c.osirixgrpc.ViewerController\"\x80\x01\n OsirixDisplayed2DViewersResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x38\n\x12viewer_controllers\x18\x02 \x03(\x0b\x32\x1c.osirixgrpc.ViewerController\"z\n#OsirixFrontmostVRControllerResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12/\n\rvr_controller\x18\x02 \x01(\x0b\x32\x18.osirixgrpc.VRController\"|\n$OsirixDisplayedVRControllersResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x30\n\x0evr_controllers\x18\x02 \x03(\x0b\x32\x18.osirixgrpc.VRController2\xa4[\n\rOsiriXService\x12U\n\x14OsirixCurrentBrowser\x12\x11.osirixgrpc.Empty\x1a(.osirixgrpc.OsirixCurrentBrowserResponse\"\x00\x12W\n\x15OsirixFrontmostViewer\x12\x11.osirixgrpc.Empty\x1a).osirixgrpc.OsirixFrontmostViewerResponse\"\x00\x12]\n\x18OsirixDisplayed2DViewers\x12\x11.osirixgrpc.Empty\x1a,.osirixgrpc.OsirixDisplayed2DViewersResponse\"\x00\x12\x63\n\x1bOsirixFrontmostVRController\x12\x11.osirixgrpc.Empty\x1a/.osirixgrpc.OsirixFrontmostVRControllerResponse\"\x00\x12\x65\n\x1cOsirixDisplayedVRControllers\x12\x11.osirixgrpc.Empty\x1a\x30.osirixgrpc.OsirixDisplayedVRControllersResponse\"\x00\x12>\n\x13ROIFlipHorizontally\x12\x0f.osirixgrpc.ROI\x1a\x14.osirixgrpc.Response\"\x00\x12<\n\x11ROIFlipVertically\x12\x0f.osirixgrpc.ROI\x1a\x14.osirixgrpc.Response\"\x00\x12\x39\n\x07ROIArea\x12\x0f.osirixgrpc.ROI\x1a\x1b.osirixgrpc.ROIAreaResponse\"\x00\x12\x41\n\x0bROICentroid\x12\x0f.osirixgrpc.ROI\x1a\x1f.osirixgrpc.ROICentroidResponse\"\x00\x12\x41\n\tROIRotate\x12\x1c.osirixgrpc.ROIRotateRequest\x1a\x14.osirixgrpc.Response\"\x00\x12=\n\x07ROIMove\x12\x1a.osirixgrpc.ROIMoveRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x37\n\x06ROIPix\x12\x0f.osirixgrpc.ROI\x1a\x1a.osirixgrpc.ROIPixResponse\"\x00\x12\x39\n\x07ROIName\x12\x0f.osirixgrpc.ROI\x1a\x1b.osirixgrpc.ROINameResponse\"\x00\x12\x43\n\nROISetName\x12\x1d.osirixgrpc.ROISetNameRequest\x1a\x14.osirixgrpc.Response\"\x00\x12;\n\x08ROIColor\x12\x0f.osirixgrpc.ROI\x1a\x1c.osirixgrpc.ROIColorResponse\"\x00\x12\x45\n\x0bROISetColor\x12\x1e.osirixgrpc.ROISetColorRequest\x1a\x14.osirixgrpc.Response\"\x00\x12?\n\nROIOpacity\x12\x0f.osirixgrpc.ROI\x1a\x1e.osirixgrpc.ROIOpacityResponse\"\x00\x12I\n\rROISetOpacity\x12 .osirixgrpc.ROISetOpacityRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x43\n\x0cROIThickness\x12\x0f.osirixgrpc.ROI\x1a .osirixgrpc.ROIThicknessResponse\"\x00\x12M\n\x0fROISetThickness\x12\".osirixgrpc.ROISetThicknessRequest\x1a\x14.osirixgrpc.Response\"\x00\x12=\n\tROIPoints\x12\x0f.osirixgrpc.ROI\x1a\x1d.osirixgrpc.ROIPointsResponse\"\x00\x12G\n\x0cROISetPoints\x12\x1f.osirixgrpc.ROISetPointsRequest\x1a\x14.osirixgrpc.Response\"\x00\x12Q\n\x10ROIVolumeTexture\x12\x15.osirixgrpc.ROIVolume\x1a$.osirixgrpc.ROIVolumeTextureResponse\"\x00\x12U\n\x13ROIVolumeSetTexture\x12&.osirixgrpc.ROIVolumeSetTextureRequest\x1a\x14.osirixgrpc.Response\"\x00\x12O\n\x0fROIVolumeVolume\x12\x15.osirixgrpc.ROIVolume\x1a#.osirixgrpc.ROIVolumeVolumeResponse\"\x00\x12M\n\x0eROIVolumeColor\x12\x15.osirixgrpc.ROIVolume\x1a\".osirixgrpc.ROIVolumeColorResponse\"\x00\x12Q\n\x11ROIVolumeSetColor\x12$.osirixgrpc.ROIVolumeSetColorRequest\x1a\x14.osirixgrpc.Response\"\x00\x12Q\n\x10ROIVolumeOpacity\x12\x15.osirixgrpc.ROIVolume\x1a$.osirixgrpc.ROIVolumeOpacityResponse\"\x00\x12U\n\x13ROIVolumeSetOpacity\x12&.osirixgrpc.ROIVolumeSetOpacityRequest\x1a\x14.osirixgrpc.Response\"\x00\x12O\n\x0fROIVolumeFactor\x12\x15.osirixgrpc.ROIVolume\x1a#.osirixgrpc.ROIVolumeFactorResponse\"\x00\x12S\n\x12ROIVolumeSetFactor\x12%.osirixgrpc.ROIVolumeSetFactorRequest\x1a\x14.osirixgrpc.Response\"\x00\x12Q\n\x10ROIVolumeVisible\x12\x15.osirixgrpc.ROIVolume\x1a$.osirixgrpc.ROIVolumeVisibleResponse\"\x00\x12U\n\x13ROIVolumeSetVisible\x12&.osirixgrpc.ROIVolumeSetVisibleRequest\x1a\x14.osirixgrpc.Response\"\x00\x12K\n\rROIVolumeName\x12\x15.osirixgrpc.ROIVolume\x1a!.osirixgrpc.ROIVolumeNameResponse\"\x00\x12S\n\x12\x44\x43MPixConvertToRGB\x12%.osirixgrpc.DCMPixConvertToRGBRequest\x1a\x14.osirixgrpc.Response\"\x00\x12Q\n\x11\x44\x43MPixConvertToBW\x12$.osirixgrpc.DCMPixConvertToBWRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x44\n\x0b\x44\x43MPixIsRGB\x12\x12.osirixgrpc.DCMPix\x1a\x1f.osirixgrpc.DCMPixIsRGBResponse\"\x00\x12_\n\x10\x44\x43MPixComputeROI\x12#.osirixgrpc.DCMPixComputeROIRequest\x1a$.osirixgrpc.DCMPixComputeROIResponse\"\x00\x12\\\n\x0f\x44\x43MPixROIValues\x12\".osirixgrpc.DCMPixROIValuesRequest\x1a#.osirixgrpc.DCMPixROIValuesResponse\"\x00\x12\x44\n\x0b\x44\x43MPixShape\x12\x12.osirixgrpc.DCMPix\x1a\x1f.osirixgrpc.DCMPixShapeResponse\"\x00\x12H\n\rDCMPixSpacing\x12\x12.osirixgrpc.DCMPix\x1a!.osirixgrpc.DCMPixSpacingResponse\"\x00\x12\x46\n\x0c\x44\x43MPixOrigin\x12\x12.osirixgrpc.DCMPix\x1a .osirixgrpc.DCMPixOriginResponse\"\x00\x12P\n\x11\x44\x43MPixOrientation\x12\x12.osirixgrpc.DCMPix\x1a%.osirixgrpc.DCMPixOrientationResponse\"\x00\x12T\n\x13\x44\x43MPixSliceLocation\x12\x12.osirixgrpc.DCMPix\x1a\'.osirixgrpc.DCMPixSliceLocationResponse\"\x00\x12N\n\x10\x44\x43MPixSourceFile\x12\x12.osirixgrpc.DCMPix\x1a$.osirixgrpc.DCMPixSourceFileResponse\"\x00\x12\x44\n\x0b\x44\x43MPixImage\x12\x12.osirixgrpc.DCMPix\x1a\x1f.osirixgrpc.DCMPixImageResponse\"\x00\x12K\n\x0e\x44\x43MPixSetImage\x12!.osirixgrpc.DCMPixSetImageRequest\x1a\x14.osirixgrpc.Response\"\x00\x12h\n\x13\x44\x43MPixGetMapFromROI\x12&.osirixgrpc.DCMPixGetMapFromROIRequest\x1a\'.osirixgrpc.DCMPixGetMapFromROIResponse\"\x00\x12N\n\x10\x44\x43MPixDicomImage\x12\x12.osirixgrpc.DCMPix\x1a$.osirixgrpc.DCMPixDicomImageResponse\"\x00\x12P\n\x11\x44\x43MPixDicomSeries\x12\x12.osirixgrpc.DCMPix\x1a%.osirixgrpc.DCMPixDicomSeriesResponse\"\x00\x12N\n\x10\x44\x43MPixDicomStudy\x12\x12.osirixgrpc.DCMPix\x1a$.osirixgrpc.DCMPixDicomStudyResponse\"\x00\x12\\\n\x14VRControllerViewer2D\x12\x18.osirixgrpc.VRController\x1a(.osirixgrpc.VRControllerViewer2DResponse\"\x00\x12p\n\x1eVRControllerBlendingController\x12\x18.osirixgrpc.VRController\x1a\x32.osirixgrpc.VRControllerBlendingControllerResponse\"\x00\x12V\n\x11VRControllerStyle\x12\x18.osirixgrpc.VRController\x1a%.osirixgrpc.VRControllerStyleResponse\"\x00\x12V\n\x11VRControllerTitle\x12\x18.osirixgrpc.VRController\x1a%.osirixgrpc.VRControllerTitleResponse\"\x00\x12`\n\x16VRControllerROIVolumes\x12\x18.osirixgrpc.VRController\x1a*.osirixgrpc.VRControllerROIVolumesResponse\"\x00\x12\x66\n\x19VRControllerRenderingMode\x12\x18.osirixgrpc.VRController\x1a-.osirixgrpc.VRControllerRenderingModeResponse\"\x00\x12g\n\x1cVRControllerSetRenderingMode\x12/.osirixgrpc.VRControllerSetRenderingModeRequest\x1a\x14.osirixgrpc.Response\"\x00\x12T\n\x10VRControllerWLWW\x12\x18.osirixgrpc.VRController\x1a$.osirixgrpc.VRControllerWLWWResponse\"\x00\x12U\n\x13VRControllerSetWLWW\x12&.osirixgrpc.VRControllerSetWLWWRequest\x1a\x14.osirixgrpc.Response\"\x00\x12S\n\x1bViewerControllerCloseViewer\x12\x1c.osirixgrpc.ViewerController\x1a\x14.osirixgrpc.Response\"\x00\x12t\n\x17ViewerControllerPixList\x12*.osirixgrpc.ViewerControllerPixListRequest\x1a+.osirixgrpc.ViewerControllerPixListResponse\"\x00\x12Z\n\"ViewerControllerNeedsDisplayUpdate\x12\x1c.osirixgrpc.ViewerController\x1a\x14.osirixgrpc.Response\"\x00\x12t\n\x17ViewerControllerROIList\x12*.osirixgrpc.ViewerControllerROIListRequest\x1a+.osirixgrpc.ViewerControllerROIListResponse\"\x00\x12q\n\x16ViewerControllerNewROI\x12).osirixgrpc.ViewerControllerNewROIRequest\x1a*.osirixgrpc.ViewerControllerNewROIResponse\"\x00\x12\x64\n\x16ViewerControllerCurDCM\x12\x1c.osirixgrpc.ViewerController\x1a*.osirixgrpc.ViewerControllerCurDCMResponse\"\x00\x12\x83\x01\n\x1cViewerControllerROIsWithName\x12/.osirixgrpc.ViewerControllerROIsWithNameRequest\x1a\x30.osirixgrpc.ViewerControllerROIsWithNameResponse\"\x00\x12p\n\x1cViewerControllerSelectedROIs\x12\x1c.osirixgrpc.ViewerController\x1a\x30.osirixgrpc.ViewerControllerSelectedROIsResponse\"\x00\x12\x86\x01\n\x1dViewerControllerIsDataVolumic\x12\x30.osirixgrpc.ViewerControllerIsDataVolumicRequest\x1a\x31.osirixgrpc.ViewerControllerIsDataVolumicResponse\"\x00\x12o\n ViewerControllerCopyViewerWindow\x12\x33.osirixgrpc.ViewerControllerCopyViewerWindowRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x7f\n(ViewerControllerResampleViewerController\x12;.osirixgrpc.ViewerControllerResampleViewerControllerRequest\x1a\x14.osirixgrpc.Response\"\x00\x12|\n\"ViewerControllerBlendingController\x12\x1c.osirixgrpc.ViewerController\x1a\x36.osirixgrpc.ViewerControllerBlendingControllerResponse\"\x00\x12r\n\x1dViewerControllerVRControllers\x12\x1c.osirixgrpc.ViewerController\x1a\x31.osirixgrpc.ViewerControllerVRControllersResponse\"\x00\x12\x62\n\x15ViewerControllerTitle\x12\x1c.osirixgrpc.ViewerController\x1a).osirixgrpc.ViewerControllerTitleResponse\"\x00\x12h\n\x18ViewerControllerModality\x12\x1c.osirixgrpc.ViewerController\x1a,.osirixgrpc.ViewerControllerModalityResponse\"\x00\x12h\n\x18ViewerControllerMovieIdx\x12\x1c.osirixgrpc.ViewerController\x1a,.osirixgrpc.ViewerControllerMovieIdxResponse\"\x00\x12\x65\n\x1bViewerControllerSetMovieIdx\x12..osirixgrpc.ViewerControllerSetMovieIdxRequest\x1a\x14.osirixgrpc.Response\"\x00\x12n\n\x1bViewerControllerMaxMovieIdx\x12\x1c.osirixgrpc.ViewerController\x1a/.osirixgrpc.ViewerControllerMaxMovieIdxResponse\"\x00\x12^\n\x13ViewerControllerIdx\x12\x1c.osirixgrpc.ViewerController\x1a\'.osirixgrpc.ViewerControllerIdxResponse\"\x00\x12[\n\x16ViewerControllerSetIdx\x12).osirixgrpc.ViewerControllerSetIdxRequest\x1a\x14.osirixgrpc.Response\"\x00\x12`\n\x14ViewerControllerWLWW\x12\x1c.osirixgrpc.ViewerController\x1a(.osirixgrpc.ViewerControllerWLWWResponse\"\x00\x12]\n\x17ViewerControllerSetWLWW\x12*.osirixgrpc.ViewerControllerSetWLWWRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x98\x01\n#ViewerControllerOpenVRViewerForMode\x12\x36.osirixgrpc.ViewerControllerOpenVRViewerForModeRequest\x1a\x37.osirixgrpc.ViewerControllerOpenVRViewerForModeResponse\"\x00\x12}\n\"BrowserControllerDatabaseSelection\x12\x1d.osirixgrpc.BrowserController\x1a\x36.osirixgrpc.BrowserControllerDatabaseSelectionResponse\"\x00\x12s\n\"BrowserControllerCopyFilesIfNeeded\x12\x35.osirixgrpc.BrowserControllerCopyFilesIfNeededRequest\x1a\x14.osirixgrpc.Response\"\x00\x12P\n\x0f\x44icomImageWidth\x12\x16.osirixgrpc.DicomImage\x1a#.osirixgrpc.DicomImageWidthResponse\"\x00\x12R\n\x10\x44icomImageHeight\x12\x16.osirixgrpc.DicomImage\x1a$.osirixgrpc.DicomImageHeightResponse\"\x00\x12\x62\n\x18\x44icomImageSOPInstanceUID\x12\x16.osirixgrpc.DicomImage\x1a,.osirixgrpc.DicomImageSOPInstanceUIDResponse\"\x00\x12^\n\x16\x44icomImageCompletePath\x12\x16.osirixgrpc.DicomImage\x1a*.osirixgrpc.DicomImageCompletePathResponse\"\x00\x12N\n\x0e\x44icomImageDate\x12\x16.osirixgrpc.DicomImage\x1a\".osirixgrpc.DicomImageDateResponse\"\x00\x12\x62\n\x18\x44icomImageNumberOfFrames\x12\x16.osirixgrpc.DicomImage\x1a,.osirixgrpc.DicomImageNumberOfFramesResponse\"\x00\x12V\n\x12\x44icomImageModality\x12\x16.osirixgrpc.DicomImage\x1a&.osirixgrpc.DicomImageModalityResponse\"\x00\x12R\n\x10\x44icomImageSeries\x12\x16.osirixgrpc.DicomImage\x1a$.osirixgrpc.DicomImageSeriesResponse\"\x00\x12`\n\x17\x44icomImageSliceLocation\x12\x16.osirixgrpc.DicomImage\x1a+.osirixgrpc.DicomImageSliceLocationResponse\"\x00\x12\x62\n\x18\x44icomImageInstanceNumber\x12\x16.osirixgrpc.DicomImage\x1a,.osirixgrpc.DicomImageInstanceNumberResponse\"\x00\x12S\n\x10\x44icomSeriesPaths\x12\x17.osirixgrpc.DicomSeries\x1a$.osirixgrpc.DicomSeriesPathsResponse\"\x00\x12\x65\n\x19\x44icomSeriesPreviousSeries\x12\x17.osirixgrpc.DicomSeries\x1a-.osirixgrpc.DicomSeriesPreviousSeriesResponse\"\x00\x12]\n\x15\x44icomSeriesNextSeries\x12\x17.osirixgrpc.DicomSeries\x1a).osirixgrpc.DicomSeriesNextSeriesResponse\"\x00\x12\x61\n\x17\x44icomSeriesSortedImages\x12\x17.osirixgrpc.DicomSeries\x1a+.osirixgrpc.DicomSeriesSortedImagesResponse\"\x00\x12S\n\x10\x44icomSeriesStudy\x12\x17.osirixgrpc.DicomSeries\x1a$.osirixgrpc.DicomSeriesStudyResponse\"\x00\x12U\n\x11\x44icomSeriesImages\x12\x17.osirixgrpc.DicomSeries\x1a%.osirixgrpc.DicomSeriesImagesResponse\"\x00\x12k\n\x1c\x44icomSeriesSeriesInstanceUID\x12\x17.osirixgrpc.DicomSeries\x1a\x30.osirixgrpc.DicomSeriesSeriesInstanceUIDResponse\"\x00\x12k\n\x1c\x44icomSeriesSeriesSOPClassUID\x12\x17.osirixgrpc.DicomSeries\x1a\x30.osirixgrpc.DicomSeriesSeriesSOPClassUIDResponse\"\x00\x12k\n\x1c\x44icomSeriesSeriesDescription\x12\x17.osirixgrpc.DicomSeries\x1a\x30.osirixgrpc.DicomSeriesSeriesDescriptionResponse\"\x00\x12Y\n\x13\x44icomSeriesModality\x12\x17.osirixgrpc.DicomSeries\x1a\'.osirixgrpc.DicomSeriesModalityResponse\"\x00\x12Q\n\x0f\x44icomSeriesName\x12\x17.osirixgrpc.DicomSeries\x1a#.osirixgrpc.DicomSeriesNameResponse\"\x00\x12Q\n\x0f\x44icomSeriesDate\x12\x17.osirixgrpc.DicomSeries\x1a#.osirixgrpc.DicomSeriesDateResponse\"\x00\x12P\n\x0f\x44icomStudyPaths\x12\x16.osirixgrpc.DicomStudy\x1a#.osirixgrpc.DicomStudyPathsResponse\"\x00\x12R\n\x10\x44icomStudyImages\x12\x16.osirixgrpc.DicomStudy\x1a$.osirixgrpc.DicomStudyImagesResponse\"\x00\x12Z\n\x14\x44icomStudyModalities\x12\x16.osirixgrpc.DicomStudy\x1a(.osirixgrpc.DicomStudyModalitiesResponse\"\x00\x12T\n\x11\x44icomStudyNoFiles\x12\x16.osirixgrpc.DicomStudy\x1a%.osirixgrpc.DicomStudyNoFilesResponse\"\x00\x12Z\n\x14\x44icomStudyRawNoFiles\x12\x16.osirixgrpc.DicomStudy\x1a(.osirixgrpc.DicomStudyRawNoFilesResponse\"\x00\x12|\n%DicomStudyNoFilesExcludingMultiFrames\x12\x16.osirixgrpc.DicomStudy\x1a\x39.osirixgrpc.DicomStudyNoFilesExcludingMultiFramesResponse\"\x00\x12\x62\n\x18\x44icomStudyNumberOfImages\x12\x16.osirixgrpc.DicomStudy\x1a,.osirixgrpc.DicomStudyNumberOfImagesResponse\"\x00\x12R\n\x10\x44icomStudySeries\x12\x16.osirixgrpc.DicomStudy\x1a$.osirixgrpc.DicomStudySeriesResponse\"\x00\x12N\n\x0e\x44icomStudyName\x12\x16.osirixgrpc.DicomStudy\x1a\".osirixgrpc.DicomStudyNameResponse\"\x00\x12N\n\x0e\x44icomStudyDate\x12\x16.osirixgrpc.DicomStudy\x1a\".osirixgrpc.DicomStudyDateResponse\"\x00\x12X\n\x13\x44icomStudyDateAdded\x12\x16.osirixgrpc.DicomStudy\x1a\'.osirixgrpc.DicomStudyDateAddedResponse\"\x00\x12\\\n\x15\x44icomStudyDateOfBirth\x12\x16.osirixgrpc.DicomStudy\x1a).osirixgrpc.DicomStudyDateOfBirthResponse\"\x00\x12\x64\n\x19\x44icomStudyInstitutionName\x12\x16.osirixgrpc.DicomStudy\x1a-.osirixgrpc.DicomStudyInstitutionNameResponse\"\x00\x12V\n\x12\x44icomStudyModality\x12\x16.osirixgrpc.DicomStudy\x1a&.osirixgrpc.DicomStudyModalityResponse\"\x00\x12X\n\x13\x44icomStudyPatientID\x12\x16.osirixgrpc.DicomStudy\x1a\'.osirixgrpc.DicomStudyPatientIDResponse\"\x00\x12Z\n\x14\x44icomStudyPatientUID\x12\x16.osirixgrpc.DicomStudy\x1a(.osirixgrpc.DicomStudyPatientUIDResponse\"\x00\x12Z\n\x14\x44icomStudyPatientSex\x12\x16.osirixgrpc.DicomStudy\x1a(.osirixgrpc.DicomStudyPatientSexResponse\"\x00\x12l\n\x1d\x44icomStudyPerformingPhysician\x12\x16.osirixgrpc.DicomStudy\x1a\x31.osirixgrpc.DicomStudyPerformingPhysicianResponse\"\x00\x12j\n\x1c\x44icomStudyReferringPhysician\x12\x16.osirixgrpc.DicomStudy\x1a\x30.osirixgrpc.DicomStudyReferringPhysicianResponse\"\x00\x12\x66\n\x1a\x44icomStudyStudyInstanceUID\x12\x16.osirixgrpc.DicomStudy\x1a..osirixgrpc.DicomStudyStudyInstanceUIDResponse\"\x00\x12X\n\x13\x44icomStudyStudyName\x12\x16.osirixgrpc.DicomStudy\x1a\'.osirixgrpc.DicomStudyStudyNameResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0cosirix.proto\x12\nosirixgrpc\x1a\troi.proto\x1a\x0froivolume.proto\x1a\x0c\x64\x63mpix.proto\x1a\x12vrcontroller.proto\x1a\x16viewercontroller.proto\x1a\x17\x62rowsercontroller.proto\x1a\x10\x64icomimage.proto\x1a\x11\x64icomseries.proto\x1a\x10\x64icomstudy.proto\x1a\x0futilities.proto\x1a\x0btypes.proto\"}\n\x1cOsirixCurrentBrowserResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x39\n\x12\x62rowser_controller\x18\x02 \x01(\x0b\x32\x1d.osirixgrpc.BrowserController\"|\n\x1dOsirixFrontmostViewerResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x37\n\x11viewer_controller\x18\x02 \x01(\x0b\x32\x1c.osirixgrpc.ViewerController\"\x80\x01\n OsirixDisplayed2DViewersResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x38\n\x12viewer_controllers\x18\x02 \x03(\x0b\x32\x1c.osirixgrpc.ViewerController\"z\n#OsirixFrontmostVRControllerResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12/\n\rvr_controller\x18\x02 \x01(\x0b\x32\x18.osirixgrpc.VRController\"|\n$OsirixDisplayedVRControllersResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x30\n\x0evr_controllers\x18\x02 \x03(\x0b\x32\x18.osirixgrpc.VRController2\x91^\n\rOsiriXService\x12U\n\x14OsirixCurrentBrowser\x12\x11.osirixgrpc.Empty\x1a(.osirixgrpc.OsirixCurrentBrowserResponse\"\x00\x12W\n\x15OsirixFrontmostViewer\x12\x11.osirixgrpc.Empty\x1a).osirixgrpc.OsirixFrontmostViewerResponse\"\x00\x12]\n\x18OsirixDisplayed2DViewers\x12\x11.osirixgrpc.Empty\x1a,.osirixgrpc.OsirixDisplayed2DViewersResponse\"\x00\x12\x63\n\x1bOsirixFrontmostVRController\x12\x11.osirixgrpc.Empty\x1a/.osirixgrpc.OsirixFrontmostVRControllerResponse\"\x00\x12\x65\n\x1cOsirixDisplayedVRControllers\x12\x11.osirixgrpc.Empty\x1a\x30.osirixgrpc.OsirixDisplayedVRControllersResponse\"\x00\x12>\n\x13ROIFlipHorizontally\x12\x0f.osirixgrpc.ROI\x1a\x14.osirixgrpc.Response\"\x00\x12<\n\x11ROIFlipVertically\x12\x0f.osirixgrpc.ROI\x1a\x14.osirixgrpc.Response\"\x00\x12\x39\n\x07ROIArea\x12\x0f.osirixgrpc.ROI\x1a\x1b.osirixgrpc.ROIAreaResponse\"\x00\x12\x41\n\x0bROICentroid\x12\x0f.osirixgrpc.ROI\x1a\x1f.osirixgrpc.ROICentroidResponse\"\x00\x12\x41\n\tROIRotate\x12\x1c.osirixgrpc.ROIRotateRequest\x1a\x14.osirixgrpc.Response\"\x00\x12=\n\x07ROIMove\x12\x1a.osirixgrpc.ROIMoveRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x37\n\x06ROIPix\x12\x0f.osirixgrpc.ROI\x1a\x1a.osirixgrpc.ROIPixResponse\"\x00\x12\x39\n\x07ROIName\x12\x0f.osirixgrpc.ROI\x1a\x1b.osirixgrpc.ROINameResponse\"\x00\x12;\n\x08ROIIType\x12\x0f.osirixgrpc.ROI\x1a\x1c.osirixgrpc.ROIITypeResponse\"\x00\x12\x43\n\nROISetName\x12\x1d.osirixgrpc.ROISetNameRequest\x1a\x14.osirixgrpc.Response\"\x00\x12;\n\x08ROIColor\x12\x0f.osirixgrpc.ROI\x1a\x1c.osirixgrpc.ROIColorResponse\"\x00\x12\x45\n\x0bROISetColor\x12\x1e.osirixgrpc.ROISetColorRequest\x1a\x14.osirixgrpc.Response\"\x00\x12?\n\nROIOpacity\x12\x0f.osirixgrpc.ROI\x1a\x1e.osirixgrpc.ROIOpacityResponse\"\x00\x12I\n\rROISetOpacity\x12 .osirixgrpc.ROISetOpacityRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x43\n\x0cROIThickness\x12\x0f.osirixgrpc.ROI\x1a .osirixgrpc.ROIThicknessResponse\"\x00\x12M\n\x0fROISetThickness\x12\".osirixgrpc.ROISetThicknessRequest\x1a\x14.osirixgrpc.Response\"\x00\x12=\n\tROIPoints\x12\x0f.osirixgrpc.ROI\x1a\x1d.osirixgrpc.ROIPointsResponse\"\x00\x12G\n\x0cROISetPoints\x12\x1f.osirixgrpc.ROISetPointsRequest\x1a\x14.osirixgrpc.Response\"\x00\x12Q\n\x10ROIVolumeTexture\x12\x15.osirixgrpc.ROIVolume\x1a$.osirixgrpc.ROIVolumeTextureResponse\"\x00\x12U\n\x13ROIVolumeSetTexture\x12&.osirixgrpc.ROIVolumeSetTextureRequest\x1a\x14.osirixgrpc.Response\"\x00\x12O\n\x0fROIVolumeVolume\x12\x15.osirixgrpc.ROIVolume\x1a#.osirixgrpc.ROIVolumeVolumeResponse\"\x00\x12M\n\x0eROIVolumeColor\x12\x15.osirixgrpc.ROIVolume\x1a\".osirixgrpc.ROIVolumeColorResponse\"\x00\x12Q\n\x11ROIVolumeSetColor\x12$.osirixgrpc.ROIVolumeSetColorRequest\x1a\x14.osirixgrpc.Response\"\x00\x12Q\n\x10ROIVolumeOpacity\x12\x15.osirixgrpc.ROIVolume\x1a$.osirixgrpc.ROIVolumeOpacityResponse\"\x00\x12U\n\x13ROIVolumeSetOpacity\x12&.osirixgrpc.ROIVolumeSetOpacityRequest\x1a\x14.osirixgrpc.Response\"\x00\x12O\n\x0fROIVolumeFactor\x12\x15.osirixgrpc.ROIVolume\x1a#.osirixgrpc.ROIVolumeFactorResponse\"\x00\x12S\n\x12ROIVolumeSetFactor\x12%.osirixgrpc.ROIVolumeSetFactorRequest\x1a\x14.osirixgrpc.Response\"\x00\x12K\n\rROIVolumeName\x12\x15.osirixgrpc.ROIVolume\x1a!.osirixgrpc.ROIVolumeNameResponse\"\x00\x12Q\n\x10ROIVolumeVisible\x12\x15.osirixgrpc.ROIVolume\x1a$.osirixgrpc.ROIVolumeVisibleResponse\"\x00\x12S\n\x12\x44\x43MPixConvertToRGB\x12%.osirixgrpc.DCMPixConvertToRGBRequest\x1a\x14.osirixgrpc.Response\"\x00\x12Q\n\x11\x44\x43MPixConvertToBW\x12$.osirixgrpc.DCMPixConvertToBWRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x44\n\x0b\x44\x43MPixIsRGB\x12\x12.osirixgrpc.DCMPix\x1a\x1f.osirixgrpc.DCMPixIsRGBResponse\"\x00\x12_\n\x10\x44\x43MPixComputeROI\x12#.osirixgrpc.DCMPixComputeROIRequest\x1a$.osirixgrpc.DCMPixComputeROIResponse\"\x00\x12\\\n\x0f\x44\x43MPixROIValues\x12\".osirixgrpc.DCMPixROIValuesRequest\x1a#.osirixgrpc.DCMPixROIValuesResponse\"\x00\x12\x44\n\x0b\x44\x43MPixShape\x12\x12.osirixgrpc.DCMPix\x1a\x1f.osirixgrpc.DCMPixShapeResponse\"\x00\x12H\n\rDCMPixSpacing\x12\x12.osirixgrpc.DCMPix\x1a!.osirixgrpc.DCMPixSpacingResponse\"\x00\x12\x46\n\x0c\x44\x43MPixOrigin\x12\x12.osirixgrpc.DCMPix\x1a .osirixgrpc.DCMPixOriginResponse\"\x00\x12P\n\x11\x44\x43MPixOrientation\x12\x12.osirixgrpc.DCMPix\x1a%.osirixgrpc.DCMPixOrientationResponse\"\x00\x12T\n\x13\x44\x43MPixSliceLocation\x12\x12.osirixgrpc.DCMPix\x1a\'.osirixgrpc.DCMPixSliceLocationResponse\"\x00\x12N\n\x10\x44\x43MPixSourceFile\x12\x12.osirixgrpc.DCMPix\x1a$.osirixgrpc.DCMPixSourceFileResponse\"\x00\x12\x44\n\x0b\x44\x43MPixImage\x12\x12.osirixgrpc.DCMPix\x1a\x1f.osirixgrpc.DCMPixImageResponse\"\x00\x12K\n\x0e\x44\x43MPixSetImage\x12!.osirixgrpc.DCMPixSetImageRequest\x1a\x14.osirixgrpc.Response\"\x00\x12h\n\x13\x44\x43MPixGetMapFromROI\x12&.osirixgrpc.DCMPixGetMapFromROIRequest\x1a\'.osirixgrpc.DCMPixGetMapFromROIResponse\"\x00\x12N\n\x10\x44\x43MPixDicomImage\x12\x12.osirixgrpc.DCMPix\x1a$.osirixgrpc.DCMPixDicomImageResponse\"\x00\x12P\n\x11\x44\x43MPixDicomSeries\x12\x12.osirixgrpc.DCMPix\x1a%.osirixgrpc.DCMPixDicomSeriesResponse\"\x00\x12N\n\x10\x44\x43MPixDicomStudy\x12\x12.osirixgrpc.DCMPix\x1a$.osirixgrpc.DCMPixDicomStudyResponse\"\x00\x12\\\n\x14VRControllerViewer2D\x12\x18.osirixgrpc.VRController\x1a(.osirixgrpc.VRControllerViewer2DResponse\"\x00\x12p\n\x1eVRControllerBlendingController\x12\x18.osirixgrpc.VRController\x1a\x32.osirixgrpc.VRControllerBlendingControllerResponse\"\x00\x12V\n\x11VRControllerStyle\x12\x18.osirixgrpc.VRController\x1a%.osirixgrpc.VRControllerStyleResponse\"\x00\x12V\n\x11VRControllerTitle\x12\x18.osirixgrpc.VRController\x1a%.osirixgrpc.VRControllerTitleResponse\"\x00\x12`\n\x16VRControllerROIVolumes\x12\x18.osirixgrpc.VRController\x1a*.osirixgrpc.VRControllerROIVolumesResponse\"\x00\x12\x66\n\x19VRControllerRenderingMode\x12\x18.osirixgrpc.VRController\x1a-.osirixgrpc.VRControllerRenderingModeResponse\"\x00\x12g\n\x1cVRControllerSetRenderingMode\x12/.osirixgrpc.VRControllerSetRenderingModeRequest\x1a\x14.osirixgrpc.Response\"\x00\x12T\n\x10VRControllerWLWW\x12\x18.osirixgrpc.VRController\x1a$.osirixgrpc.VRControllerWLWWResponse\"\x00\x12U\n\x13VRControllerSetWLWW\x12&.osirixgrpc.VRControllerSetWLWWRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x61\n\x19VRControllerHideROIVolume\x12,.osirixgrpc.VRControllerHideROIVolumeRequest\x1a\x14.osirixgrpc.Response\"\x00\x12g\n\x1cVRControllerDisplayROIVolume\x12/.osirixgrpc.VRControllerDisplayROIVolumeRequest\x1a\x14.osirixgrpc.Response\"\x00\x12R\n\x1eVRControllerNeedsDisplayUpdate\x12\x18.osirixgrpc.VRController\x1a\x14.osirixgrpc.Response\"\x00\x12S\n\x1bViewerControllerCloseViewer\x12\x1c.osirixgrpc.ViewerController\x1a\x14.osirixgrpc.Response\"\x00\x12t\n\x17ViewerControllerPixList\x12*.osirixgrpc.ViewerControllerPixListRequest\x1a+.osirixgrpc.ViewerControllerPixListResponse\"\x00\x12Z\n\"ViewerControllerNeedsDisplayUpdate\x12\x1c.osirixgrpc.ViewerController\x1a\x14.osirixgrpc.Response\"\x00\x12t\n\x17ViewerControllerROIList\x12*.osirixgrpc.ViewerControllerROIListRequest\x1a+.osirixgrpc.ViewerControllerROIListResponse\"\x00\x12q\n\x16ViewerControllerNewROI\x12).osirixgrpc.ViewerControllerNewROIRequest\x1a*.osirixgrpc.ViewerControllerNewROIResponse\"\x00\x12\x64\n\x16ViewerControllerCurDCM\x12\x1c.osirixgrpc.ViewerController\x1a*.osirixgrpc.ViewerControllerCurDCMResponse\"\x00\x12\x83\x01\n\x1cViewerControllerROIsWithName\x12/.osirixgrpc.ViewerControllerROIsWithNameRequest\x1a\x30.osirixgrpc.ViewerControllerROIsWithNameResponse\"\x00\x12p\n\x1cViewerControllerSelectedROIs\x12\x1c.osirixgrpc.ViewerController\x1a\x30.osirixgrpc.ViewerControllerSelectedROIsResponse\"\x00\x12\x86\x01\n\x1dViewerControllerIsDataVolumic\x12\x30.osirixgrpc.ViewerControllerIsDataVolumicRequest\x1a\x31.osirixgrpc.ViewerControllerIsDataVolumicResponse\"\x00\x12o\n ViewerControllerCopyViewerWindow\x12\x33.osirixgrpc.ViewerControllerCopyViewerWindowRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x7f\n(ViewerControllerResampleViewerController\x12;.osirixgrpc.ViewerControllerResampleViewerControllerRequest\x1a\x14.osirixgrpc.Response\"\x00\x12|\n\"ViewerControllerBlendingController\x12\x1c.osirixgrpc.ViewerController\x1a\x36.osirixgrpc.ViewerControllerBlendingControllerResponse\"\x00\x12r\n\x1dViewerControllerVRControllers\x12\x1c.osirixgrpc.ViewerController\x1a\x31.osirixgrpc.ViewerControllerVRControllersResponse\"\x00\x12\x62\n\x15ViewerControllerTitle\x12\x1c.osirixgrpc.ViewerController\x1a).osirixgrpc.ViewerControllerTitleResponse\"\x00\x12h\n\x18ViewerControllerModality\x12\x1c.osirixgrpc.ViewerController\x1a,.osirixgrpc.ViewerControllerModalityResponse\"\x00\x12h\n\x18ViewerControllerMovieIdx\x12\x1c.osirixgrpc.ViewerController\x1a,.osirixgrpc.ViewerControllerMovieIdxResponse\"\x00\x12\x65\n\x1bViewerControllerSetMovieIdx\x12..osirixgrpc.ViewerControllerSetMovieIdxRequest\x1a\x14.osirixgrpc.Response\"\x00\x12n\n\x1bViewerControllerMaxMovieIdx\x12\x1c.osirixgrpc.ViewerController\x1a/.osirixgrpc.ViewerControllerMaxMovieIdxResponse\"\x00\x12^\n\x13ViewerControllerIdx\x12\x1c.osirixgrpc.ViewerController\x1a\'.osirixgrpc.ViewerControllerIdxResponse\"\x00\x12[\n\x16ViewerControllerSetIdx\x12).osirixgrpc.ViewerControllerSetIdxRequest\x1a\x14.osirixgrpc.Response\"\x00\x12`\n\x14ViewerControllerWLWW\x12\x1c.osirixgrpc.ViewerController\x1a(.osirixgrpc.ViewerControllerWLWWResponse\"\x00\x12]\n\x17ViewerControllerSetWLWW\x12*.osirixgrpc.ViewerControllerSetWLWWRequest\x1a\x14.osirixgrpc.Response\"\x00\x12\x98\x01\n#ViewerControllerOpenVRViewerForMode\x12\x36.osirixgrpc.ViewerControllerOpenVRViewerForModeRequest\x1a\x37.osirixgrpc.ViewerControllerOpenVRViewerForModeResponse\"\x00\x12}\n\"BrowserControllerDatabaseSelection\x12\x1d.osirixgrpc.BrowserController\x1a\x36.osirixgrpc.BrowserControllerDatabaseSelectionResponse\"\x00\x12s\n\"BrowserControllerCopyFilesIfNeeded\x12\x35.osirixgrpc.BrowserControllerCopyFilesIfNeededRequest\x1a\x14.osirixgrpc.Response\"\x00\x12P\n\x0f\x44icomImageWidth\x12\x16.osirixgrpc.DicomImage\x1a#.osirixgrpc.DicomImageWidthResponse\"\x00\x12R\n\x10\x44icomImageHeight\x12\x16.osirixgrpc.DicomImage\x1a$.osirixgrpc.DicomImageHeightResponse\"\x00\x12\x62\n\x18\x44icomImageSOPInstanceUID\x12\x16.osirixgrpc.DicomImage\x1a,.osirixgrpc.DicomImageSOPInstanceUIDResponse\"\x00\x12^\n\x16\x44icomImageCompletePath\x12\x16.osirixgrpc.DicomImage\x1a*.osirixgrpc.DicomImageCompletePathResponse\"\x00\x12N\n\x0e\x44icomImageDate\x12\x16.osirixgrpc.DicomImage\x1a\".osirixgrpc.DicomImageDateResponse\"\x00\x12\x62\n\x18\x44icomImageNumberOfFrames\x12\x16.osirixgrpc.DicomImage\x1a,.osirixgrpc.DicomImageNumberOfFramesResponse\"\x00\x12V\n\x12\x44icomImageModality\x12\x16.osirixgrpc.DicomImage\x1a&.osirixgrpc.DicomImageModalityResponse\"\x00\x12R\n\x10\x44icomImageSeries\x12\x16.osirixgrpc.DicomImage\x1a$.osirixgrpc.DicomImageSeriesResponse\"\x00\x12`\n\x17\x44icomImageSliceLocation\x12\x16.osirixgrpc.DicomImage\x1a+.osirixgrpc.DicomImageSliceLocationResponse\"\x00\x12\x62\n\x18\x44icomImageInstanceNumber\x12\x16.osirixgrpc.DicomImage\x1a,.osirixgrpc.DicomImageInstanceNumberResponse\"\x00\x12S\n\x10\x44icomSeriesPaths\x12\x17.osirixgrpc.DicomSeries\x1a$.osirixgrpc.DicomSeriesPathsResponse\"\x00\x12\x65\n\x19\x44icomSeriesPreviousSeries\x12\x17.osirixgrpc.DicomSeries\x1a-.osirixgrpc.DicomSeriesPreviousSeriesResponse\"\x00\x12]\n\x15\x44icomSeriesNextSeries\x12\x17.osirixgrpc.DicomSeries\x1a).osirixgrpc.DicomSeriesNextSeriesResponse\"\x00\x12\x61\n\x17\x44icomSeriesSortedImages\x12\x17.osirixgrpc.DicomSeries\x1a+.osirixgrpc.DicomSeriesSortedImagesResponse\"\x00\x12S\n\x10\x44icomSeriesStudy\x12\x17.osirixgrpc.DicomSeries\x1a$.osirixgrpc.DicomSeriesStudyResponse\"\x00\x12U\n\x11\x44icomSeriesImages\x12\x17.osirixgrpc.DicomSeries\x1a%.osirixgrpc.DicomSeriesImagesResponse\"\x00\x12k\n\x1c\x44icomSeriesSeriesInstanceUID\x12\x17.osirixgrpc.DicomSeries\x1a\x30.osirixgrpc.DicomSeriesSeriesInstanceUIDResponse\"\x00\x12k\n\x1c\x44icomSeriesSeriesSOPClassUID\x12\x17.osirixgrpc.DicomSeries\x1a\x30.osirixgrpc.DicomSeriesSeriesSOPClassUIDResponse\"\x00\x12k\n\x1c\x44icomSeriesSeriesDescription\x12\x17.osirixgrpc.DicomSeries\x1a\x30.osirixgrpc.DicomSeriesSeriesDescriptionResponse\"\x00\x12Y\n\x13\x44icomSeriesModality\x12\x17.osirixgrpc.DicomSeries\x1a\'.osirixgrpc.DicomSeriesModalityResponse\"\x00\x12Q\n\x0f\x44icomSeriesName\x12\x17.osirixgrpc.DicomSeries\x1a#.osirixgrpc.DicomSeriesNameResponse\"\x00\x12Q\n\x0f\x44icomSeriesDate\x12\x17.osirixgrpc.DicomSeries\x1a#.osirixgrpc.DicomSeriesDateResponse\"\x00\x12\x65\n\x19\x44icomSeriesNumberOfImages\x12\x17.osirixgrpc.DicomSeries\x1a-.osirixgrpc.DicomSeriesNumberOfImagesResponse\"\x00\x12P\n\x0f\x44icomStudyPaths\x12\x16.osirixgrpc.DicomStudy\x1a#.osirixgrpc.DicomStudyPathsResponse\"\x00\x12R\n\x10\x44icomStudyImages\x12\x16.osirixgrpc.DicomStudy\x1a$.osirixgrpc.DicomStudyImagesResponse\"\x00\x12Z\n\x14\x44icomStudyModalities\x12\x16.osirixgrpc.DicomStudy\x1a(.osirixgrpc.DicomStudyModalitiesResponse\"\x00\x12T\n\x11\x44icomStudyNoFiles\x12\x16.osirixgrpc.DicomStudy\x1a%.osirixgrpc.DicomStudyNoFilesResponse\"\x00\x12Z\n\x14\x44icomStudyRawNoFiles\x12\x16.osirixgrpc.DicomStudy\x1a(.osirixgrpc.DicomStudyRawNoFilesResponse\"\x00\x12|\n%DicomStudyNoFilesExcludingMultiFrames\x12\x16.osirixgrpc.DicomStudy\x1a\x39.osirixgrpc.DicomStudyNoFilesExcludingMultiFramesResponse\"\x00\x12\x62\n\x18\x44icomStudyNumberOfImages\x12\x16.osirixgrpc.DicomStudy\x1a,.osirixgrpc.DicomStudyNumberOfImagesResponse\"\x00\x12R\n\x10\x44icomStudySeries\x12\x16.osirixgrpc.DicomStudy\x1a$.osirixgrpc.DicomStudySeriesResponse\"\x00\x12N\n\x0e\x44icomStudyName\x12\x16.osirixgrpc.DicomStudy\x1a\".osirixgrpc.DicomStudyNameResponse\"\x00\x12N\n\x0e\x44icomStudyDate\x12\x16.osirixgrpc.DicomStudy\x1a\".osirixgrpc.DicomStudyDateResponse\"\x00\x12X\n\x13\x44icomStudyDateAdded\x12\x16.osirixgrpc.DicomStudy\x1a\'.osirixgrpc.DicomStudyDateAddedResponse\"\x00\x12\\\n\x15\x44icomStudyDateOfBirth\x12\x16.osirixgrpc.DicomStudy\x1a).osirixgrpc.DicomStudyDateOfBirthResponse\"\x00\x12\x64\n\x19\x44icomStudyInstitutionName\x12\x16.osirixgrpc.DicomStudy\x1a-.osirixgrpc.DicomStudyInstitutionNameResponse\"\x00\x12V\n\x12\x44icomStudyModality\x12\x16.osirixgrpc.DicomStudy\x1a&.osirixgrpc.DicomStudyModalityResponse\"\x00\x12X\n\x13\x44icomStudyPatientID\x12\x16.osirixgrpc.DicomStudy\x1a\'.osirixgrpc.DicomStudyPatientIDResponse\"\x00\x12Z\n\x14\x44icomStudyPatientUID\x12\x16.osirixgrpc.DicomStudy\x1a(.osirixgrpc.DicomStudyPatientUIDResponse\"\x00\x12Z\n\x14\x44icomStudyPatientSex\x12\x16.osirixgrpc.DicomStudy\x1a(.osirixgrpc.DicomStudyPatientSexResponse\"\x00\x12l\n\x1d\x44icomStudyPerformingPhysician\x12\x16.osirixgrpc.DicomStudy\x1a\x31.osirixgrpc.DicomStudyPerformingPhysicianResponse\"\x00\x12j\n\x1c\x44icomStudyReferringPhysician\x12\x16.osirixgrpc.DicomStudy\x1a\x30.osirixgrpc.DicomStudyReferringPhysicianResponse\"\x00\x12\x66\n\x1a\x44icomStudyStudyInstanceUID\x12\x16.osirixgrpc.DicomStudy\x1a..osirixgrpc.DicomStudyStudyInstanceUIDResponse\"\x00\x12X\n\x13\x44icomStudyStudyName\x12\x16.osirixgrpc.DicomStudy\x1a\'.osirixgrpc.DicomStudyStudyNameResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[roi__pb2.DESCRIPTOR,roivolume__pb2.DESCRIPTOR,dcmpix__pb2.DESCRIPTOR,vrcontroller__pb2.DESCRIPTOR,viewercontroller__pb2.DESCRIPTOR,browsercontroller__pb2.DESCRIPTOR,dicomimage__pb2.DESCRIPTOR,dicomseries__pb2.DESCRIPTOR,dicomstudy__pb2.DESCRIPTOR,utilities__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
 
@@ -292,7 +293,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=859,
-  serialized_end=12543,
+  serialized_end=12908,
   methods=[
   _descriptor.MethodDescriptor(
     name='OsirixCurrentBrowser',
@@ -425,9 +426,19 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='ROIIType',
+    full_name='osirixgrpc.OsiriXService.ROIIType',
+    index=13,
+    containing_service=None,
+    input_type=types__pb2._ROI,
+    output_type=roi__pb2._ROIITYPERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='ROISetName',
     full_name='osirixgrpc.OsiriXService.ROISetName',
-    index=13,
+    index=14,
     containing_service=None,
     input_type=roi__pb2._ROISETNAMEREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -437,7 +448,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIColor',
     full_name='osirixgrpc.OsiriXService.ROIColor',
-    index=14,
+    index=15,
     containing_service=None,
     input_type=types__pb2._ROI,
     output_type=roi__pb2._ROICOLORRESPONSE,
@@ -447,7 +458,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROISetColor',
     full_name='osirixgrpc.OsiriXService.ROISetColor',
-    index=15,
+    index=16,
     containing_service=None,
     input_type=roi__pb2._ROISETCOLORREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -457,7 +468,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIOpacity',
     full_name='osirixgrpc.OsiriXService.ROIOpacity',
-    index=16,
+    index=17,
     containing_service=None,
     input_type=types__pb2._ROI,
     output_type=roi__pb2._ROIOPACITYRESPONSE,
@@ -467,7 +478,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROISetOpacity',
     full_name='osirixgrpc.OsiriXService.ROISetOpacity',
-    index=17,
+    index=18,
     containing_service=None,
     input_type=roi__pb2._ROISETOPACITYREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -477,7 +488,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIThickness',
     full_name='osirixgrpc.OsiriXService.ROIThickness',
-    index=18,
+    index=19,
     containing_service=None,
     input_type=types__pb2._ROI,
     output_type=roi__pb2._ROITHICKNESSRESPONSE,
@@ -487,7 +498,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROISetThickness',
     full_name='osirixgrpc.OsiriXService.ROISetThickness',
-    index=19,
+    index=20,
     containing_service=None,
     input_type=roi__pb2._ROISETTHICKNESSREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -497,7 +508,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIPoints',
     full_name='osirixgrpc.OsiriXService.ROIPoints',
-    index=20,
+    index=21,
     containing_service=None,
     input_type=types__pb2._ROI,
     output_type=roi__pb2._ROIPOINTSRESPONSE,
@@ -507,7 +518,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROISetPoints',
     full_name='osirixgrpc.OsiriXService.ROISetPoints',
-    index=21,
+    index=22,
     containing_service=None,
     input_type=roi__pb2._ROISETPOINTSREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -517,7 +528,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIVolumeTexture',
     full_name='osirixgrpc.OsiriXService.ROIVolumeTexture',
-    index=22,
+    index=23,
     containing_service=None,
     input_type=types__pb2._ROIVOLUME,
     output_type=roivolume__pb2._ROIVOLUMETEXTURERESPONSE,
@@ -527,7 +538,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIVolumeSetTexture',
     full_name='osirixgrpc.OsiriXService.ROIVolumeSetTexture',
-    index=23,
+    index=24,
     containing_service=None,
     input_type=roivolume__pb2._ROIVOLUMESETTEXTUREREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -537,7 +548,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIVolumeVolume',
     full_name='osirixgrpc.OsiriXService.ROIVolumeVolume',
-    index=24,
+    index=25,
     containing_service=None,
     input_type=types__pb2._ROIVOLUME,
     output_type=roivolume__pb2._ROIVOLUMEVOLUMERESPONSE,
@@ -547,7 +558,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIVolumeColor',
     full_name='osirixgrpc.OsiriXService.ROIVolumeColor',
-    index=25,
+    index=26,
     containing_service=None,
     input_type=types__pb2._ROIVOLUME,
     output_type=roivolume__pb2._ROIVOLUMECOLORRESPONSE,
@@ -557,7 +568,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIVolumeSetColor',
     full_name='osirixgrpc.OsiriXService.ROIVolumeSetColor',
-    index=26,
+    index=27,
     containing_service=None,
     input_type=roivolume__pb2._ROIVOLUMESETCOLORREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -567,7 +578,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIVolumeOpacity',
     full_name='osirixgrpc.OsiriXService.ROIVolumeOpacity',
-    index=27,
+    index=28,
     containing_service=None,
     input_type=types__pb2._ROIVOLUME,
     output_type=roivolume__pb2._ROIVOLUMEOPACITYRESPONSE,
@@ -577,7 +588,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIVolumeSetOpacity',
     full_name='osirixgrpc.OsiriXService.ROIVolumeSetOpacity',
-    index=28,
+    index=29,
     containing_service=None,
     input_type=roivolume__pb2._ROIVOLUMESETOPACITYREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -587,7 +598,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIVolumeFactor',
     full_name='osirixgrpc.OsiriXService.ROIVolumeFactor',
-    index=29,
+    index=30,
     containing_service=None,
     input_type=types__pb2._ROIVOLUME,
     output_type=roivolume__pb2._ROIVOLUMEFACTORRESPONSE,
@@ -597,7 +608,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ROIVolumeSetFactor',
     full_name='osirixgrpc.OsiriXService.ROIVolumeSetFactor',
-    index=30,
+    index=31,
     containing_service=None,
     input_type=roivolume__pb2._ROIVOLUMESETFACTORREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -605,32 +616,22 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='ROIVolumeVisible',
-    full_name='osirixgrpc.OsiriXService.ROIVolumeVisible',
-    index=31,
-    containing_service=None,
-    input_type=types__pb2._ROIVOLUME,
-    output_type=roivolume__pb2._ROIVOLUMEVISIBLERESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ROIVolumeSetVisible',
-    full_name='osirixgrpc.OsiriXService.ROIVolumeSetVisible',
-    index=32,
-    containing_service=None,
-    input_type=roivolume__pb2._ROIVOLUMESETVISIBLEREQUEST,
-    output_type=utilities__pb2._RESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
     name='ROIVolumeName',
     full_name='osirixgrpc.OsiriXService.ROIVolumeName',
-    index=33,
+    index=32,
     containing_service=None,
     input_type=types__pb2._ROIVOLUME,
     output_type=roivolume__pb2._ROIVOLUMENAMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ROIVolumeVisible',
+    full_name='osirixgrpc.OsiriXService.ROIVolumeVisible',
+    index=33,
+    containing_service=None,
+    input_type=types__pb2._ROIVOLUME,
+    output_type=roivolume__pb2._ROIVOLUMEVISIBLERESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -895,9 +896,39 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='VRControllerHideROIVolume',
+    full_name='osirixgrpc.OsiriXService.VRControllerHideROIVolume',
+    index=60,
+    containing_service=None,
+    input_type=vrcontroller__pb2._VRCONTROLLERHIDEROIVOLUMEREQUEST,
+    output_type=utilities__pb2._RESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='VRControllerDisplayROIVolume',
+    full_name='osirixgrpc.OsiriXService.VRControllerDisplayROIVolume',
+    index=61,
+    containing_service=None,
+    input_type=vrcontroller__pb2._VRCONTROLLERDISPLAYROIVOLUMEREQUEST,
+    output_type=utilities__pb2._RESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='VRControllerNeedsDisplayUpdate',
+    full_name='osirixgrpc.OsiriXService.VRControllerNeedsDisplayUpdate',
+    index=62,
+    containing_service=None,
+    input_type=types__pb2._VRCONTROLLER,
+    output_type=utilities__pb2._RESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='ViewerControllerCloseViewer',
     full_name='osirixgrpc.OsiriXService.ViewerControllerCloseViewer',
-    index=60,
+    index=63,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=utilities__pb2._RESPONSE,
@@ -907,7 +938,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerPixList',
     full_name='osirixgrpc.OsiriXService.ViewerControllerPixList',
-    index=61,
+    index=64,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERPIXLISTREQUEST,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERPIXLISTRESPONSE,
@@ -917,7 +948,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerNeedsDisplayUpdate',
     full_name='osirixgrpc.OsiriXService.ViewerControllerNeedsDisplayUpdate',
-    index=62,
+    index=65,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=utilities__pb2._RESPONSE,
@@ -927,7 +958,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerROIList',
     full_name='osirixgrpc.OsiriXService.ViewerControllerROIList',
-    index=63,
+    index=66,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERROILISTREQUEST,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERROILISTRESPONSE,
@@ -937,7 +968,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerNewROI',
     full_name='osirixgrpc.OsiriXService.ViewerControllerNewROI',
-    index=64,
+    index=67,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERNEWROIREQUEST,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERNEWROIRESPONSE,
@@ -947,7 +978,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerCurDCM',
     full_name='osirixgrpc.OsiriXService.ViewerControllerCurDCM',
-    index=65,
+    index=68,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERCURDCMRESPONSE,
@@ -957,7 +988,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerROIsWithName',
     full_name='osirixgrpc.OsiriXService.ViewerControllerROIsWithName',
-    index=66,
+    index=69,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERROISWITHNAMEREQUEST,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERROISWITHNAMERESPONSE,
@@ -967,7 +998,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerSelectedROIs',
     full_name='osirixgrpc.OsiriXService.ViewerControllerSelectedROIs',
-    index=67,
+    index=70,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERSELECTEDROISRESPONSE,
@@ -977,7 +1008,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerIsDataVolumic',
     full_name='osirixgrpc.OsiriXService.ViewerControllerIsDataVolumic',
-    index=68,
+    index=71,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERISDATAVOLUMICREQUEST,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERISDATAVOLUMICRESPONSE,
@@ -987,7 +1018,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerCopyViewerWindow',
     full_name='osirixgrpc.OsiriXService.ViewerControllerCopyViewerWindow',
-    index=69,
+    index=72,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERCOPYVIEWERWINDOWREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -997,7 +1028,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerResampleViewerController',
     full_name='osirixgrpc.OsiriXService.ViewerControllerResampleViewerController',
-    index=70,
+    index=73,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERRESAMPLEVIEWERCONTROLLERREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -1007,7 +1038,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerBlendingController',
     full_name='osirixgrpc.OsiriXService.ViewerControllerBlendingController',
-    index=71,
+    index=74,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERBLENDINGCONTROLLERRESPONSE,
@@ -1017,7 +1048,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerVRControllers',
     full_name='osirixgrpc.OsiriXService.ViewerControllerVRControllers',
-    index=72,
+    index=75,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERVRCONTROLLERSRESPONSE,
@@ -1027,7 +1058,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerTitle',
     full_name='osirixgrpc.OsiriXService.ViewerControllerTitle',
-    index=73,
+    index=76,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERTITLERESPONSE,
@@ -1037,7 +1068,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerModality',
     full_name='osirixgrpc.OsiriXService.ViewerControllerModality',
-    index=74,
+    index=77,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERMODALITYRESPONSE,
@@ -1047,7 +1078,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerMovieIdx',
     full_name='osirixgrpc.OsiriXService.ViewerControllerMovieIdx',
-    index=75,
+    index=78,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERMOVIEIDXRESPONSE,
@@ -1057,7 +1088,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerSetMovieIdx',
     full_name='osirixgrpc.OsiriXService.ViewerControllerSetMovieIdx',
-    index=76,
+    index=79,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERSETMOVIEIDXREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -1067,7 +1098,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerMaxMovieIdx',
     full_name='osirixgrpc.OsiriXService.ViewerControllerMaxMovieIdx',
-    index=77,
+    index=80,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERMAXMOVIEIDXRESPONSE,
@@ -1077,7 +1108,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerIdx',
     full_name='osirixgrpc.OsiriXService.ViewerControllerIdx',
-    index=78,
+    index=81,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERIDXRESPONSE,
@@ -1087,7 +1118,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerSetIdx',
     full_name='osirixgrpc.OsiriXService.ViewerControllerSetIdx',
-    index=79,
+    index=82,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERSETIDXREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -1097,7 +1128,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerWLWW',
     full_name='osirixgrpc.OsiriXService.ViewerControllerWLWW',
-    index=80,
+    index=83,
     containing_service=None,
     input_type=types__pb2._VIEWERCONTROLLER,
     output_type=viewercontroller__pb2._VIEWERCONTROLLERWLWWRESPONSE,
@@ -1107,7 +1138,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerSetWLWW',
     full_name='osirixgrpc.OsiriXService.ViewerControllerSetWLWW',
-    index=81,
+    index=84,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLERSETWLWWREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -1117,7 +1148,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ViewerControllerOpenVRViewerForMode',
     full_name='osirixgrpc.OsiriXService.ViewerControllerOpenVRViewerForMode',
-    index=82,
+    index=85,
     containing_service=None,
     input_type=viewercontroller__pb2._VIEWERCONTROLLEROPENVRVIEWERFORMODEREQUEST,
     output_type=viewercontroller__pb2._VIEWERCONTROLLEROPENVRVIEWERFORMODERESPONSE,
@@ -1127,7 +1158,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='BrowserControllerDatabaseSelection',
     full_name='osirixgrpc.OsiriXService.BrowserControllerDatabaseSelection',
-    index=83,
+    index=86,
     containing_service=None,
     input_type=types__pb2._BROWSERCONTROLLER,
     output_type=browsercontroller__pb2._BROWSERCONTROLLERDATABASESELECTIONRESPONSE,
@@ -1137,7 +1168,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='BrowserControllerCopyFilesIfNeeded',
     full_name='osirixgrpc.OsiriXService.BrowserControllerCopyFilesIfNeeded',
-    index=84,
+    index=87,
     containing_service=None,
     input_type=browsercontroller__pb2._BROWSERCONTROLLERCOPYFILESIFNEEDEDREQUEST,
     output_type=utilities__pb2._RESPONSE,
@@ -1147,7 +1178,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageWidth',
     full_name='osirixgrpc.OsiriXService.DicomImageWidth',
-    index=85,
+    index=88,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGEWIDTHRESPONSE,
@@ -1157,7 +1188,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageHeight',
     full_name='osirixgrpc.OsiriXService.DicomImageHeight',
-    index=86,
+    index=89,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGEHEIGHTRESPONSE,
@@ -1167,7 +1198,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageSOPInstanceUID',
     full_name='osirixgrpc.OsiriXService.DicomImageSOPInstanceUID',
-    index=87,
+    index=90,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGESOPINSTANCEUIDRESPONSE,
@@ -1177,7 +1208,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageCompletePath',
     full_name='osirixgrpc.OsiriXService.DicomImageCompletePath',
-    index=88,
+    index=91,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGECOMPLETEPATHRESPONSE,
@@ -1187,7 +1218,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageDate',
     full_name='osirixgrpc.OsiriXService.DicomImageDate',
-    index=89,
+    index=92,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGEDATERESPONSE,
@@ -1197,7 +1228,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageNumberOfFrames',
     full_name='osirixgrpc.OsiriXService.DicomImageNumberOfFrames',
-    index=90,
+    index=93,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGENUMBEROFFRAMESRESPONSE,
@@ -1207,7 +1238,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageModality',
     full_name='osirixgrpc.OsiriXService.DicomImageModality',
-    index=91,
+    index=94,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGEMODALITYRESPONSE,
@@ -1217,7 +1248,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageSeries',
     full_name='osirixgrpc.OsiriXService.DicomImageSeries',
-    index=92,
+    index=95,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGESERIESRESPONSE,
@@ -1227,7 +1258,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageSliceLocation',
     full_name='osirixgrpc.OsiriXService.DicomImageSliceLocation',
-    index=93,
+    index=96,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGESLICELOCATIONRESPONSE,
@@ -1237,7 +1268,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomImageInstanceNumber',
     full_name='osirixgrpc.OsiriXService.DicomImageInstanceNumber',
-    index=94,
+    index=97,
     containing_service=None,
     input_type=types__pb2._DICOMIMAGE,
     output_type=dicomimage__pb2._DICOMIMAGEINSTANCENUMBERRESPONSE,
@@ -1247,7 +1278,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesPaths',
     full_name='osirixgrpc.OsiriXService.DicomSeriesPaths',
-    index=95,
+    index=98,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESPATHSRESPONSE,
@@ -1257,7 +1288,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesPreviousSeries',
     full_name='osirixgrpc.OsiriXService.DicomSeriesPreviousSeries',
-    index=96,
+    index=99,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESPREVIOUSSERIESRESPONSE,
@@ -1267,7 +1298,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesNextSeries',
     full_name='osirixgrpc.OsiriXService.DicomSeriesNextSeries',
-    index=97,
+    index=100,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESNEXTSERIESRESPONSE,
@@ -1277,7 +1308,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesSortedImages',
     full_name='osirixgrpc.OsiriXService.DicomSeriesSortedImages',
-    index=98,
+    index=101,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESSORTEDIMAGESRESPONSE,
@@ -1287,7 +1318,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesStudy',
     full_name='osirixgrpc.OsiriXService.DicomSeriesStudy',
-    index=99,
+    index=102,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESSTUDYRESPONSE,
@@ -1297,7 +1328,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesImages',
     full_name='osirixgrpc.OsiriXService.DicomSeriesImages',
-    index=100,
+    index=103,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESIMAGESRESPONSE,
@@ -1307,7 +1338,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesSeriesInstanceUID',
     full_name='osirixgrpc.OsiriXService.DicomSeriesSeriesInstanceUID',
-    index=101,
+    index=104,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESSERIESINSTANCEUIDRESPONSE,
@@ -1317,7 +1348,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesSeriesSOPClassUID',
     full_name='osirixgrpc.OsiriXService.DicomSeriesSeriesSOPClassUID',
-    index=102,
+    index=105,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESSERIESSOPCLASSUIDRESPONSE,
@@ -1327,7 +1358,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesSeriesDescription',
     full_name='osirixgrpc.OsiriXService.DicomSeriesSeriesDescription',
-    index=103,
+    index=106,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESSERIESDESCRIPTIONRESPONSE,
@@ -1337,7 +1368,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesModality',
     full_name='osirixgrpc.OsiriXService.DicomSeriesModality',
-    index=104,
+    index=107,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESMODALITYRESPONSE,
@@ -1347,7 +1378,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesName',
     full_name='osirixgrpc.OsiriXService.DicomSeriesName',
-    index=105,
+    index=108,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESNAMERESPONSE,
@@ -1357,7 +1388,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomSeriesDate',
     full_name='osirixgrpc.OsiriXService.DicomSeriesDate',
-    index=106,
+    index=109,
     containing_service=None,
     input_type=types__pb2._DICOMSERIES,
     output_type=dicomseries__pb2._DICOMSERIESDATERESPONSE,
@@ -1365,9 +1396,19 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='DicomSeriesNumberOfImages',
+    full_name='osirixgrpc.OsiriXService.DicomSeriesNumberOfImages',
+    index=110,
+    containing_service=None,
+    input_type=types__pb2._DICOMSERIES,
+    output_type=dicomseries__pb2._DICOMSERIESNUMBEROFIMAGESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='DicomStudyPaths',
     full_name='osirixgrpc.OsiriXService.DicomStudyPaths',
-    index=107,
+    index=111,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYPATHSRESPONSE,
@@ -1377,7 +1418,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyImages',
     full_name='osirixgrpc.OsiriXService.DicomStudyImages',
-    index=108,
+    index=112,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYIMAGESRESPONSE,
@@ -1387,7 +1428,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyModalities',
     full_name='osirixgrpc.OsiriXService.DicomStudyModalities',
-    index=109,
+    index=113,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYMODALITIESRESPONSE,
@@ -1397,7 +1438,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyNoFiles',
     full_name='osirixgrpc.OsiriXService.DicomStudyNoFiles',
-    index=110,
+    index=114,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYNOFILESRESPONSE,
@@ -1407,7 +1448,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyRawNoFiles',
     full_name='osirixgrpc.OsiriXService.DicomStudyRawNoFiles',
-    index=111,
+    index=115,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYRAWNOFILESRESPONSE,
@@ -1417,7 +1458,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyNoFilesExcludingMultiFrames',
     full_name='osirixgrpc.OsiriXService.DicomStudyNoFilesExcludingMultiFrames',
-    index=112,
+    index=116,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYNOFILESEXCLUDINGMULTIFRAMESRESPONSE,
@@ -1427,7 +1468,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyNumberOfImages',
     full_name='osirixgrpc.OsiriXService.DicomStudyNumberOfImages',
-    index=113,
+    index=117,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYNUMBEROFIMAGESRESPONSE,
@@ -1437,7 +1478,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudySeries',
     full_name='osirixgrpc.OsiriXService.DicomStudySeries',
-    index=114,
+    index=118,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYSERIESRESPONSE,
@@ -1447,7 +1488,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyName',
     full_name='osirixgrpc.OsiriXService.DicomStudyName',
-    index=115,
+    index=119,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYNAMERESPONSE,
@@ -1457,7 +1498,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyDate',
     full_name='osirixgrpc.OsiriXService.DicomStudyDate',
-    index=116,
+    index=120,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYDATERESPONSE,
@@ -1467,7 +1508,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyDateAdded',
     full_name='osirixgrpc.OsiriXService.DicomStudyDateAdded',
-    index=117,
+    index=121,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYDATEADDEDRESPONSE,
@@ -1477,7 +1518,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyDateOfBirth',
     full_name='osirixgrpc.OsiriXService.DicomStudyDateOfBirth',
-    index=118,
+    index=122,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYDATEOFBIRTHRESPONSE,
@@ -1487,7 +1528,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyInstitutionName',
     full_name='osirixgrpc.OsiriXService.DicomStudyInstitutionName',
-    index=119,
+    index=123,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYINSTITUTIONNAMERESPONSE,
@@ -1497,7 +1538,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyModality',
     full_name='osirixgrpc.OsiriXService.DicomStudyModality',
-    index=120,
+    index=124,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYMODALITYRESPONSE,
@@ -1507,7 +1548,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyPatientID',
     full_name='osirixgrpc.OsiriXService.DicomStudyPatientID',
-    index=121,
+    index=125,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYPATIENTIDRESPONSE,
@@ -1517,7 +1558,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyPatientUID',
     full_name='osirixgrpc.OsiriXService.DicomStudyPatientUID',
-    index=122,
+    index=126,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYPATIENTUIDRESPONSE,
@@ -1527,7 +1568,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyPatientSex',
     full_name='osirixgrpc.OsiriXService.DicomStudyPatientSex',
-    index=123,
+    index=127,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYPATIENTSEXRESPONSE,
@@ -1537,7 +1578,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyPerformingPhysician',
     full_name='osirixgrpc.OsiriXService.DicomStudyPerformingPhysician',
-    index=124,
+    index=128,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYPERFORMINGPHYSICIANRESPONSE,
@@ -1547,7 +1588,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyReferringPhysician',
     full_name='osirixgrpc.OsiriXService.DicomStudyReferringPhysician',
-    index=125,
+    index=129,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYREFERRINGPHYSICIANRESPONSE,
@@ -1557,7 +1598,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyStudyInstanceUID',
     full_name='osirixgrpc.OsiriXService.DicomStudyStudyInstanceUID',
-    index=126,
+    index=130,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYSTUDYINSTANCEUIDRESPONSE,
@@ -1567,7 +1608,7 @@ _OSIRIXSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DicomStudyStudyName',
     full_name='osirixgrpc.OsiriXService.DicomStudyStudyName',
-    index=127,
+    index=131,
     containing_service=None,
     input_type=types__pb2._DICOMSTUDY,
     output_type=dicomstudy__pb2._DICOMSTUDYSTUDYNAMERESPONSE,

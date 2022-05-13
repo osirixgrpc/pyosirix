@@ -11,8 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import osirix.pb2.utilities_pb2 as utilities__pb2
-import osirix.pb2.types_pb2 as types__pb2
+import utilities_pb2 as utilities__pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0froivolume.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\"O\n\x18ROIVolumeTextureResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0f\n\x07texture\x18\x02 \x01(\x08\"M\n\x17ROIVolumeVolumeResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0e\n\x06volume\x18\x02 \x01(\x02\"]\n\x16ROIVolumeColorResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\t\n\x01r\x18\x02 \x01(\x05\x12\t\n\x01g\x18\x03 \x01(\x05\x12\t\n\x01\x62\x18\x04 \x01(\x05\"O\n\x18ROIVolumeOpacityResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\"M\n\x17ROIVolumeFactorResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0e\n\x06\x66\x61\x63tor\x18\x02 \x01(\x02\"O\n\x18ROIVolumeVisibleResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0f\n\x07visible\x18\x02 \x01(\x08\"I\n\x15ROIVolumeNameResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04name\x18\x02 \x01(\t\"Q\n\x1aROIVolumeSetTextureRequest\x12\"\n\x03roi\x18\x01 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\x12\x0f\n\x07texture\x18\x02 \x01(\x08\"_\n\x18ROIVolumeSetColorRequest\x12\"\n\x03roi\x18\x01 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\x12\t\n\x01r\x18\x02 \x01(\x05\x12\t\n\x01g\x18\x03 \x01(\x05\x12\t\n\x01\x62\x18\x04 \x01(\x05\"Q\n\x1aROIVolumeSetOpacityRequest\x12\"\n\x03roi\x18\x01 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\"O\n\x19ROIVolumeSetFactorRequest\x12\"\n\x03roi\x18\x01 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\x12\x0e\n\x06\x66\x61\x63tor\x18\x02 \x01(\x02\"Q\n\x1aROIVolumeSetVisibleRequest\x12\"\n\x03roi\x18\x01 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\x12\x0f\n\x07visible\x18\x02 \x01(\x08\x62\x06proto3'
+  serialized_pb=b'\n\x0froivolume.proto\x12\nosirixgrpc\x1a\x0futilities.proto\x1a\x0btypes.proto\"O\n\x18ROIVolumeTextureResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0f\n\x07texture\x18\x02 \x01(\x08\"M\n\x17ROIVolumeVolumeResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0e\n\x06volume\x18\x02 \x01(\x02\"]\n\x16ROIVolumeColorResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\t\n\x01r\x18\x02 \x01(\x02\x12\t\n\x01g\x18\x03 \x01(\x02\x12\t\n\x01\x62\x18\x04 \x01(\x02\"O\n\x18ROIVolumeOpacityResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\"M\n\x17ROIVolumeFactorResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0e\n\x06\x66\x61\x63tor\x18\x02 \x01(\x02\"O\n\x18ROIVolumeVisibleResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0f\n\x07visible\x18\x02 \x01(\x08\"I\n\x15ROIVolumeNameResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.osirixgrpc.Status\x12\x0c\n\x04name\x18\x02 \x01(\t\"Q\n\x1aROIVolumeSetTextureRequest\x12\"\n\x03roi\x18\x01 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\x12\x0f\n\x07texture\x18\x02 \x01(\x08\"_\n\x18ROIVolumeSetColorRequest\x12\"\n\x03roi\x18\x01 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\x12\t\n\x01r\x18\x02 \x01(\x02\x12\t\n\x01g\x18\x03 \x01(\x02\x12\t\n\x01\x62\x18\x04 \x01(\x02\"Q\n\x1aROIVolumeSetOpacityRequest\x12\"\n\x03roi\x18\x01 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\x12\x0f\n\x07opacity\x18\x02 \x01(\x02\"O\n\x19ROIVolumeSetFactorRequest\x12\"\n\x03roi\x18\x01 \x01(\x0b\x32\x15.osirixgrpc.ROIVolume\x12\x0e\n\x06\x66\x61\x63tor\x18\x02 \x01(\x02\x62\x06proto3'
   ,
   dependencies=[utilities__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
 
@@ -123,22 +123,22 @@ _ROIVOLUMECOLORRESPONSE = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='r', full_name='osirixgrpc.ROIVolumeColorResponse.r', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='g', full_name='osirixgrpc.ROIVolumeColorResponse.g', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='b', full_name='osirixgrpc.ROIVolumeColorResponse.b', index=3,
-      number=4, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -371,22 +371,22 @@ _ROIVOLUMESETCOLORREQUEST = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='r', full_name='osirixgrpc.ROIVolumeSetColorRequest.r', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='g', full_name='osirixgrpc.ROIVolumeSetColorRequest.g', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='b', full_name='osirixgrpc.ROIVolumeSetColorRequest.b', index=3,
-      number=4, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -484,45 +484,6 @@ _ROIVOLUMESETFACTORREQUEST = _descriptor.Descriptor(
   serialized_end=974,
 )
 
-
-_ROIVOLUMESETVISIBLEREQUEST = _descriptor.Descriptor(
-  name='ROIVolumeSetVisibleRequest',
-  full_name='osirixgrpc.ROIVolumeSetVisibleRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='roi', full_name='osirixgrpc.ROIVolumeSetVisibleRequest.roi', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='visible', full_name='osirixgrpc.ROIVolumeSetVisibleRequest.visible', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=976,
-  serialized_end=1057,
-)
-
 _ROIVOLUMETEXTURERESPONSE.fields_by_name['status'].message_type = utilities__pb2._STATUS
 _ROIVOLUMEVOLUMERESPONSE.fields_by_name['status'].message_type = utilities__pb2._STATUS
 _ROIVOLUMECOLORRESPONSE.fields_by_name['status'].message_type = utilities__pb2._STATUS
@@ -534,7 +495,6 @@ _ROIVOLUMESETTEXTUREREQUEST.fields_by_name['roi'].message_type = types__pb2._ROI
 _ROIVOLUMESETCOLORREQUEST.fields_by_name['roi'].message_type = types__pb2._ROIVOLUME
 _ROIVOLUMESETOPACITYREQUEST.fields_by_name['roi'].message_type = types__pb2._ROIVOLUME
 _ROIVOLUMESETFACTORREQUEST.fields_by_name['roi'].message_type = types__pb2._ROIVOLUME
-_ROIVOLUMESETVISIBLEREQUEST.fields_by_name['roi'].message_type = types__pb2._ROIVOLUME
 DESCRIPTOR.message_types_by_name['ROIVolumeTextureResponse'] = _ROIVOLUMETEXTURERESPONSE
 DESCRIPTOR.message_types_by_name['ROIVolumeVolumeResponse'] = _ROIVOLUMEVOLUMERESPONSE
 DESCRIPTOR.message_types_by_name['ROIVolumeColorResponse'] = _ROIVOLUMECOLORRESPONSE
@@ -546,7 +506,6 @@ DESCRIPTOR.message_types_by_name['ROIVolumeSetTextureRequest'] = _ROIVOLUMESETTE
 DESCRIPTOR.message_types_by_name['ROIVolumeSetColorRequest'] = _ROIVOLUMESETCOLORREQUEST
 DESCRIPTOR.message_types_by_name['ROIVolumeSetOpacityRequest'] = _ROIVOLUMESETOPACITYREQUEST
 DESCRIPTOR.message_types_by_name['ROIVolumeSetFactorRequest'] = _ROIVOLUMESETFACTORREQUEST
-DESCRIPTOR.message_types_by_name['ROIVolumeSetVisibleRequest'] = _ROIVOLUMESETVISIBLEREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ROIVolumeTextureResponse = _reflection.GeneratedProtocolMessageType('ROIVolumeTextureResponse', (_message.Message,), {
@@ -625,13 +584,6 @@ ROIVolumeSetFactorRequest = _reflection.GeneratedProtocolMessageType('ROIVolumeS
   # @@protoc_insertion_point(class_scope:osirixgrpc.ROIVolumeSetFactorRequest)
   })
 _sym_db.RegisterMessage(ROIVolumeSetFactorRequest)
-
-ROIVolumeSetVisibleRequest = _reflection.GeneratedProtocolMessageType('ROIVolumeSetVisibleRequest', (_message.Message,), {
-  'DESCRIPTOR' : _ROIVOLUMESETVISIBLEREQUEST,
-  '__module__' : 'roivolume_pb2'
-  # @@protoc_insertion_point(class_scope:osirixgrpc.ROIVolumeSetVisibleRequest)
-  })
-_sym_db.RegisterMessage(ROIVolumeSetVisibleRequest)
 
 
 # @@protoc_insertion_point(module_scope)

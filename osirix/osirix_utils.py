@@ -4,14 +4,13 @@ from typing import List, Tuple
 import grpc
 import sys
 from osirix.exceptions import GrpcException
-from osirix.viewer_controller import ViewerController, VRController
+from osirix.viewer_controller import ViewerController
+from osirix.vr_controller import VRController
 from osirix.browser_controller import BrowserController
 from osirix.response_processor import ResponseProcessor
 
-# sys.path.append("./pb2/")
-
-import osirix.pb2.osirix_pb2_grpc as osirix_pb2_grpc
-import osirix.pb2.utilities_pb2 as utilities_pb2
+import osirixgrpc.osirix_pb2_grpc as osirix_pb2_grpc
+import osirixgrpc.utilities_pb2 as utilities_pb2
 
 class OsirixService(object):
     """
