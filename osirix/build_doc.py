@@ -28,19 +28,19 @@ def make_pdoc():
         with open(dpath + exte, 'w') as html_file:
             html_file.write(string.encode('utf-8'))
         # Sublevel 2
-        if submodule.submodules():
-            for subsubmodule in submodule.submodules():
-                print(subsubmodule.name)
-                string = subsubmodule.html(external_links=True)
-                if subsubmodule.is_package():
-                    exte = '.html'
-                else:
-                    exte = '.m.html'
-                with open(subsubmodule.name.split('.')[0] + '/_doc/' +
-                          subsubmodule.name.split('.')[1] + '/' +
-                          subsubmodule.name.split('.')[-1] +
-                          exte, 'w') as html_file:
-                    html_file.write(string.encode('utf-8'))
+        # if submodule.submodules():
+        #     for subsubmodule in submodule.submodules():
+        #         print(subsubmodule.name)
+        #         string = subsubmodule.html(external_links=True)
+        #         if subsubmodule.is_package():
+        #             exte = '.html'
+        #         else:
+        #             exte = '.m.html'
+        #         with open(subsubmodule.name.split('.')[0] + '/_doc/' +
+        #                   subsubmodule.name.split('.')[1] + '/' +
+        #                   subsubmodule.name.split('.')[-1] +
+        #                   exte, 'w') as html_file:
+        #             html_file.write(string.encode('utf-8'))
 
 if __name__ == '__main__':
     make_pdoc()
