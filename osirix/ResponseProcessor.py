@@ -22,6 +22,20 @@ class ResponseProcessor(object):
         # print("Response Processor Started")
         pass
 
+    def response_check(self, response) -> None:
+        """
+          Checks whether the status of the response is success or not
+          Args:
+              response: response returned by Osirix service for the request made
+
+          Returns:
+               None
+          """
+        if (response.status.status == 1):
+            pass
+        else:
+            raise GrpcException("No response")
+
     def process_basic_response(self, response) -> None:
         """
         Checks whether the status of the response is success or not
@@ -36,75 +50,37 @@ class ResponseProcessor(object):
         else:
             raise GrpcException("No response")
 
-    # What should be the type of the response? It is the response classes in the protobufs
-    def process_displayed_2d_viewers(self, response) -> Tuple[osirix_pb2.OsirixDisplayed2DViewersResponse, ...]:
-        """
-         Extract displayed viewer controllers from the response
-         Args:
-             response: response returned by Osirix service for the request made
+    # def process_modality(self, response) -> str:
+    #     """
+    #      Extract modality from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : modality
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.modality
+    #     else:
+    #         raise GrpcException("No response")
 
-        Returns:
-             Tuple containing osirixrpc_uid of displayed 2d viewers for BrowserController
-        """
-
-        viewers_tuple : Tuple[osirix_pb2.OsirixDisplayed2DViewersResponse, ...] = ()
-
-        for viewer_controller in response.viewer_controllers:
-
-            viewers_tuple = viewers_tuple + (viewer_controller,)
-
-        return viewers_tuple
-
-    def process_displayed_vr_controllers(self, response) -> Tuple[osirix_pb2.OsirixDisplayedVRControllersResponse, ...]:
-        """
-         Extract displayed VR controllers from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             Tuple containing osirixrpc_uid of displayed VR Controllers for BrowserController
-        """
-
-        vr_controllers_tuple : Tuple[osirix_pb2.OsirixDisplayedVRControllersResponse, ...] = ()
-
-        for vr_controller in response.vr_controllers:
-
-            vr_controllers_tuple = vr_controllers_tuple + (vr_controller,)
-
-        return vr_controllers_tuple
-
-    def process_modality(self, response) -> str:
-        """
-         Extract modality from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str : modality
-        """
-        if (response.status.status == 1):
-
-            return response.modality
-        else:
-            raise GrpcException("No response")
-
-    def process_name(self, response) -> str:
-        """
-         Extract name from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str : name
-        """
-        if (response.status.status == 1):
-
-            return response.name
-        else:
-            raise GrpcException("No response")
+    # def process_name(self, response) -> str:
+    #     """
+    #      Extract name from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : name
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.name
+    #     else:
+    #         raise GrpcException("No response")
 
     def process_title(self, response) -> str:
         """
@@ -140,94 +116,94 @@ class ResponseProcessor(object):
         else:
             raise GrpcException("No response")
 
-    def process_no_images(self, response) -> int:
-        """
-         Extract number of images from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             int : number of images
-        """
-        if (response.status.status == 1):
-
-            return response.no_images
-        else:
-            raise GrpcException("No response")
+    # def process_no_images(self, response) -> int:
+    #     """
+    #      Extract number of images from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          int : number of images
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.no_images
+    #     else:
+    #         raise GrpcException("No response")
 
     #DicomStudy
-    def process_datetime(self, response: dicomstudy_pb2.DicomStudyDateResponse) -> datetime.datetime:
-        """
-         Extract datetime from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             datetime : date and time
-        """
-        if (response.status.status == 1):
-            datetime_output : datetime.datetime = datetime.datetime(response.year,
-                                       response.month,
-                                       response.day,
-                                       response.hour,
-                                       response.minute,
-                                       response.second
-                                   )
-            return datetime_output
-        else:
-            raise GrpcException("No response for datetime")
-
-    def process_dob_datetime(self, response: dicomstudy_pb2.DicomStudyDateOfBirthResponse) -> datetime.datetime:
-        """
-         Extract date of birth of patient from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             datetime : date of birth of patient for study
-         """
-        if (response.status.status == 1):
-            datetime_output : datetime.datetime = datetime.datetime(response.year,
-                                       response.month,
-                                       response.day
-                                   )
-            return datetime_output
-        else:
-            raise GrpcException("No response for datetime")
-
-    def process_institution_name(self, response) -> str:
-        """
-         Extract institution name from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str : institution name for study
-        """
-        if (response.status.status == 1):
-
-            return response.institution_name
-        else:
-            raise GrpcException("No response")
-
-    def process_study_modality(self, response) -> str:
-        """
-         Extract modalities of the study from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-         Returns:
-             str : modalities for study
-        """
-        if (response.status.status == 1):
-
-            return response.modalities
-        else:
-            raise GrpcException("No response")
+    # def process_datetime(self, response: dicomstudy_pb2.DicomStudyDateResponse) -> datetime.datetime:
+    #     """
+    #      Extract datetime from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          datetime : date and time
+    #     """
+    #     if (response.status.status == 1):
+    #         datetime_output : datetime.datetime = datetime.datetime(response.year,
+    #                                    response.month,
+    #                                    response.day,
+    #                                    response.hour,
+    #                                    response.minute,
+    #                                    response.second
+    #                                )
+    #         return datetime_output
+    #     else:
+    #         raise GrpcException("No response for datetime")
+    #
+    # def process_dob_datetime(self, response: dicomstudy_pb2.DicomStudyDateOfBirthResponse) -> datetime.datetime:
+    #     """
+    #      Extract date of birth of patient from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          datetime : date of birth of patient for study
+    #      """
+    #     if (response.status.status == 1):
+    #         datetime_output : datetime.datetime = datetime.datetime(response.year,
+    #                                    response.month,
+    #                                    response.day
+    #                                )
+    #         return datetime_output
+    #     else:
+    #         raise GrpcException("No response for datetime")
+    #
+    # def process_institution_name(self, response) -> str:
+    #     """
+    #      Extract institution name from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : institution name for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.institution_name
+    #     else:
+    #         raise GrpcException("No response")
+    #
+    # def process_study_modality(self, response) -> str:
+    #     """
+    #      Extract modalities of the study from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #      Returns:
+    #          str : modalities for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.modalities
+    #     else:
+    #         raise GrpcException("No response")
 
 
 
@@ -238,85 +214,85 @@ class ResponseProcessor(object):
     #     else:
     #         raise GrpcException("No response")
 
-    def process_patient_id(self, response) -> str:
-        """
-         Extract patient id from the response
+    # def process_patient_id(self, response) -> str:
+    #     """
+    #      Extract patient id from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : patient id for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.patient_id
+    #     else:
+    #         raise GrpcException("No response")
 
-         Args:
-             response: response returned by Osirix service for the request made
+    # def process_patient_uid(self, response) -> str:
+    #     """
+    #      Extract patient uid from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : patient uid for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.patient_uid
+    #     else:
+    #         raise GrpcException("No response")
 
-         Returns:
-             str : patient id for study
-        """
-        if (response.status.status == 1):
+    # def process_patient_sex(self, response) -> str:
+    #     """
+    #      Extract patient's sex from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : patient sex for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.patient_sex
+    #     else:
+    #         raise GrpcException("No response")
 
-            return response.patient_id
-        else:
-            raise GrpcException("No response")
+    # def process_performing_physician(self, response) -> str:
+    #     """
+    #      Extract performing physician from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : performing physician for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.performing_physician
+    #     else:
+    #         raise GrpcException("No response")
 
-    def process_patient_uid(self, response) -> str:
-        """
-         Extract patient uid from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str : patient uid for study
-        """
-        if (response.status.status == 1):
-
-            return response.patient_uid
-        else:
-            raise GrpcException("No response")
-
-    def process_patient_sex(self, response) -> str:
-        """
-         Extract patient's sex from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str : patient sex for study
-        """
-        if (response.status.status == 1):
-
-            return response.patient_sex
-        else:
-            raise GrpcException("No response")
-
-    def process_performing_physician(self, response) -> str:
-        """
-         Extract performing physician from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str : performing physician for study
-        """
-        if (response.status.status == 1):
-
-            return response.performing_physician
-        else:
-            raise GrpcException("No response")
-
-    def process_referring_physician(self, response) -> str:
-        """
-         Extract referring physician from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str : referring physician for study
-        """
-        if (response.status.status == 1):
-
-            return response.referring_physician
-        else:
-            raise GrpcException("No response")
+    # def process_referring_physician(self, response) -> str:
+    #     """
+    #      Extract referring physician from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : referring physician for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.referring_physician
+    #     else:
+    #         raise GrpcException("No response")
 
     # def process_series_name(self, response):
     #     if (response.status.status == 1):
@@ -325,116 +301,115 @@ class ResponseProcessor(object):
     #     else:
     #         raise GrpcException("No response")
 
-    def process_study_study_name(self, response) -> str:
-        """
-         Extract name of the study from the response
+    # def process_study_study_name(self, response) -> str:
+    #     """
+    #      Extract name of the study from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : study name for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.study_name
+    #     else:
+    #         raise GrpcException("No response")
 
-         Args:
-             response: response returned by Osirix service for the request made
+    # def process_study_instance_uid(self, response) -> str:
+    #     """
+    #      Extract study instance uid from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str : instance uid for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.study_instance_uid
+    #     else:
+    #         raise GrpcException("No response")
 
-         Returns:
-             str : study name for study
-        """
-        if (response.status.status == 1):
+    # def process_paths(self, response) -> Tuple[str, ...]:
+    #     """
+    #      Extract paths from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #      Returns:
+    #          Tuple containing file paths for study in str
+    #
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return tuple(response.paths)
+    #     else:
+    #         raise GrpcException("No response")
 
-            return response.study_name
-        else:
-            raise GrpcException("No response")
+    # def process_images(self, response):
+    #     """
+    #      Extract images from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          osirixrpc_uid of images for study
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         images_tuple = ()
+    #
+    #         for image in response.images:
+    #             # print(series.osirixrpc_uid)
+    #             # images_tuple = images_tuple + (image.osirixrpc_uid,)
+    #             images_tuple = images_tuple + (image,)
+    #
+    #         return images_tuple
+    #     else:
+    #         raise GrpcException("No response")
 
-    def process_study_instance_uid(self, response) -> str:
-        """
-         Extract study instance uid from the response
+    # def process_num_files(self, response) -> int:
+    #     """
+    #      Extract number of files from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          int : number of files for study
+    #
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.no_files
+    #     else:
+    #         raise GrpcException("No response")
 
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str : instance uid for study
-        """
-        if (response.status.status == 1):
-
-            return response.study_instance_uid
-        else:
-            raise GrpcException("No response")
-
-
-    def process_paths(self, response) -> Tuple[str, ...]:
-        """
-         Extract paths from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-         Returns:
-             Tuple containing file paths for study in str
-
-        """
-        if (response.status.status == 1):
-
-            return tuple(response.paths)
-        else:
-            raise GrpcException("No response")
-
-    def process_images(self, response):
-        """
-         Extract images from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             osirixrpc_uid of images for study
-        """
-        if (response.status.status == 1):
-
-            images_tuple = ()
-
-            for image in response.images:
-                # print(series.osirixrpc_uid)
-                # images_tuple = images_tuple + (image.osirixrpc_uid,)
-                images_tuple = images_tuple + (image,)
-
-            return images_tuple
-        else:
-            raise GrpcException("No response")
-
-    def process_num_files(self, response) -> int:
-        """
-         Extract number of files from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             int : number of files for study
-
-        """
-        if (response.status.status == 1):
-
-            return response.no_files
-        else:
-            raise GrpcException("No response")
-
-    def process_study_series(self, response):
-        """
-         Extract the all the series that are a part of the study from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             osirixrpc_uid of all the series for study
-         """
-        if (response.status.status == 1):
-            series_tuple = ()
-
-            for series in response.series:
-                # print(series.osirixrpc_uid)
-                # series_tuple = series_tuple + (series.osirixrpc_uid,)
-                series_tuple = series_tuple + (series,)
-
-            return series_tuple
-        else:
-            raise GrpcException("No response")
+    # def process_study_series(self, response):
+    #     """
+    #      Extract the all the series that are a part of the study from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          osirixrpc_uid of all the series for study
+    #      """
+    #     if (response.status.status == 1):
+    #         series_tuple = ()
+    #
+    #         for series in response.series:
+    #             # print(series.osirixrpc_uid)
+    #             # series_tuple = series_tuple + (series.osirixrpc_uid,)
+    #             series_tuple = series_tuple + (series,)
+    #
+    #         return series_tuple
+    #     else:
+    #         raise GrpcException("No response")
 
     # Dicom Series
     def process_series_description(self, response) -> str:

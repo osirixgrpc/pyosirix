@@ -6,10 +6,10 @@ from numpy import ndarray
 
 # sys.path.append("./pb2")
 # sys.path.append("/Users/admintmun/dev/pyosirix/osirix/pb2")
-import osirix.pb2.viewercontroller_pb2 as viewercontroller_pb2
-import osirix.pb2.vrcontroller_pb2 as vrcontroller_pb2
-import osirix.pb2.dcmpix_pb2 as dcmpix_pb2
-import osirix.pb2.roi_pb2 as roi_pb2
+import osirixgrpc.viewercontroller_pb2 as viewercontroller_pb2
+import osirixgrpc.vrcontroller_pb2 as vrcontroller_pb2
+import osirixgrpc.dcmpix_pb2 as dcmpix_pb2
+import osirixgrpc.roi_pb2 as roi_pb2
 from osirix.Dicom import DicomSeries, DicomStudy, DicomImage
 from osirix.ResponseProcessor import ResponseProcessor
 from osirix.DCMPix import DCMPix

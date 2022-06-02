@@ -3,7 +3,7 @@ from __future__ import annotations
 import datetime
 import sys
 # sys.path.append("./pb2")
-import osirix.pb2.osirix_pb2_grpc as osirix_pb2_grpc
+import osirixgrpc.osirix_pb2_grpc as osirix_pb2_grpc
 from typing import Tuple
 from osirix.ResponseProcessor import ResponseProcessor
 
@@ -23,7 +23,6 @@ class DicomStudy(object):
         self.response_processor = ResponseProcessor()
         self.osirixrpc_uid = osirixrpc_uid
         self.osirix_service = osirix_service
-        print(osirixrpc_uid)
 
     @property
     def date(self) -> datetime.datetime:
@@ -33,7 +32,18 @@ class DicomStudy(object):
             datetime: date and time for the study
         """
         response_study_date = self.osirix_service.DicomStudyDate(self.osirixrpc_uid)
-        study_date = self.response_processor.process_datetime(response=response_study_date)
+
+        self.response_processor.response_check(response_study_date)
+
+        datetime_output: datetime.datetime = datetime.datetime(response_study_date.year,
+                                                               response_study_date.month,
+                                                               response_study_date.day,
+                                                               response_study_date.hour,
+                                                               response_study_date.minute,
+                                                               response_study_date.second
+                                                               )
+
+        study_date = datetime_output
         return study_date
 
     # @date.setter
@@ -48,8 +58,17 @@ class DicomStudy(object):
             datetime: date added of the study
         """
         response_study_date_added = self.osirix_service.DicomStudyDateAdded(self.osirixrpc_uid)
-        study_date_added = self.response_processor.process_datetime(response=response_study_date_added)
-        self._date_added = study_date_added
+        self.response_processor.response_check(response_study_date_added)
+
+        datetime_output: datetime.datetime = datetime.datetime(response_study_date_added.year,
+                                                               response_study_date_added.month,
+                                                               response_study_date_added.day,
+                                                               response_study_date_added.hour,
+                                                               response_study_date_added.minute,
+                                                               response_study_date_added.second
+                                                               )
+
+        self._date_added = datetime_output
         return self._date_added
 
     # @date_added.setter
@@ -64,8 +83,13 @@ class DicomStudy(object):
             datetime : study patient's date of birth
         """
         response_study_date_of_birth = self.osirix_service.DicomStudyDateOfBirth(self.osirixrpc_uid)
-        study_date_of_birth = self.response_processor.process_dob_datetime(response_study_date_of_birth)
-        self._date_of_birth = study_date_of_birth
+        self.response_processor.response_check(response_study_date_of_birth)
+        datetime_output: datetime.datetime = datetime.datetime(response_study_date_of_birth.year,
+                                                               response_study_date_of_birth.month,
+                                                               response_study_date_of_birth.day
+                                                               )
+
+        self._date_of_birth = datetime_output
         return self._date_of_birth
 
     @property
@@ -76,8 +100,9 @@ class DicomStudy(object):
             str : name of the institution for the study
         """
         response_study_institution_name = self.osirix_service.DicomStudyInstitutionName(self.osirixrpc_uid)
-        study_institution_name = self.response_processor.process_institution_name(response_study_institution_name)
-        self._institution_name = study_institution_name
+        self.response_processor.response_check(response_study_institution_name)
+        self._institution_name = response_study_institution_name.institution_name
+
         return self._institution_name
 
     # @institution_name.setter
@@ -92,7 +117,8 @@ class DicomStudy(object):
             str : modalities for the study
         """
         response_study_modalities = self.osirix_service.DicomStudyModalities(self.osirixrpc_uid)
-        self._modalities = self.response_processor.process_study_modality(response_study_modalities)
+        self.response_processor.response_check(response_study_modalities)
+        self._modalities = response_study_modalities.modalities
 
         return self._modalities
 
@@ -104,7 +130,8 @@ class DicomStudy(object):
             str : name of the study
         """
         response_study_name = self.osirix_service.DicomStudyName(self.osirixrpc_uid)
-        self._name = self.response_processor.process_name(response_study_name)
+        self.response_processor.response_check(response_study_name)
+        self._name = response_study_name.name
 
         return self._name
 
@@ -116,7 +143,9 @@ class DicomStudy(object):
             int : number of image for the study
         """
         response_study_no_of_images = self.osirix_service.DicomStudyNumberOfImages(self.osirixrpc_uid)
-        self._study_number_of_images = self.response_processor.process_no_images(response_study_no_of_images)
+        self.response_processor.response_check(response_study_no_of_images)
+        self._study_number_of_images = response_study_no_of_images.no_images
+
         return self._study_number_of_images
 
     @property
@@ -127,8 +156,8 @@ class DicomStudy(object):
             str : patient's id
         """
         response_study_patient_id = self.osirix_service.DicomStudyPatientID(self.osirixrpc_uid)
-
-        self._patient_id = self.response_processor.process_patient_id(response_study_patient_id)
+        self.response_processor.response_check(response_study_patient_id)
+        self._patient_id = response_study_patient_id.patient_id
 
         return self._patient_id
 
@@ -140,7 +169,8 @@ class DicomStudy(object):
             str : patient's sex
         """
         response_study_patient_sex = self.osirix_service.DicomStudyPatientSex(self.osirixrpc_uid)
-        self._patient_sex = self.response_processor.process_patient_sex(response_study_patient_sex)
+        self.response_processor.process_check(response_study_patient_sex)
+        self._patient_sex = response_study_patient_sex.patient_sex
 
         return self._patient_sex
 
@@ -152,8 +182,9 @@ class DicomStudy(object):
             str : patient uid
         """
         response_study_patient_uid = self.osirix_service.DicomStudyPatientUID(self.osirixrpc_uid)
+        self.response_processor.process_check(response_study_patient_uid)
+        self._patient_uid = response_study_patient_uid.patient_uid
 
-        self._patient_uid = self.response_processor.process_patient_uid(response_study_patient_uid)
         return self._patient_uid
 
     #TODO
@@ -165,7 +196,9 @@ class DicomStudy(object):
             str : performing physician
         """
         response_study_performing_physician = self.osirix_service.DicomStudyPerformingPhysician(self.osirixrpc_uid)
-        self._performing_physician = self.response_processor.process_performing_physician(response_study_performing_physician)
+        self.response_processor.response_check(response_study_performing_physician)
+        self._performing_physician = response_study_performing_physician.performing_physician
+
         return self._performing_physician
 
     #TODO
@@ -177,7 +210,9 @@ class DicomStudy(object):
             str : referrring physician
         """
         response_study_referring_physician = self.osirix_service.DicomStudyPerformingPhysician(self.osirixrpc_uid)
-        self._referring_physician = self.response_processor.process_referring_physician(response_study_referring_physician)
+        self.response_processor.response_check(response_study_referring_physician)
+        self._referring_physician = response_study_referring_physician.referring_physician
+
         return self._referring_physician
 
     #TODO
@@ -189,11 +224,12 @@ class DicomStudy(object):
             Tuple containing all the DicomSeries for the study
         """
         response_study_series = self.osirix_service.DicomStudySeries(self.osirixrpc_uid)
-
-        study_series = self.response_processor.process_study_series(response_study_series)
+        self.response_processor.response_check(response_study_series)
         dicom_series_tuple : Tuple[DicomSeries, ...] = ()
 
-        for series in study_series:
+        for series in response_study_series.series:
+            # print(series.osirixrpc_uid)
+            # series_tuple = series_tuple + (series.osirixrpc_uid,)
             dicom_series = DicomSeries(series, self.osirix_service)
             dicom_series_tuple = dicom_series_tuple + (dicom_series,)
 
@@ -209,7 +245,8 @@ class DicomStudy(object):
             str : study instance uid
         """
         response_study_study_instance_uid = self.osirix_service.DicomStudyStudyInstanceUID(self.osirixrpc_uid)
-        self._study_instance_uid = self.response_processor.process_study_instance_uid(response_study_study_instance_uid)
+        self.response_processor.response_check(response_study_study_instance_uid)
+        self._study_instance_uid = response_study_study_instance_uid.study_instance_uid
 
         return self._study_instance_uid
 
@@ -221,7 +258,9 @@ class DicomStudy(object):
             str : study name
         """
         response_study_study_name = self.osirix_service.DicomStudyStudyName(self.osirixrpc_uid)
-        self._study_study_name = self.response_processor.process_study_study_name(response_study_study_name)
+        self.response_processor.response_check(response_study_study_name)
+        self._study_study_name = response_study_study_name.study_name
+
         return self._study_study_name
 
 
@@ -232,7 +271,9 @@ class DicomStudy(object):
             int: number of files for the study
         """
         response_study_no_of_files = self.osirix_service.DicomStudyNoFiles(self.osirixrpc_uid)
-        study_no_of_files = self.response_processor.process_num_files(response_study_no_of_files)
+        self.response_processor.response_check(response_study_no_of_files)
+        study_no_of_files = response_study_no_of_files.no_files
+
         return study_no_of_files
 
     def images(self) -> Tuple[DicomImage, ...]:
@@ -243,10 +284,11 @@ class DicomStudy(object):
         """
 
         response_study_images = self.osirix_service.DicomStudyImages(self.osirixrpc_uid)
-        study_images = self.response_processor.process_images(response_study_images)
+        self.response_processor.response_check(response_study_images)
+
         dicom_image_tuple : Tuple[DicomImage, ...] = ()
 
-        for image in study_images:
+        for image in response_study_images.images:
             dicom_image = DicomImage(image, self.osirix_service)
             dicom_image_tuple = dicom_image_tuple + (dicom_image,)
 
@@ -259,11 +301,11 @@ class DicomStudy(object):
             Tuple containing all the DicomSeries for the study
         """
         response_study_series = self.osirix_service.DicomStudySeries(self.osirixrpc_uid)
+        self.response_processor.response_check(response_study_series)
 
-        study_series = self.response_processor.process_study_series(response_study_series)
         dicom_series_tuple : Tuple[DicomSeries, ...] = ()
 
-        for series in study_series:
+        for series in response_study_series.series:
             dicom_series = DicomSeries(series, self.osirix_service)
             dicom_series_tuple = dicom_series_tuple + (dicom_series,)
 
@@ -276,8 +318,9 @@ class DicomStudy(object):
             int : name of files without multiple frames
         """
         response_study_no_of_files_excl_multiframes = self.osirix_service.DicomStudyNoFilesExcludingMultiFrames(self.osirixrpc_uid)
+        self.response_processor.response_check(response_study_no_of_files_excl_multiframes)
 
-        study_no_of_files_excl_multiframes = self.response_processor.process_num_files(response_study_no_of_files_excl_multiframes)
+        study_no_of_files_excl_multiframes = response_study_no_of_files_excl_multiframes.no_files
 
         return study_no_of_files_excl_multiframes
 
@@ -289,8 +332,8 @@ class DicomStudy(object):
         """
 
         response_study_paths = self.osirix_service.DicomStudyPaths(self.osirixrpc_uid)
-
-        study_paths = self.response_processor.process_paths(response_study_paths)
+        self.response_processor.response_check(response_study_paths)
+        study_paths = tuple(response_study_paths.paths)
 
         return study_paths
 
@@ -311,9 +354,6 @@ class DicomSeries(object):
     Class representing the properties and methods to communicate with the Osirix service through
     gRPC for a series
     '''
-    # osirixrpc_uid = None
-    # response_processor = None
-    # osirix_service = None
 
     def __init__(self,
                  osirixrpc_uid: str,
@@ -330,9 +370,16 @@ class DicomSeries(object):
         Returns:
             datetime : date of the series
         """
-        response_study_date = self.osirix_service.DicomStudyDate(self.osirixrpc_uid)
-        study_date = self.response_processor.process_datetime(response=response_study_date)
-        self._date = study_date
+        response_series_date = self.osirix_service.DicomSeriesDate(self.osirixrpc_uid)
+        self.response_processor.response_check(response_series_date)
+        datetime_output : datetime.datetime = datetime.datetime(response_series_date.year,
+                                   response_series_date.month,
+                                   response_series_date.day,
+                                   response_series_date.hour,
+                                   response_series_date.minute,
+                                   response_series_date.second
+                               )
+        self._date = datetime_output
         return self._date
 
     # @date.setter
@@ -342,15 +389,16 @@ class DicomSeries(object):
     @property
     def images(self) -> Tuple[DicomImage, ...]:
         """
-        Provides the imagesassociated with the DicomSeries
+        Provides the images associated with the DicomSeries
         Returns:
             A Tuple containing the DicomImages in the series
         """
         response_series_images = self.osirix_service.DicomSeriesImages(self.osirixrpc_uid)
-        series_images = self.response_processor.process_images(response_series_images)
+        self.response_processor.response_check(response_series_images)
+
         dicom_image_tuple : Tuple[DicomImage, ...] = ()
 
-        for image in series_images:
+        for image in response_series_images.images:
             dicom_image = DicomImage(image, self.osirix_service)
             dicom_image_tuple = dicom_image_tuple + (dicom_image,)
 
@@ -361,7 +409,9 @@ class DicomSeries(object):
     @property
     def modality(self) -> str:
         response_series_modality = self.osirix_service.DicomSeriesModality(self.osirixrpc_uid)
-        self._modality = self.response_processor.process_modality(response_series_modality)
+        self.response_processor.response_check(response_series_modality)
+        self._modality = response_series_modality.modality
+
         return self._modality
 
     @property
@@ -372,7 +422,8 @@ class DicomSeries(object):
             string : name of the series
         """
         response_series_name = self.osirix_service.DicomSeriesName(self.osirixrpc_uid)
-        self._name = self.response_processor.process_name(response_series_name)
+        self.response_processor.response_check(response_series_name)
+        self._name = response_series_name.name
 
         return self._name
 
@@ -385,7 +436,10 @@ class DicomSeries(object):
         Returns:
            int : number of images in the series
         """
-        self._number_of_images = 0
+        response_series_no_of_images = self.osirix_service.DicomSeriesNumberOfImages(self.osirixrpc_uid)
+        self.response_processor.response_check(response_series_no_of_images)
+        self._number_of_images = response_series_no_of_images.number_of_images
+
         return self._number_of_images
 
     @property
@@ -396,7 +450,8 @@ class DicomSeries(object):
            string : the description for the series
         """
         response_series_series_description = self.osirix_service.DicomSeriesSeriesDescription(self.osirixrpc_uid)
-        self._series_description = self.response_processor.process_series_description(response_series_series_description)
+        self.response_processor.response_check(response_series_series_description)
+        self._series_description = response_series_series_description.series_description
 
         return self._series_description
 
@@ -408,8 +463,9 @@ class DicomSeries(object):
             string : series instance uid of the series
         """
         response_series_instance_uid = self.osirix_service.DicomSeriesSeriesInstanceUID(self.osirixrpc_uid)
+        self.response_processor(response_series_instance_uid)
+        self._series_instance_uid = response_series_instance_uid.series_instance_uid
 
-        self._series_instance_uid = self.response_processor.process_series_instance_uid(response_series_instance_uid)
         return self._series_instance_uid
 
     @property
@@ -420,7 +476,7 @@ class DicomSeries(object):
            str : sop class uid of the series
         """
         response_series_sop_class_uid = self.osirix_service.DicomSeriesSeriesSOPClassUID(self.osirixrpc_uid)
-
+        self.response_processor.response_check(res)
         self._sop_class_uid = self.response_processor.process_series_sop_class_uid(response_series_sop_class_uid)
         return self._sop_class_uid
 

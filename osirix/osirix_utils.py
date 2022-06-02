@@ -11,8 +11,8 @@ from osirix.ResponseProcessor import ResponseProcessor
 
 # sys.path.append("./pb2/")
 
-import osirix.pb2.osirix_pb2_grpc as osirix_pb2_grpc
-import osirix.pb2.utilities_pb2 as utilities_pb2
+import osirixgrpc.osirix_pb2_grpc as osirix_pb2_grpc
+import osirixgrpc.utilities_pb2 as utilities_pb2
 
 import yaml
 
@@ -71,7 +71,7 @@ class Osirix(object):
             BrowserController
         """
         current_browser_response = self.osirix_service.OsirixCurrentBrowser(utilities_pb2.Empty())
-        self.response_processor.process_basic_response(current_browser_response)
+        self.response_processor.response_check(current_browser_response)
 
         browser_controller = current_browser_response.browser_controller
 
@@ -88,7 +88,9 @@ class Osirix(object):
 
         """
         vr_controller_response = self.osirix_service.OsirixFrontmostVRController(utilities_pb2.Empty())
-        self.response_processor.process_basic_response(vr_controller_response)
+
+        self.response_processor.response_check(vr_controller_response)
+
         vr_controller = vr_controller_response.vr_controller
         # vr_controller_response = self.osirix_service.ViewerControllerVRControllers(viewer_controller_response).vr_controllers[0]
 
@@ -106,7 +108,8 @@ class Osirix(object):
 
         """
         frontmost_viewer_response = self.osirix_service.OsirixFrontmostViewer(utilities_pb2.Empty())
-        self.response_processor.process_basic_response(frontmost_viewer_response)
+        self.response_processor.response_check(frontmost_viewer_response)
+
         viewer_controller = frontmost_viewer_response.viewer_controller
         # Build and return ViewerController
         viewer_controller = ViewerController(viewer_controller, self.osirix_service)
@@ -122,12 +125,12 @@ class Osirix(object):
 
         """
         response_displayed_2d_viewers = self.osirix_service.OsirixDisplayed2DViewers(utilities_pb2.Empty())
-        displayed_2d_viewers = self.response_processor.process_displayed_2d_viewers(response_displayed_2d_viewers)
 
+        self.response_processor.response_check(response_displayed_2d_viewers)
         viewer_controller_obj_tuple : Tuple[ViewerController, ...]= ()
 
-        for viewer in displayed_2d_viewers:
-            viewer_obj : ViewerController = ViewerController(viewer, self.osirix_service)
+        for viewer_controller in response_displayed_2d_viewers.viewer_controllers:
+            viewer_obj: ViewerController = ViewerController(viewer_controller, self.osirix_service)
             viewer_controller_obj_tuple = viewer_controller_obj_tuple + (viewer_obj,)
 
         return viewer_controller_obj_tuple
@@ -140,16 +143,15 @@ class Osirix(object):
             Tuple containing each VRController
         """
         response_displayed_vr_controllers = self.osirix_service.OsirixDisplayedVRControllers(utilities_pb2.Empty())
-        displayed_vr_controllers = self.response_processor.process_displayed_vr_controllers(response_displayed_vr_controllers)
+        self.response_processor.response_check(response_displayed_vr_controllers)
 
         vr_controller_obj_tuple: Tuple[VRController, ...] = ()
 
-        for vr_controller in displayed_vr_controllers:
+        for vr_controller in response_displayed_vr_controllers.vr_controllers:
             vr_controller_obj = VRController(vr_controller, self.osirix_service)
             vr_controller_obj_tuple = vr_controller_obj_tuple + (vr_controller_obj,)
 
         return vr_controller_obj_tuple
-
 
     # def run_alert_panel(self,
     #                     message: str,
