@@ -10,10 +10,10 @@ import osirixgrpc.viewercontroller_pb2 as viewercontroller_pb2
 import osirixgrpc.vrcontroller_pb2 as vrcontroller_pb2
 import osirixgrpc.dcmpix_pb2 as dcmpix_pb2
 import osirixgrpc.roi_pb2 as roi_pb2
-from osirix.Dicom import DicomSeries, DicomStudy, DicomImage
-from osirix.ResponseProcessor import ResponseProcessor
-from osirix.DCMPix import DCMPix
-from osirix.ROI import ROI
+from osirix.dicom import DicomSeries, DicomStudy, DicomImage
+from osirix.response_processor import ResponseProcessor
+from osirix.dcm_pix import DCMPix
+from osirix.roi import ROI
 
 class ViewerController(object):
     '''
@@ -35,7 +35,8 @@ class ViewerController(object):
             int : idx
         """
         response_viewer_idx = self.osirix_service.ViewerControllerIdx(self.osirixrpc_uid)
-        self._idx = self.response_processor.process_viewer_idx(response_viewer_idx)
+        self.response_processor.response_check(response_viewer_idx)
+        self._idx = response_viewer_idx.idx
 
         return self._idx
 
@@ -52,7 +53,7 @@ class ViewerController(object):
         """
         request = viewercontroller_pb2.ViewerControllerSetIdxRequest(viewer_controller=self.osirixrpc_uid, idx=idx)
         response = self.osirix_service.ViewerControllerSetIdx(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     @property
     def modality(self) -> str:
@@ -63,7 +64,10 @@ class ViewerController(object):
             str : modality
         """
         response_viewer_modality = self.osirix_service.ViewerControllerModality(self.osirixrpc_uid)
-        self._modality = self.response_processor.process_modality(response_viewer_modality)
+
+        self.response_processor.response_check(response_viewer_modality)
+
+        self._modality = response_viewer_modality.modality
 
         return self._modality
 
@@ -76,7 +80,8 @@ class ViewerController(object):
             int : movie_idx
         """
         response_viewer_movie_idx = self.osirix_service.ViewerControllerMovieIdx(self.osirixrpc_uid)
-        self._movie_idx = self.response_processor.process_viewer_movie_idx(response_viewer_movie_idx)
+        self.response_processor.response_check(response_viewer_movie_idx)
+        self._movie_idx = response_viewer_movie_idx.movie_idx
 
         return self._movie_idx
 
@@ -104,7 +109,8 @@ class ViewerController(object):
             str : title
         """
         response_viewer_title = self.osirix_service.ViewerControllerTitle(self.osirixrpc_uid)
-        self._title = self.response_processor.process_title(response_viewer_title)
+        self.response_processor.response_check(response_viewer_title)
+        self._title = response_viewer_title.title
 
         return self._title
 
@@ -117,9 +123,9 @@ class ViewerController(object):
             A Tuple containing wl and ww in float
         """
         response_viewer_wlww = self.osirix_service.ViewerControllerWLWW(self.osirixrpc_uid)
-        viewer_wl, viewer_ww = self.response_processor.process_wlww(response_viewer_wlww)
-        self._ww = viewer_ww
-        self._wl = viewer_wl
+        self.response_processor.response_check(response_viewer_wlww)
+        self._ww = response_viewer_wlww.ww
+        self._wl = response_viewer_wlww.wl
         return (self._wl, self._ww)
 
     @wlww.setter
@@ -136,7 +142,7 @@ class ViewerController(object):
         wl, ww = wlww
         request = viewercontroller_pb2.ViewerControllerSetWLWWRequest(viewer_controller=self.osirixrpc_uid, wl=wl, ww=ww)
         response = self.osirix_service.ViewerControllerSetWLWW(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     def process_viewer_pix_list(self, response) -> Tuple[DCMPix, ...]:
         """
@@ -215,6 +221,7 @@ class ViewerController(object):
         # Multiple VR Controllers case?
         vr_controller = self.osirix_service.ViewerControllerVRControllers(self.osirixrpc_uid).vr_controllers[0]
         response = self.osirix_service.VRControllerBlendingController(vr_controller)
+        self.response_processor.response_check(response)
         return ViewerController(response.viewer_controller, self.osirix_service)
 
     def close_viewer(self) -> None:
@@ -225,7 +232,7 @@ class ViewerController(object):
             None
         """
         response = self.osirix_service.ViewerControllerCloseViewer(self.osirixrpc_uid)
-        self.response_processor.process_images(response)
+        self.response_processor.response_check(response)
 
     # returns VC
     def copy_viewer_window(self, in_4d: bool = False) -> ViewerController:
@@ -240,7 +247,7 @@ class ViewerController(object):
         """
         request = viewercontroller_pb2.ViewerControllerCopyViewerWindowRequest(viewer_controller=self.osirixrpc_uid, in_4d=in_4d)
         response = self.osirix_service.ViewerControllerCopyViewerWindow(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
         return ViewerController(self.osirixrpc_uid,self.osirix_service)
 
@@ -270,6 +277,7 @@ class ViewerController(object):
         """
         request = viewercontroller_pb2.ViewerControllerIsDataVolumicRequest(viewer_controller=self.osirixrpc_uid, in_4d=in_4d)
         response = self.osirix_service.ViewerControllerIsDataVolumic(request)
+        self.response_processor.response_check(response)
         return response.in_4d
 
     def max_movie_index(self) -> int:
@@ -280,6 +288,7 @@ class ViewerController(object):
             int : max movie inde
         """
         response = self.osirix_service.ViewerControllerMaxMovieIdx(self.osirixrpc_uid)
+        self.response_processor.response_check(response)
         return response.max_movie_idx
 
     def needs_display_update(self) -> None:
@@ -290,7 +299,7 @@ class ViewerController(object):
             None
         """
         response = self.osirix_service.ViewerControllerNeedsDisplayUpdate(self.osirixrpc_uid)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     def pix_list(self, movie_idx: int) -> Tuple[DCMPix, ...]:
         """
@@ -323,7 +332,7 @@ class ViewerController(object):
                                                             fixed_viewer_controller=vc.osirixrpc_uid)
 
         response = self.osirix_service.ViewerControllerResampleViewerController(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
         return ViewerController(self.osirixrpc_uid, self.osirix_service)
 
     # Check ROISlice and ROI
@@ -340,7 +349,7 @@ class ViewerController(object):
         request = viewercontroller_pb2.ViewerControllerROIListRequest(viewer_controller=self.osirixrpc_uid,
                                                                       movie_idx=movie_idx)
         response = self.osirix_service.ViewerControllerROIList(request)
-
+        self.response_processor.response_check(response)
         roi_tuple = self.process_viewer_roi_list(response)
 
         return roi_tuple
@@ -363,6 +372,7 @@ class ViewerController(object):
                                                                            movie_idx=movie_idx,
                                                                            in_4d=in_4d)
         response = self.osirix_service.ViewerControllerROIsWithName(request)
+        self.response_processor.response_check(response)
         roi_tuple = self.process_viewer_rois(response)
 
         return roi_tuple
@@ -375,6 +385,7 @@ class ViewerController(object):
             A Tuple containing ROIs
         """
         response = self.osirix_service.ViewerControllerSelectedROIs(self.osirixrpc_uid)
+        self.response_processor.response_check(response)
         roi_tuple = self.process_viewer_rois(response)
 
         return roi_tuple
@@ -519,11 +530,10 @@ class ViewerController(object):
             None
         """
         response = self.osirix_service.ViewerControllerVRControllers(self.osirixrpc_uid)
+        self.response_processor.response_check(response)
         vr_tuple = self.process_vr_controllers(response)
 
         return vr_tuple
-
-
 
     @classmethod
     def name(cls):

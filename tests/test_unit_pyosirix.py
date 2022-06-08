@@ -10,17 +10,17 @@ import pytest
 import numpy as np
 import matplotlib.pyplot as pl
 from osirix.osirix_utils import Osirix, OsirixService
-from osirix.Exceptions import GrpcException
+from osirix.exceptions import GrpcException
 
-import osirix.pb2.osirix_pb2 as osirix_pb2
-import osirix.pb2.utilities_pb2 as utilities_pb2
-import osirix.pb2.types_pb2 as types_pb2
-import osirix.pb2.viewercontroller_pb2 as viewercontroller_pb2
-import osirix.pb2.vrcontroller_pb2 as vrcontroller_pb2
-import osirix.pb2.dcmpix_pb2 as dcmpix_pb2
-import osirix.pb2.roi_pb2 as roi_pb2
-import osirix.pb2.roivolume_pb2 as roivolume_pb2
-import osirix.pb2.osirix_pb2_grpc as osirix_pb2_grpc
+import osirixgrpc.osirix_pb2 as osirix_pb2
+import osirixgrpc.utilities_pb2 as utilities_pb2
+import osirixgrpc.types_pb2 as types_pb2
+import osirixgrpc.viewercontroller_pb2 as viewercontroller_pb2
+import osirixgrpc.vrcontroller_pb2 as vrcontroller_pb2
+import osirixgrpc.dcmpix_pb2 as dcmpix_pb2
+import osirixgrpc.roi_pb2 as roi_pb2
+import osirixgrpc.roivolume_pb2 as roivolume_pb2
+import osirixgrpc.osirix_pb2_grpc as osirix_pb2_grpc
 
 # The test defined here will require:
 # ===================================
@@ -560,6 +560,7 @@ class PyOsirixTestDCMPix(GrpcTest):
 			array = np.array(response.image_data_float).reshape(response.rows, response.columns)
 
 			self.pix_pyosirix.set_image(response_dcm_pix2.image_data_float, response_dcm_pix2.is_argb)
+
 		response = self.stub.DCMPixSetImage(request)
 		self.viewer_controller_pyosirix = self.osirix.frontmost_viewer()
 		self.viewer_controller_pyosirix.needs_display_update()

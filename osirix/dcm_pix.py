@@ -3,15 +3,16 @@ from typing import Tuple, Dict
 import sys
 
 from numpy import ndarray
+import numpy as np
 
 # sys.path.append("./pb2")
 # sys.path.append("/Users/admintmun/dev/pyosirix/osirix/pb2")
-import osirix.pb2.viewercontroller_pb2 as viewercontroller_pb2
-import osirix.pb2.vrcontroller_pb2 as vrcontroller_pb2
-import osirix.pb2.dcmpix_pb2 as dcmpix_pb2
-import osirix.pb2.roi_pb2 as roi_pb2
-from osirix.Dicom import DicomSeries, DicomStudy, DicomImage
-from osirix.ResponseProcessor import ResponseProcessor
+import osirixgrpc.viewercontroller_pb2 as viewercontroller_pb2
+import osirixgrpc.vrcontroller_pb2 as vrcontroller_pb2
+import osirixgrpc.dcmpix_pb2 as dcmpix_pb2
+import osirixgrpc.roi_pb2 as roi_pb2
+from osirix.dicom import DicomSeries, DicomStudy, DicomImage
+from osirix.response_processor import ResponseProcessor
 
 class DCMPix(object):
     '''
@@ -34,7 +35,11 @@ class DCMPix(object):
             bool: rgb
         """
         response_is_rgb = self.osirix_service.DCMPixIsRGB(self.osirixrpc_uid)
-        self._is_rgb = self.response_processor.process_is_rgb(response_is_rgb)
+
+        self.response_processor.response_check(response_is_rgb)
+
+        self._is_rgb = response_is_rgb.is_rgb
+
         return self._is_rgb
 
     @property
@@ -45,7 +50,10 @@ class DCMPix(object):
             bool: slice location
         """
         response_slice_location = self.osirix_service.DCMPixSliceLocation(self.osirixrpc_uid)
-        self._slice_location = self.response_processor.process_pix_slice_location(response_slice_location)
+
+        self.response_processor.response_check(response_slice_location)
+        self._slice_location = response_slice_location.slice_location
+
         return self._slice_location
 
     @property
@@ -56,7 +64,14 @@ class DCMPix(object):
             Tuple containing orientations in float
         """
         response_orientation = self.osirix_service.DCMPixOrientation(self.osirixrpc_uid)
-        self._orientation = self.response_processor.process_pix_orientation(response_orientation)
+
+        self.response_processor.response_check(response_orientation)
+
+        tuple: Tuple[float, ...] = ()
+        for orientation in response_orientation.orientation:
+            tuple = tuple + (orientation,)
+
+        self._orientation = tuple
 
         return self._orientation
 
@@ -68,7 +83,11 @@ class DCMPix(object):
             A Tuple containing the origin values (rows, columns, slices) in float
         """
         response_origin = self.osirix_service.DCMPixOrigin(self.osirixrpc_uid)
-        self._origin = self.response_processor.process_pix_origin(response_origin)
+
+        self.response_processor.response_check(response_origin)
+
+        self._origin = (response_origin.origin_rows, response_origin.origin_columns, response_origin.origin_slices)
+
         return self._origin
 
     @property
@@ -79,7 +98,9 @@ class DCMPix(object):
             A tuple containing pixel spacings (rows and columns) in float
         """
         response_spacing = self.osirix_service.DCMPixSpacing(self.osirixrpc_uid)
-        self._pixel_spacing = self.response_processor.process_pix_spacing(response_spacing)
+
+        self.response_processor.response_check(response_spacing)
+        self._pixel_spacing = (response_spacing.spacing_rows, response_spacing.spacing_columns)
 
         return self._pixel_spacing
 
@@ -91,7 +112,9 @@ class DCMPix(object):
             Tuple containing shape (rows, columns) in float
         """
         response_pix_shape = self.osirix_service.DCMPixShape(self.osirixrpc_uid)
-        self._shape = self.response_processor.process_pix_shape(response_pix_shape)
+
+        self.response_processor.response_check(response_pix_shape)
+        self._shape = (response_pix_shape.rows, response_pix_shape.columns)
         return self._shape
 
     @property
@@ -102,7 +125,10 @@ class DCMPix(object):
             str: source file for DCMPix
         """
         response_pix_source_file = self.osirix_service.DCMPixSourceFile(self.osirixrpc_uid)
-        self._source_file = self.response_processor.process_pix_source_file(response_pix_source_file)
+
+        self.response_processor.response_check(response_pix_source_file)
+        self._source_file = response_pix_source_file.source_file
+
         return self._source_file
 
     @property
@@ -113,7 +139,16 @@ class DCMPix(object):
             ndarray: image data for DCMPix
         """
         response_pix_image = self.osirix_service.DCMPixImage(self.osirixrpc_uid)
-        self._image = self.response_processor.process_pix_image(response_pix_image)
+
+        self.response_processor.response_check(response_pix_image)
+
+        if response_pix_image.is_argb:
+            image_array = np.array(response_pix_image.image_data_argb).reshape(response_pix_image.rows, response_pix_image.columns, 4)
+            return image_array
+        else:
+            image_array = np.array(response_pix_image.image_data_float).reshape(response_pix_image.rows, response_pix_image.columns)
+            return image_array
+
         return self._image
 
     # @image.setter - setter only allows one value so switch to using a method
@@ -125,7 +160,8 @@ class DCMPix(object):
             request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.osirixrpc_uid, image_data_float=image)
 
         response = self.osirix_service.DCMPixSetImage(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
+
 
     def compute_roi(self, roi : ROI) -> Dict[str, float]:
         """
@@ -152,7 +188,18 @@ class DCMPix(object):
         """
         request = dcmpix_pb2.DCMPixComputeROIRequest(pix=self.osirixrpc_uid, roi=roi.osirixrpc_uid)
         response = self.osirix_service.DCMPixComputeROI(request)
-        roi_dict = self.response_processor.process_pix_compute_roi(response)
+
+        self.response_processor.response_check(response)
+
+        roi_dict = {
+            'mean': response.mean,
+            'total': response.total,
+            'std_dev': response.std_dev,
+            'min': response.min,
+            'max': response.max,
+            'skewness': response.skewness,
+            'kurtosis': response.kurtosis
+        }
 
         return roi_dict
 
@@ -164,8 +211,16 @@ class DCMPix(object):
         """
         request = dcmpix_pb2.DCMPixConvertToBWRequest(pix = self.osirixrpc_uid, bw_channel = 3)
         response = self.osirix_service.DCMPixConvertToBW(request)
-        self.response_processor.process_pix_convert_to_rgb_bw(response)
+        self.response_processor.response_check(response)
 
+        if (response.status.status == 1):
+            pass
+        elif (response.status.status == 0):
+            # 0 response code is the current overall failure code so there could be many reasons for failures.
+            # In this case, if the image is already rgb/bw, it would be 0
+            print("Image is already RGB or BW")
+        else:
+            raise GrpcException("No response")
 
     def convert_to_rgb(self) -> None:
         """
@@ -175,7 +230,16 @@ class DCMPix(object):
         """
         request = dcmpix_pb2.DCMPixConvertToRGBRequest(pix = self.osirixrpc_uid, rgb_channel = 3)
         response = self.osirix_service.DCMPixConvertToRGB(request)
-        self.response_processor.process_pix_convert_to_rgb_bw(response)
+        self.response_processor.response_check(response)
+
+        if (response.status.status == 1):
+            pass
+        elif (response.status.status == 0):
+            # 0 response code is the current overall failure code so there could be many reasons for failures.
+            # In this case, if the image is already rgb/bw, it would be 0
+            print("Image is already RGB or BW")
+        else:
+            raise GrpcException("No response")
 
     def get_map_from_roi(self, roi : ROI) -> ndarray:
         """
@@ -188,7 +252,10 @@ class DCMPix(object):
         """
         request = dcmpix_pb2.DCMPixGetMapFromROIRequest(pix=self.osirixrpc_uid, roi=roi.osirixrpc_uid)
         response = self.osirix_service.DCMPixGetMapFromROI(request)
-        roi_map_array = self.response_processor.process_pix_roi_map(response)
+        self.response_processor.response_check(response)
+
+        roi_map_array = np.array(response.map).reshape(response.rows, response.columns)
+
         return roi_map_array
 
     def get_roi_values(self, roi : ROI) -> Tuple[ndarray]:
@@ -203,8 +270,11 @@ class DCMPix(object):
         """
         request = dcmpix_pb2.DCMPixROIValuesRequest(pix=self.osirixrpc_uid, roi=roi.osirixrpc_uid)
         response = self.osirix_service.DCMPixROIValues(request)
-        roi_values = self.response_processor.process_pix_roi_values(response)
-
+        self.response_processor.response_check(response)
+        rows = np.array(response.row_indices)
+        columns = np.array(response.column_indices)
+        values = np.array(response.values)
+        roi_values = (rows, columns, values)
         return roi_values
     #TODO
     # Don't see their RPC in osirix.proto but can see response in dcmpix.prot

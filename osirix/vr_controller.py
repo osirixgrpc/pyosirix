@@ -6,13 +6,13 @@ from numpy import ndarray
 
 # sys.path.append("./pb2")
 # sys.path.append("/Users/admintmun/dev/pyosirix/osirix/pb2")
-import osirix.pb2.viewercontroller_pb2 as viewercontroller_pb2
-import osirix.pb2.vrcontroller_pb2 as vrcontroller_pb2
-import osirix.pb2.dcmpix_pb2 as dcmpix_pb2
-import osirix.pb2.roi_pb2 as roi_pb2
-from osirix.Dicom import DicomSeries, DicomStudy, DicomImage
-from osirix.ResponseProcessor import ResponseProcessor
-from osirix.ViewerController import ViewerController
+import osirixgrpc.viewercontroller_pb2 as viewercontroller_pb2
+import osirixgrpc.vrcontroller_pb2 as vrcontroller_pb2
+import osirixgrpc.dcmpix_pb2 as dcmpix_pb2
+import osirixgrpc.roi_pb2 as roi_pb2
+from osirix.dicom import DicomSeries, DicomStudy, DicomImage
+from osirix.response_processor import ResponseProcessor
+from osirix.viewer_controller import ViewerController
 
 class VRController(object):
     '''
@@ -36,7 +36,8 @@ class VRController(object):
             str : rendering mode
         """
         response_vr_rendering_mode = self.osirix_service.VRControllerRenderingMode(self.osirixrpc_uid)
-        self._rendering_mode = self.response_processor.process_vr_rendering_mode(response_vr_rendering_mode)
+        self.response_processor.response_check(response_vr_rendering_mode)
+        self._rendering_mode = response_vr_rendering_mode.rendering_mode
 
         return self._rendering_mode
 
@@ -53,7 +54,7 @@ class VRController(object):
         """
         request = vrcontroller_pb2.VRControllerSetRenderingModeRequest(vr_controller=self.osirixrpc_uid, rendering_mode=rendering_mode)
         response = self.osirix_service.VRControllerSetRenderingMode(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
 
     @property
@@ -65,7 +66,8 @@ class VRController(object):
             str : style
         """
         response_vr_style = self.osirix_service.VRControllerStyle(self.osirixrpc_uid)
-        self._style = self.response_processor.process_vr_style(response_vr_style)
+        self.response_processor.response_check(response_vr_style)
+        self._style = response_vr_style.style
 
         return self._style
 
@@ -78,7 +80,8 @@ class VRController(object):
             str : title
         """
         response_vr_title = self.osirix_service.VRControllerTitle(self.osirixrpc_uid)
-        self._title = self.response_processor.process_title(response_vr_title)
+        self.response_processor.response_check(response_vr_title)
+        self._title = response_vr_title.title
 
         return self._title
 
@@ -91,9 +94,9 @@ class VRController(object):
             Tuple containing wl and ww in float
         """
         response_vr_wlww = self.osirix_service.VRControllerWLWW(self.osirixrpc_uid)
-        vr_wl, vr_ww = self.response_processor.process_wlww(response_vr_wlww)
+        self.response_processor.response_check(response_vr_wlww)
 
-        return (vr_wl, vr_ww)
+        return (response_vr_wlww.wl, response_vr_wlww.ww)
 
     @wlww.setter
     def wlww(self, wlww : Tuple[float, float]) -> None:
@@ -109,7 +112,7 @@ class VRController(object):
         wl, ww = wlww
         request = vrcontroller_pb2.VRControllerSetWLWWRequest(vr_controller=self.osirixrpc_uid, wl=wl, ww=ww)
         response = self.osirix_service.VRControllerSetWLWW(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     def blending_controller(self) -> ViewerController:
         """
@@ -120,8 +123,7 @@ class VRController(object):
         """
         response_blending_controller = self.osirix_service.VRControllerBlendingController(self.osirixrpc_uid)
 
-        blending_controller = self.response_processor.process_blending_controller(response_blending_controller)
-        blending_controller_obj = ViewerController(blending_controller, self.osirix_service)
+        blending_controller_obj = ViewerController(response_blending_controller.viewer_controller, self.osirix_service)
 
         return blending_controller_obj
 
@@ -133,7 +135,7 @@ class VRController(object):
             ViewerController
         """
         response_viewer_2d = self.osirix_service.VRControllerViewer2D(self.osirixrpc_uid)
-        viewer_2d = self.response_processor.process_viewer_2d(response_viewer_2d)
+        viewer_2d = response_viewer_2d.viewer_controller
         viewer_2d_obj = ViewerController(viewer_2d, self.osirix_service)
 
         return viewer_2d_obj

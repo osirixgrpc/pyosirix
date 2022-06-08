@@ -5,11 +5,11 @@ import sys
 import numpy as np
 from numpy import ndarray
 
-from osirix.Exceptions import GrpcException
+from osirix.exceptions import GrpcException
 
 # sys.path.append("../../src/python")
-import osirix.pb2.osirix_pb2 as osirix_pb2
-import osirix.pb2.dicomstudy_pb2 as dicomstudy_pb2
+import osirixgrpc.osirix_pb2 as osirix_pb2
+import osirixgrpc.dicomstudy_pb2 as dicomstudy_pb2
 
 #TODO break the responseprocessor into smaller parts
 class ResponseProcessor(object):
@@ -82,39 +82,39 @@ class ResponseProcessor(object):
     #     else:
     #         raise GrpcException("No response")
 
-    def process_title(self, response) -> str:
-        """
-         Extract title from the response
+    # def process_title(self, response) -> str:
+    #     """
+    #      Extract title from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #         str: title
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.title
+    #     else:
+    #         # print("No title response")
+    #         raise GrpcException("No response")
 
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-            str: title
-        """
-        if (response.status.status == 1):
-
-            return response.title
-        else:
-            # print("No title response")
-            raise GrpcException("No response")
-
-    def process_wlww(self, response):
-        """
-         Extract wlww from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             int: wl
-             int: ww
-        """
-        if (response.status.status == 1):
-
-            return response.wl, response.ww
-        else:
-            raise GrpcException("No response")
+    # def process_wlww(self, response):
+    #     """
+    #      Extract wlww from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          int: wl
+    #          int: ww
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.wl, response.ww
+    #     else:
+    #         raise GrpcException("No response")
 
     # def process_no_images(self, response) -> int:
     #     """
@@ -444,38 +444,38 @@ class ResponseProcessor(object):
         else:
             raise GrpcException("No response")
 
-    def process_series_sop_class_uid(self, response) -> str:
-        """
-         Extract series sop class uid from the response
+    # def process_series_sop_class_uid(self, response) -> str:
+    #     """
+    #      Extract series sop class uid from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str: sop class uid for series
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.series_sop_class_uid
+    #     else:
+    #         raise GrpcException("No response")
 
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str: sop class uid for series
-        """
-        if (response.status.status == 1):
-
-            return response.series_sop_class_uid
-        else:
-            raise GrpcException("No response")
-
-    def process_series_previous_series(self, response):
-        """
-         Extract previous series in the study from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-         Returns:
-             osirixrpc_uid of previous series for image
-
-        """
-        if (response.status.status == 1):
-
-            # return response.previous_series.osirixrpc_uid
-            return response.previous_series
-        else:
-            raise GrpcException("No response")
+    # def process_series_previous_series(self, response):
+    #     """
+    #      Extract previous series in the study from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #      Returns:
+    #          osirixrpc_uid of previous series for image
+    #
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         # return response.previous_series.osirixrpc_uid
+    #         return response.previous_series
+    #     else:
+    #         raise GrpcException("No response")
 
     def process_series_next_series(self, response):
         """
@@ -494,23 +494,23 @@ class ResponseProcessor(object):
         else:
             raise GrpcException("No response")
 
-    def process_series_study(self, response):
-        """
-         Extract the study that the series belongs to from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             osirixrpc_uid of study for image
-
-        """
-        if (response.status.status == 1):
-
-            # return response.study.osirixrpc_uid
-            return response.study
-        else:
-            raise GrpcException("No response")
+    # def process_series_study(self, response):
+    #     """
+    #      Extract the study that the series belongs to from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          osirixrpc_uid of study for image
+    #
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         # return response.study.osirixrpc_uid
+    #         return response.study
+    #     else:
+    #         raise GrpcException("No response")
 
     def process_series_sorted_image(self, response):
         """
@@ -534,21 +534,21 @@ class ResponseProcessor(object):
             raise GrpcException("No response")
 
     # Dicom Image
-    def process_image_instance_number(self, response) -> int:
-        """
-         Extract iamge instance number from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-         Returns:
-             int: instance number for image
-
-        """
-        if (response.status.status == 1):
-
-            return response.instance_number
-        else:
-            raise GrpcException("No response")
+    # def process_image_instance_number(self, response) -> int:
+    #     """
+    #      Extract iamge instance number from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #      Returns:
+    #          int: instance number for image
+    #
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.instance_number
+    #     else:
+    #         raise GrpcException("No response")
 
     # def process_image_modality(self, response) -> str:
     #     if (response.status.status == 1):
@@ -574,87 +574,87 @@ class ResponseProcessor(object):
         else:
             raise GrpcException("No response")
 
-    def process_image_slice_location(self, response) -> float:
-        """
-         Extract slice location of the image from the response
+    # def process_image_slice_location(self, response) -> float:
+    #     """
+    #      Extract slice location of the image from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          float: slice location for image
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.slice_locations
+    #     else:
+    #         raise GrpcException("No response")
 
-         Args:
-             response: response returned by Osirix service for the request made
+    # def process_image_series(self, response):
+    #     """
+    #      Extract series that the image belongs to from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #      Returns:
+    #          osirixrpc_uid of series for image
+    #
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         # return response.series.osirixrpc_uid
+    #         return response.series
+    #     else:
+    #         raise GrpcException("No response")
 
-         Returns:
-             float: slice location for image
-        """
-        if (response.status.status == 1):
+    # def process_image_height(self, response) -> int:
+    #     """
+    #      Extract height of the image from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          int: height for image
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.height
+    #     else:
+    #         raise GrpcException("No response")
 
-            return response.slice_locations
-        else:
-            raise GrpcException("No response")
+    # def process_image_width(self, response) -> int:
+    #     """
+    #      Extract width of the image from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          int: width for image
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.width
+    #     else:
+    #         raise GrpcException("No response")
 
-    def process_image_series(self, response):
-        """
-         Extract series that the image belongs to from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-         Returns:
-             osirixrpc_uid of series for image
-
-        """
-        if (response.status.status == 1):
-
-            # return response.series.osirixrpc_uid
-            return response.series
-        else:
-            raise GrpcException("No response")
-
-    def process_image_height(self, response) -> int:
-        """
-         Extract height of the image from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             int: height for image
-        """
-        if (response.status.status == 1):
-
-            return response.height
-        else:
-            raise GrpcException("No response")
-
-    def process_image_width(self, response) -> int:
-        """
-         Extract width of the image from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             int: width for image
-        """
-        if (response.status.status == 1):
-
-            return response.width
-        else:
-            raise GrpcException("No response")
-
-    def process_image_sop_instance_uid(self, response) -> str:
-        """
-         Extract sop instance uid of the image from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             str: sop class instance uid for image
-
-        """
-        if (response.status.status == 1):
-
-            return response.sop_instance_uid
-        else:
-            raise GrpcException("No response")
+    # def process_image_sop_instance_uid(self, response) -> str:
+    #     """
+    #      Extract sop instance uid of the image from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          str: sop class instance uid for image
+    #
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.sop_instance_uid
+    #     else:
+    #         raise GrpcException("No response")
 
     def process_image_complete_path(self, response) -> str:
         """
@@ -722,41 +722,41 @@ class ResponseProcessor(object):
     #     else:
     #         raise GrpcException("No response")
 
-    def process_blending_controller(self, response):
-        """
-         Extract blending controller from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             osirixrpc_uid for ViewerController
-        """
-        if (response.status.status == 1):
-
-            # return response.viewer_controller.osirixrpc_uid
-            return response.viewer_controller
-
-        else:
-            raise GrpcException("No response")
-
-    def process_viewer_2d(self, response):
-        """
-         Extract 2D viewer from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             osirixrpc_uid for ViewerController
-        """
-        if (response.status.status == 1):
-
-            # return response.viewer_controller.osirixrpc_uid
-            return response.viewer_controller
-
-        else:
-            raise GrpcException("No response")
+    # def process_blending_controller(self, response):
+    #     """
+    #      Extract blending controller from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          osirixrpc_uid for ViewerController
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         # return response.viewer_controller.osirixrpc_uid
+    #         return response.viewer_controller
+    #
+    #     else:
+    #         raise GrpcException("No response")
+    #
+    # def process_viewer_2d(self, response):
+    #     """
+    #      Extract 2D viewer from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          osirixrpc_uid for ViewerController
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         # return response.viewer_controller.osirixrpc_uid
+    #         return response.viewer_controller
+    #
+    #     else:
+    #         raise GrpcException("No response")
 
     # Viewer Controller
     # def process_viewer_wlww(self, response):
@@ -780,37 +780,37 @@ class ResponseProcessor(object):
     #     else:
     #         raise GrpcException("No response")
 
-    def process_viewer_idx(self, response) -> int:
-        """
-         Extract idx of the ViewerController from the response
+    # def process_viewer_idx(self, response) -> int:
+    #     """
+    #      Extract idx of the ViewerController from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          int : idx
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.idx
+    #     else:
+    #         raise GrpcException("No response")
 
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             int : idx
-        """
-        if (response.status.status == 1):
-
-            return response.idx
-        else:
-            raise GrpcException("No response")
-
-    def process_viewer_movie_idx(self, response) -> int:
-        """
-         Extract movie_idx of the ViewerController from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             int : movie idx
-        """
-        if (response.status.status == 1):
-
-            return response.movie_idx
-        else:
-            raise GrpcException("No response")
+    # def process_viewer_movie_idx(self, response) -> int:
+    #     """
+    #      Extract movie_idx of the ViewerController from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          int : movie idx
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.movie_idx
+    #     else:
+    #         raise GrpcException("No response")
 
     def process_pix_list(self, response):
         """
@@ -832,41 +832,40 @@ class ResponseProcessor(object):
 
     #DCMPix
 
-    def process_is_rgb(self, response) -> bool:
-        """
-         Extract whether the DCMPix is rgb or not from the response
+    # def process_is_rgb(self, response) -> bool:
+    #     """
+    #      Extract whether the DCMPix is rgb or not from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #      Returns:
+    #          bool : is_rgb
+    #
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.is_rgb
+    #     else:
+    #         raise GrpcException("No response")
 
-         Args:
-             response: response returned by Osirix service for the request made
-         Returns:
-             bool : is_rgb
-
-        """
-        if (response.status.status == 1):
-
-            return response.is_rgb
-        else:
-            raise GrpcException("No response")
-
-    def process_pix_convert_to_rgb_bw(self, response) -> None:
-        """
-          Process the response from conversion the DCMPix to rgb or bw
-
-          Args:
-              response: response returned by Osirix service for the request made
-          Returns:
-              None
-
-         """
-        if (response.status.status == 1):
-
-            pass
-        elif (response.status.status == 0):
-            # 0 response code is the current overall failure code so there could be many reasons for failures.
-            # In this case, if the image is already rgb/bw, it would be 0
-            print("Image is already RGB or BW")
-        else:
-            raise GrpcException("No response")
+    # def process_pix_convert_to_rgb_bw(self, response) -> None:
+    #     """
+    #       Process the response from conversion the DCMPix to rgb or bw
+    #
+    #       Args:
+    #           response: response returned by Osirix service for the request made
+    #       Returns:
+    #           None
+    #
+    #      """
+    #     if (response.status.status == 1):
+    #         pass
+    #     elif (response.status.status == 0):
+    #         # 0 response code is the current overall failure code so there could be many reasons for failures.
+    #         # In this case, if the image is already rgb/bw, it would be 0
+    #         print("Image is already RGB or BW")
+    #     else:
+    #         raise GrpcException("No response")
 
     def process_pix_shape(self, response) -> Tuple[int, int]:
         """
@@ -882,37 +881,37 @@ class ResponseProcessor(object):
             return (response.rows, response.columns)
         else:
             raise GrpcException("No response")
-
-    def process_pix_spacing(self, response) -> Tuple[float, float]:
-        """
-         Extract spacing of DCMPix from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-         Returns:
-             Tuple containing spacing information (rows and columns)
-        """
-        if (response.status.status == 1):
-
-            return (response.spacing_rows, response.spacing_columns)
-        else:
-            raise GrpcException("No response")
-
-    def process_pix_origin(self, response) -> Tuple[float, float, float]:
-        """
-         Extract origin of DCMPix from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-
-         Returns:
-             Tuple containing origin information (rows, columns, values) in float
-        """
-        if (response.status.status == 1):
-
-            return (response.origin_rows, response.origin_columns, response.origin_slices)
-        else:
-            raise GrpcException("No response")
+    #
+    # def process_pix_spacing(self, response) -> Tuple[float, float]:
+    #     """
+    #      Extract spacing of DCMPix from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #      Returns:
+    #          Tuple containing spacing information (rows and columns)
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return (response.spacing_rows, response.spacing_columns)
+    #     else:
+    #         raise GrpcException("No response")
+    #
+    # def process_pix_origin(self, response) -> Tuple[float, float, float]:
+    #     """
+    #      Extract origin of DCMPix from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #          Tuple containing origin information (rows, columns, values) in float
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return (response.origin_rows, response.origin_columns, response.origin_slices)
+    #     else:
+    #         raise GrpcException("No response")
 
     def process_pix_orientation(self, response) -> Tuple[float, ...]:
         """
@@ -947,20 +946,20 @@ class ResponseProcessor(object):
         else:
             raise GrpcException("No response")
 
-    def process_pix_source_file(self, response) -> str:
-        """
-         Extract source file of the DCMPix from the response
-
-         Args:
-             response: response returned by Osirix service for the request made
-         Returns:
-             str : source file
-        """
-        if (response.status.status == 1):
-
-            return response.source_file
-        else:
-            raise GrpcException("No response")
+    # def process_pix_source_file(self, response) -> str:
+    #     """
+    #      Extract source file of the DCMPix from the response
+    #
+    #      Args:
+    #          response: response returned by Osirix service for the request made
+    #      Returns:
+    #          str : source file
+    #     """
+    #     if (response.status.status == 1):
+    #
+    #         return response.source_file
+    #     else:
+    #         raise GrpcException("No response")
 
     def process_pix_image(self, response) -> ndarray:
         """
@@ -1009,39 +1008,39 @@ class ResponseProcessor(object):
         else:
             raise GrpcException("No response")
 
-    def process_pix_roi_map(self, response) -> ndarray:
-        """
-         Extract ROI map of DCMPix from the response
-
-         Args:
-            response: response returned by Osirix service for the request made
-
-         Returns:
-            ndarray : roi map
-        """
-        if (response.status.status == 1):
-            roi_map_array = np.array(response.map).reshape(response.rows, response.columns)
-            return roi_map_array
-        else:
-            raise GrpcException("No response")
-
-    def process_pix_roi_values(self, response) -> Tuple[ndarray, ndarray, ndarray]:
-        """
-         Extract the ROI values of the DCMPix from the response
-
-         Args:
-            response: response returned by Osirix service for the request made
-
-         Returns:
-            Tuple containing ndarray for rows, columns and values of ROI
-        """
-        if (response.status.status == 1):
-            rows = np.array(response.row_indices)
-            columns = np.array(response.column_indices)
-            values = np.array(response.values)
-            return (rows, columns, values)
-        else:
-            raise GrpcException("No response")
+    # def process_pix_roi_map(self, response) -> ndarray:
+    #     """
+    #      Extract ROI map of DCMPix from the response
+    #
+    #      Args:
+    #         response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #         ndarray : roi map
+    #     """
+    #     if (response.status.status == 1):
+    #         roi_map_array = np.array(response.map).reshape(response.rows, response.columns)
+    #         return roi_map_array
+    #     else:
+    #         raise GrpcException("No response")
+    #
+    # def process_pix_roi_values(self, response) -> Tuple[ndarray, ndarray, ndarray]:
+    #     """
+    #      Extract the ROI values of the DCMPix from the response
+    #
+    #      Args:
+    #         response: response returned by Osirix service for the request made
+    #
+    #      Returns:
+    #         Tuple containing ndarray for rows, columns and values of ROI
+    #     """
+    #     if (response.status.status == 1):
+    #         rows = np.array(response.row_indices)
+    #         columns = np.array(response.column_indices)
+    #         values = np.array(response.values)
+    #         return (rows, columns, values)
+    #     else:
+    #         raise GrpcException("No response")
 
     # ROI
     # def process_roi_name(self, response) -> str:

@@ -3,16 +3,17 @@ from typing import Tuple, Dict
 import sys
 
 from numpy import ndarray
+import numpy as np
 
 # sys.path.append("./pb2")
 # sys.path.append("/Users/admintmun/dev/pyosirix/osirix/pb2")
-import osirix.pb2.viewercontroller_pb2 as viewercontroller_pb2
-import osirix.pb2.vrcontroller_pb2 as vrcontroller_pb2
-import osirix.pb2.dcmpix_pb2 as dcmpix_pb2
-import osirix.pb2.roi_pb2 as roi_pb2
-from osirix.Dicom import DicomSeries, DicomStudy, DicomImage
-from osirix.ResponseProcessor import ResponseProcessor
-from osirix.DCMPix import DCMPix
+import osirixgrpc.viewercontroller_pb2 as viewercontroller_pb2
+import osirixgrpc.vrcontroller_pb2 as vrcontroller_pb2
+import osirixgrpc.dcmpix_pb2 as dcmpix_pb2
+import osirixgrpc.roi_pb2 as roi_pb2
+from osirix.dicom import DicomSeries, DicomStudy, DicomImage
+from osirix.response_processor import ResponseProcessor
+from osirix.dcm_pix import DCMPix
 
 class ROI(object):
     '''
@@ -39,7 +40,8 @@ class ROI(object):
               Tuple containing the color values (r, g, b) in int
         """
         response_roi_color = self.osirix_service.ROIColor(self.osirixrpc_uid)
-        self._color = self.response_processor.process_roi_color(response_roi_color)
+        self.response_processor.response_check(response_roi_color)
+        self._color = (response_roi_color.r, response_roi_color.g, response_roi_color.b)
         return self._color
 
     @color.setter
@@ -56,7 +58,7 @@ class ROI(object):
         r, g, b = color
         request = roi_pb2.ROISetColorRequest(roi=self.osirixrpc_uid, r=r, g=g, b=b)
         response_roi_color = self.osirix_service.ROISetColor(request)
-        self.response_processor.process_basic_response(response_roi_color)
+        self.response_processor.response_check(response_roi_color)
 
     @property
     def name(self) -> str:
@@ -66,7 +68,7 @@ class ROI(object):
             str: name
         """
         response_roi_name = self.osirix_service.ROIName(self.osirixrpc_uid)
-        self._name = self.response_processor.process_name(response_roi_name)
+        self._name = response_roi_name.name
         return self._name
 
     @name.setter
@@ -82,7 +84,7 @@ class ROI(object):
         """
         request = roi_pb2.ROISetNameRequest(roi=self.osirixrpc_uid, name=name)
         response_roi_name = self.osirix_service.ROISetName(request)
-        self.response_processor.process_basic_response(response_roi_name)
+        self.response_processor.response_check(response_roi_name)
 
     @property
     def opacity(self) -> float:
@@ -94,7 +96,7 @@ class ROI(object):
         """
 
         response_roi_opacity = self.osirix_service.ROIOpacity(self.osirixrpc_uid)
-        self._opacity = self.response_processor.process_roi_opacity(response_roi_opacity)
+        self._opacity = response_roi_opacity.opacity
         return self._opacity
 
     @opacity.setter
@@ -110,7 +112,7 @@ class ROI(object):
         """
         request = roi_pb2.ROISetOpacityRequest(roi=self.osirixrpc_uid, opacity=opacity)
         response = self.osirix_service.ROISetOpacity(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     @property
     def points(self) -> ndarray:
@@ -121,7 +123,12 @@ class ROI(object):
             ndarray: points
         """
         response_roi_points = self.osirix_service.ROIPoints(self.osirixrpc_uid)
-        self._points = self.response_processor.process_roi_points(response_roi_points)
+
+        points = []
+        for i in range(len(response_roi_points.points)):
+            points.append([response_roi_points.points[i].x, response_roi_points.points[i].y])
+        self._points = np.array(points)
+
         return self._points
 
     # TODO
@@ -140,7 +147,7 @@ class ROI(object):
             float: thickness
         """
         response_roi_thickness = self.osirix_service.ROIThickness(self.osirixrpc_uid)
-        self._thickness = self.response_processor.process_roi_thickness(response_roi_thickness)
+        self._thickness = response_roi_thickness.thickness
         return self._thickness
 
     @thickness.setter
@@ -156,7 +163,7 @@ class ROI(object):
         """
         request = roi_pb2.ROISetThicknessRequest(roi=self.osirixrpc_uid, thickness=thickness)
         response = self.osirix_service.ROISetThickness(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     @property
     def pix(self) -> DCMPix:
@@ -167,7 +174,7 @@ class ROI(object):
             DCMPix : pix that ROI is drawn on
         """
         response_roi_pix = self.osirix_service.ROIPix(self.osirixrpc_uid)
-        roi_pix = self.response_processor.process_roi_pix(response_roi_pix)
+        roi_pix = response_roi_pix.pix
         self._pix = DCMPix(roi_pix, self.osirix_service)
         return self._pix
 
@@ -194,7 +201,7 @@ class ROI(object):
             None
         """
         response = self.osirix_service.ROIFlipHorizontally(self.osirixrpc_uid)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     def flip_vertically(self) -> None:
         """
@@ -203,7 +210,7 @@ class ROI(object):
             None
         """
         response = self.osirix_service.ROIFlipVertically(self.osirixrpc_uid)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     def roi_area(self) -> float :
         """
@@ -228,7 +235,7 @@ class ROI(object):
         """
         request = roi_pb2.ROIMoveRequest(roi=self.osirixrpc_uid, columns=columns, rows=rows)
         response = self.osirix_service.ROIMove(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     def rotate(self, theta:float, center: Tuple[int, int]) -> None:
         """
@@ -245,6 +252,6 @@ class ROI(object):
         x, y = center
         request = roi_pb2.ROIRotateRequest(roi=self.osirixrpc_uid, degrees=theta, x=x, y=y)
         response = self.osirix_service.ROIRotate(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
 

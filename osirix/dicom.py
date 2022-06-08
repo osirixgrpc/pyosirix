@@ -5,16 +5,13 @@ import sys
 # sys.path.append("./pb2")
 import osirixgrpc.osirix_pb2_grpc as osirix_pb2_grpc
 from typing import Tuple
-from osirix.ResponseProcessor import ResponseProcessor
+from osirix.response_processor import ResponseProcessor
 
 class DicomStudy(object):
     '''
     Class representing the properties and methods to communicate with the Osirix service through
     gRPC for a study
     '''
-    # osirixrpc_uid = None
-    # response_processor = None
-    # osirix_service = None
 
     def __init__(self,
                  osirixrpc_uid : str,
@@ -345,7 +342,7 @@ class DicomStudy(object):
         """
         response_study_raw_no_of_files = self.osirix_service.DicomStudyRawNoFiles(self.osirixrpc_uid)
 
-        study_raw_no_of_files = self.response_processor.process_num_files(response_study_raw_no_of_files)
+        study_raw_no_of_files = response_study_raw_no_of_files.no_files
 
         return study_raw_no_of_files
 
@@ -463,7 +460,7 @@ class DicomSeries(object):
             string : series instance uid of the series
         """
         response_series_instance_uid = self.osirix_service.DicomSeriesSeriesInstanceUID(self.osirixrpc_uid)
-        self.response_processor(response_series_instance_uid)
+        self.response_processor.response_check(response_series_instance_uid)
         self._series_instance_uid = response_series_instance_uid.series_instance_uid
 
         return self._series_instance_uid
@@ -476,8 +473,8 @@ class DicomSeries(object):
            str : sop class uid of the series
         """
         response_series_sop_class_uid = self.osirix_service.DicomSeriesSeriesSOPClassUID(self.osirixrpc_uid)
-        self.response_processor.response_check(res)
-        self._sop_class_uid = self.response_processor.process_series_sop_class_uid(response_series_sop_class_uid)
+        self.response_processor.response_check(response_series_sop_class_uid)
+        self._sop_class_uid = response_series_sop_class_uid.series_sop_class_uid
         return self._sop_class_uid
 
     @property
@@ -488,8 +485,8 @@ class DicomSeries(object):
            DicomStudy : study related to the series
         """
         response_series_study = self.osirix_service.DicomSeriesStudy(self.osirixrpc_uid)
-
-        study_series = self.response_processor.process_series_study(response_series_study)
+        self.response_processor.process_basic_response(response_series_study)
+        study_series = response_series_study.study
 
         self._study = DicomStudy(study_series, self.osirix_service)
 
@@ -503,8 +500,8 @@ class DicomSeries(object):
         """
 
         response_series_next_series = self.osirix_service.DicomSeriesNextSeries(self.osirixrpc_uid)
-
-        series_next_series = self.response_processor.process_series_next_series(response_series_next_series)
+        self.response_processor.response_check(response_series_next_series)
+        series_next_series = response_series_next_series.next_series
 
         series_next_series_obj = DicomSeries(series_next_series, self.osirix_service)
 
@@ -518,8 +515,8 @@ class DicomSeries(object):
         """
 
         response_series_paths = self.osirix_service.DicomSeriesPaths(self.osirixrpc_uid)
-
-        series_paths = self.response_processor.process_paths(response_series_paths)
+        self.response_processor.response_check(response_series_paths)
+        series_paths = tuple(response_series_paths.paths)
 
         return series_paths
 
@@ -531,8 +528,8 @@ class DicomSeries(object):
         """
 
         response_series_previous_series = self.osirix_service.DicomSeriesPreviousSeries(self.osirixrpc_uid)
-
-        series_previous_series = self.response_processor.process_series_previous_series(response_series_previous_series)
+        self.response_processor.response_check(response_series_previous_series)
+        series_previous_series = response_series_previous_series.previous_series
 
         series_previous_series_obj = DicomSeries(series_previous_series, self.osirix_service)
 
@@ -545,13 +542,12 @@ class DicomSeries(object):
            A Tuple containing DicomImage that are sorted
         """
         response_series_sorted_images = self.osirix_service.DicomSeriesSortedImages(self.osirixrpc_uid)
-
-        series_sorted_images = self.response_processor.process_series_sorted_image(response_series_sorted_images)
+        self.response_processor.response_check(response_series_sorted_images)
 
         dicom_image_tuple : Tuple[DicomImage, ...] = ()
 
-        for image in series_sorted_images:
-            dicom_image = DicomImage(image, self.osirix_service)
+        for sorted_image in response_series_sorted_images.sorted_images:
+            dicom_image = DicomImage(sorted_image, self.osirix_service)
             dicom_image_tuple = dicom_image_tuple + (dicom_image,)
 
         return dicom_image_tuple
@@ -561,9 +557,6 @@ class DicomImage(object):
     Class representing the properties and methods to communicate with the Osirix service through
     gRPC for an image
     '''
-    # osirixrpc_uid = None
-    # response_processor = None
-    # osirix_service = None
 
     def __init__(self,
                  osirixrpc_uid : str,
@@ -581,8 +574,16 @@ class DicomImage(object):
             datetime : the datetime of the DicomImage
         """
         response_image_date = self.osirix_service.DicomImageDate(self.osirixrpc_uid)
-        study_date = self.response_processor.process_datetime(response=response_image_date)
-        self._date = study_date
+        self.response_processor.response_check(response_image_date)
+
+        datetime_output: datetime.datetime = datetime.datetime(response_image_date.year,
+                                                               response_image_date.month,
+                                                               response_image_date.day,
+                                                               response_image_date.hour,
+                                                               response_image_date.minute,
+                                                               response_image_date.second
+                                                               )
+        self._date = datetime_output
         return self._date
 
     @property
@@ -593,8 +594,8 @@ class DicomImage(object):
            int : the instance number of the DicomImage
         """
         response_image_instance_number = self.osirix_service.DicomImageInstanceNumber(self.osirixrpc_uid)
-
-        self._instance_number = self.response_processor.process_image_instance_number(response_image_instance_number)
+        self.response_processor.response_check(response_image_instance_number)
+        self._instance_number = response_image_instance_number.instance_number
         return self._instance_number
 
     @property
@@ -605,8 +606,8 @@ class DicomImage(object):
            str : the modality of the DicomImage
         """
         response_image_modality = self.osirix_service.DicomImageModality(self.osirixrpc_uid)
-
-        self._modality = self.response_processor.process_modality(response_image_modality)
+        self.response_processor.response_check(response_image_modality)
+        self._modality = response_image_modality.modality
         return self._modality
 
     @property
@@ -617,8 +618,8 @@ class DicomImage(object):
            int : the number of frames of the DicomImage
         """
         response_image_no_of_frames = self.osirix_service.DicomImageNumberOfFrames(self.osirixrpc_uid)
-
-        self._number_of_frames = self.response_processor.process_image_number_of_frames(response_image_no_of_frames)
+        self.response_processor.response_check(response_image_no_of_frames)
+        self._number_of_frames = response_image_no_of_frames.number_of_frames
         return self._number_of_frames
 
     @property
@@ -629,7 +630,11 @@ class DicomImage(object):
            the DicomSeries of the DicomImage
         """
         response_image_series = self.osirix_service.DicomImageSeries(self.osirixrpc_uid)
-        image_series = self.response_processor.process_image_series(response_image_series)
+
+        self.response_processor.response_check(response_image_series)
+
+        image_series = response_image_series.series
+
         print("Image Series : " + str(image_series))
         self._series = DicomSeries(image_series, self.osirix_service)
         return self._series
@@ -643,7 +648,9 @@ class DicomImage(object):
         """
         response_image_slice_location = self.osirix_service.DicomImageSliceLocation(self.osirixrpc_uid)
 
-        self._slice_location = self.response_processor.process_image_slice_location(response_image_slice_location)
+        self.response_processor.response_check(response_image_slice_location)
+
+        self._slice_location = response_image_slice_location.slice_locations
 
         return self._slice_location
 
@@ -656,7 +663,9 @@ class DicomImage(object):
 
         response_image_complete_path = self.osirix_service.DicomImageCompletePath(self.osirixrpc_uid)
 
-        image_complete_path = self.response_processor.process_image_complete_path(response_image_complete_path)
+        self.response_processor.response_check(response_image_complete_path)
+
+        image_complete_path = response_image_complete_path.path_name
 
         return image_complete_path
 
@@ -669,7 +678,9 @@ class DicomImage(object):
 
         response_image_height = self.osirix_service.DicomImageHeight(self.osirixrpc_uid)
 
-        image_height = self.response_processor.process_image_height(response_image_height)
+        self.response_processor.response_check(response_image_height)
+
+        image_height = response_image_height.height
 
         return image_height
 
@@ -682,7 +693,9 @@ class DicomImage(object):
 
         response_image_sop_instance_uid = self.osirix_service.DicomImageSOPInstanceUID(self.osirixrpc_uid)
 
-        image_sop_instance_uid = self.response_processor.process_image_sop_instance_uid(response_image_sop_instance_uid)
+        self.response_processor.response_check(response_image_sop_instance_uid)
+
+        image_sop_instance_uid = response_image_sop_instance_uid.sop_instance_uid
 
         return image_sop_instance_uid
 
@@ -694,6 +707,8 @@ class DicomImage(object):
         """
 
         response_image_width = self.osirix_service.DicomImageWidth(self.osirixrpc_uid)
-        image_width = self.response_processor.process_image_width(response_image_width)
+
+        self.response_processor.response_check(response_image_width)
+        image_width = response_image_width.width
 
         return image_width

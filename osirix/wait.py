@@ -1,4 +1,4 @@
-from osirix.Exceptions import WaitException
+from osirix.exceptions import WaitException
 
 #TODO wait for interface to be exposed
 class Wait(object):

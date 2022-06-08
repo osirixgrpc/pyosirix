@@ -1,13 +1,13 @@
 import sys
 import json
-from .Exceptions import GrpcException, WaitException, OsirixServiceException
-from .Wait import Wait
-from .ViewerController import ViewerController
-from .DCMPix import DCMPix
-from .VRController import VRController
-from .ROI import ROI
-from .Dicom import DicomSeries, DicomStudy, DicomImage
-from .BrowserController import BrowserController
+from .exceptions import GrpcException, WaitException, OsirixServiceException
+from .wait import Wait
+from .viewer_controller import ViewerController
+from .dcm_pix import DCMPix
+from .vr_controller import VRController
+from .roi import ROI
+from .dicom import DicomSeries, DicomStudy, DicomImage
+from .browser_controller import BrowserController
 from .osirix_utils import Osirix, OsirixService
 
 __all__ = [

@@ -3,11 +3,11 @@ from typing import List, Tuple
 
 import grpc
 import sys
-from osirix.Exceptions import GrpcException
-from osirix.ViewerController import ViewerController
-from osirix.VRController import VRController
-from osirix.BrowserController import BrowserController
-from osirix.ResponseProcessor import ResponseProcessor
+from osirix.exceptions import GrpcException
+from osirix.viewer_controller import ViewerController
+from osirix.vr_controller import VRController
+from osirix.browser_controller import BrowserController
+from osirix.response_processor import ResponseProcessor
 
 # sys.path.append("./pb2/")
 
