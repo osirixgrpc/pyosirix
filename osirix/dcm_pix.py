@@ -160,6 +160,7 @@ class DCMPix(object):
             request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.osirixrpc_uid, image_data_float=image)
 
         response = self.osirix_service.DCMPixSetImage(request)
+        print(response)
         self.response_processor.response_check(response)
 
 

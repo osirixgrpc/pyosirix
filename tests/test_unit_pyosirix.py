@@ -356,7 +356,6 @@ class PyOsirixTestViewerController(GrpcTest):
 		response = self.stub.ViewerControllerIdx(self.viewer_controller)
 		self.assertEqual(response.status.status, 1)
 		self.assertTrue(response.idx == 0)
-
 		self.assertEqual(response.idx, idx)
 
 	def testViewerControllerSetWLWW(self):
@@ -541,7 +540,7 @@ class PyOsirixTestDCMPix(GrpcTest):
 		request = viewercontroller_pb2.ViewerControllerPixListRequest(viewer_controller=self.viewer_controller,
 																	  movie_idx=0)
 		response_pix_list = self.stub.ViewerControllerPixList(request)
-		pix2 = response_pix_list.pix[20]
+		pix2 = response_pix_list.pix[15]
 		print(pix2)
 		response_dcm_pix2 = self.stub.DCMPixImage(pix2)
 		print(type(response_dcm_pix2.image_data_float))
@@ -557,7 +556,7 @@ class PyOsirixTestDCMPix(GrpcTest):
 			# request = dcmpix_pb2.DCMPixSetImageRequest(pix=self.pix, image_data_float=response.image_data_float)
 			request = dcmpix_pb2.DCMPixSetImageRequest(pix=pix2, image_data_float=response_dcm_pix2.image_data_float)
 
-			array = np.array(response.image_data_float).reshape(response.rows, response.columns)
+			array = np.array(response_dcm_pix2.image_data_float).reshape(response_dcm_pix2.rows, response_dcm_pix2.columns)
 
 			self.pix_pyosirix.set_image(response_dcm_pix2.image_data_float, response_dcm_pix2.is_argb)
 

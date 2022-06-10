@@ -98,7 +98,7 @@ class ViewerController(object):
         """
         request = viewercontroller_pb2.ViewerControllerSetMovieIdxRequest(viewer_controller=self.osirixrpc_uid, movie_idx=movie_idx)
         response = self.osirix_service.ViewerControllerSetMovieIdx(request)
-        self.response_processor.process_basic_response(response)
+        self.response_processor.response_check(response)
 
     @property
     def title(self) -> str:
