@@ -2,15 +2,10 @@ from __future__ import annotations
 from typing import Tuple, Dict
 import sys
 
-from numpy import ndarray
+import numpy
 
-# sys.path.append("./pb2")
-# sys.path.append("/Users/admintmun/dev/pyosirix/osirix/pb2")
 import osirixgrpc.viewercontroller_pb2 as viewercontroller_pb2
 import osirixgrpc.vrcontroller_pb2 as vrcontroller_pb2
-import osirixgrpc.dcmpix_pb2 as dcmpix_pb2
-import osirixgrpc.roi_pb2 as roi_pb2
-from osirix.dicom import DicomSeries, DicomStudy, DicomImage
 from osirix.response_processor import ResponseProcessor
 from osirix.viewer_controller import ViewerController
 
