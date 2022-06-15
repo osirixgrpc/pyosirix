@@ -1,5 +1,5 @@
 ---
-name: "\u2728 General"
+name: "General"
 about: Have a different idea?
 title:
 labels:
