@@ -1,38 +1,28 @@
-# Configuration for the-welcome-bot - https://github.com/bash-bot/the-welcome-bot
+# Configuration for welcome - https://github.com/behaviorbot/welcome
 
-# Messages for a new user who open an issue
-issueOpen: >
+# Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
+
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: >
   Welcome to the PyOsirix project!
 
   We are happy to have your contributions and ideas for PyOsirix.
 
-  Thanks and congrats for opening your very first issue in this project.
+  Thanks and congrats for opening your very first issue in this project. :tada:
 
-  You may submit a PR on the same issue if you like!
-
-  Please feel free to get in touch with either of the project owners for a discussion. We will have a Slack channel in the future and will share a link to it then.
-
-  Hope you have a great time here :)
-
-# Message for a new user who comments on an issue
-issueComment: >
-  Welcome to the PyOsirix project!
-
-  Thanks and congrats for your very first comment on this project.
-
-  Checkout the Readme and the documentation website for more details on the project.
-
-  Want to contribute? Make an issue or submit a PR. Also do read the Contribution guidelines.
+  You may submit a PR on the same issue if you like! Please make sure that you check our Contribution guidelines if you haven't yet.
 
   Please feel free to get in touch with either of the project owners for a discussion. We will have a Slack channel in the future and will share a link to it then.
 
   Hope you have a great time here :)
 
-# Message for a new user who opens a PR
-prOpen: >
+# Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
+
+# Comment to be posted to on PRs from first time contributors in your repository
+newPRWelcomeComment: >
   Welcome to the PyOsirix project!
 
-  Thanks for opening your PR on this project.
+  Thanks for opening your PR on this project. :tada:
 
   We will review your PR for the proposed changes before the changes are accepted. You can checkout the ReadMe and documentation for more details on the project.
 
@@ -40,14 +30,12 @@ prOpen: >
 
   If we don't review or acknowledge the PR after 10 days, please do get in touch with us!
 
-# Default message for a new user
-welcomeMessage: >
-  Welcome to the PyOsirix project! Feel free to explore the project and try it out.
+# Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
 
-  Checkout the ReadMe and documentation website for more details on the project.
+# Comment to be posted to on pull requests merged by a first time user
+firstPRMergeComment: >
+  Congratulations!! You have successfully merged your PR for this project.
 
-  Want to contribute? Make an issue or submit a PR. Please also check our Contribution guidelines before contributing.
+  We are really proud of you and greatly appreciate your contributions. :sparkling_heart:
 
-  Please feel free to get in touch with either of the project owners for a discussion. We will have a Slack channel in the future and will share a link to it then.
 
-  Hope you have a great time here :)
