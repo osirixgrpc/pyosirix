@@ -1,0 +1,53 @@
+# Configuration for the-welcome-bot - https://github.com/bash-bot/the-welcome-bot
+
+# Messages for a new user who open an issue
+issueOpen: >
+  Welcome to the PyOsirix project!
+
+  We are happy to have your contributions and ideas for PyOsirix.
+
+  Thanks and congrats for opening your very first issue in this project.
+
+  You may submit a PR on the same issue if you like!
+
+  Please feel free to get in touch with either of the project owners for a discussion. We will have a Slack channel in the future and will share a link to it then.
+
+  Hope you have a great time here :)
+
+# Message for a new user who comments on an issue
+issueComment: >
+  Welcome to the PyOsirix project!
+
+  Thanks and congrats for your very first comment on this project.
+
+  Checkout the Readme and the documentation website for more details on the project.
+
+  Want to contribute? Make an issue or submit a PR. Also do read the Contribution guidelines.
+
+  Please feel free to get in touch with either of the project owners for a discussion. We will have a Slack channel in the future and will share a link to it then.
+
+  Hope you have a great time here :)
+
+# Message for a new user who opens a PR
+prOpen: >
+  Welcome to the PyOsirix project!
+
+  Thanks for opening your PR on this project.
+
+  We will review your PR for the proposed changes before the changes are accepted. You can checkout the ReadMe and documentation for more details on the project.
+
+  Please feel free to get in touch with either of the project owners for a discussion. We will have a Slack channel in the future and will share a link to it then.
+
+  If we don't review or acknowledge the PR after 10 days, please do get in touch with us!
+
+# Default message for a new user
+welcomeMessage: >
+  Welcome to the PyOsirix project! Feel free to explore the project and try it out.
+
+  Checkout the ReadMe and documentation website for more details on the project.
+
+  Want to contribute? Make an issue or submit a PR. Please also check our Contribution guidelines before contributing.
+
+  Please feel free to get in touch with either of the project owners for a discussion. We will have a Slack channel in the future and will share a link to it then.
+
+  Hope you have a great time here :)
